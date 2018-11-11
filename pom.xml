@@ -40,6 +40,13 @@
             <version>2.0.0.Final</version>
         </dependency>
 
+        <!-- https://github.com/ronmamo/reflections -->
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.11</version>
+        </dependency>
+
     </dependencies>
 
 

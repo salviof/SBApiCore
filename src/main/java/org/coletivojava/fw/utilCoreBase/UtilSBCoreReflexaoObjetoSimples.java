@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 import java.util.Optional;
 import javax.persistence.DiscriminatorColumn;
 import org.apache.logging.log4j.LogManager;
-import org.coletivojava.fw.api.objetos.log.LogPadraoSB;
+import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 
 /**
  *

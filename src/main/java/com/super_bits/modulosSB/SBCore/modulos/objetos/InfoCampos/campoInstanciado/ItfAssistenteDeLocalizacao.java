@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author desenvolvedor
  */
-public interface ItfCampoLocalizacaoInstanciado {
+public interface ItfAssistenteDeLocalizacao {
 
     public List<ItfCidade> metodoAutoCompleteCidade(String pCidadeTXT);
 
@@ -199,4 +199,6 @@ public interface ItfCampoLocalizacaoInstanciado {
         //TODO: Inplementar leitura de anotação
         return true;
     }
+
+    public String getIdentificacaoMapa();
 }

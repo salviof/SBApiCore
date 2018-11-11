@@ -8,11 +8,11 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAc
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoLocalizacaoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.TipoOrganizacaoDadosEndereco;
 
 import java.util.List;
 import org.coletivojava.fw.api.tratamentoErros.ErroPreparandoObjeto;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAssistenteDeLocalizacao;
 
 /**
  *
@@ -42,9 +42,9 @@ public interface ItfBeanGenerico extends ItfBeanGenericoSomenteLeitura {
 
     public void adicionarSubItem(String pNomeCampo);
 
-    public ItfCampoLocalizacaoInstanciado getAssistenteLocalizacao(ItfCampoInstanciado pCampoInst, TipoOrganizacaoDadosEndereco pTipo);
+    public ItfAssistenteDeLocalizacao getAssistenteLocalizacao(ItfCampoInstanciado pCampoInst, TipoOrganizacaoDadosEndereco pTipo);
 
-    public void adicionarAssitenteLocalizacao(ItfCampoLocalizacaoInstanciado pLocalizacao);
+    public void adicionarAssitenteLocalizacao(ItfAssistenteDeLocalizacao pLocalizacao);
 
     public void copiaDados(Object pObjetoReferencia);
 

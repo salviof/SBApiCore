@@ -6,8 +6,6 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfModuloAcaoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import java.lang.reflect.Field;
 import java.util.List;
 
 /**
@@ -29,4 +27,7 @@ public interface ItfGrupoUsuario extends ItfBeanSimplesSomenteLeitura, ItfBeanIn
     public String getNomeUnico();
 
     public String getEmail();
+
+    public boolean isGrupoNativoSistema();
+
 }

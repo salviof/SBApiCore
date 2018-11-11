@@ -151,7 +151,7 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
      *
      * @return Classe instanciada para manipulação de endereco
      */
-    public ItfCampoLocalizacaoInstanciado getComoCampoLocalizacao();
+    public ItfAssistenteDeLocalizacao getComoCampoLocalizacao();
 
     public ItfCampoInstSeletor getComoCampoComListaDeOpcoes();
 

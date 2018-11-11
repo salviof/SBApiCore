@@ -8,7 +8,7 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo;
  *
  * @author SalvioF
  */
-public interface ItfCampoDaListaFormulario extends ItfCampoExibicaoFormulario {
+public interface ItfCaminhoCampoDaListaFormulario extends ItfCampoExibicaoFormulario {
 
     public ItfCampoListagemExibicaoFormulario getCaminhoListaPai();
 

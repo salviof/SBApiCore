@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.coletivojava.fw.api.objetos;
+package org.coletivojava.fw.api.objetoNativo;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampoInvalido;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoLocalizacaoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.TipoOrganizacaoDadosEndereco;
 import java.io.InputStream;
@@ -20,14 +21,16 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
-import org.coletivojava.fw.api.objetos.log.LogPadraoSB;
+import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.api.tratamentoErros.ErroPreparandoObjeto;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoObjetoSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAssistenteDeLocalizacao;
 
 /**
  *
  * @author desenvolvedor
  */
-public abstract class ObjetoBaseDoSistema implements ItfBeanSimples {
+public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
 
     @Override
     public String getNomeUnicoSlug() {
@@ -73,152 +76,175 @@ public abstract class ObjetoBaseDoSistema implements ItfBeanSimples {
 
     @Override
     public String getSlugIdentificador() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getNomeUnicoSlug();
     }
 
     @Override
     public String getNomeCurto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getNome();
     }
 
     @Override
-    public String getNome() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
+    @Deprecated
     public String getIconeDaClasse() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
+    @Deprecated
     public String getXhtmlVisao() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
+    @Deprecated
     public String getXhtmlVisaoMobile() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
+    @Deprecated
     public String getXhtmlVisao(int numeroColunas) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
+    @Deprecated
     public int configIDPeloNome() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("Um objeto Nativo de sistem não configura id pelo nome, ");
+        return getNome().hashCode();
     }
 
     @Override
     public String getNomeDoObjeto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return UtilSBCoreReflexaoObjetoSimples.getNomeObjeto(this.getClass());
     }
 
     @Override
+
     public String getNomeDoObjetoPlural() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return UtilSBCoreReflexaoObjetoSimples.getInfoClasseObjeto(this.getClass()).plural();
     }
 
     @Override
+    @Deprecated
     public void adicionarItemNaLista(String nomeDaLista) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("Um objeto Nativo de sistem suporta adição de subitens de maneira dinamica ");
     }
 
     @Override
+    @Deprecated
     public boolean isTemCampoAnotado(FabTipoAtributoObjeto pCampo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("O recurso tem campo anotado não está disponível em objetos nativos do sistema");
+        return false;
     }
 
     @Override
+    @Deprecated
     public String getImgPequena() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("O recurso imagem pequna não está disponível em objetos nativos do sistema");
+        return "";
     }
 
     @Override
-    public void setId(int pID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
+    @Deprecated
     public void adicionarJustificativaExecucaoAcao(ItfAcaoDoSistema pAcao, String pJustificativa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("O recurso Justificativa não está disponível em objetos nativos do sistema");
     }
 
     @Override
+    @Deprecated
     public String getJustificativa(ItfAcaoDoSistema pAcao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("O recurso Justificativa não está disponível em objetos nativos do sistema");
+        return "";
     }
 
     @Override
+    @Deprecated
     public void prepararNovoObjeto(Object... parametros) throws ErroPreparandoObjeto {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("O recurso construtor dinamico não é incado para objetos nativos do sistema");
     }
 
     @Override
+    @Deprecated
     public List<ItfCampoInstanciado> getCamposInstanciados() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("O recurso campo instanciado não é incado para objetos nativos do sistema");
+        return new ArrayList<>();
     }
 
     @Override
+    @Deprecated
     public void adicionarSubItem(String pNomeCampo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("Um objeto Nativo de sistem suporta adição de subitens de maneira dinamica ");
     }
 
     @Override
-    public ItfCampoLocalizacaoInstanciado getAssistenteLocalizacao(ItfCampoInstanciado pCampoInst, TipoOrganizacaoDadosEndereco pTipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Deprecated
+    public ItfAssistenteDeLocalizacao getAssistenteLocalizacao(ItfCampoInstanciado pCampoInst, TipoOrganizacaoDadosEndereco pTipo) {
+        LogManager.getLogger(LogPadraoSB.class).debug("O recursos assistente de localização não é suportado  por objetos nativos do sistema");
+        return null;
     }
 
     @Override
-    public void adicionarAssitenteLocalizacao(ItfCampoLocalizacaoInstanciado pLocalizacao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Deprecated
+    public void adicionarAssitenteLocalizacao(ItfAssistenteDeLocalizacao pLocalizacao) {
+        LogManager.getLogger(LogPadraoSB.class).debug("O recursos assistente de localização não é suportado  por objetos nativos do sistema");
     }
 
     @Override
+    @Deprecated
     public void copiaDados(Object pObjetoReferencia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("O recurso cópia não está disponível em objetos do sistema");
     }
 
     @Override
+    @Deprecated
     public List<ItfCampoInstanciado> getCamposInstaciadosInvalidos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso campo instanciado não esta disponível para objetos nativos do sistema");
+        return new ArrayList<>();
     }
 
     @Override
+    @Deprecated
     public ItfCampoInstanciado getCampoByNomeOuAnotacao(String pNome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso campo instanciado não esta disponível para objetos nativos do sistema");
+        return null;
     }
 
     @Override
+    @Deprecated
     public ItfCampoInstanciado getCampoInstanciadoByNomeOuAnotacao(String pNome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso campo instanciado não esta disponível para objetos nativos do sistema");
+        return null;
     }
 
     @Override
+    @Deprecated
     public ItfCampoInstanciado getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto pTipocampo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso campo instanciado não esta disponível para objetos nativos do sistema");
+        return null;
     }
 
     @Override
+    @Deprecated
     public ItfCampoInstanciado getCampoByCaminhoCampo(ItfCaminhoCampo pNome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso campo instanciado não esta disponível para objetos nativos do sistema");
+        return null;
+
     }
 
     @Override
+    @Deprecated
     public Object getValorCampoByCaminhoCampo(ItfCaminhoCampo pNome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso campo instanciado não esta disponível para objetos nativos do sistema");
+        return null;
     }
 
     @Override
+    @Deprecated
     public List<ItfCaminhoCampo> getEntidadesVinculadas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso campo instanciado não esta disponível para objetos nativos do sistema");
+        return new ArrayList<>();
     }
 
     @Override
@@ -247,28 +273,60 @@ public abstract class ObjetoBaseDoSistema implements ItfBeanSimples {
     }
 
     @Override
+    @Deprecated
     public String getNomeCampo(FabTipoAtributoObjeto pInfocampo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso nome Campo por tipo não esta disponível para objetos nativos do sistema");
+        return null;
     }
 
     @Override
+    @Deprecated
     public boolean uploadFotoTodosFormatos(InputStream pStream) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso Imangens do Objetos não esta disponível para objetos nativos do sistema");
+        return false;
     }
 
     @Override
+    @Deprecated
     public boolean uploadFotoTamanhoGrande(InputStream pStream) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso Imangens do Objetos não esta disponível para objetos nativos do sistema");
+        return false;
     }
 
     @Override
+    @Deprecated
     public boolean uploadFotoTamanhoPequeno(InputStream pStream) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso Imangens do Objetos não esta disponível para objetos nativos do sistema");
+        return false;
     }
 
     @Override
+    @Deprecated
     public boolean uploadFotoTamanhoMedio(InputStream pStream) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso Imangens do Objetos não esta disponível para objetos nativos do sistema");
+        return false;
+    }
+
+    @Override
+    @Deprecated
+    public ItfCampoInstanciado getCPinst(String pNomeOuANotacao) {
+        LogManager.getLogger(LogPadraoSB.class).debug("o recurso campo instanciado não esta disponível para objetos nativos do sistema");
+        return null;
+    }
+
+    @Override
+    public List<ItfAcaoSecundaria> getAcoesDoContexto(ItfAcaoGerenciarEntidade pGestao) {
+        return ItfBeanSimples.super.getAcoesDoContexto(pGestao); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        return getSlugIdentificador();
+    }
+
+    @Override
+    public String getClassePontoIdentificador() {
+        return getSlugIdentificador();
     }
 
 }

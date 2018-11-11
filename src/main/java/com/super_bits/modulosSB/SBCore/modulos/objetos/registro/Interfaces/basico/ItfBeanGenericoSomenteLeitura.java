@@ -4,6 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico;
 
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import java.io.Serializable;
 
@@ -25,8 +26,18 @@ public interface ItfBeanGenericoSomenteLeitura extends ItfBeanComImagemPequena, 
      */
     public int configIDPeloNome();
 
+    /**
+     *
+     * @see InfoObjetoSB#tags()
+     * @return A primeira tag encontrada na anotacao InfoObjetoSB (ou a tag do
+     * contexto em alguns casos)
+     */
     public String getNomeDoObjeto();
 
+    /**
+     * @see InfoObjetoSB#plural()
+     * @return Nome plural do Objeto
+     */
     public String getNomeDoObjetoPlural();
 
     /**

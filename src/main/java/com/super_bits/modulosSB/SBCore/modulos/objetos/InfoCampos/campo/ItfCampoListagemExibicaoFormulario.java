@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface ItfCampoListagemExibicaoFormulario extends ItfCampoExibicaoFormulario {
 
-    public List<ItfCampoDaListaFormulario> getCamposDoSubFormulario();
+    public List<ItfCaminhoCampoDaListaFormulario> getCamposDoSubFormulario();
 
     public void adicionarCampo(ItfCampoExibicaoFormulario pCampo);
 

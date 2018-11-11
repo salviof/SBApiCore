@@ -4,17 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfResposta;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
-
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfTipoAtributoSB;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfTipoAtributoSBSomenteLeitura;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.TIPO_ORIGEM_VALOR_CAMPO;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.TIPO_PRIMITIVO;
-
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAtributoObjetoSB;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabColunasTela;
@@ -27,9 +17,8 @@ import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.component
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualSeletorItens;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualSubItens;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabcompVisualEnums;
-import java.util.Date;
 import org.apache.logging.log4j.LogManager;
-import org.coletivojava.fw.api.objetos.log.LogPadraoSB;
+import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 
 /**
  *
@@ -948,5 +937,29 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
 
     public String getValorAleatorioDesconforme() {
         throw new UnsupportedOperationException("Ainda nao implementado");
+    }
+
+    public int getPesoLarguraEspecifico() {
+
+        switch (this) {
+            case ID:
+
+            case QUANTIDADE:
+            case PERCENTUAL:
+
+                return FabColunasTela.UM.getQuantidade();
+            case TELEFONE_CELULAR:
+            case TELEFONE_FIXO_NACIONAL:
+            case TELEFONE_FIXO_INTERNACIONAL:
+            case TELEFONE_GENERICO:
+            case CNPJ:
+            case MOEDA_REAL:
+            case MOEDA_DOLAR:
+                return FabColunasTela.DOIS.getQuantidade();
+
+            default:
+                return getTipo_input_prime().getRegistro().getPesoLargura();
+        }
+
     }
 }

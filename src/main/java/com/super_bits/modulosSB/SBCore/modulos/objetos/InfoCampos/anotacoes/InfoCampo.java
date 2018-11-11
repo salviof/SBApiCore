@@ -14,6 +14,8 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface InfoCampo {
 
+    public static int MAX_PADRAO = 99999;
+
     // TIPO CAMPO
     /**
      *

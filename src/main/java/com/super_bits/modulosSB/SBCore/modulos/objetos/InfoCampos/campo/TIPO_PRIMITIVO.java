@@ -8,7 +8,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.Info
 import java.lang.reflect.Field;
 import java.util.Date;
 import org.apache.logging.log4j.LogManager;
-import org.coletivojava.fw.api.objetos.log.LogPadraoSB;
+import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 
 /**
  *

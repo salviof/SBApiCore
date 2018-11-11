@@ -6,6 +6,7 @@ package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import java.util.List;
+import org.coletivojava.fw.api.objetoNativo.comunicacao.TipoComunicacao;
 
 /**
  *
@@ -18,7 +19,7 @@ import java.util.List;
  *
  * @author salvioF
  */
-public enum FabTipoComunicacao {
+public enum FabTipoComunicacao implements ItfFabrica {
 
     /**
      *
@@ -81,6 +82,13 @@ public enum FabTipoComunicacao {
     public List<FabTipoRespostaComunicacao> respostasEsperadasPadrao() {
 
         return null;
+    }
+
+    @Override
+    public TipoComunicacao getRegistro() {
+        TipoComunicacao tipoComunicacao = new TipoComunicacao(this);
+
+        return tipoComunicacao;
     }
 
 }

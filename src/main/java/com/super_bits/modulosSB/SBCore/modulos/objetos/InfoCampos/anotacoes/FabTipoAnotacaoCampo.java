@@ -23,7 +23,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.apache.logging.log4j.LogManager;
-import org.coletivojava.fw.api.objetos.log.LogPadraoSB;
+import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 
 /**
  *

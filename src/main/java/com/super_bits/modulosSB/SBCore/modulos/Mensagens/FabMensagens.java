@@ -4,6 +4,10 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Mensagens;
 
+import org.coletivojava.fw.api.objetoNativo.mensagem.MensagemProgramador;
+import org.coletivojava.fw.api.objetoNativo.mensagem.MensagemSistema;
+import org.coletivojava.fw.api.objetoNativo.mensagem.MensagemUsuario;
+
 /**
  *
  * @author sfurbino
@@ -27,4 +31,15 @@ public enum FabMensagens {
      */
     ERRO_FATAL;
 
+    public ItfMensagem getMsgUsuario(String pMensagem) {
+        return new MensagemUsuario(pMensagem, this);
+    }
+
+    public ItfMensagem getMsgDesenvolvedor(String pMensagem) {
+        return new MensagemProgramador(pMensagem, this);
+    }
+
+    public ItfMensagem getMsgSistema(String pMensagem) {
+        return new MensagemSistema(pMensagem, this);
+    }
 }

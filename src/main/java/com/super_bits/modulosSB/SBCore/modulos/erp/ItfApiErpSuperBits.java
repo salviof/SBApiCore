@@ -5,6 +5,9 @@
 package com.super_bits.modulosSB.SBCore.modulos.erp;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
+import org.apache.logging.log4j.LogManager;
+import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP;
 
 /**
  *
@@ -22,22 +25,26 @@ public interface ItfApiErpSuperBits<T> extends ItfFabrica {
         return ItfFabrica.super.getRegistro();
     }
 
-    public Class getAnotacao();
+    public default Class getAnotacao() {
+        try {
+            if (!this.getClass().isEnum()) {
+                throw new UnsupportedOperationException(
+                        "Esta interface deve estar   presente em umenum, ");
+            }
+            Class classeApi = UtilSBCoreReflexaoAPIERP.getAnotacaoApi(this);
 
-    /**
-     * public default Class getAnotacao() { try { if (!this.getClass().isEnum())
-     * { throw new UnsupportedOperationException("Esta interface deve estar
-     * presente em um enum, "); } Class classeApi =
-     * UtilSBCoreReflexaoAPIERP.getAnotacaoApi(this);
-     *
-     * if (classeApi == null) { throw new UnsupportedOperationException("A
-     * anotação da api" + this.toString() + " não foi encontrada"); } return
-     * classeApi; } catch (Throwable t) { //
-     * SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro obtendo Anotação da
-     * api" + this.toString(), t); return null; }
-     *
-     * }
-     */
+            if (classeApi == null) {
+                throw new UnsupportedOperationException(
+                        "A anotação da api " + this.toString() + " não foi encontrada");
+            }
+            return classeApi;
+        } catch (Throwable t) { //
+            LogManager.getLogger(LogPadraoSB.class).error("Erro obtendo Anotação da      api                        " + this.toString(), t);
+            return null;
+        }
+
+    }
+
     /**
      * public default T getImplementacaoDoContexto() {
      *

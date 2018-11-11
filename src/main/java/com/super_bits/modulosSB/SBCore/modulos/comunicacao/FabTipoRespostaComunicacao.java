@@ -6,6 +6,7 @@
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
+import org.coletivojava.fw.api.objetoNativo.comunicacao.TipoRespostaComunicacao;
 
 /**
  *
@@ -17,7 +18,7 @@ import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
  * @see #RESPONDER_COM_TEXTO
  * @author salvioF
  */
-public enum FabTipoRespostaComunicacao {
+public enum FabTipoRespostaComunicacao implements ItfFabrica {
 
     /**
      *
@@ -169,6 +170,18 @@ public enum FabTipoRespostaComunicacao {
                 throw new AssertionError(this.name());
 
         }
+    }
+
+    @Override
+    public TipoRespostaComunicacao getRegistro() {
+
+        TipoRespostaComunicacao respCM = new TipoRespostaComunicacao(this);
+        respCM.setNome(this.toString());
+        respCM.setId(this.ordinal() + 1);
+        respCM.setIcone(getIconePadrao());
+
+        return respCM;
+
     }
 
 }

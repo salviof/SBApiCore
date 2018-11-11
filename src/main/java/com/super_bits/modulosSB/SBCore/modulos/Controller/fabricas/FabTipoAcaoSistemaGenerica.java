@@ -20,7 +20,7 @@ import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.component
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
-import org.coletivojava.fw.api.objetos.log.LogPadraoSB;
+import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 
 /**
  *

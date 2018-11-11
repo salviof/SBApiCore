@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.coletivojava.fw.api.objetos.log;
+package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface LogPadraoSB {
+public interface ItfCampoNaoInstanciadoOuNaoImplementado extends ItfCampoInstanciado {
 
 }
