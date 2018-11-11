@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.UtilGeral.stringSubstituicao.MapaSubstituicao;
+import org.coletivojava.fw.api.analiseDados.ItfMapaSubstituicao;
 
 /**
  *
@@ -12,7 +12,7 @@ import com.super_bits.modulosSB.SBCore.UtilGeral.stringSubstituicao.MapaSubstitu
  */
 public interface ItfModeloMensagem {
 
-    public MapaSubstituicao getMapaSubstituicao();
+    public ItfMapaSubstituicao getMapaSubstituicao();
 
     /**
      *

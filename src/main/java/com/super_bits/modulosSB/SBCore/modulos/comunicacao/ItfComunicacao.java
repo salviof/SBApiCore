@@ -4,7 +4,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import erp.comunicacao.transporte.ItfTipoTransporteComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 import java.util.List;
