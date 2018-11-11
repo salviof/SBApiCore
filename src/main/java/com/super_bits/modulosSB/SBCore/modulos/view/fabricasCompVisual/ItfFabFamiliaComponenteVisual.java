@@ -10,15 +10,12 @@ import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
  *
  * @author desenvolvedor
  */
-public interface ItfFabFamiliaComponenteVisual extends ItfFabrica {
+public interface ItfFabFamiliaComponenteVisual {
 
     public Class getInterfaceCompativel();
 
     public String getNomeFAmilia();
 
     public Class getFabricaCamposPadrao();
-
-    @Override
-    public FamiliaComponente getRegistro();
 
 }

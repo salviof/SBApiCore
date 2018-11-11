@@ -4,11 +4,9 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes;
 
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComponenteVisualSB;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.UtilSBFabricaComponenteVisual;
 
 /**
  *
@@ -43,11 +41,6 @@ public enum FabCompVisualBotaoAcao implements ItfFabTipoComponenteVisual {
     @Override
     public FabFamiliaCompVisual getFamilia() {
         return FabFamiliaCompVisual.BOTAO_DE_ACAO;
-    }
-
-    @Override
-    public ComponenteVisualSB getRegistro() {
-        return UtilSBFabricaComponenteVisual.getComponenteVisual(this);
     }
 
 }

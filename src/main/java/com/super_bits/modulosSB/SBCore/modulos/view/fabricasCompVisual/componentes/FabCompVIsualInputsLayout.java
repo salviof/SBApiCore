@@ -47,13 +47,6 @@ public enum FabCompVIsualInputsLayout implements ItfFabTipoComponenteVisual {
         return FabFamiliaCompVisual.LAYOUT_INPUT;
     }
 
-    @Override
-    public ComponenteVisualInputLayoutSB getRegistro() {
-        ComponenteVisualInputLayoutSB componente = new ComponenteVisualInputLayoutSB();
-        UtilSBFabricaComponenteVisual.aplicarPropCompVisual(componente, this);
-        return componente;
-    }
-
     public String estiloTabela() {
         switch (this) {
             case LABEL_RESUMIDO:

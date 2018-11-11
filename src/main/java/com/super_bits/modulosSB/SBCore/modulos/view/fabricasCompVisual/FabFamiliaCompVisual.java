@@ -4,12 +4,9 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual;
 
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringsCammelCase;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVIsualInputsLayout;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualBotaoAcao;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualEndereco;
@@ -31,7 +28,7 @@ import java.util.List;
  *
  * @author salvioF
  */
-public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual, ItfFabrica {
+public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual {
 
     INPUT,
     ENDERECO,
@@ -49,49 +46,44 @@ public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual, ItfFa
     COMPONENTE_SISTEMA,
     BOTAO_DE_ACAO;
 
-    public String getXhtmlJSFPadrao() {
-
-        return getComponentePadrao().getXhtmlJSF();
-    }
-
-    public ComponenteVisualSB getComponentePadrao() {
+    public ItfFabTipoComponenteVisual getComponentePadrao() {
         switch (this) {
             case INPUT:
-                return FabCompVisualInputs.TEXTO_SEM_FORMATACAO.getRegistro();
+                return FabCompVisualInputs.TEXTO_SEM_FORMATACAO;
             case MENU:
-                return FabCompVisualMenu.MENU_SIMPLES_FONTANSOME.getRegistro();
+                return FabCompVisualMenu.MENU_SIMPLES_FONTANSOME;
             case SELETOR_ITEM:
-                return FabCompVisualSeletorItem.COMBO.getRegistro();
+                return FabCompVisualSeletorItem.COMBO;
             case SELETOR_ITENS:
-                return FabCompVisualSeletorItens.PICKLIST.getRegistro();
+                return FabCompVisualSeletorItens.PICKLIST;
             case LAYOUT_INPUT:
                 break;
             case ITEM_BEAN_SIMPLES:
-                return FabCompVisualItem.NOME_E_IMAGEM.getRegistro();
+                return FabCompVisualItem.NOME_E_IMAGEM;
 
             case ITENS_BEAN_SIMPLES:
-                return FabCompVisualItens.ITENS_FLUIDOS.getRegistro();
+                return FabCompVisualItens.ITENS_FLUIDOS;
             case COMPONENTE_SISTEMA:
-                return FabCompVisualSistema.NAO_IMPLEMENTADO.getRegistro();
+                return FabCompVisualSistema.NAO_IMPLEMENTADO;
             case BOTAO_DE_ACAO:
-                return FabCompVisualBotaoAcao.ICONE_E_NOME.getRegistro();
+                return FabCompVisualBotaoAcao.ICONE_E_NOME;
             case GRUPO_DE_CAMPOS:
-                return FabCompVisualGrupoCampo.GRUPO_DE_CAMPO_RESPONSIVO.getRegistro();
+                return FabCompVisualGrupoCampo.GRUPO_DE_CAMPO_RESPONSIVO;
 
             case GRUPOS_DE_CAMPOS:
-                return FabCompVisualGruposCampo.GRUPOS_DE_CAMPO_ACAO_FORMULARIO_RESPONSIVO.getRegistro();
+                return FabCompVisualGruposCampo.GRUPOS_DE_CAMPO_ACAO_FORMULARIO_RESPONSIVO;
 
             case FORMULARIO_DE_ACAO:
-                return FabCompVisualFormularioDeAcao.ACAO_REGISTRO_RESPONSIVO.getRegistro();
+                return FabCompVisualFormularioDeAcao.ACAO_REGISTRO_RESPONSIVO;
             case ENUM_SELETOR:
-                return FabcompVisualEnums.GRADE.getRegistro();
+                return FabcompVisualEnums.GRADE;
             case ENDERECO:
-                return FabCompVisualEndereco.INFORMACAO_ENDERECO.getRegistro();
+                return FabCompVisualEndereco.INFORMACAO_ENDERECO;
             case SUB_ITENS:
-                return FabCompVisualSubItens.SUB_FORM_SIMPLES.getRegistro();
+                return FabCompVisualSubItens.SUB_FORM_SIMPLES;
 
             default:
-                return FabCompVisualItem.NOME_E_IMAGEM.getRegistro();
+                return FabCompVisualItem.NOME_E_IMAGEM;
 
         }
         return null;
@@ -126,17 +118,6 @@ public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual, ItfFa
     @Override
     public String getNomeFAmilia() {
         return this.toString();
-    }
-
-    @Override
-    public FamiliaComponente getRegistro() {
-
-        FamiliaComponente familia = new FamiliaComponente();
-        familia.setId(this.ordinal());
-        familia.setNome(UtilSBCoreStringsCammelCase.getTextoByCammel(this.getNomeFAmilia()));
-        familia.setFabrica(this);
-        return familia;
-
     }
 
     @Override

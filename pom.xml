@@ -6,15 +6,13 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <parent>
-        <groupId>com.super_bits</groupId>
-        <version>0.9-SNAPSHOT</version>
-        <artifactId>SB_FRAMEWORK</artifactId>
-    </parent>
 
+    <groupId>org.coletivoJava.fw</groupId>
+    <version>0.9-SNAPSHOT</version>
     <artifactId>SBApiCore</artifactId>
-    <packaging>jar</packaging>
     <name>SBApiCore</name>
+    <packaging>jar</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>

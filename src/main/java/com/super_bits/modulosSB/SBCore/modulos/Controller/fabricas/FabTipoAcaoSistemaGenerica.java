@@ -14,6 +14,7 @@ import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualFormularioDeAcao;
 
 import java.util.ArrayList;
@@ -465,7 +466,7 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
         return palavrasChave;
     }
 
-    public ItfComponenteVisualSB getComponentePadrao() {
+    public ItfFabTipoComponenteVisual getComponentePadrao() {
         try {
             switch (this) {
                 case FORMULARIO_NOVO_REGISTRO:
@@ -475,9 +476,9 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
                 case FORMULARIO_VISUALIZAR:
                 case FORMULARIO_PERSONALIZADO:
                 case FORMULARIO_MODAL:
-                    return FabCompVisualFormularioDeAcao.ACAO_REGISTRO_RESPONSIVO.getRegistro();
+                    return FabCompVisualFormularioDeAcao.ACAO_REGISTRO_RESPONSIVO;
                 case FORMULARIO_LISTAR:
-                    return FabCompVisualFormularioDeAcao.ACAO_LISTAGEM_RESPONSIVA.getRegistro();
+                    return FabCompVisualFormularioDeAcao.ACAO_LISTAGEM_RESPONSIVA;
 
                 case SELECAO_DE_ACAO:
                 //

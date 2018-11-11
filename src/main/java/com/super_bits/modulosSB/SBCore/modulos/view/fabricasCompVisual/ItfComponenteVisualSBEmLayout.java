@@ -4,8 +4,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual;
 
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComponenteVisualInputEmLayout;
-
 /**
  *
  * @author desenvolvedor
@@ -18,9 +16,9 @@ public interface ItfComponenteVisualSBEmLayout extends ItfComponenteVisualSB {
         return false;
     }
 
-    public default ComponenteVisualInputEmLayout getComoComponenteAtributoDeObjeto() {
+    public default ItfComponenteVisualSBCampoEmLayout getComoComponenteAtributoDeObjeto() {
         if (isUmComponenteAtributoDeObjeto()) {
-            return (ComponenteVisualInputEmLayout) this;
+            return (ItfComponenteVisualSBCampoEmLayout) this;
         } else {
             return null;
         }

@@ -946,30 +946,6 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
         }
     }
 
-    public int getPesoLarguraEspecifico() {
-
-        switch (this) {
-            case ID:
-
-            case QUANTIDADE:
-            case PERCENTUAL:
-
-                return FabColunasTela.UM.getQuantidade();
-            case TELEFONE_CELULAR:
-            case TELEFONE_FIXO_NACIONAL:
-            case TELEFONE_FIXO_INTERNACIONAL:
-            case TELEFONE_GENERICO:
-            case CNPJ:
-            case MOEDA_REAL:
-            case MOEDA_DOLAR:
-                return FabColunasTela.DOIS.getQuantidade();
-
-            default:
-                return getTipo_input_prime().getComponente().getPesoLargura();
-        }
-
-    }
-
     public String getValorAleatorioDesconforme() {
         throw new UnsupportedOperationException("Ainda nao implementado");
     }
