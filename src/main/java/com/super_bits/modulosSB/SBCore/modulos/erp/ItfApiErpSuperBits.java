@@ -45,23 +45,17 @@ public interface ItfApiErpSuperBits<T> extends ItfFabrica {
 
     }
 
-    /**
-     * public default T getImplementacaoDoContexto() {
-     *
-     * return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this); }
-     */
-    public T getImplementacaoDoContexto();
+    public default T getImplementacaoDoContexto() {
 
-    public T getClasseImplementacaoPadrao();
+        return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
+    }
 
-    public T getClasseImplementacaoTestes();
-    /**
-     * public default T getClasseImplementacaoPadrao() { return (T)
-     * UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this); }
-     */
-    /**
-     * public default T getClasseImplementacaoTestes() { return (T)
-     * UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this); }
-     */
+    public default T getClasseImplementacaoPadrao() {
+        return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
+    }
+
+    public default T getClasseImplementacaoTestes() {
+        return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
+    }
 
 }

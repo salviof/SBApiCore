@@ -56,6 +56,12 @@ public interface ItfAssistenteDeLocalizacao {
      */
     public ItfLocal getLocal();
 
+    public boolean isPesquisaSucessoBairro();
+
+    public boolean isPesquisaSucessoCidade();
+
+    public boolean isPesquisaSucessoUnidadeFederativa();
+
     /**
      *
      * @return Bairro é nulo?
@@ -188,6 +194,8 @@ public interface ItfAssistenteDeLocalizacao {
     public boolean atualizarEnderecoPorCep();
 
     public boolean isCepEncontradoObrigatorio();
+
+    public void adicionarListaOpcoesBairro(List<ItfBairro> bairros);
 
     public default boolean aplicarCEP(String pCep) {
         setCep(pCep);

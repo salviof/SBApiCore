@@ -5,13 +5,13 @@
 package org.coletivojava.fw.utilCoreBase;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfValidacao;
-import com.super_bits.modulosSB.SBCore.modulos.erp.ApiColetivoJavaFW;
 import com.super_bits.modulosSB.SBCore.modulos.erp.ItfApiErpSuperBits;
 
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.reflections.ReflectionUtils;
+import com.super_bits.modulosSB.SBCore.modulos.erp.ApiERPColetivoJavaFW;
 
 /**
  *
@@ -19,9 +19,9 @@ import org.reflections.ReflectionUtils;
  */
 public abstract class UtilSBCoreReflexaoAPIERP {
 
-    private static final String ENDERECO_BASE_PACOTE_API = "org.coletivoJava.fw.api.erp";
+    private static final String ENDERECO_BASE_PACOTE_API = "br.org.coletivoJava.fw.api.erp";
 
-    private static final String ENDERECO_BASE_PACOTE_IMPLEMENTACAO = "org.coletivoJava.fw.erp.implementacao";
+    private static final String ENDERECO_BASE_PACOTE_IMPLEMENTACAO = "br.org.coletivoJava.fw.erp.implementacao";
 
     public static Class getAnotacaoApi(ItfApiErpSuperBits pApi) {
         Class classeValidacao = (Class<? extends ItfValidacao>) ReflectionUtils.forName(
@@ -32,8 +32,9 @@ public abstract class UtilSBCoreReflexaoAPIERP {
     }
 
     public static String getNomeClasseAnotacaoImplementacao(ItfApiErpSuperBits pApi) {
-
-        String nomeAnotacaoApi = UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
+        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
+        String slug = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
+        String nomeAnotacaoApi = slug + UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
         return nomeAnotacaoApi;
 
     }
@@ -53,13 +54,13 @@ public abstract class UtilSBCoreReflexaoAPIERP {
     }
 
     public static String getPacoteApiClasseAnotacao(ItfApiErpSuperBits pApi) {
-        ApiColetivoJavaFW infoApi = getInformacoesApi(pApi);
+        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
         String enderecoPacote = ENDERECO_BASE_PACOTE_API + "." + infoApi.nomeApi().toLowerCase();
         return enderecoPacote;
     }
 
-    public static ApiColetivoJavaFW getInformacoesApi(ItfApiErpSuperBits pApi) {
-        return pApi.getClass().getAnnotation(ApiColetivoJavaFW.class);
+    public static ApiERPColetivoJavaFW getInformacoesApi(ItfApiErpSuperBits pApi) {
+        return pApi.getClass().getAnnotation(ApiERPColetivoJavaFW.class);
     }
 
     public static Class getClasseImplementacaoDoContexto(ItfApiErpSuperBits pApi) {

@@ -17,9 +17,11 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface ApiColetivoJavaFW {
+public @interface ApiERPColetivoJavaFW {
 
     public String nomeApi();
 
     public String descricaoApi();
+
+    public String slugInicial();
 }

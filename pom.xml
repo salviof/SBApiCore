@@ -7,8 +7,8 @@
 
 
 
-    <groupId>org.coletivoJava.fw</groupId>
-    <version>0.9-SNAPSHOT</version>
+    <groupId>br.org.coletivoJava.fw</groupId>
+    <version>1.0RC-SNAPSHOT</version>
     <artifactId>SBApiCore</artifactId>
     <name>SBApiCore</name>
     <packaging>jar</packaging>

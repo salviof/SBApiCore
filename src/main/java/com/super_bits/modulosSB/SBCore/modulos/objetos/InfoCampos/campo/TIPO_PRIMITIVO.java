@@ -9,6 +9,7 @@ import java.lang.reflect.Field;
 import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAtributoDeObjetoSimples;
 
 /**
  *
@@ -63,6 +64,23 @@ public enum TIPO_PRIMITIVO {
                 return false;
 
         }
+    }
+
+    public static TIPO_PRIMITIVO getTIPO_PRIMITIVO(Field campo) {
+        String ptipo = campo.getType().getSimpleName();
+
+        TIPO_PRIMITIVO tipoEncontrado = getTipoPrimitivoByTexto(ptipo);
+
+        if (tipoEncontrado != OUTROS_OBJETOS) {
+            return tipoEncontrado;
+        }
+
+        Class classeVinculada = UtilSBCoreReflexaoAtributoDeObjetoSimples.getClassePrincipalDoCampo(campo);
+        if (classeVinculada.isAnnotationPresent(InfoObjetoSB.class)) {
+            return ENTIDADE;
+        }
+        return tipoEncontrado;
+
     }
 
     public static Class getClasseTipoPrimitivoByNome(String pTipoString) {

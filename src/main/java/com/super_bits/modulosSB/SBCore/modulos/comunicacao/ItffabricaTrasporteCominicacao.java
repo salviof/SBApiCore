@@ -19,9 +19,4 @@ public interface ItffabricaTrasporteCominicacao<ItfDisparoComunicacao> extends I
         return (ItfTipoTransporteComunicacao) ItfApiErpSuperBits.super.getRegistro();
     }
 
-    @Override
-    public default ItfDisparoComunicacao getImplementacaoDoContexto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
