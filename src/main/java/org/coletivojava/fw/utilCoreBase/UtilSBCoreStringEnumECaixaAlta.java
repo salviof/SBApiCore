@@ -77,7 +77,7 @@ public class UtilSBCoreStringEnumECaixaAlta {
             StringBuilder palavraCammelCase = new StringBuilder();
             int i = 0;
             for (String p : partes) {
-                palavraCammelCase.append(UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(p));
+                palavraCammelCase.append(UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(p.toLowerCase()));
                 i++;
             }
             return palavraCammelCase.toString();
