@@ -192,11 +192,13 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
             if (isTemValidadacaoLogica()) {
                 if (getObjetoDoAtributo().getId() == 0) {
                     getValidacaoLogica().validarModoNovo(pValor);
+
                 } else {
                     getValidacaoLogica().validarModoEdicao(pValor);
                 }
 
             }
+            setValor(pValor);
         } else {
             setValor(pValor);
         }

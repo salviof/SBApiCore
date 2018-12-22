@@ -4,12 +4,12 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface ItfTipoTransporteComunicacao extends ItfBeanSimples {
+public interface ItfTipoTransporteComunicacao extends ItfBeanVinculadoAEnum {
 
 }

@@ -7,7 +7,6 @@ package org.coletivojava.fw.api.objetoNativo.controller.modulo;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfModuloAcaoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.modulo.ItfFabricaModulo;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.modulo.ItfFabricaModuloEnum;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
@@ -80,8 +79,8 @@ public class ModuloTransiente extends ObjetoNativoCoreDoSistema implements ItfMo
     }
 
     @Override
-    public ItfFabricaModuloEnum getEnumVinculado() {
-        return (ItfFabricaModuloEnum) fabModulo;
+    public ItfFabricaModulo getEnumVinculado() {
+        return (ItfFabricaModulo) fabModulo;
     }
 
     @Override

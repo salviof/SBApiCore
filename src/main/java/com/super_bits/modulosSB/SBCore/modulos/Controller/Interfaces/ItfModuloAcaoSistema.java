@@ -5,7 +5,7 @@
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.modulo.ItfFabricaModuloEnum;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.modulo.ItfFabricaModulo;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
@@ -46,6 +46,6 @@ public interface ItfModuloAcaoSistema extends ItfBeanSimples, ItfBeanVinculadoAE
     public boolean isUmModuloNativo();
 
     @Override
-    public ItfFabricaModuloEnum getEnumVinculado();
+    public ItfFabricaModulo getEnumVinculado();
 
 }

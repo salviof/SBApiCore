@@ -47,4 +47,6 @@ public interface ItfCampoInstanciadoBase {
     @Deprecated
     public Object getParent();
 
+    public void bloquearProximaAlteracao();
+
 }

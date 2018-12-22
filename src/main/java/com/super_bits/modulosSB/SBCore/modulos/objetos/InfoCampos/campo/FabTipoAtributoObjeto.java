@@ -936,6 +936,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
     }
 
     public String getValorAleatorioDesconforme() {
+
         throw new UnsupportedOperationException("Ainda nao implementado");
     }
 

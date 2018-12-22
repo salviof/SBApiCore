@@ -14,12 +14,11 @@ import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanGenerico;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import org.coletivojava.fw.api.tratamentoErros.FabErro;
 
 /**
  *
@@ -196,6 +195,26 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
             Optional<ItfAcaoSecundaria> acaoEncontrada
                     = getAcoesVinculadas().stream().filter(acao
                             -> (acao.getTipoAcaoGenerica().equals(FabTipoAcaoSistemaGenerica.CONTROLLER_SALVAR_MODO_MERGE))
+                    ).findFirst();
+
+            if (!acaoEncontrada.isPresent()) {
+                return null;
+            } else {
+                return (ItfAcaoControllerEntidade) acaoEncontrada.get();
+            }
+        } catch (Throwable t) {
+            LogManager.getLogger(LogPadraoSB.class).error("Erro Obtendo ação de formulário novo", t);
+            return null;
+        }
+
+    }
+
+    public default ItfAcaoControllerEntidade getAcaoSalvarNovo() {
+
+        try {
+            Optional<ItfAcaoSecundaria> acaoEncontrada
+                    = getAcoesVinculadas().stream().filter(acao
+                            -> (acao.getTipoAcaoGenerica().equals(FabTipoAcaoSistemaGenerica.CONTROLLER_SALVAR_NOVO))
                     ).findFirst();
 
             if (!acaoEncontrada.isPresent()) {

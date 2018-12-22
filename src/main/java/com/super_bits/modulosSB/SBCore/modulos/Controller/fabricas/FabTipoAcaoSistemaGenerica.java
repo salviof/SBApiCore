@@ -305,6 +305,9 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
         if (nome.contains("CTR_SALVAR_MERGE")) {
             return CONTROLLER_SALVAR_MODO_MERGE;
         }
+        if (nome.contains("CTR_SALVAR_NOVO")) {
+            return CONTROLLER_SALVAR_NOVO;
+        }
 
         for (FabTipoAcaoSistemaGenerica acaoGenerica : FabTipoAcaoSistemaGenerica.values()) {
 

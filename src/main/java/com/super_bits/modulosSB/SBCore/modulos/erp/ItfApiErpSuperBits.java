@@ -4,10 +4,13 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.erp;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfValidacao;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP;
+import static org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP.getPacoteApiClasseAnotacao;
+import org.reflections.ReflectionUtils;
 
 /**
  *
@@ -50,8 +53,12 @@ public interface ItfApiErpSuperBits<T> extends ItfFabrica {
         return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
     }
 
-    public default T getClasseImplementacaoPadrao() {
-        return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
+    public default Class<? extends T> getClasseImplementacaoPadrao() {
+        String nomeAotacao = UtilSBCoreReflexaoAPIERP.getNomeClasseAnotacaoImplementacaoPadrao(this);
+        String nomeCanonico = UtilSBCoreReflexaoAPIERP.getPacoteApiClasseAnotacao(this)
+                + "." + nomeAotacao;
+        Class classeValidacao = (Class<? extends ItfValidacao>) ReflectionUtils.forName(nomeCanonico);
+        return classeValidacao;
     }
 
     public default T getClasseImplementacaoTestes() {

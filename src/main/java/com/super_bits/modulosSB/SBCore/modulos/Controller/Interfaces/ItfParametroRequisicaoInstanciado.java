@@ -4,6 +4,8 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces;
 
+import javax.persistence.EntityManager;
+
 /**
  *
  * @author desenvolvedor
@@ -30,7 +32,7 @@ public interface ItfParametroRequisicaoInstanciado extends ItfParametroRequisica
      * @param pEm
      * @throws Throwable
      */
-    public void aplicarParteURLenviada(String pParteEnviada) throws Throwable;
+    public void aplicarParteURLenviada(String pParteEnviada, EntityManager pEm) throws Throwable;
 
     public boolean isValorDoParametroFoiConfigurado();
 

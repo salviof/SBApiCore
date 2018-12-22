@@ -5,11 +5,13 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces;
 
+import javax.persistence.EntityManager;
+
 /**
  *
  * @author desenvolvedor
  */
 public interface ItfRespostaComGestaoDeEntityManager extends ItfRespostaAcaoDoSistema {
 
-    //  public EntityManager getEMResposta();
+    public EntityManager getEMResposta();
 }

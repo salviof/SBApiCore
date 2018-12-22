@@ -25,6 +25,8 @@ import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.component
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabcompVisualEnums;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.view.componente.FamiliaComponente;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringEnumECaixaAlta;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringsCammelCaseSimples;
 
 /**
  *
@@ -50,7 +52,12 @@ public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual, ItfFa
 
     @Override
     public FamiliaComponente getRegistro() {
-        return (FamiliaComponente) ItfFabFamiliaComponenteVisual.super.getRegistro(); //To change body of generated methods, choose Tools | Templates.
+        FamiliaComponente familia = new FamiliaComponente();
+        familia.setId(this.ordinal());
+        familia.setNome(UtilSBCoreStringsCammelCaseSimples.getTextoByCammel(getNomeFAmilia()));
+        familia.setFabrica(this);
+        return familia;
+
     }
 
     public ItfComponenteVisualSB getComponentePadrao() {
@@ -124,7 +131,7 @@ public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual, ItfFa
 
     @Override
     public String getNomeFAmilia() {
-        return this.toString();
+        return UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula(this);
     }
 
     @Override

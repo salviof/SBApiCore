@@ -125,7 +125,10 @@ public interface ItfFabricaAcoes extends ItfFabrica {
 
     }
 
-    public String getNomeUnico();
+    public default String getNomeUnico() {
+        Enum fab = (Enum) this;
+        return this.getClass().getSimpleName() + "." + fab.name();
+    }
 
     /**
      *

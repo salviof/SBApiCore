@@ -2,31 +2,27 @@
  *  Desenvolvido pela equipe Super-Bits.com CNPJ 20.019.971/0001-90
 
  */
-package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
+package org.coletivojava.fw.api.objetoNativo.view.icone;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
-
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.itfIcone;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
 
 /**
  *
- * @author desenvolvedor
+ * @author salvioF
  */
-@InfoObjetoSB(plural = "Tipos de Transporte", tags = {"Tipo Transporte"})
-public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements ItfTipoTransporteComunicacao, ItfBeanVinculadoAEnum {
+@InfoObjetoSB(tags = {"Icone"}, plural = "Icones")
+public class IconeSistema extends ObjetoNativoCoreDoSistema implements itfIcone {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private int id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME)
     private String nome;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_DESCRITIVO)
     private String descricao;
-
-    private ItffabricaTrasporteComunicacao tipoTransporte;
+    private String tagHtml;
 
     @Override
     public int getId() {
@@ -43,6 +39,7 @@ public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements
         return nome;
     }
 
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -56,13 +53,12 @@ public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements
     }
 
     @Override
-
-    public void setEnumVinculado(ItfFabrica pFabrica) {
-        tipoTransporte = (ItffabricaTrasporteComunicacao) pFabrica;
+    public String getTagHtml() {
+        return tagHtml;
     }
 
-    @Override
-    public ItfFabrica getEnumVinculado() {
-        return tipoTransporte;
+    public void setTagHtml(String tagHtml) {
+        this.tagHtml = tagHtml;
     }
+
 }

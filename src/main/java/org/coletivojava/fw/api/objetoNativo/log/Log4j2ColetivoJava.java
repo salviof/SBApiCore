@@ -7,6 +7,7 @@ package org.coletivojava.fw.api.objetoNativo.log;
 
 import com.super_bits.modulosSB.SBCore.modulos.tratamentoErros.ItfErroSBServico;
 import java.io.Serializable;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.Layout;
 import org.apache.logging.log4j.core.LogEvent;
@@ -63,8 +64,13 @@ public class Log4j2ColetivoJava extends AbstractAppender {
                 System.out.println(event.getThrown().getMessage());
             }
         } else {
-            servicoErro.configurar(new MensagemProgramador(event.getMessage().getFormattedMessage()), FabErro.SOLICITAR_REPARO, event.getThrown());
-            servicoErro.executarErro();
+            if (event.getLevel().equals(Level.ERROR)) {
+                servicoErro.configurar(new MensagemProgramador(event.getMessage().getFormattedMessage()), FabErro.SOLICITAR_REPARO, event.getThrown());
+                servicoErro.executarErro();
+            } else {
+                //   System.out.println(event.getLevel().name());
+                //   System.out.println(event.getMessage().getFormattedMessage());
+            }
         }
 
     }

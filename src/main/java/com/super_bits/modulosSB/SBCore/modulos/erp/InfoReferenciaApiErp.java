@@ -4,12 +4,12 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.erp;
 
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItffabricaTrasporteCominicacao;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItffabricaTrasporteComunicacao;
 
 /**
  *
@@ -21,6 +21,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface InfoReferenciaApiErp {
 
-    public Class<? extends ItffabricaTrasporteCominicacao> tipoObjeto();
+    public Class<? extends ItffabricaTrasporteComunicacao> tipoObjeto();
 
 }

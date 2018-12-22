@@ -51,15 +51,17 @@ public abstract class UtilSBCoreReflexaoAPIERP {
     }
 
     public static String getNomeClasseAnotacaoImplementacaoPadrao(ItfApiErpSuperBits pApi) {
-
-        String nomeAnotacaoApi = UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
+        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
+        String slug = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
+        String nomeAnotacaoApi = slug + UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi) + "Padrao";
         return nomeAnotacaoApi;
 
     }
 
     public static String getNomeClasseAnotacaoImplementacaoTestes(ItfApiErpSuperBits pApi) {
-
-        String nomeAnotacaoApi = UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
+        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
+        String slug = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
+        String nomeAnotacaoApi = slug + UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi) + "Testes";
         return nomeAnotacaoApi;
 
     }
@@ -91,7 +93,7 @@ public abstract class UtilSBCoreReflexaoAPIERP {
 
             List<Class> classesImplementacao;
             if (UtilSBCoreContextoSimples.isContextoExecucaoJunit()) {
-                String anotacaoImplementacaoTestes = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacao(pApi);
+                String anotacaoImplementacaoTestes = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacaoTestes(pApi);
                 anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoTestes);
                 List<Class> opcoes = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
                 if (!opcoes.isEmpty()) {

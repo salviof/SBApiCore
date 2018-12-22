@@ -6,7 +6,10 @@ package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componen
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
+import org.coletivojava.fw.api.objetoNativo.view.componente.ComponenteVisualInputLayoutSB;
+import org.coletivojava.fw.utilCoreBase.UtilSBFabricaComponenteVisual;
 
 /**
  *
@@ -45,6 +48,15 @@ public enum FabCompVIsualInputsLayout implements ItfFabTipoComponenteVisual {
     @Override
     public FabFamiliaCompVisual getFamilia() {
         return FabFamiliaCompVisual.LAYOUT_INPUT;
+    }
+
+    @Override
+    public ItfComponenteVisualSB getRegistro() {
+
+        ComponenteVisualInputLayoutSB componente = new ComponenteVisualInputLayoutSB();
+        UtilSBFabricaComponenteVisual.aplicarPropCompVisual(componente, this);
+        return componente;
+
     }
 
     public String estiloTabela() {

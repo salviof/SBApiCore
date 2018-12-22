@@ -8,7 +8,7 @@
 
 
     <groupId>br.org.coletivoJava.fw</groupId>
-    <version>1.0RC-SNAPSHOT</version>
+    <version>1.0.0-RC-SNAPSHOT</version>
     <artifactId>SBApiCore</artifactId>
     <name>SBApiCore</name>
     <packaging>jar</packaging>
@@ -32,6 +32,14 @@
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
             <version>1.0.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>20.0</version>
+
         </dependency>
 
         <dependency>

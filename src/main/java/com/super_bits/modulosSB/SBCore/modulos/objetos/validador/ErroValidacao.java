@@ -13,12 +13,13 @@ public class ErroValidacao extends Exception {
     private final String mensagemAoUsuario;
 
     public ErroValidacao(String pMensagemUsuario) {
-
+        super(pMensagemUsuario);
         mensagemAoUsuario = pMensagemUsuario;
 
     }
 
     public String getMensagemAoUsuario() {
+
         return mensagemAoUsuario;
     }
 
