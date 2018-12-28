@@ -212,4 +212,5 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
 
     public ItfValidacao getValidacaoLogica();
 
+    public boolean isUmValorEmLista();
 }

@@ -76,4 +76,6 @@ public interface ItfComponenteVisualSB {
 
     }
 
+    public String getCaminhoFabrica();
+
 }

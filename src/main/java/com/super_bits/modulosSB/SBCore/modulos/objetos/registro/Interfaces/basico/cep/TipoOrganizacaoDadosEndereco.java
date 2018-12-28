@@ -27,10 +27,23 @@ public enum TipoOrganizacaoDadosEndereco {
 
         ItfCampoInstanciado campoRaiz = pCampoInstanciado.getCampoInstanciadoRaiz();
         if (campoRaiz != null) {
-            if (campoRaiz.getValor() instanceof ItfLocalPostagem) {
+
+            if (campoRaiz.getValor() instanceof ItfLocal) {
                 return LOCALIZACAO_POSTAVEL;
             }
-            if (campoRaiz.getValor() instanceof ItfLocal) {
+            if (pCampoInstanciado.getTipoCampoSTR().equals(FabTipoAtributoObjeto.LC_UNIDADE_FEDERATIVA.toString())) {
+                if (pCampoInstanciado.getObjetoDoAtributo() instanceof ItfCidade) {
+                    return LOCALIZACAO_POSTAVEL;
+                }
+            }
+
+            if (pCampoInstanciado.getTipoCampoSTR().equals(FabTipoAtributoObjeto.LC_CIDADE.toString())) {
+                if (pCampoInstanciado.getObjetoDoAtributo() instanceof ItfBairro) {
+                    return LOCALIZACAO_POSTAVEL;
+                }
+            }
+
+            if (pCampoInstanciado.getObjetoDoAtributo() instanceof ItfLocal) {
                 return LOCALIZACAO_POSTAVEL;
             }
 
@@ -45,111 +58,109 @@ public enum TipoOrganizacaoDadosEndereco {
     }
 
     public ItfCampoInstanciado getCampoInstanciadoPorTipo(ItfBeanSimples pEntidadePai, FabTipoAtributoObjeto pTipoAtributo, String pNomeCampoLocalizacaoOuEntidadeDinamica) {
-        switch (this) {
-            case LOCALIZACAO_POSTAVEL:
-                ItfBeanSimples entidade = pEntidadePai;
-                String nomeCampoLocalizacao = pNomeCampoLocalizacaoOuEntidadeDinamica;
-                ItfLocalPostagem localizacao = (ItfLocalPostagem) pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica).getValor();
-                switch (pTipoAtributo) {
+        try {
+            switch (this) {
+                case LOCALIZACAO_POSTAVEL:
+                    ItfBeanSimples entidade = pEntidadePai;
+                    String nomeCampoLocalizacao = pNomeCampoLocalizacaoOuEntidadeDinamica;
+                    ItfCampoInstanciado campoInstanciado = pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
+                    ItfLocalPostagem localizacao = null;
+                    if (campoInstanciado.getValor() instanceof ItfLocalPostagem) {
+                        localizacao = (ItfLocalPostagem) campoInstanciado.getValor();
+                    } else {
+                        if (campoInstanciado.getValor() instanceof ItfBeanSimples) {
+                            ItfBeanSimples objPai = (ItfBeanSimples) campoInstanciado.getValor();
+                            if (objPai.isTemCampoAnotado(FabTipoAtributoObjeto.LC_LOCALIZACAO)) {
+                                localizacao = (ItfLocalPostagem) objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO).getValor();
+                            }
+                            switch (pTipoAtributo) {
 
-                    case LATITUDE:
+                            }
 
-                    case Longitude:
-
-                    case LC_LOGRADOURO:
-
-                    case LCCEP:
-
-                    case LC_BAIRRO:
-
-                    case LC_COMPLEMENTO_E_NUMERO:
-
-                    case LC_CAMPO_ABERTO:
-
-                        ItfCampoInstanciado campoDireto = localizacao.getCampoInstanciadoByNomeOuAnotacao(pTipoAtributo.toString());
-                        if (campoDireto == null) {
-                            return null;
                         }
-                        String strCampoDireto = campoDireto.getNomeCamponaClasse();
-                        ItfCampoInstanciado cpVinculado = entidade.getCampoInstanciadoByNomeOuAnotacao(nomeCampoLocalizacao + "." + strCampoDireto);
-                        return cpVinculado;
+                    }
+                    if (localizacao == null) {
+                        throw new UnsupportedOperationException("Campo Localização relacionado não foi encontrado");
+                    }
+                    switch (pTipoAtributo) {
 
-                    case LC_LOCALIZACAO:
-                        return pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
-                    case LC_UNIDADE_FEDERATIVA:
-                        ItfCampoInstanciado campoBairro = localizacao.getCampoInstanciadoByNomeOuAnotacao(FabTipoAtributoObjeto.LC_BAIRRO.name());
-                        if (campoBairro == null) {
-                            return null;
-                        }
-                        ItfCampoInstanciado campoCidade = localizacao.getBairro().getCampoInstanciadoByNomeOuAnotacao(FabTipoAtributoObjeto.LC_CIDADE.name());
-                        if (campoCidade == null) {
-                            return null;
-                        }
-                        ItfCampoInstanciado campoUnidadeFederativa = localizacao.getBairro().getCidade().getCampoInstanciadoByNomeOuAnotacao(FabTipoAtributoObjeto.LC_UNIDADE_FEDERATIVA.name());
-                        if (campoUnidadeFederativa == null) {
-                            return null;
-                        }
+                        case LCCEP:
+                        case LATITUDE:
+                        case Longitude:
+                        case LC_BAIRRO:
+                        case LC_COMPLEMENTO_E_NUMERO:
 
-                        String strNomeBairro = campoBairro.getNomeCamponaClasse();
-                        String strNomeCidade = campoCidade.getNomeCamponaClasse();
-                        String strNomeUF = campoUnidadeFederativa.getNomeCamponaClasse();
+                        case LC_CAMPO_ABERTO:
+                        case LC_LOGRADOURO:
+                            ItfCampoInstanciado campoDireto = localizacao.getCampoInstanciadoByAnotacao(pTipoAtributo);
+                            return campoDireto;
+                        case LC_LOCALIZACAO:
+                            ItfCampoInstanciado cLocalizacao = pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
+                            if (campoInstanciado.getValor() instanceof ItfLocalPostagem) {
+                                return cLocalizacao;
+                            } else {
+                                if (campoInstanciado.getValor() instanceof ItfBeanSimples) {
+                                    ItfBeanSimples objPai = (ItfBeanSimples) campoInstanciado.getValor();
+                                    if (objPai.isTemCampoAnotado(FabTipoAtributoObjeto.LC_LOCALIZACAO)) {
+                                        return objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO);
+                                    }
+                                }
+                            }
 
-                        ItfCampoInstanciado campoUFVinculado = entidade.getCampoInstanciadoByNomeOuAnotacao(
-                                nomeCampoLocalizacao + "." + strNomeBairro + "." + strNomeCidade + "." + strNomeUF);
+                        case LC_UNIDADE_FEDERATIVA:
 
-                        return campoUFVinculado;
-                    case LC_CIDADE:
-                        ItfCampoInstanciado campoBairoDaCidade = localizacao.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_BAIRRO);
-                        if (campoBairoDaCidade == null) {
-                            throw new UnsupportedOperationException("Impossível determinar o campo Bairro atravéz da classe de  localizacao" + localizacao.getClass().getSimpleName());
-                        }
-                        ItfCampoInstanciado campoCt = localizacao.getBairro().getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_CIDADE);
+                            if (localizacao.getBairro() != null && localizacao.getBairro().getCidade() != null) {
+                                return localizacao.getBairro().getCidade().getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_UNIDADE_FEDERATIVA);
+                            } else {
+                                return null;
+                            }
+                        case LC_CIDADE:
+                            if (localizacao.getBairro() != null) {
+                                return localizacao.getBairro().getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_CIDADE);
+                            } else {
+                                return null;
+                            }
+                        default:
+                            return entidade.getCampoInstanciadoByNomeOuAnotacao(pTipoAtributo.toString());
 
-                        if (campoCt != null) {
+                    }
 
-                            ItfCampoInstanciado campoCidadeVInculado = entidade.getCampoInstanciadoByNomeOuAnotacao(
-                                    nomeCampoLocalizacao + "." + campoBairoDaCidade.getNomeCamponaClasse() + "." + campoCt.getNomeCamponaClasse());
-                            return campoCidadeVInculado;
-                        } else {
-                            throw new UnsupportedOperationException("Impossível determinar o campo Cidade atravéz da classe de  localizacao" + localizacao.getClass().getSimpleName());
-                        }
-                    default:
-                        return entidade.getCampoInstanciadoByNomeOuAnotacao(pTipoAtributo.toString());
+                case LOCALIZACAO_SIMPLES:
+                    ItfLocalPostagem localizacaoSimples = (ItfLocalPostagem) pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
+                    if (pTipoAtributo.equals(FabTipoAtributoObjeto.LCCEP)) {
+                        return null;
+                    } else {
+                        return localizacaoSimples.getCampoInstanciadoByNomeOuAnotacao(pTipoAtributo.name());
+                    }
 
-                }
+                case DINAMICO:
+                    if (pEntidadePai.isTemCampoAnotado(pTipoAtributo)) {
+                        return pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pTipoAtributo.name());
+                    } else {
+                        return null;
+                    }
 
-            case LOCALIZACAO_SIMPLES:
-                ItfLocalPostagem localizacaoSimples = (ItfLocalPostagem) pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
-                if (pTipoAtributo.equals(FabTipoAtributoObjeto.LCCEP)) {
+                case LOCALIZACAO_SIMPLES_COM_CEP_EM_ENTIDADE:
+                    ItfLocalPostagem ls = (ItfLocalPostagem) pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
+                    if (pTipoAtributo.equals(FabTipoAtributoObjeto.LCCEP)) {
+                        return pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(FabTipoAtributoObjeto.LCCEP.toString());
+                    } else {
+                        throw new UnsupportedOperationException("Obtenção de campos de endereco por" + LOCALIZACAO_SIMPLES_COM_CEP_EM_ENTIDADE.toString());
+                    }
+
+                case SEM_ENDERECO:
+
                     return null;
-                } else {
-                    return localizacaoSimples.getCampoInstanciadoByNomeOuAnotacao(pTipoAtributo.name());
-                }
 
-            case DINAMICO:
-                if (pEntidadePai.isTemCampoAnotado(pTipoAtributo)) {
-                    return pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pTipoAtributo.name());
-                } else {
-                    return null;
-                }
+                default:
+                    throw new AssertionError(this.name());
 
-            case LOCALIZACAO_SIMPLES_COM_CEP_EM_ENTIDADE:
-                ItfLocalPostagem ls = (ItfLocalPostagem) pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
-                if (pTipoAtributo.equals(FabTipoAtributoObjeto.LCCEP)) {
-                    return pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(FabTipoAtributoObjeto.LCCEP.toString());
-                } else {
-                    throw new UnsupportedOperationException("Obtenção de campos de endereco por" + LOCALIZACAO_SIMPLES_COM_CEP_EM_ENTIDADE.toString());
-                }
+            }
+        } catch (Throwable t) {
 
-            case SEM_ENDERECO:
-
-                return null;
-
-            default:
-                throw new AssertionError(this.name());
-
+            LogManager.getLogger(LogPadraoSB.class).error("Erro localizando campo de localização " + this.toString(), t);
+            return null;
         }
-
     }
 
     public ItfBeanSimples getBeanDeArmazenamento(ItfCampoInstanciado pCampoInstanciado) {
@@ -164,6 +175,7 @@ public enum TipoOrganizacaoDadosEndereco {
                     } else {
                         beanArmazenamentoAssitente = (ItfBeanSimples) pCampoInstanciado.getCampoInstanciadoRaiz().getValor();
                     }
+
                     break;
 
                 case LOCALIZACAO_SIMPLES:

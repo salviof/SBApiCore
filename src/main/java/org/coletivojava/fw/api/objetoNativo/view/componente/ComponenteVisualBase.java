@@ -22,7 +22,7 @@ import org.coletivojava.fw.utilCoreBase.UtilSBCoreDiretoriosSimples;
  * @author desenvolvedor
  */
 @InfoObjetoSB(tags = {"Componente visual SB"}, plural = "Componentes SB")
-public class ComponenteVisualSB extends ObjetoNativoCoreDoSistema implements ItfComponenteVisualSB, ItfBeanVinculadoAEnum, Serializable {
+public class ComponenteVisualBase extends ObjetoNativoCoreDoSistema implements ItfComponenteVisualSB, ItfBeanVinculadoAEnum, Serializable {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID, label = "Código")
     private int id;

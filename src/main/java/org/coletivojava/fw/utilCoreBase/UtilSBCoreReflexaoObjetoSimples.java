@@ -162,7 +162,7 @@ public class UtilSBCoreReflexaoObjetoSimples {
         try {
             InfoObjetoSB info = pClasse.getAnnotation(InfoObjetoSB.class);
 
-            return info.tags()[0];
+            return info.plural();
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("O plural do objeto não foi definodo para" + pClasse.getSimpleName(), t);
             return pClasse.getSimpleName();

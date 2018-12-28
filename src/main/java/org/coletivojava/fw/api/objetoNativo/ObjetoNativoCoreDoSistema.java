@@ -34,7 +34,13 @@ public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
 
     @Override
     public String getNomeUnicoSlug() {
-        return this.getClass().getSimpleName() + "_" + removeCaracteresEspeciais(getNome()) + "_" + getId();
+        String nomeunico = this.getClass().getSimpleName() + "_" + removeCaracteresEspeciais(getNome()) + "_" + getId();
+        return nomeunico;
+    }
+
+    @Override
+    public int hashCode() {
+        return getNomeUnicoSlug().hashCode();
     }
 
     @Override
@@ -327,6 +333,21 @@ public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
     @Override
     public String getClassePontoIdentificador() {
         return getSlugIdentificador();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ObjetoNativoCoreDoSistema other = (ObjetoNativoCoreDoSistema) obj;
+        return true;
     }
 
 }

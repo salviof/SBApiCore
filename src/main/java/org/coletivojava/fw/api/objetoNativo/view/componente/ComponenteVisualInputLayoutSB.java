@@ -17,7 +17,7 @@ import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
  * @author desenvolvedor
  */
 @InfoObjetoSB(fabricaVinculada = FabCompVIsualInputsLayout.class, tags = {"Layout Input"}, plural = "Layouts Input", descricao = "Devide o modo de exibição de um input")
-public class ComponenteVisualInputLayoutSB extends ComponenteVisualSB {
+public class ComponenteVisualInputLayoutSB extends ComponenteVisualBase {
 
     private String estiloTabela;
     private String estiloLinhas;

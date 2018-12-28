@@ -96,6 +96,11 @@ public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
     }
 
     @Override
+    public String getCaminhoFabrica() {
+        return tipoComponente.getCaminhoFabrica();
+    }
+
+    @Override
     public String getClasseLarguraPorPeso() {
         return ItfComponenteVisualSBEmLayout.super.getClasseLarguraPorPeso(); //To change body of generated methods, choose Tools | Templates.
     }

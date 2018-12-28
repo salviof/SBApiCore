@@ -4,10 +4,11 @@
  */
 package org.coletivojava.fw.utilCoreBase;
 
-import org.coletivojava.fw.api.objetoNativo.view.componente.ComponenteVisualSB;
+import org.coletivojava.fw.api.objetoNativo.view.componente.ComponenteVisualBase;
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -23,7 +24,7 @@ import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
  */
 public class UtilSBFabricaComponenteVisual {
 
-    private static void loadInfoFabrica(ComponenteVisualSB componente, InfoComponenteVisual infoAnotacao, String pastaBase) {
+    private static void loadInfoFabrica(ComponenteVisualBase componente, InfoComponenteVisual infoAnotacao, String pastaBase) {
         componente.setNome(infoAnotacao.nome());
         componente.setDescricao(infoAnotacao.descricao());
         componente.setClasseCSS(infoAnotacao.classesCSS());
@@ -42,7 +43,7 @@ public class UtilSBFabricaComponenteVisual {
 
     }
 
-    public static void aplicarPropCompVisual(ComponenteVisualSB pComponente, ItfFabTipoComponenteVisual pFabrica) {
+    public static void aplicarPropCompVisual(ComponenteVisualBase pComponente, ItfFabTipoComponenteVisual pFabrica) {
         try {
             Field campo = pFabrica.getClass().getField(pFabrica.toString());
             pComponente.setFabricaDoComponente(pFabrica);
@@ -63,8 +64,8 @@ public class UtilSBFabricaComponenteVisual {
 
     }
 
-    public static ComponenteVisualSB getComponenteVisual(ItfFabTipoComponenteVisual pFabrica) {
-        ComponenteVisualSB componente = new ComponenteVisualSB();
+    public static ComponenteVisualBase getComponenteVisual(ItfFabTipoComponenteVisual pFabrica) {
+        ComponenteVisualBase componente = new ComponenteVisualBase();
 
         aplicarPropCompVisual(componente, pFabrica);
 
@@ -72,8 +73,10 @@ public class UtilSBFabricaComponenteVisual {
 
     }
 
-    public static ComponenteVisualSB getComponenteVisualPersonalizado(ItfFabTipoComponenteVisual pFabrica) {
-        ComponenteVisualSB componente = new ComponenteVisualSB();
+    @Deprecated
+    public static ItfComponenteVisualSB getComponenteVisualPersonalizado(ItfFabTipoComponenteVisual pFabrica) {
+        ComponenteVisualBase componente = new ComponenteVisualBase();
+
         try {
 
             Field campo = pFabrica.getClass().getField(pFabrica.toString());
@@ -85,12 +88,12 @@ public class UtilSBFabricaComponenteVisual {
             } catch (NoSuchMethodException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
                 Logger.getLogger(UtilSBFabricaComponenteVisual.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            return componente;
         } catch (NoSuchFieldException | SecurityException ex) {
             Logger.getLogger(UtilSBFabricaComponenteVisual.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-        return componente;
+        }
+        return null;
 
     }
 
