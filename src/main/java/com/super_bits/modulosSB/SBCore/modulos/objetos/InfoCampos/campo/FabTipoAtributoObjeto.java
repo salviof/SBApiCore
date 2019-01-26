@@ -218,6 +218,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
     /**
      * Indica um responsável por uma empresa
      */
+    @Deprecated
     RESPONSAVEL,
     /**
      * Indica um nome Completo

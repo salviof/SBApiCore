@@ -200,7 +200,8 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
             }
             setValor(pValor);
         } else {
-            setValor(pValor);
+            throw new ErroValidacao("Erro validando " + getLabel());
+
         }
     }
 

@@ -21,13 +21,20 @@ public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
     private final ItfComponenteVisualSB tipoComponente;
     private final String nomeIdentificador;
     private final int prioridade;
+    private final int peso;
 
     public ComponenteVisualEmLayout(ItfComponenteVisualSB tipoComponente,
             String pNomeIdentificador, int pPrioridade) {
+        this(tipoComponente, pNomeIdentificador, pPrioridade, tipoComponente.getPesoLargura());
+
+    }
+
+    public ComponenteVisualEmLayout(ItfComponenteVisualSB tipoComponente,
+            String pNomeIdentificador, int pPrioridade, int pPeso) {
         this.tipoComponente = tipoComponente;
         nomeIdentificador = pNomeIdentificador;
         prioridade = pPrioridade;
-
+        peso = pPeso;
     }
 
     @Override
@@ -77,7 +84,7 @@ public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
 
     @Override
     public int getPesoLargura() {
-        return tipoComponente.getPesoLargura();
+        return peso;
     }
 
     @Override
