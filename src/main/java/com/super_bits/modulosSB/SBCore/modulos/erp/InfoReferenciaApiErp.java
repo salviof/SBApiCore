@@ -9,7 +9,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItffabricaTrasporteComunicacao;
 
 /**
  *
@@ -21,6 +20,6 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItffabricaTrasporteCo
 @Target(ElementType.TYPE)
 public @interface InfoReferenciaApiErp {
 
-    public Class<? extends ItffabricaTrasporteComunicacao> tipoObjeto();
+    public Class<? extends ItfApiErpSuperBits> tipoObjeto();
 
 }
