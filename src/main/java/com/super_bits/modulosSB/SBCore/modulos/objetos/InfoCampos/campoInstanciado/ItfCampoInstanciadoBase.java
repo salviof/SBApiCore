@@ -29,6 +29,10 @@ public interface ItfCampoInstanciadoBase {
      */
     public void setValor(Object pValor);
 
+    public default void setValorComLogDeAlteracao(Object pValor) {
+        System.out.println("Alteração de valor com log de alteração ainda não foi implementado");
+    }
+
     /**
      *
      * Retorna o objeto onde o atributo está instanciado
