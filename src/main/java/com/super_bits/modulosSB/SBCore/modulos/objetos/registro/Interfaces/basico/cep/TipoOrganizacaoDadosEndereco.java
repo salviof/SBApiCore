@@ -6,7 +6,6 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
@@ -78,6 +77,9 @@ public enum TipoOrganizacaoDadosEndereco {
                             }
 
                         }
+                    }
+                    if (localizacao == null) {
+                        campoInstanciado.getObjetoDoAtributo();
                     }
                     if (localizacao == null) {
                         throw new UnsupportedOperationException("Campo Localização relacionado não foi encontrado");
