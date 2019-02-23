@@ -45,4 +45,8 @@ public interface ItfComunicacao extends ItfBeanSimplesSomenteLeitura {
     public long getTempoAceitavelResposta();
 
     public void setTempoAceitavelResposta(long pTempo);
+
+    public FabStatusComunicacao getStatusComunicacao();
+
+    public void setStatusComunicacao(FabStatusComunicacao pStatus);
 }
