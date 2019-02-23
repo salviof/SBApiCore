@@ -30,6 +30,8 @@ public interface ItfComunicacao extends ItfBeanSimplesSomenteLeitura {
 
     public String getAssunto();
 
+    public void setAssunto(String pAssunto);
+
     public void setNome(String pAssunto);
 
     public String getMensagem();
