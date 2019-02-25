@@ -7,11 +7,7 @@ package org.coletivojava.fw.utilCoreBase;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoPreparacaoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanGenerico;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-
 import java.lang.reflect.Method;
-import java.util.Optional;
-import javax.persistence.DiscriminatorColumn;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 
@@ -26,7 +22,8 @@ public class UtilSBCoreReflexaoObjetoSimples {
             Method metodo = pClasse.getMethod("prepararNovoObjeto", Object[].class);
             InfoPreparacaoObjeto infoPreparacaoObjeto = metodo.getAnnotation(InfoPreparacaoObjeto.class);
             return infoPreparacaoObjeto;
-        } catch (Throwable t) {
+        } catch (NoSuchMethodException | SecurityException t) {
+
             return null;
         }
     }
