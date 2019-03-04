@@ -7,6 +7,7 @@ package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import org.coletivojava.fw.api.objetoNativo.comunicacao.TipoRespostaComunicacao;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringEnumECaixaAlta;
 
 /**
  *
@@ -174,9 +175,16 @@ public enum FabTipoRespostaComunicacao implements ItfFabrica {
 
     @Override
     public TipoRespostaComunicacao getRegistro() {
-
+        String textobotao;
+        switch (this) {
+            case ENTENDIDO:
+                textobotao = "Ok";
+                break;
+            default:
+                textobotao = UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula(this);
+        }
         TipoRespostaComunicacao respCM = new TipoRespostaComunicacao(this);
-        respCM.setNome(this.toString());
+        respCM.setNome(textobotao);
         respCM.setId(this.ordinal() + 1);
         respCM.setIcone(getIconePadrao());
 

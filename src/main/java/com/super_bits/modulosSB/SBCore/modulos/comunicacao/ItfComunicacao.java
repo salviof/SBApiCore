@@ -6,6 +6,7 @@ package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,4 +52,8 @@ public interface ItfComunicacao extends ItfBeanSimplesSomenteLeitura {
     public FabStatusComunicacao getStatusComunicacao();
 
     public void setStatusComunicacao(FabStatusComunicacao pStatus);
+
+    public Date getDataHoraDisparo();
+
+    public Date getDataHoraResposta();
 }

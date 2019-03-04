@@ -13,6 +13,9 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComuni
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.comunicacao.RespostaComunicacao;
 
@@ -76,13 +79,38 @@ public class UtilSBCoreComunicacao {
 
     }
 
+    private static class OrdemPositivoPorUltimo implements Comparator<ItfRespostaComunicacao> {
+
+        @Override
+        public int compare(ItfRespostaComunicacao o1, ItfRespostaComunicacao o2) {
+            if (o1.getTipoResposta().isRespostasPosiva()) {
+                if (o2.getTipoResposta().isRespostasPosiva()) {
+                    return -1;
+                }
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+
+    }
+
     public static List<ItfRespostaComunicacao> getRespostaCOmunicacao(ItfComunicacao pComunicacao) {
+
+        return getRespostaCOmunicacao(pComunicacao.getTipoComunicacao().getFabTipoComunicacao(), pComunicacao);
+
+    }
+
+    public static List<ItfRespostaComunicacao> getRespostaCOmunicacao(FabTipoComunicacao pTipoComunicacao, ItfComunicacao cm) {
         List<ItfRespostaComunicacao> respostas = new ArrayList<>();
 
-        for (ItfTipoRespostaComunicacao resposta : getTipoRespostas(pComunicacao.getTipoComunicacao().getFabTipoComunicacao())) {
-            RespostaComunicacao resp = new RespostaComunicacao(pComunicacao, resposta);
+        getTipoRespostas(pTipoComunicacao).stream().map((resposta)
+                -> new RespostaComunicacao(cm, resposta)).forEach((resp) -> {
             respostas.add(resp);
-        }
+        });
+
+        Comparator cp = new OrdemPositivoPorUltimo();
+        respostas.sort(cp);
         return respostas;
 
     }
