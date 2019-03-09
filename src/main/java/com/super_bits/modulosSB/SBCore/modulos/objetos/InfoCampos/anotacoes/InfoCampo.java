@@ -189,4 +189,6 @@ public @interface InfoCampo {
 
     public String nomeOrigem() default "";
 
+    public FabTipoPesquisa tipoPesquisa() default FabTipoPesquisa.PADRAO;
+
 }
