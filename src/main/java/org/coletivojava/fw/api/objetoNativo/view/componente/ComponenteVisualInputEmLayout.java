@@ -15,43 +15,13 @@ import org.coletivojava.fw.utilCoreBase.UtilSBCoreLayoutComponenteEmTelaBasico;
  */
 public class ComponenteVisualInputEmLayout extends ComponenteVisualEmLayout implements ItfComponenteVisualSBCampoEmLayout {
 
-    private static int getPesoLargura(ItfCampoInstanciado pCampoInst) {
-        switch (pCampoInst.getPropriedadesRefexao().getFabTipoAtributo()) {
-            case LISTA_OBJETOS_PUBLICOS:
-                if (pCampoInst.isSomenteLeitura()) {
-                    return 3;
-
-                }
-            case TEXTO_SIMPLES:
-                if (pCampoInst.getMascara() == null || pCampoInst.getMascara().isEmpty()) {
-                    return pCampoInst.getComponenteVisualPadrao().getPesoLargura();
-                } else {
-                    int numCaracteres = pCampoInst.getMascara().length();
-                    if (numCaracteres > 40) {
-                        return 5;
-                    }
-
-                    if (numCaracteres > 20) {
-                        return 4;
-                    }
-                    if (numCaracteres > 9) {
-                        return 3;
-                    }
-
-                    return pCampoInst.getPropriedadesRefexao().getFabTipoAtributo().getPesoLarguraEspecifico();
-                }
-            default:
-                return pCampoInst.getPropriedadesRefexao().getFabTipoAtributo().getPesoLarguraEspecifico();
-        }
-    }
-
     private final ItfCampoExibicaoFormulario campoExibicaoFormulario;
 
     public ComponenteVisualInputEmLayout(ItfCampoInstanciado pCampoInstanciado, ItfCampoExibicaoFormulario pCaminhoCampo) {
         super(pCampoInstanciado.getComponenteVisualPadrao(),
                 pCaminhoCampo.getCaminhoCompletoComGrupoCampo(),
                 UtilSBCoreLayoutComponenteEmTelaBasico.getPrioridadePadraoPorTipoCampo(pCampoInstanciado.getFabricaTipoAtributo()),
-                getPesoLargura(pCampoInstanciado)
+                getPesoLarguraByCampoInstanciado(pCampoInstanciado)
         );
 
         campoExibicaoFormulario = pCaminhoCampo;

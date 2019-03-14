@@ -19,7 +19,9 @@ public class ComponenteVisualSubListaEmLayout extends ComponenteVisualEmLayout {
     public ComponenteVisualSubListaEmLayout(ItfCampoInstanciado pCampoInstanciado, ItfCampoListagemExibicaoFormulario pCaminhoCampo) {
         super(pCampoInstanciado.getComponenteVisualPadrao(),
                 pCaminhoCampo.getCaminhoCompletoComGrupoCampo(),
-                UtilSBCoreLayoutComponenteEmTelaBasico.getPrioridadePadraoPorTipoCampo(pCampoInstanciado.getFabricaTipoAtributo())
+                UtilSBCoreLayoutComponenteEmTelaBasico.getPrioridadePadraoPorTipoCampo(pCampoInstanciado.getFabricaTipoAtributo(),
+                        getPesoLarguraByCampoInstanciado(pCampoInstanciado)
+                )
         );
 
         caminhoCampo = pCaminhoCampo;

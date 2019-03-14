@@ -23,14 +23,49 @@ public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
     private final int prioridade;
     private final int peso;
 
-    public ComponenteVisualEmLayout(ItfComponenteVisualSB tipoComponente,
-            String pNomeIdentificador, int pPrioridade) {
+    protected static int getPesoLarguraByCampoInstanciado(ItfCampoInstanciado pCampoInst) {
+        switch (pCampoInst.getPropriedadesRefexao().getFabTipoAtributo()) {
+            case LISTA_OBJETOS_PUBLICOS:
+                if (pCampoInst.isSomenteLeitura()) {
+                    return 3;
+
+                }
+            case TEXTO_SIMPLES:
+                if (pCampoInst.getMascara() == null || pCampoInst.getMascara().isEmpty()) {
+                    return pCampoInst.getComponenteVisualPadrao().getPesoLargura();
+                } else {
+                    int numCaracteres = pCampoInst.getMascara().length();
+                    if (numCaracteres > 40) {
+                        return 5;
+                    }
+
+                    if (numCaracteres > 20) {
+                        return 4;
+                    }
+                    if (numCaracteres > 9) {
+                        return 3;
+                    }
+
+                    return pCampoInst.getPropriedadesRefexao().getFabTipoAtributo().getPesoLarguraEspecifico();
+                }
+            default:
+                return pCampoInst.getPropriedadesRefexao().getFabTipoAtributo().getPesoLarguraEspecifico();
+        }
+    }
+
+    public ComponenteVisualEmLayout(
+            ItfComponenteVisualSB tipoComponente,
+            String pNomeIdentificador,
+            int pPrioridade) {
         this(tipoComponente, pNomeIdentificador, pPrioridade, tipoComponente.getPesoLargura());
 
     }
 
-    public ComponenteVisualEmLayout(ItfComponenteVisualSB tipoComponente,
-            String pNomeIdentificador, int pPrioridade, int pPeso) {
+    public ComponenteVisualEmLayout(
+            ItfComponenteVisualSB tipoComponente,
+            String pNomeIdentificador,
+            int pPrioridade,
+            int pPeso) {
         this.tipoComponente = tipoComponente;
         nomeIdentificador = pNomeIdentificador;
         prioridade = pPrioridade;
