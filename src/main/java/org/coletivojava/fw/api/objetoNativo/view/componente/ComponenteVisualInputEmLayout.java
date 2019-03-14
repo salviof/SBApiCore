@@ -33,10 +33,10 @@ public class ComponenteVisualInputEmLayout extends ComponenteVisualEmLayout impl
                         return 3;
                     }
 
-                    return pCampoInst.getComponenteVisualPadrao().getPesoLargura();
+                    return pCampoInst.getPropriedadesRefexao().getFabTipoAtributo().getPesoLarguraEspecifico();
                 }
             default:
-                return pCampoInst.getComponenteVisualPadrao().getPesoLargura();
+                return pCampoInst.getPropriedadesRefexao().getFabTipoAtributo().getPesoLarguraEspecifico();
         }
     }
 
