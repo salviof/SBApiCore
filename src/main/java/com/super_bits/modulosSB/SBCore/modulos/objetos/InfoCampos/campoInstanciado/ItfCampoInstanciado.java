@@ -5,6 +5,7 @@
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfValidacao;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario.FabEstadoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.ItfPropriedadesReflexaoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
 
@@ -214,4 +215,6 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
     public ItfValidacao getValidacaoLogica();
 
     public boolean isUmValorEmLista();
+
+    public void setStatusFormularioExibicao(FabEstadoFormulario pStatusForm);
 }

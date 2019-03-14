@@ -17,6 +17,11 @@ public class ComponenteVisualInputEmLayout extends ComponenteVisualEmLayout impl
 
     private static int getPesoLargura(ItfCampoInstanciado pCampoInst) {
         switch (pCampoInst.getPropriedadesRefexao().getFabTipoAtributo()) {
+            case LISTA_OBJETOS_PUBLICOS:
+                if (pCampoInst.isSomenteLeitura()) {
+                    return 3;
+
+                }
             case TEXTO_SIMPLES:
                 if (pCampoInst.getMascara() == null || pCampoInst.getMascara().isEmpty()) {
                     return pCampoInst.getComponenteVisualPadrao().getPesoLargura();
@@ -48,6 +53,7 @@ public class ComponenteVisualInputEmLayout extends ComponenteVisualEmLayout impl
                 UtilSBCoreLayoutComponenteEmTelaBasico.getPrioridadePadraoPorTipoCampo(pCampoInstanciado.getFabricaTipoAtributo()),
                 getPesoLargura(pCampoInstanciado)
         );
+
         campoExibicaoFormulario = pCaminhoCampo;
     }
 
