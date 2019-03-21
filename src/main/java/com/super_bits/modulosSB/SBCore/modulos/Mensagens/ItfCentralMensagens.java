@@ -5,10 +5,18 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Mensagens;
 
+import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ItfServicoCoreSB;
+
 /**
+ * ############################################################# <br/>
+ * Esta Interface assina um dos serviços do núcleo SBCore
+ * <br/>
+ * Veja todos os serviços disponíveis digitando SBCore.getServico...
+ * ############################################################# <br/>
+ *
  *
  * * A Central de menssagens permite Enviar Mensagens para os principais
- * [Agentes de sistema]: [usuários], [programadores], e [sistema] <br>
+ * [Agentes de sistema]: [usuários], [desenvolvedores], e [sistema] <br>
  *
  * A principal diferença da [central de mensagens], para a [central de
  * comunicação], é que na a central de mensagens não existe resposta a mensagem
@@ -24,7 +32,7 @@ package com.super_bits.modulosSB.SBCore.modulos.Mensagens;
  *
  * @author Salvio
  */
-public interface ItfCentralMensagens {
+public interface ItfCentralMensagens extends ItfServicoCoreSB {
 
     /**
      *

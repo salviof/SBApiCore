@@ -6,50 +6,49 @@ package com.super_bits.modulosSB.SBCore.modulos.Mensagens;
 
 /**
  *
- * Tudo que interage alterando o sistema é considerado um agente do sistema
+ * Tudo que é capaz de abrir uma sessão na aplicação, e receber mensagens é
+ * considerado um agente do sistema.
  *
  * O Super-Bits FrameWork, considera 3 tipos de agentes em um sistema:
  *
- * USUÁRIO, SISTEMA E DESENVOLVEDOR
  *
- * Sistema: Logs (em geral redireciona para a central de evetos
- * -ItfCentralEventos)
+ * @see FabTipoAgenteDoSistema#USUARIO
+ * @see FabTipoAgenteDoSistema#SISTEMA
+ * @see FabTipoAgenteDoSistema#DESENVOLVEDOR
  *
- * @see FabTipoAgenteDoSistema.USUARIO
- * @see com.super_bits.modulosSB.SBCore.modulos.logeventos.ItfCentralEventos
+ * Obs: Sim, nos orgulhamos de ter o desenvolvedor com oum dos agentes do
+ * sistema, e consideramos isso, um diferencial poderoso e inclusivo.
  *
- *
- *
- *
- * @author sfurbino
- *
- *
+ * @author salviof@gmail.com
  */
 public enum FabTipoAgenteDoSistema {
 
     /**
      *
-     * O usuaŕio representa uma pessoa que está utilizando o sistema
+     * O usuaŕio <br/>
      *
-     * - > Em Breaking Bad seria o Pink
+     * Caso de uso: Usuário loga e cadastra um cliente.
      *
      */
     USUARIO,
     /**
      *
-     * Indica o Sistema em sí.. (ContainerJavaEE por exemplo)
-     *
-     * -> Em Breaking bad seria a o governo e a sociedade
+     * (Representa o ContainerJavaEE) <br/>
+     * Caso de uso: Execução de Ações programadas, Registro de Logs, e outros
      *
      */
     SISTEMA,
     /**
      *
+     * Pode chamar de Deus, se você for um bit de computador que acredita no
+     * criacionismo <br/>
      *
-     * Representa a equipe que cria a forma como o sistema deve funcionar.
+     * Caso de uso:Agente sistema, ou agente usuário, solicita Reparos ao agente
+     * desenvolvedor, Agente Sistema exibe informações técnicas ao agente
+     * Desenolvedor ao executar um Junit
      *
-     *
-     * -> em Breaking bad representa o Waltter
+     * Agente desenvolvedor, entra no sistema e altera uma configuração de um
+     * módulo, acessa ferramentas de desenovolvimento
      *
      */
     DESENVOLVEDOR
