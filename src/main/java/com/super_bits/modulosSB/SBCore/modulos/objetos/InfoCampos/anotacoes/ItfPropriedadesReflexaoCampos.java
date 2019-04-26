@@ -36,7 +36,7 @@ public interface ItfPropriedadesReflexaoCampos {
 
     public Class<? extends ItfFabrica> getFabricaCriacaoOpcoes();
 
-    public Object getObjetoDoAtributo();
+    public Class getClasseDoObjetoDesteAtributo();
 
     public String getCaminhoListagemOpcoes();
 

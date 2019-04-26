@@ -106,15 +106,18 @@ public abstract class UtilSBCoreReflexaoAPIERP {
             classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
             if (classesImplementacao.isEmpty()) {
                 anotacaoImplementacao = ReflectionUtils.forName(getNomeClasseAnotacaoImplementacaoPadrao(pApi));
-                classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
-                if (!classesImplementacao.isEmpty()) {
-                    mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0));
-                    return getClasseImplementacaoDoContexto(pApi);
+                if (anotacaoImplementacao != null) {
+                    classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+                    if (!classesImplementacao.isEmpty()) {
+                        mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0));
+                        return getClasseImplementacaoDoContexto(pApi);
+                    }
                 }
 
             }
 
-            throw new UnsupportedOperationException("Implementação para " + pApi + "não foi encontrada");
+            throw new UnsupportedOperationException("Implementação para " + pApi + "não foi encontrada, precisa anotar com" + anotacaoImplementacao.getSimpleName()
+                    + " e estar localizada no pacote " + ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("Erro tentando obter classe que represente" + pApi, t);
             return null;

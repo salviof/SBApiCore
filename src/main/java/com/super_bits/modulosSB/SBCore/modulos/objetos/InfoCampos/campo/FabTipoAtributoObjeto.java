@@ -784,6 +784,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
             case IMG_MEDIA:
             case IMG_GRANDE:
             case CODIGO_DE_BARRAS:
+
                 return TIPO_PRIMITIVO.LETRAS;
 
             case ID:
@@ -826,8 +827,10 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
             case LC_CIDADE:
             case LC_UNIDADE_FEDERATIVA:
             case FORMULARIO_DE_ACAO:
+            case LISTA_OBJETOS_PARTICULARES:
                 return TIPO_PRIMITIVO.ENTIDADE;
             case ENUM_FABRICA:
+            case STATUS_ENUM:
                 return TIPO_PRIMITIVO.OUTROS_OBJETOS;
 
             default:
@@ -964,4 +967,5 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
         }
 
     }
+
 }
