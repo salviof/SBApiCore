@@ -364,16 +364,17 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
                 break;
             case COR: //regex
                 sbCampo.setLabelPadrao("Cor");
-                sbCampo.setValidacaoRegex("^$|^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
+                sbCampo.setValidacaoRegex("^#?([a-f0-9]{6}|[a-f0-9]{3})$|^$");
                 break;
             case EMAIL:
                 sbCampo.setLabelPadrao("E-mail");
-                sbCampo.setValorMinimo(6);
+
                 sbCampo.setValidacaoRegex("^$|^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$");
                 break;
             case SITE:
                 // REGEX
                 sbCampo.setLabelPadrao("Site");
+                sbCampo.setValidacaoRegex("^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$");
                 //sbCampo.setValidacaoRegex("^((www.|ftp.)?)([\\w]{1,20}.)(com.|net)(br)?$");
                 break;
             case URL:
@@ -438,13 +439,13 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
             case REG_DATAALTERACAO:
                 // tipo primitivo Data mascara data
                 sbCampo.setLabelPadrao("Dt. Alteração");
-                sbCampo.setValidacaoRegex("^$|^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$");
+                //sbCampo.setValidacaoRegex("^$|^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$");
                 sbCampo.setMascara("##/##/####");
                 break;
             case REG_DATAINSERCAO:
                 // tipo primitivo Data mascara data
                 sbCampo.setLabelPadrao("Dt. Inclusão");
-                sbCampo.setValidacaoRegex("^$|^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$");
+                //sbCampo.setValidacaoRegex("^$|^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$");
                 sbCampo.setMascara("##/##/####");
                 break;
             case REG_USUARIO_ALTERACAO:

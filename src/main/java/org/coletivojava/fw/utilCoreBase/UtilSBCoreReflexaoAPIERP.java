@@ -98,21 +98,15 @@ public abstract class UtilSBCoreReflexaoAPIERP {
                 List<Class> opcoes = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
                 if (!opcoes.isEmpty()) {
                     mapaServicosErpRegistrados.put(pApi, opcoes.get(0));
-                    return getClasseImplementacaoDoContexto(pApi);
+                    return opcoes.get(0);
                 }
             }
             String anotacaoImplementacaoContexto = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacao(pApi);
             anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoContexto);
             classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
-            if (classesImplementacao.isEmpty()) {
-                anotacaoImplementacao = ReflectionUtils.forName(getNomeClasseAnotacaoImplementacaoPadrao(pApi));
-                if (anotacaoImplementacao != null) {
-                    classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
-                    if (!classesImplementacao.isEmpty()) {
-                        mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0));
-                        return getClasseImplementacaoDoContexto(pApi);
-                    }
-                }
+            if (!classesImplementacao.isEmpty()) {
+                mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0));
+                return classesImplementacao.get(0);
 
             }
 

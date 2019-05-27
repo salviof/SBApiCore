@@ -38,4 +38,6 @@ public interface ItfParametroRequisicaoInstanciado extends ItfParametroRequisica
 
     public String getSlugValorParametro();
 
+    public String getTextoEnviadoUrl();
+
 }
