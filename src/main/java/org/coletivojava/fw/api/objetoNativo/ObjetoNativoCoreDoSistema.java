@@ -40,7 +40,7 @@ public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
 
     @Override
     public int hashCode() {
-        return getNomeUnicoSlug().hashCode();
+        return toString().hashCode();
     }
 
     @Override
@@ -337,17 +337,12 @@ public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+        try {
+            return obj.hashCode() == hashCode();
+        } catch (Throwable t) {
+            return super.equals(obj);
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ObjetoNativoCoreDoSistema other = (ObjetoNativoCoreDoSistema) obj;
-        return true;
+
     }
 
 }

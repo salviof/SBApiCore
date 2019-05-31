@@ -56,4 +56,11 @@ public interface ItfComunicacao extends ItfBeanSimplesSomenteLeitura {
     public Date getDataHoraDisparo();
 
     public Date getDataHoraResposta();
+
+    public default boolean isAssuntoIgualMensagem() {
+        if (getMensagem() == null) {
+            return false;
+        }
+        return getMensagem().equals(getAssunto());
+    }
 }
