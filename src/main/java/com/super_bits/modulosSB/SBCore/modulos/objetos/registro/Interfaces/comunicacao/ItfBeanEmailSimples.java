@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public interface ItfBeanEmailSimples extends ItfBeanSimples {
 
-    public String getAssunto();
+    public String getNome();
 
     public String getTextoMensagem();
 

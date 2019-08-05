@@ -119,7 +119,7 @@ public enum FabCompVisualInputs implements ItfFabTipoComponenteVisual {
     IMAGEM_MEDIO_DE_ENTIDADE,
     @InfoComponenteVisual(nome = "Imagem grande de Entidade",
             xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "imagemDeEntidadeGrande.xhtml", classesCSS = "imagemGrande",
-            pesoLargura = FabColunasTela.QUATRO)
+            pesoLargura = FabColunasTela.TRES)
     IMAGEM_GRANDE_DE_ENTIDADE;
 
     public static final String PASTA_CAMPOS = "input/campo/";

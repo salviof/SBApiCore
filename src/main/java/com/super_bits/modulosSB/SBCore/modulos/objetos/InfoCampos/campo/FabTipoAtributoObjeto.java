@@ -949,6 +949,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
 
         switch (this) {
             case ID:
+            case VERDADEIRO_FALSO:
 
             case QUANTIDADE:
             case PERCENTUAL:
@@ -962,7 +963,8 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
             case MOEDA_REAL:
             case MOEDA_DOLAR:
                 return FabColunasTela.DOIS.getQuantidade();
-
+            case IMG_MEDIA:
+                return FabColunasTela.TRES.getQuantidade();
             default:
                 return getTipo_input_prime().getRegistro().getPesoLargura();
         }

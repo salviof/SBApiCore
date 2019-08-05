@@ -61,6 +61,6 @@ public interface ItfComunicacao extends ItfBeanSimplesSomenteLeitura {
         if (getMensagem() == null) {
             return false;
         }
-        return getMensagem().equals(getAssunto());
+        return getMensagem().equals(getNome());
     }
 }

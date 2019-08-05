@@ -17,6 +17,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
+@Deprecated
 public @interface InfoCampoDinamico {
 
     public String campoValorReflection() default "";
