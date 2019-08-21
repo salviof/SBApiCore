@@ -99,13 +99,14 @@ public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
     @Override
     @Deprecated
     public String getXhtmlVisao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        return null;
     }
 
     @Override
     @Deprecated
     public String getXhtmlVisaoMobile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override

@@ -27,5 +27,7 @@ public @interface InfoCampoValorLogico {
 
     public ParametroCalculo[] parametros() default {};
 
+    public boolean atualizarSempreQueSalvar() default false;
+
     public Class classePrincipal() default void.class;
 }

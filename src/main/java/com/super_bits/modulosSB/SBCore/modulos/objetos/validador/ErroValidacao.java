@@ -23,4 +23,9 @@ public class ErroValidacao extends Exception {
         return mensagemAoUsuario;
     }
 
+    @Override
+    public String getMessage() {
+        return mensagemAoUsuario;
+    }
+
 }

@@ -218,4 +218,5 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
     public boolean isUmValorEmLista();
 
     public void setStatusFormularioExibicao(FabEstadoFormulario pStatusForm);
+
 }
