@@ -940,6 +940,18 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
         }
     }
 
+    public boolean isPossuiValidacaoLogicaNativa() {
+        switch (this) {
+            case CPF:
+                return true;
+            case CNPJ:
+                return true;
+
+            default:
+                return false;
+        }
+    }
+
     public String getValorAleatorioDesconforme() {
 
         throw new UnsupportedOperationException("Ainda nao implementado");
