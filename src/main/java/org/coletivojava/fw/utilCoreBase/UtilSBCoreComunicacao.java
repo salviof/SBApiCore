@@ -64,7 +64,7 @@ public class UtilSBCoreComunicacao {
                 respostasDaComunicacao.add(FabTipoRespostaComunicacao.CANCELAR.getRegistro());
                 break;
             case CONFIRMAR_CANCELAR:
-                respostasDaComunicacao.add(FabTipoRespostaComunicacao.CONFIRMANR.getRegistro());
+                respostasDaComunicacao.add(FabTipoRespostaComunicacao.CONFIRMAR.getRegistro());
                 respostasDaComunicacao.add(FabTipoRespostaComunicacao.CANCELAR.getRegistro());
                 break;
             case OK_CANCELAR:

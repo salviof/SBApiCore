@@ -72,7 +72,7 @@ public @interface InfoCampo {
      * <tr><td>?</td><td>Qualquer letra(<code>Character.isLetter</code>).</td>
      * </tr>
      * <tr><td>*</td><td>Qualquer coisa</td></tr>
-     * <tr><td>H</td><td>Caracteres ExaDecimais (0-9, a-f or A-F).</td></tr>
+     * <tr><td>H</td><td>Caracteres HexaDecimal (0-9, a-f or A-F).</td></tr>
      * </table>
      *
      *

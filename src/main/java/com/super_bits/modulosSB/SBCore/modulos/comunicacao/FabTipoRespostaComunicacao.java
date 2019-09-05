@@ -66,7 +66,7 @@ public enum FabTipoRespostaComunicacao implements ItfFabrica {
      *
      */
     ENTENDIDO,
-    CONFIRMANR,
+    CONFIRMAR,
     OK,
     /**
      *
@@ -135,7 +135,7 @@ public enum FabTipoRespostaComunicacao implements ItfFabrica {
             case ENVIAR_INFORMACAO:
                 return "fa fa-reply";
 
-            case CONFIRMANR:
+            case CONFIRMAR:
                 return "fa fa-check";
 
             default:
@@ -160,7 +160,7 @@ public enum FabTipoRespostaComunicacao implements ItfFabrica {
             case AUTORIZADO:
             case NAO_AUTORIZADO:
             case ENTENDIDO:
-            case CONFIRMANR:
+            case CONFIRMAR:
             case OK:
             case PERSONALIZADA:
             case RESPONDER_COM_TEXTO:
