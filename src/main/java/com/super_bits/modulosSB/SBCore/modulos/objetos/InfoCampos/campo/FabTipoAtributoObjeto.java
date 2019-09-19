@@ -269,6 +269,9 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
      */
     CODIGO_DE_BARRAS,
     ICONE,
+    /**
+     * @deprecated
+     */
     SEGURANCA_ATIVA,
     /**
      * Indica um arquivo da entidade
