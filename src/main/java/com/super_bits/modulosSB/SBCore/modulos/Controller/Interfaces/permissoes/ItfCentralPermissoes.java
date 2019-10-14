@@ -6,6 +6,7 @@ package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes
 
 import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ItfServicoCoreSB;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.token.ItfTokenRecuperacaoEmail;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfGrupoUsuario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 
@@ -73,5 +74,13 @@ public interface ItfCentralPermissoes extends ItfServicoCoreSB {
     public boolean isAcaoPermitidaUsuario(ItfUsuario pUsuario, ItfAcaoDoSistema acao);
 
     public boolean isPermitidoUsuario(ItfUsuario pUsuario, ItfPermissao pPermissao);
+
+    /**
+     *
+     * @param pUsuario
+     * @param pMinutosValidade 1 dia: 1440 uma semana: 10080, um mês: 40320
+     * @return
+     */
+    public ItfTokenRecuperacaoEmail gerarTokenRecuperacaoDeSenha(ItfUsuario pUsuario, int pMinutosValidade);
 
 }
