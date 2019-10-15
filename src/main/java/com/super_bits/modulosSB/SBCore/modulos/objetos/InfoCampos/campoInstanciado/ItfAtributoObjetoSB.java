@@ -111,6 +111,7 @@ public interface ItfAtributoObjetoSB extends ItfTipoAtributoSBSomenteLeitura {
 
     /**
      *
+     *
      * @return Verdadeiro se Houver Valor Logico
      */
     public boolean isUmValorLogico();

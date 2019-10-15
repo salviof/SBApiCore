@@ -1,0 +1,131 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.super_bits.modulosSB.SBCore.modulos.objetos.comparadorObjeto;
+
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Objects;
+
+/**
+ *
+ * @author salviofurbino
+ * @since 12/10/2019
+ * @version 1.0
+ */
+public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
+
+    private final FabTipoAtributoObjeto tipoAtributo;
+    private final boolean ordemReversa;
+
+    public ComparadorGenerico(FabTipoAtributoObjeto pTipoComparacao, boolean pOrdemReversa) {
+        tipoAtributo = pTipoComparacao;
+        ordemReversa = pOrdemReversa;
+    }
+
+    @Override
+    public int compare(ItfBeanSimples o1, ItfBeanSimples o2) {
+        //primeiro menor envia negativo
+        //segundo menor envia positivo
+        // igual 0;
+        int valorPrimeiroMaior = 1;
+        int valorPrimentoMenor = -1;
+        if (ordemReversa) {
+            valorPrimeiroMaior = -1;
+            valorPrimentoMenor = 1;
+        }
+        Object valor1;
+        Object valor2;
+        ItfCampoInstanciado cp1 = o1.getCampoInstanciadoByAnotacao(tipoAtributo);
+        ItfCampoInstanciado cp2 = o2.getCampoInstanciadoByAnotacao(tipoAtributo);
+        valor1 = cp1.getValor();
+        valor2 = cp2.getValor();
+        if ((valor1 == null || cp1.isCampoNaoInstanciado()) && (valor2 == null || cp2.isCampoNaoInstanciado())) {
+            return 0;
+        }
+        if (valor1 == null || cp1.isCampoNaoInstanciado()) {
+            return valorPrimentoMenor;
+        }
+        if (valor2 == null || cp2.isCampoNaoInstanciado()) {
+            return valorPrimeiroMaior;
+        }
+        switch (tipoAtributo.getTipoPrimitivo()) {
+            case INTEIRO:
+                if (Integer.valueOf(valor1.toString()) > Integer.valueOf(valor2.toString())) {
+                    return valorPrimeiroMaior;
+                }
+                if (Integer.valueOf(valor1.toString()) < Integer.valueOf(valor2.toString())) {
+                    return valorPrimentoMenor;
+                }
+                return 0;
+
+            case NUMERO_LONGO:
+                if (Long.valueOf(valor1.toString()) > Long.valueOf(valor2.toString())) {
+                    return valorPrimeiroMaior;
+                }
+                if (Long.valueOf(valor1.toString()) < Long.valueOf(valor2.toString())) {
+                    return valorPrimentoMenor;
+                }
+                return 0;
+
+            case LETRAS:
+                if (ordemReversa) {
+                    return valor1.toString().compareToIgnoreCase(valor2.toString());
+                } else {
+
+                    return valor1.toString().compareToIgnoreCase(valor2.toString()) * -1;
+                }
+
+            case DATAS:
+                Date data1 = (Date) valor1;
+                Date data2 = (Date) valor2;
+                if (data1.getTime() > data2.getTime()) {
+                    return valorPrimeiroMaior;
+                }
+                if (data1.getTime() < data2.getTime()) {
+                    return valorPrimeiroMaior;
+                }
+                return 0;
+
+            case BOOLEAN:
+
+                Boolean v1 = (Boolean) valor1;
+                Boolean v2 = (Boolean) valor2;
+                if (Objects.equals(v1, v2)) {
+                    return 0;
+                }
+                if (v1) {
+                    return valorPrimeiroMaior;
+                } else {
+                    return valorPrimentoMenor;
+                }
+
+            case DECIMAL:
+
+                if (Double.valueOf(valor1.toString()) > Double.valueOf(valor2.toString())) {
+                    return valorPrimeiroMaior;
+                }
+                if (Double.valueOf(valor1.toString()) < Double.valueOf(valor2.toString())) {
+                    return valorPrimentoMenor;
+                }
+                return 0;
+
+            case ENTIDADE:
+                return new ComparadorGenerico(FabTipoAtributoObjeto.AAA_NOME, ordemReversa).compare((ItfBeanSimples) cp1.getValor(), (ItfBeanSimples) cp2.getValor());
+
+            case OUTROS_OBJETOS:
+                throw new UnsupportedOperationException("a comparação deste tipo de atributo não foi definida ");
+
+            default:
+                throw new AssertionError(tipoAtributo.getTipoPrimitivo().name());
+
+        }
+
+    }
+
+}
