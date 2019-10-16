@@ -965,14 +965,13 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
         switch (this) {
             case ID:
             case VERDADEIRO_FALSO:
-
             case QUANTIDADE:
             case PERCENTUAL:
-
                 return FabColunasTela.UM.getQuantidade();
             case TELEFONE_CELULAR:
             case TELEFONE_FIXO_NACIONAL:
             case TELEFONE_FIXO_INTERNACIONAL:
+
             case TELEFONE_GENERICO:
             case CNPJ:
             case MOEDA_REAL:
