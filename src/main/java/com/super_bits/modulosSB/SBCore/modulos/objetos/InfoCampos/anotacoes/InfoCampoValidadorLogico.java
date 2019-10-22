@@ -20,4 +20,5 @@ import java.lang.annotation.Target;
 public @interface InfoCampoValidadorLogico {
 
     public String descricao() default "Descrição desnescessária";
+
 }

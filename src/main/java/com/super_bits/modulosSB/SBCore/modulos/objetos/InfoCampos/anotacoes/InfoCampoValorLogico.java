@@ -30,4 +30,6 @@ public @interface InfoCampoValorLogico {
     public boolean atualizarSempreQueSalvar() default false;
 
     public Class classePrincipal() default void.class;
+
+    public boolean somenteLeitura() default true;
 }
