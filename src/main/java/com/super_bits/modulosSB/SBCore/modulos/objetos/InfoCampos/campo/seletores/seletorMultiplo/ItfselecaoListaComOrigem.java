@@ -16,4 +16,6 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
 public interface ItfselecaoListaComOrigem<T extends ItfBeanSimplesSomenteLeitura> extends
         ItfSeletorGenerico<T>, ItfListagemItensSomenteLeitura<T> {
 
+    public void atualizaPickListViewContexto();
+
 }

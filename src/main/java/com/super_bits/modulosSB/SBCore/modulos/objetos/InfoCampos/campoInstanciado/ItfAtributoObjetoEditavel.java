@@ -33,4 +33,6 @@ public interface ItfAtributoObjetoEditavel extends ItfAtributoObjetoSB, ItfTipoA
 
     public void setTemValidacaoLogica(boolean pValor);
 
+    public void setPermitirCadastroManualEndereco(boolean permitirCadastroManualEndereco);
+
 }

@@ -122,4 +122,6 @@ public interface ItfAtributoObjetoSB extends ItfTipoAtributoSBSomenteLeitura {
      */
     public boolean isUmaListaDinamica();
 
+    public boolean isPermitirCadastroManualEndereco();
+
 }

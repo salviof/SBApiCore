@@ -16,8 +16,6 @@ public interface ItfSeletorGenerico<T extends ItfBeanSimplesSomenteLeitura> {
 
     public void atualizaOrigemPelaSelecao();
 
-    public void atualizaPickListViewContexto();
-
     public String getNomeOrigem();
 
     public void setNomeOrigem(String pNomeString);
@@ -29,5 +27,21 @@ public interface ItfSeletorGenerico<T extends ItfBeanSimplesSomenteLeitura> {
     public void selecionarTudo();
 
     public List<T> getOrigem();
+
+    public void atualizarListaCompleta();
+
+    public List filtrarPorAutoComplet(String pParametro);
+
+    public String getFiltro();
+
+    public void listarPrimeiros50();
+
+    public void setFiltro(String pFiltro);
+
+    public void limparFiltro();
+
+    public int getMinimoParaPesquisa();
+
+    public void setMinimoParaPesquisa(int minimoParaPesquisa);
 
 }
