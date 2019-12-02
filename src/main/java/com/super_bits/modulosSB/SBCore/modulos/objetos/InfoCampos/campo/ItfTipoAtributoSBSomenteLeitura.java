@@ -230,4 +230,10 @@ public interface ItfTipoAtributoSBSomenteLeitura extends ItfBeanSimplesSomenteLe
      */
     public boolean isUmCampoDinamico();
 
+    /**
+     *
+     * @return Caso true, atualiza o valor antes de salvar
+     */
+    public boolean isAtualizarValorLogicoAoPersistir();
+
 }

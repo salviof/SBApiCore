@@ -35,4 +35,6 @@ public interface ItfAtributoObjetoEditavel extends ItfAtributoObjetoSB, ItfTipoA
 
     public void setPermitirCadastroManualEndereco(boolean permitirCadastroManualEndereco);
 
+    public void setAtualizarValorLogicoAoPersistir(boolean pAtualizarValorLogico);
+
 }
