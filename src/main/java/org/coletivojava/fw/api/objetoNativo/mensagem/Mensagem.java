@@ -26,7 +26,8 @@ public class Mensagem implements ItfMensagem {
         this.TIPOdeSTINATARIO = TIPOdeSTINATARIO;
         this.tipoMensagem = tipoMensagem;
         // -TODO formatação boas práticas, mensagem de erro
-        this.mensagem = mensagem.replace("não", "NÃO");
+
+        this.mensagem = mensagem;
 
     }
 
