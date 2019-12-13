@@ -9,7 +9,6 @@ import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP;
-import static org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP.getPacoteApiClasseAnotacao;
 import org.reflections.ReflectionUtils;
 
 /**
@@ -42,7 +41,7 @@ public interface ItfApiErpSuperBits<T> extends ItfFabrica {
             }
             return classeApi;
         } catch (Throwable t) { //
-            LogManager.getLogger(LogPadraoSB.class).error("Erro obtendo Anotação da      api                        " + this.toString(), t);
+            LogManager.getLogger(LogPadraoSB.class).error("Erro obtendo Anotação da  api  " + this.toString(), t);
             return null;
         }
 
