@@ -292,8 +292,9 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
     STATUS_ENUM;
 
     public void configuraPropriedadesBasicas(ItfTipoAtributoSB sbCampo) {
-
-        sbCampo.setNome(this.toString().replace("_", " ").toLowerCase());
+        if (sbCampo.getNome() == null || sbCampo.getNome().isEmpty()) {
+            sbCampo.setNome(this.toString().replace("_", " ").toLowerCase());
+        }
         switch (this) {
             case TEXTO_SIMPLES:
                 break;

@@ -88,7 +88,7 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
                     return valorPrimeiroMaior;
                 }
                 if (data1.getTime() < data2.getTime()) {
-                    return valorPrimeiroMaior;
+                    return valorPrimentoMenor;
                 }
                 return 0;
 
