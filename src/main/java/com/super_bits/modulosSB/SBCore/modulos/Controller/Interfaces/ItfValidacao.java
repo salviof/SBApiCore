@@ -29,4 +29,16 @@ public interface ItfValidacao<T> {
         return (T) getCampoInstanciado().getObjetoDoAtributo();
     }
 
+    public default boolean isAtualizarTelaGrupoFieldSetDoCampo() {
+        return false;
+    }
+
+    public default String[] atualizarTelaCampoEspecifico() {
+        return new String[]{};
+    }
+
+    public default String getJavscriptPosValidacao() {
+        return null;
+    }
+
 }

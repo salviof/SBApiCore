@@ -22,10 +22,16 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
 
     private final FabTipoAtributoObjeto tipoAtributo;
     private final boolean ordemReversa;
+    protected int valorPrimeiroMaior = 1;
+    protected int valorPrimentoMenor = -1;
 
     public ComparadorGenerico(FabTipoAtributoObjeto pTipoComparacao, boolean pOrdemReversa) {
         tipoAtributo = pTipoComparacao;
         ordemReversa = pOrdemReversa;
+        if (ordemReversa) {
+            valorPrimeiroMaior = -1;
+            valorPrimentoMenor = 1;
+        }
     }
 
     @Override
@@ -33,12 +39,7 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
         //primeiro menor envia negativo
         //segundo menor envia positivo
         // igual 0;
-        int valorPrimeiroMaior = 1;
-        int valorPrimentoMenor = -1;
-        if (ordemReversa) {
-            valorPrimeiroMaior = -1;
-            valorPrimentoMenor = 1;
-        }
+
         Object valor1;
         Object valor2;
         ItfCampoInstanciado cp1 = o1.getCampoInstanciadoByAnotacao(tipoAtributo);

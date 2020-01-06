@@ -37,8 +37,6 @@ public interface ItfEstruturaDeEntidade extends ItfBeanSimples {
 
     String getIcone();
 
-    String getIconeDaClasse();
-
     List<String> getListaEnum();
 
     List<ItfListaDeEntidade> getListas();
