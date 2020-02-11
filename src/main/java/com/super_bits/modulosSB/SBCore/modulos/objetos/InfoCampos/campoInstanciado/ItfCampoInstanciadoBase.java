@@ -23,6 +23,14 @@ public interface ItfCampoInstanciadoBase {
      */
     public Object getValor();
 
+    public default double getValorComoDouble() {
+        return (double) getValor();
+    }
+
+    public default int getValorComoInteger() {
+        return (int) getValor();
+    }
+
     /**
      *
      * @param pValor Modifica o valor do campo

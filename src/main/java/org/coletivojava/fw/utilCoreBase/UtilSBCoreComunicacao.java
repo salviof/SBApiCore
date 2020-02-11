@@ -13,8 +13,6 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComuni
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.comunicacao.RespostaComunicacao;
