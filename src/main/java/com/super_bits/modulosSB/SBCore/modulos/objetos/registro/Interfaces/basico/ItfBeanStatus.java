@@ -7,9 +7,6 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaStatus;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import java.lang.reflect.Field;
-
 /**
  *
  * @author desenvolvedor
