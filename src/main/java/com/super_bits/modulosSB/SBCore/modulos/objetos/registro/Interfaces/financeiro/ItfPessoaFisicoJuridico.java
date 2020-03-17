@@ -15,16 +15,16 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
 public interface ItfPessoaFisicoJuridico extends ItfBeanContatoPessoa {
 
     @InfoCampoValidadorLogico(descricao = "Validador lógico é CPF/CNPJ")
-    public String getCpf_Cnpj();
+    public String getCpfCnpj();
 
     @Override
     public ItfLocalPostagem getLocalizacao();
 
     public default boolean isUmaPessaFisica() {
-        if (getCpf_Cnpj() == null || getCpf_Cnpj().isEmpty()) {
+        if (getCpfCnpj() == null || getCpfCnpj().isEmpty()) {
             return false;
         }
-        if (getCpf_Cnpj().length() == 11) {
+        if (getCpfCnpj().length() == 11) {
             return true;
         }
         return false;
@@ -32,10 +32,10 @@ public interface ItfPessoaFisicoJuridico extends ItfBeanContatoPessoa {
     }
 
     public default boolean isUmaPessoaJuridica() {
-        if (getCpf_Cnpj() == null || getCpf_Cnpj().isEmpty()) {
+        if (getCpfCnpj() == null || getCpfCnpj().isEmpty()) {
             return false;
         }
-        if (getCpf_Cnpj().length() == 13) {
+        if (getCpfCnpj().length() == 13) {
             return true;
         }
         return false;

@@ -56,14 +56,15 @@ public class UtilSBCoreReflexaoObjetoSimples {
 
     public static <T> T getParametroPrepararObjeto(Class<T> tipoObjeto, InfoPreparacaoObjeto anotacaoInfoPreparacaoObjeto, Object... parametros) throws UnsupportedOperationException {
         int i = 0;
-        for (Class classe : anotacaoInfoPreparacaoObjeto.classesPrConstructorPrincipal()) {
 
-            if (tipoObjeto.getSimpleName().contains(classe.getSimpleName())) {
-                return (T) parametros[i];
+        for (Object obj : parametros) {
+            if (obj != null) {
+                if (UtilSBCoreReflexaoSimples.isClasseIgualOuExetende(obj.getClass(), tipoObjeto)) {
+                    return (T) obj;
+                }
             }
-            i++;
-
         }
+
         throw new UnsupportedOperationException("Parametro do tipo " + tipoObjeto.getSimpleName() + "não foi encontrado");
     }
 

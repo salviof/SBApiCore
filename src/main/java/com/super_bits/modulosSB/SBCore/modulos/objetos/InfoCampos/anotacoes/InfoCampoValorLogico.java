@@ -5,7 +5,6 @@
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.calculos.ParametroCalculo;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.validador.*;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,6 +12,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ ** Indica que o valor do atributo deve ser definido programaticamente <br>
+ * Esta anotação por padrão implica somente leitura
  *
  * @author desenvolvedor
  */
@@ -27,7 +28,7 @@ public @interface InfoCampoValorLogico {
 
     public ParametroCalculo[] parametros() default {};
 
-    public boolean atualizarSempreQueSalvar() default false;
+    public boolean atualizarSempreQueSalvar() default true;
 
     public Class classePrincipal() default void.class;
 

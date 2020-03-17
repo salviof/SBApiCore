@@ -36,4 +36,21 @@ public class UtilSBCoreReflexaoSimples {
         });
         return lista;
     }
+
+    public static boolean isClasseIgualOuExetende(Class pClasseReferencia, Class pClassePesquisada) {
+
+        if (pClasseReferencia.getSimpleName().equals(pClassePesquisada.getSimpleName())) {
+            return true;
+        }
+        Class classeAtual = pClasseReferencia.getSuperclass();
+        while (!classeAtual.getSimpleName().equals(Object.class.getSimpleName())) {
+
+            if (classeAtual.getSimpleName().equals(pClassePesquisada.getSimpleName())) {
+                return true;
+            }
+            classeAtual = classeAtual.getSuperclass();
+        }
+        return false;
+
+    }
 }

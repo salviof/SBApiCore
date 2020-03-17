@@ -20,18 +20,39 @@ import java.util.Objects;
  */
 public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
 
-    private final FabTipoAtributoObjeto tipoAtributo;
+    private FabTipoAtributoObjeto tipoAtributo;
     private final boolean ordemReversa;
     protected int valorPrimeiroMaior = 1;
     protected int valorPrimentoMenor = -1;
+    protected String campoStr;
 
     public ComparadorGenerico(FabTipoAtributoObjeto pTipoComparacao, boolean pOrdemReversa) {
         tipoAtributo = pTipoComparacao;
         ordemReversa = pOrdemReversa;
+
         if (ordemReversa) {
             valorPrimeiroMaior = -1;
             valorPrimentoMenor = 1;
         }
+        if (tipoAtributo == null) {
+            throw new UnsupportedOperationException("Erro tipo de comparador não enviado");
+        }
+    }
+
+    public ComparadorGenerico(String pCampo, boolean pOrdemReversa) {
+
+        if (pCampo == null || pCampo.isEmpty()) {
+
+            throw new UnsupportedOperationException("Erro atributo de comparação não enviado");
+
+        }
+        campoStr = pCampo;
+        ordemReversa = pOrdemReversa;
+        if (pOrdemReversa) {
+            valorPrimeiroMaior = -1;
+            valorPrimentoMenor = 1;
+        }
+
     }
 
     @Override
@@ -39,11 +60,38 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
         //primeiro menor envia negativo
         //segundo menor envia positivo
         // igual 0;
-
         Object valor1;
         Object valor2;
-        ItfCampoInstanciado cp1 = o1.getCampoInstanciadoByAnotacao(tipoAtributo);
-        ItfCampoInstanciado cp2 = o2.getCampoInstanciadoByAnotacao(tipoAtributo);
+        ItfCampoInstanciado cp1;
+        ItfCampoInstanciado cp2;
+        if (tipoAtributo == null) {
+            if (o1 != null) {
+                tipoAtributo = o1.getCPinst(campoStr).getFabricaTipoAtributo();
+            }
+        }
+        if (tipoAtributo == null) {
+            if (o2 != null) {
+                tipoAtributo = o2.getCPinst(campoStr).getFabricaTipoAtributo();
+            }
+        }
+        if (o1 == null && o2 == null) {
+            return valorPrimentoMenor;
+        }
+        if (o1 == null && o2 != null) {
+            return 0;
+        }
+        if (o1 != null && o2 == null) {
+            return valorPrimeiroMaior;
+        }
+
+        if (campoStr != null) {
+            cp1 = o1.getCampoInstanciadoByNomeOuAnotacao(campoStr);
+            cp2 = o2.getCampoInstanciadoByNomeOuAnotacao(campoStr);
+
+        } else {
+            cp1 = o1.getCampoInstanciadoByAnotacao(tipoAtributo);
+            cp2 = o2.getCampoInstanciadoByAnotacao(tipoAtributo);
+        }
         valor1 = cp1.getValor();
         valor2 = cp2.getValor();
         if ((valor1 == null || cp1.isCampoNaoInstanciado()) && (valor2 == null || cp2.isCampoNaoInstanciado())) {

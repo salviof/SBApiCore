@@ -12,6 +12,11 @@ import java.lang.annotation.Target;
 
 /**
  *
+ *
+ * Indica que o valor do atributo deve ser validado programaticamente
+ *
+ *
+ *
  * @author desenvolvedor
  */
 @Documented
