@@ -6,6 +6,7 @@
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
 import org.coletivojava.fw.api.objetoNativo.comunicacao.TipoRespostaComunicacao;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringEnumECaixaAlta;
 
@@ -137,6 +138,8 @@ public enum FabTipoRespostaComunicacao implements ItfFabrica {
 
             case CONFIRMAR:
                 return "fa fa-check";
+            case OK:
+                return "fa fa-thumbs-o-up";
 
             default:
                 throw new AssertionError(this.name());

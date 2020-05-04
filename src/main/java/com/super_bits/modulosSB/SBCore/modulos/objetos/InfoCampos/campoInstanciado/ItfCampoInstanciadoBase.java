@@ -27,6 +27,10 @@ public interface ItfCampoInstanciadoBase {
         return (double) getValor();
     }
 
+    public default long getValorComoLong() {
+        return Long.valueOf(getValor().toString());
+    }
+
     public default int getValorComoInteger() {
         return (int) getValor();
     }
