@@ -35,6 +35,10 @@ public interface ItfCampoInstanciadoBase {
         return (int) getValor();
     }
 
+    public default boolean getValorComoBoolean() {
+        return (boolean) getValor();
+    }
+
     /**
      *
      * @param pValor Modifica o valor do campo

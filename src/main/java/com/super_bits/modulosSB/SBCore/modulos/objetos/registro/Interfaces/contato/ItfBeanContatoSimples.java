@@ -4,15 +4,14 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.contato;
 
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanComEmail;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 
 /**
  *
  * @author sfurbino
  */
-public interface ItfBeanContatoSimples extends ItfBeanSimples {
-
-    public String getEmail();
+public interface ItfBeanContatoSimples extends ItfBeanComEmail, ItfBeanSimples {
 
     public String getTelefonePrincipal();
 

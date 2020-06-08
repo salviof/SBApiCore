@@ -6,6 +6,7 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanci
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfValidacao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario.FabEstadoFormulario;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.calculos.ItfCalculoValorLogicoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.ItfPropriedadesReflexaoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
 
@@ -192,10 +193,10 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
         if (validarCampo(pValor)) {
             if (isTemValidadacaoLogica()) {
                 if (getObjetoDoAtributo().getId() == 0) {
-                    getValidacaoLogica().validarModoNovo(pValor);
+                    getValidacaoLogicaEstrategia().validarModoNovo(pValor);
 
                 } else {
-                    getValidacaoLogica().validarModoEdicao(pValor);
+                    getValidacaoLogicaEstrategia().validarModoEdicao(pValor);
                 }
 
             }
@@ -213,7 +214,9 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
 
     public boolean contem(Object pParametro);
 
-    public ItfValidacao getValidacaoLogica();
+    public ItfValidacao getValidacaoLogicaEstrategia();
+
+    public ItfCalculoValorLogicoAtributoObjeto getValorLogicaEstrategia();
 
     public boolean isUmValorEmLista();
 
