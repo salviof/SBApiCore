@@ -147,6 +147,8 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
 
     public ItfCampoInstSeletorItem getComoCampoSeltorItem();
 
+    public ItfCampoInstanciadoVerdadeiroOuFalso getComoCampoVerdadeiroOuFalso();
+
     /**
      *
      * > dispara exceção caso o campo não seja do tipo localização
