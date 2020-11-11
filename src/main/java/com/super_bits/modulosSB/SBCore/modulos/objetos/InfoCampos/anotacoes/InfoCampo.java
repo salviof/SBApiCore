@@ -161,7 +161,9 @@ public @interface InfoCampo {
 
     /**
      *
-     * @return O caminho do campo para obter a lista
+     *
+     *
+     * @return O caminho de campo relativo para obter a lista de opções
      */
     public String caminhoParaLista() default "";
 
