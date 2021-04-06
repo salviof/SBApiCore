@@ -13,12 +13,18 @@ public @interface InfoCampoArquivoDeEntidade {
     /**
      * Utilize This para referir ao próprio Objeto
      *
+     * @Deprecated Utilize InfoCampoModeloDocumento
      * @return
      */
-    String[] objetosMapeados();
+    @Deprecated
+    public String[] objetosMapeados() default {};
 
-    int tamanhoHorizontal();
+    public String nomeCategoria() default "";
 
-    int tamanhoVertical();
+    public long tamanhoMaximo() default 0l;
+
+    public int tamanhoHorizontal() default 0;
+
+    public int tamanhoVertical() default 0;
 
 }

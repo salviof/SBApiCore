@@ -35,17 +35,23 @@ public class UtilSBCoreReflexaoAtributoDeObjetoSimples {
                 return infoCampo.entidadeOpcoesDisponiveis();
             }
         }
-        ManyToOne muitosParaUm = pCampo.getAnnotation(ManyToOne.class);
-        if (muitosParaUm != null) {
-            if (muitosParaUm.targetEntity() != void.class) {
-                return muitosParaUm.targetEntity();
+        try {
+            //nem sempre a classe manyToone estará presente no projeto, caso não esteja, ignorar o targetEntuty
+            ManyToOne muitosParaUm = pCampo.getAnnotation(ManyToOne.class);
+            if (muitosParaUm != null) {
+                if (muitosParaUm.targetEntity() != void.class) {
+                    return muitosParaUm.targetEntity();
+                }
             }
-        }
-        OneToMany umParaMuitos = pCampo.getAnnotation(OneToMany.class);
-        if (umParaMuitos != null) {
-            if (umParaMuitos.targetEntity() != void.class) {
-                return umParaMuitos.targetEntity();
+
+            OneToMany umParaMuitos = pCampo.getAnnotation(OneToMany.class);
+            if (umParaMuitos != null) {
+                if (umParaMuitos.targetEntity() != void.class) {
+                    return umParaMuitos.targetEntity();
+                }
             }
+        } catch (Throwable t) {
+
         }
 
         if (pCampo.getType().isEnum()) {
