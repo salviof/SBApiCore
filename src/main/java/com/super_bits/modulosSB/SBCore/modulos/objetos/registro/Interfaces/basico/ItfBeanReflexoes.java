@@ -71,6 +71,11 @@ public interface ItfBeanReflexoes {
 
     /**
      *
+     * Retorna o mesmo que getCampoInstanciadoByNomeOuAnotacao
+     *
+     * @see this.getCampoInstanciadoByNomeOuAnotacao()
+     *
+     * @return um campo instanciado, referente ao nome do atributo, ou tipo
      * @see #getCampoInstanciadoByNomeOuAnotacao(java.lang.String)
      * @param pNomeOuANotacao
      */

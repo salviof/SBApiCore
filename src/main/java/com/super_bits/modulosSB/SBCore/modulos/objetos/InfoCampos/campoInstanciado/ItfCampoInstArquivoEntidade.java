@@ -45,6 +45,8 @@ public interface ItfCampoInstArquivoEntidade {
      */
     public boolean isExisteArquivo();
 
+    public String getIconeTipoArquivo();
+
     public String getCaminhoArquivoLocal();
 
     public ItfCampoInstanciado getCampoInstanciado();

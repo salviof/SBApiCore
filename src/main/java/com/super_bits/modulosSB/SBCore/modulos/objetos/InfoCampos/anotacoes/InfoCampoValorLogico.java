@@ -26,6 +26,26 @@ public @interface InfoCampoValorLogico {
 
     public String descricao() default "Descrição desnescessária";
 
+    public String caminhoCampoReferencia() default "";
+
+    /**
+     *
+     * Uso de parametros transients como data inicial e final, foi considerado
+     * má pŕatica
+     *
+     * Caso esteja pensando em criar um paramêtro Transient para calcular um
+     * valor a boa prática é criar uma Classe contendo todos os parametros que
+     * serão usados no campo dinamico, este design promove a especificação do
+     * inputs que na maioria dos casos será preenchido pelo usuário onde a
+     * especificação do atributo é nescessária
+     *
+     * Exemplo: RelatorioCliente.datainicial RelatorioCliente.datafinal
+     * RelatorioCliente.getBoletos();
+     *
+     * @return
+     * @deprecated
+     */
+    @Deprecated
     public ParametroCalculo[] parametros() default {};
 
     public boolean atualizarSempreQueSalvar() default true;

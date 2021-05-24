@@ -26,6 +26,7 @@ public @interface InfoCalculo {
 
     public String descricao();
 
+    @Deprecated
     public ParametroCalculo[] parametros() default {};
 
     public Class classePrincipal() default void.class;

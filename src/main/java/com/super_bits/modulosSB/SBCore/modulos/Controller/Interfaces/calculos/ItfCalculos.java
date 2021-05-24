@@ -12,6 +12,10 @@ public interface ItfCalculos {
 
     public Object getValor(Object... pEntidade);
 
+    public default void atualizarValor() {
+        getValor();
+    }
+
     public default Long getSomaPadrao(Object... pParametros) {
         throw new UnsupportedOperationException("a soma padrão de calculos ainda não foi implementada");
     }
