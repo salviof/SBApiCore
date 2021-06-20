@@ -6,6 +6,8 @@
 package org.coletivojava.fw.utilCoreBase;
 
 import java.text.Normalizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -28,10 +30,15 @@ public class UtilSBCoreStringFiltrosSimples {
             return null;
         }
         param = Normalizer.normalize(param, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
-        param = param.replace("/", "_");
-
-        param = param.replace("\\", "_");
-        param = param.replaceAll("[^\\p{ASCII}]", "");
+        param = param.replace(" ", "I666I");
+        param = param.replace("_", "I666I");
+        Pattern pt = Pattern.compile("[^a-zA-Z0-9]");
+        Matcher match = pt.matcher(param);
+        while (match.find()) {
+            String s = match.group();
+            param = param.replaceAll("\\" + s, "");
+        }
+        param = param.replace("I666I", "_");
         return param;
 
     }
