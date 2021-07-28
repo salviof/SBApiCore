@@ -83,4 +83,6 @@ public interface ItfCentralPermissoes extends ItfServicoCoreSB {
      */
     public ItfTokenRecuperacaoEmail gerarTokenRecuperacaoDeSenha(ItfUsuario pUsuario, int pMinutosValidade);
 
+    public void persitirMergePermissoes();
+
 }

@@ -23,6 +23,18 @@ public interface ItfCampoInstanciadoBase {
      */
     public Object getValor();
 
+    /**
+     *
+     * @param pValor Modifica o valor do campo
+     */
+    public void setValor(Object pValor);
+
+    public void setValorValidando(Object pValor);
+
+    public default Object getValorValidando() {
+        return getValor();
+    }
+
     public default double getValorComoDouble() {
         return (double) getValor();
     }
@@ -42,12 +54,6 @@ public interface ItfCampoInstanciadoBase {
     public default boolean getValorComoBoolean() {
         return (boolean) getValor();
     }
-
-    /**
-     *
-     * @param pValor Modifica o valor do campo
-     */
-    public void setValor(Object pValor);
 
     public default void setValorComLogDeAlteracao(Object pValor) {
         System.out.println("Alteração de valor com log de alteração ainda não foi implementado");

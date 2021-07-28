@@ -24,7 +24,7 @@ public interface ItfRespostaAcaoDoSistema extends ItfResposta {
      * @param pFormulario Ação de formulário
      * @return A própria resposta contendo um formulário para exibição
      */
-    public ItfResposta setProximoFormulario(ItfAcaoFormulario pFormulario);
+    public ItfRespostaAcaoDoSistema setProximoFormulario(ItfAcaoFormulario pFormulario);
 
     /**
      *

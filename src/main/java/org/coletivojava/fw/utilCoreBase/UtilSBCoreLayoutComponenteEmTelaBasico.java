@@ -68,6 +68,7 @@ public class UtilSBCoreLayoutComponenteEmTelaBasico {
             case CHART_LABEL:
             case CHART_CATEGORIA:
             case DATAHORA:
+            case HORA:
             case URL:
             case CPF:
 

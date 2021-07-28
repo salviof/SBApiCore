@@ -4,6 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
 import java.util.List;
 

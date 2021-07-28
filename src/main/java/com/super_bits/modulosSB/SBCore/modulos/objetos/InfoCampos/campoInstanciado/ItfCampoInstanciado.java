@@ -12,6 +12,8 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupo
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.validador.ErroValidacao;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -190,6 +192,16 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
     public boolean isUmaListagemParticular();
 
     public ItfGrupoCampos getGrupoCampoExibicao();
+
+    @Override
+    public default void setValorValidando(Object pValor) {
+
+        try {
+            setValorSeValido(pValor);
+        } catch (ErroValidacao ex) {
+            Logger.getLogger(ItfCampoInstanciado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public default void setValorSeValido(Object pValor) throws ErroValidacao {
         if (validarCampo(pValor)) {
