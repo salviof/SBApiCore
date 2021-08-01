@@ -106,10 +106,19 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
         switch (tipoAtributo.getTipoPrimitivo()) {
             case INTEIRO:
                 if (Integer.valueOf(valor1.toString()) > Integer.valueOf(valor2.toString())) {
-                    return valorPrimeiroMaior;
+                    if (!ordemReversa) {
+                        return valorPrimentoMenor;
+                    } else {
+                        return valorPrimeiroMaior;
+                    }
+
                 }
                 if (Integer.valueOf(valor1.toString()) < Integer.valueOf(valor2.toString())) {
-                    return valorPrimentoMenor;
+                    if (!ordemReversa) {
+                        return valorPrimeiroMaior;
+                    } else {
+                        return valorPrimentoMenor;
+                    }
                 }
                 return 0;
 
@@ -134,10 +143,18 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
                 Date data1 = (Date) valor1;
                 Date data2 = (Date) valor2;
                 if (data1.getTime() > data2.getTime()) {
-                    return valorPrimeiroMaior;
+                    if (!ordemReversa) {
+                        return valorPrimeiroMaior;
+                    } else {
+                        return valorPrimentoMenor;
+                    }
                 }
                 if (data1.getTime() < data2.getTime()) {
-                    return valorPrimentoMenor;
+                    if (!ordemReversa) {
+                        return valorPrimentoMenor;
+                    } else {
+                        return valorPrimeiroMaior;
+                    }
                 }
                 return 0;
 
