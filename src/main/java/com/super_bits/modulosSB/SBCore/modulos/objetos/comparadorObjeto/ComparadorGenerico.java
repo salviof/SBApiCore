@@ -48,6 +48,7 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
         }
         campoStr = pCampo;
         ordemReversa = pOrdemReversa;
+        //Ordem inversa alterna inverte o resultado da comparação
         if (pOrdemReversa) {
             valorPrimeiroMaior = -1;
             valorPrimentoMenor = 1;
@@ -106,27 +107,24 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
         switch (tipoAtributo.getTipoPrimitivo()) {
             case INTEIRO:
                 if (Integer.valueOf(valor1.toString()) > Integer.valueOf(valor2.toString())) {
-                    if (!ordemReversa) {
-                        return valorPrimentoMenor;
-                    } else {
-                        return valorPrimeiroMaior;
-                    }
+                    //Atenção em caso de ordem reversa os valores das variaveis valorPrimeioroMaior e Menor já foram invertidos
+                    return valorPrimeiroMaior;
 
                 }
                 if (Integer.valueOf(valor1.toString()) < Integer.valueOf(valor2.toString())) {
-                    if (!ordemReversa) {
-                        return valorPrimeiroMaior;
-                    } else {
-                        return valorPrimentoMenor;
-                    }
+                    //Atenção em caso de ordem reversa os valores das variaveis valorPrimeioroMaior e Menor já foram invertidos
+                    return valorPrimentoMenor;
+
                 }
                 return 0;
 
             case NUMERO_LONGO:
                 if (Long.valueOf(valor1.toString()) > Long.valueOf(valor2.toString())) {
+                    //Atenção em caso de ordem reversa os valores das variaveis valorPrimeioroMaior e Menor já foram invertidos
                     return valorPrimeiroMaior;
                 }
                 if (Long.valueOf(valor1.toString()) < Long.valueOf(valor2.toString())) {
+                    //Atenção em caso de ordem reversa os valores das variaveis valorPrimeioroMaior e Menor já foram invertidos
                     return valorPrimentoMenor;
                 }
                 return 0;
@@ -135,7 +133,6 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
                 if (ordemReversa) {
                     return valor1.toString().compareToIgnoreCase(valor2.toString());
                 } else {
-
                     return valor1.toString().compareToIgnoreCase(valor2.toString()) * -1;
                 }
 
@@ -143,18 +140,14 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
                 Date data1 = (Date) valor1;
                 Date data2 = (Date) valor2;
                 if (data1.getTime() > data2.getTime()) {
-                    if (!ordemReversa) {
-                        return valorPrimeiroMaior;
-                    } else {
-                        return valorPrimentoMenor;
-                    }
+                    //Atenção em caso de ordem reversa os valores das variaveis valorPrimeioroMaior e Menor já foram invertidos
+                    return valorPrimeiroMaior;
+
                 }
                 if (data1.getTime() < data2.getTime()) {
-                    if (!ordemReversa) {
-                        return valorPrimentoMenor;
-                    } else {
-                        return valorPrimeiroMaior;
-                    }
+                    //Atenção em caso de ordem reversa os valores das variaveis valorPrimeioroMaior e Menor já foram invertidos
+                    return valorPrimentoMenor;
+
                 }
                 return 0;
 
@@ -174,9 +167,11 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
             case DECIMAL:
 
                 if (Double.valueOf(valor1.toString()) > Double.valueOf(valor2.toString())) {
+                    //Atenção em caso de ordem reversa os valores das variaveis valorPrimeioroMaior e Menor já foram invertidos
                     return valorPrimeiroMaior;
                 }
                 if (Double.valueOf(valor1.toString()) < Double.valueOf(valor2.toString())) {
+                    //Atenção em caso de ordem reversa os valores das variaveis valorPrimeioroMaior e Menor já foram invertidos
                     return valorPrimentoMenor;
                 }
                 return 0;
