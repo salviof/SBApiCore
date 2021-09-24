@@ -16,15 +16,15 @@ public interface ItfTipoTela {
 
     int getId();
 
-    String getNome();
+    public String getNome();
 
-    int getxMaximo();
+    public int getxMaximo();
 
-    int getxMinimo();
+    public int getxMinimo();
 
-    int getyMaximo();
+    public int getyMaximo();
 
-    int getyMinimo();
+    public int getyMinimo();
 
     void setColunas(FabColunasTela colunas);
 
