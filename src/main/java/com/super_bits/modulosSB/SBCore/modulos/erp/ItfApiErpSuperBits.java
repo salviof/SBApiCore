@@ -6,9 +6,21 @@ package com.super_bits.modulosSB.SBCore.modulos.erp;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfValidacao;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAtributoDeObjetoSimples;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoSimples;
 import org.reflections.ReflectionUtils;
 
 /**
@@ -52,6 +64,27 @@ public interface ItfApiErpSuperBits<T> extends ItfFabrica {
         return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
     }
 
+    public default <I extends ItfBeanSimples> I getDTO(String pJson, Class<? extends I> pItefaceObjeto) throws ErroJsonInterpredador {
+
+        String classeDTOStr = UtilSBCoreReflexaoAPIERP.getPacoteApiDTO(this, pItefaceObjeto) + "." + UtilSBCoreReflexaoAPIERP.getNomeDTOClassePojo(pItefaceObjeto);
+        Class classeValidacao = (Class<? extends ItfValidacao>) ReflectionUtils.forName(classeDTOStr);
+        if (classeValidacao == null) {
+            List<Class> interfacesSuportadas = getInterfacesDeEntidade();
+            StringBuilder texto = new StringBuilder();
+            interfacesSuportadas.stream().map(classe -> classe.getSimpleName().concat(" ")).forEach(texto::append);
+            throw new ErroJsonInterpredador(this, pItefaceObjeto, pJson, "A classe de transferencia de dados não foi encontrada, as intefaces suportadas são:" + interfacesSuportadas.toString());
+
+        }
+        Constructor consTructorDTO;
+        try {
+            consTructorDTO = classeValidacao.getConstructor(String.class);
+            I dto = (I) consTructorDTO.newInstance(pJson);
+            return dto;
+        } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+            throw new ErroJsonInterpredador(this, pItefaceObjeto, pJson, ex);
+        }
+    }
+
     public default Class<? extends T> getClasseImplementacaoPadrao() {
         String nomeAotacao = UtilSBCoreReflexaoAPIERP.getNomeClasseAnotacaoImplementacaoPadrao(this);
         String nomeCanonico = UtilSBCoreReflexaoAPIERP.getPacoteApiClasseAnotacao(this)
@@ -62,6 +95,47 @@ public interface ItfApiErpSuperBits<T> extends ItfFabrica {
 
     public default T getClasseImplementacaoTestes() {
         return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
+    }
+
+    public default ItfServicoLinkDeEntidadesERP getRepositorioLinkEntidadesByID() {
+        /// Retorna a estratégia padrão: Se tiver implementando em um sistema com persistencia, usa o banco, se não usa um mapeamento dos ultimos 20 ids, se quiser implentar personalizado,
+        // basta substituir a implementação padrão
+
+        String classeDTOStr = "com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.erp.repositorioLinkEntidades.RepositorioLinkEntidadesGenerico";
+        Class classeRepositorio = ReflectionUtils.forName(classeDTOStr);
+        ItfServicoLinkDeEntidadesERP repostitorio;
+
+        try {
+            repostitorio = (ItfServicoLinkDeEntidadesERP) classeRepositorio.newInstance();
+            return repostitorio;
+        } catch (InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(ItfApiErpSuperBits.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
+    }
+
+    public default List<Class> getInterfacesDeEntidade() {
+        List<Class> classes = new ArrayList<>();
+        Class classeIntegracao = getInterface();
+        for (Method metodo : classeIntegracao.getMethods()) {
+
+            Class retorno = metodo.getReturnType();
+            System.out.println("");
+            if (retorno.getSimpleName().equals("List")) {
+                ParameterizedType type = (ParameterizedType) metodo.getGenericReturnType();
+                Class tipoDaLista = (Class) type.getActualTypeArguments()[0];
+                retorno = tipoDaLista;
+            }
+            //  UtilSBCoreReflexaoAtributoDeObjetoSimples.getClassePrincipalDoCampo(pCampo)
+            if (UtilSBCoreReflexaoSimples.isInterfaceIgualOuExetende(retorno, ItfBeanSimplesSomenteLeitura.class)) {
+                if (!classes.contains(retorno)) {
+                    classes.add(retorno);
+                }
+
+            }
+        }
+        return classes;
     }
 
 }

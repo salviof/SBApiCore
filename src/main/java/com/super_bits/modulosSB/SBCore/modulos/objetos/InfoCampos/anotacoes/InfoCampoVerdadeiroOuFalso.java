@@ -21,7 +21,7 @@ public @interface InfoCampoVerdadeiroOuFalso {
 
     String iconePostivio() default "fa fa-check text-success";
 
-    String iconeNegativo() default "fa fa-check text-danger";
+    String iconeNegativo() default "fa fa-times text-danger";
 
     String textoPositivo() default "Sim";
 

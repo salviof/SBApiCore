@@ -22,4 +22,6 @@ public @interface InfoCampoModeloDocumento {
     public Class classeModeloVinculado() default void.class;
 
     public String[] camposCadastrados() default {};
+
+    public boolean camposCadastradosDinamicos() default false;
 }

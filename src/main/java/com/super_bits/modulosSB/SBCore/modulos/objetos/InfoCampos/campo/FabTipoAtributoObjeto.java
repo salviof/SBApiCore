@@ -268,6 +268,9 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
      * Indica um código de barras
      */
     CODIGO_DE_BARRAS,
+    /**
+     * https://fontawesome.com/v4.7.0/examples/
+     */
     ICONE,
     /**
      * @deprecated

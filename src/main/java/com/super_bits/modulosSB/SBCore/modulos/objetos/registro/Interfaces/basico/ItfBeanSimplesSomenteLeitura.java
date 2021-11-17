@@ -8,18 +8,12 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
  *
  * @author desenvolvedor
  */
-public interface ItfBeanSimplesSomenteLeitura extends ItfBeanIDUnicoSomenteLeitura {
+public interface ItfBeanSimplesSomenteLeitura extends ItfBeanIDUnicoSomenteLeitura, ItfBeanVisualizavel {
 
     public String getNomeCurto();
 
     public String getNome();
 
     public String getIconeDaClasse();
-
-    public String getXhtmlVisao();
-
-    public String getXhtmlVisaoMobile();
-
-    public String getXhtmlVisao(int numeroColunas);
 
 }

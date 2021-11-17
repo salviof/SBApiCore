@@ -5,6 +5,7 @@
  */
 package org.coletivojava.fw.utilCoreBase;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -43,6 +44,9 @@ public class UtilSBCoreReflexaoSimples {
             return true;
         }
         Class classeAtual = pClasseReferencia.getSuperclass();
+        if (classeAtual == null) {
+            return false;
+        }
         while (!classeAtual.getSimpleName().equals(Object.class.getSimpleName())) {
 
             if (classeAtual.getSimpleName().equals(pClassePesquisada.getSimpleName())) {
@@ -53,4 +57,37 @@ public class UtilSBCoreReflexaoSimples {
         return false;
 
     }
+
+    public static boolean isInterfaceIgualOuExetende(Class pClasseReferencia, Class pClassePesquisada) {
+
+        if (pClasseReferencia.getSimpleName().equals(pClassePesquisada.getSimpleName())) {
+            return true;
+        }
+
+        return isInterfaceIgualOuExetendeRecursivo(pClasseReferencia, pClassePesquisada);
+
+    }
+
+    private static boolean isInterfaceIgualOuExetendeRecursivo(Class pClasseReferencia, Class pClassePesquisada) {
+        Class[] interfaces = pClasseReferencia.getInterfaces();
+        if (pClasseReferencia.getSimpleName().equals(pClassePesquisada.getSimpleName())) {
+            return true;
+        }
+        if (interfaces.length == 0) {
+            return false;
+        }
+        if (pClasseReferencia.getSimpleName().equals("Object")) {
+            return false;
+        }
+
+        for (Class itfAtual : interfaces) {
+            boolean encontrou = isInterfaceIgualOuExetendeRecursivo(itfAtual, pClassePesquisada);
+            if (encontrou) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
 }

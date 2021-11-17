@@ -40,7 +40,21 @@ public abstract class UtilSBCoreReflexaoAPIERP {
         String slug = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
         String nomeAnotacaoApi = slug + UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
         return nomeAnotacaoApi;
+    }
 
+    public static String getSlugTipoImplementacao(ItfApiErpSuperBits pApi) {
+        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
+        String slug = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
+        return slug;
+    }
+
+    public static String getSlugEntidade(Class pClasse) {
+        String nome = pClasse.getSimpleName();
+        if (nome.startsWith("Itf")) {
+            nome = nome.substring(3, nome.length());
+        }
+        nome = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(nome);
+        return nome;
     }
 
     public static String getNomeAnotacaoImplementacaoProducao(ItfApiErpSuperBits pApi) {
@@ -76,6 +90,38 @@ public abstract class UtilSBCoreReflexaoAPIERP {
         ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
         String enderecoPacote = ENDERECO_BASE_PACOTE_API + "." + infoApi.nomeApi().toLowerCase();
         return enderecoPacote;
+    }
+
+    public static String getPacoteApiDTO(ItfApiErpSuperBits pApi, Class pIntefaceDeEntidade) {
+        String pacoteBase = getPacoteImplementacaoERP(pApi);
+        String pacoteDTO = pacoteBase + ".json_bind_" + pApi.toString().toLowerCase()
+                + "." + getSlugEntidade(pIntefaceDeEntidade);
+        return pacoteDTO;
+    }
+
+    public static String getNomeDTOInterface(Class pInterface) {
+        String slugEntidade = getSlugEntidade(pInterface);
+        StringBuilder nome = new StringBuilder();
+        nome.append("Itf");
+        nome.append("DTO");
+        nome.append(slugEntidade);
+        return nome.toString();
+    }
+
+    public static String getNomeDTOClassePojo(Class pInterface) {
+        String slugEntidade = getSlugEntidade(pInterface);
+        StringBuilder nome = new StringBuilder();
+        nome.append("DTO");
+        nome.append(slugEntidade);
+        return nome.toString();
+    }
+
+    public static String getNomeDTOProcessClassePojo(Class pInterface) {
+        String slugEntidade = getSlugEntidade(pInterface);
+        StringBuilder nome = new StringBuilder();
+        nome.append("JsonBindDTO");
+        nome.append(slugEntidade);
+        return nome.toString();
     }
 
     public static ApiERPColetivoJavaFW getInformacoesApi(ItfApiErpSuperBits pApi) {
