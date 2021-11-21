@@ -18,6 +18,7 @@ public interface ItfServicoLinkDeEntidadesERP {
 
     public boolean registrarCodigoLigacaoApi(Class pEntidade, int codigoInterno, String codigoAPIExterna);
 
+    @Deprecated
     public <T extends ItfBeanSimplesSomenteLeitura> T getObjetoDTOFromJson(Class<? extends T> pClass, String Json);
 
 }
