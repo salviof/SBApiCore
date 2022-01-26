@@ -45,40 +45,40 @@ public interface ItfCaminhoCampo {
 
     public String getPrimeiroCaminhoSemNomeClasse();
 
-    Field getCampoFieldReflection();
+    public Field getCampoFieldReflection();
 
-    int getId();
+    public int getId();
 
-    String getLabel();
+    public String getLabel();
 
-    String getLabelDoCampo();
+    public String getLabelDoCampo();
 
-    List<String> getPartesCaminho();
+    public List<String> getPartesCaminho();
 
     /**
      *
      *
      * @return O tipo do campo caso seja uma
      */
-    Class getTipoCampo();
+    public Class getTipoCampo();
 
-    TIPO_ORIGEM_VALOR_CAMPO getTipoRegistro();
+    public TIPO_ORIGEM_VALOR_CAMPO getTipoRegistro();
 
-    List<String> getTodasListas();
+    public List<String> getTodasListas();
 
-    List<String> getTodosCaminhosPossiveis();
+    public List<String> getTodosCaminhosPossiveis();
 
-    List<String> getTodosCaminhosPossiveisSemUltimoParametro();
+    public List<String> getTodosCaminhosPossiveisSemUltimoParametro();
 
-    String getUltimoNome();
+    public String getUltimoNome();
 
-    boolean isUmCampoListavel();
+    public boolean isUmCampoListavel();
 
-    boolean isUmCampoSeparador();
+    public boolean isUmCampoSeparador();
 
-    boolean isUmCampoVinculado();
+    public boolean isUmCampoVinculado();
 
-    boolean isUmTipoComOutrasPropriedades();
+    public boolean isUmTipoComOutrasPropriedades();
 
     /**
      * Verifica se o campo é um campo com outras propriedades, podendo ser ou
@@ -86,12 +86,12 @@ public interface ItfCaminhoCampo {
      *
      * @return True quando o campo conter propriedades e for persistivel
      */
-    boolean isUmaEntidade();
+    public boolean isUmaEntidade();
 
-    void setCaminhoComleto(String caminhoComleto);
+    public void setCaminhoComleto(String caminhoComleto);
 
-    void setId(int pID);
+    public void setId(int pID);
 
-    boolean temUmTipoComOutrasPropriedades();
+    public boolean temUmTipoComOutrasPropriedades();
 
 }
