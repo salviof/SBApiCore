@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.coletivojava.fw.api.objetoNativo.controller.sistemaErp;
+package com.super_bits.modulosSB.SBCore.modulos.erp;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import jakarta.json.JsonObject;
@@ -12,16 +12,22 @@ import jakarta.json.JsonObject;
  *
  * @author sfurbino
  */
-public interface ItfSistemaErp extends ItfBeanSimples {
-
-    public String getDominio();
+public interface ItfSistemaERP extends ItfBeanSimples {
 
     public String getChavePublica();
 
+    public JsonObject getComoJson();
+
+    public String getDominio();
+
     public String getHashChavePublica();
 
-    public String getUrlRecepcaoCodigo();
+    public int getId();
 
-    public JsonObject getComoJson();
+    public String getNome();
+
+    public String getUrlPublicaEndPoint();
+
+    public String getUrlRecepcaoCodigo();
 
 }

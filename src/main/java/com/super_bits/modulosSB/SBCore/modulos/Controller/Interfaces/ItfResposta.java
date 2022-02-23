@@ -101,14 +101,23 @@ public interface ItfResposta {
      * resposta, ideal para usar com return no método da ação, quando tudo
      * ocorre bem e você já tem o objeto resultante desta ação.1
      *
+     * @Deprecated 1-> Má pratica pois a definição do retorno se dá antes da
+     * finalização da atividade, onde ocorre o commit das alteraçõs do banco de
+     * dados, tornando imprudente enviar mensagem ao usuário antes do commit 2->
+     * nome do metodo desapropriado, é desnesessário informar o retorno do
+     * objeto no nome do métdo ao implementar o padrão de projeto builder.
      * @param pObjetoResultante Objeto retornado junto a resposta
      * @return A própria resposta com novoo objeto resultante
      */
+    @Deprecated
     public ItfResposta setRetornoDisparaERetorna(Object pObjetoResultante);
 
     public ItfResposta setRetorno(Object pObjetoResultante);
 
     /**
+     *
+     * TODO: Renomear, é desnesessário informar o retorno do objeto no nome do
+     * métdo ao implementar o padrão de projeto builder.
      *
      * @param pMensagem
      * @return
@@ -116,6 +125,9 @@ public interface ItfResposta {
     public ItfResposta addMensagemAvisoDisparaERetorna(String pMensagem);
 
     /**
+     *
+     * * TODO: Renomear, é desnesessário informar o retorno do objeto no nome
+     * do métdo ao implementar o padrão de projeto builder.
      *
      * @param pMensagem
      * @return

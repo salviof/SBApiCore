@@ -387,7 +387,8 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
             case URL:
                 // regex
                 sbCampo.setLabelPadrao("URL");
-                sbCampo.setValidacaoRegex("^$|https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&\\/=]*)");
+                sbCampo.setValidacaoRegex("^$|http[s]?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\b([-a-zA-Z0-9@:%_\\+.~#?&\\/=]*)");
+                //^                         $|http[s]?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\b([-a-zA-Z0-9@:%_\+.~#?&\/=]*)
                 break;
             case RESPONSAVEL:
                 //regex de nome completo
