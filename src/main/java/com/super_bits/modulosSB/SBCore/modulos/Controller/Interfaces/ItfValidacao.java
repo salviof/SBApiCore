@@ -41,4 +41,8 @@ public interface ItfValidacao<T> {
         return null;
     }
 
+    public default boolean isApagarErroFormulario() {
+        return false;
+    }
+
 }
