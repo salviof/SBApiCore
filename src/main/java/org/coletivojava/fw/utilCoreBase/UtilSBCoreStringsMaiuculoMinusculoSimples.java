@@ -14,4 +14,15 @@ public class UtilSBCoreStringsMaiuculoMinusculoSimples {
     public static String getPrimeiraLetraMaiusculo(String parametro) {
         return String.valueOf(parametro.charAt(0)).toUpperCase() + parametro.substring(1);
     }
+
+    /**
+     *
+     * Retorna a String convertendo a primeira letra para minusculo
+     *
+     * @param parametro
+     * @return
+     */
+    public static String getPrimeiraLetraMinuscula(String parametro) {
+        return String.valueOf(parametro.charAt(0)).toLowerCase() + parametro.substring(1);
+    }
 }
