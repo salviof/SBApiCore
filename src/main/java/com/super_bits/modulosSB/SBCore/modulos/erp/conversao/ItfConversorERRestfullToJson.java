@@ -4,6 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.erp.conversao;
 
+import com.super_bits.modulosSB.SBCore.modulos.erp.ItfSistemaERP;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import jakarta.json.JsonObject;
 
@@ -15,4 +16,5 @@ public interface ItfConversorERRestfullToJson {
 
     public JsonObject getJson(ItfBeanSimples pJson);
 
+    public ItfSistemaERP getSistemaRemoto();
 }

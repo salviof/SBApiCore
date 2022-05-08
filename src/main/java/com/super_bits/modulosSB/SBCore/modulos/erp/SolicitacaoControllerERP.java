@@ -21,6 +21,7 @@ public class SolicitacaoControllerERP {
     private final String codigoEntidade;
     private final String atributoEntidade;
     private final String corpoParametros;
+    private JsonObject corpoParametroJson;
 
     private final String erpServico;
     private final String erpCliente;

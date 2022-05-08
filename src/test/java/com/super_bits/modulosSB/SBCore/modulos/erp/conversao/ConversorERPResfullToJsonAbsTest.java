@@ -4,7 +4,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.erp.conversao;
 
-import br.org.coletivoJava.fw.erp.implementacao.erpintegracao.model.conversor.ConversorERPResfullToJsonAbs;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,31 +16,6 @@ import org.junit.Test;
 public class ConversorERPResfullToJsonAbsTest {
 
     public ConversorERPResfullToJsonAbsTest() {
-    }
-
-    /**
-     * Test of getListAtributosDaLista method, of class
-     * ConversorERPResfullToJsonAbs.
-     */
-    @Test
-    public void testGetListAtributosDaLista() {
-        ConversorERPResfullToJsonAbs conversor = new ConversorERPResfullToJsonAbs();
-
-        Map<String, String> mapeamento = new HashMap<>();
-
-        mapeamento.put("id", "@id");
-        mapeamento.put("pessoa", "cliente");
-        mapeamento.put("itenssazonais[]", "itens");
-        mapeamento.put("itenssazonais[].valorsetup", "itens[].valorNegociado");
-        mapeamento.put("itenssazonais[].tiposervico", "itens[].tipoServico");
-
-        mapeamento.put("itemrecorrente[]", "itensRecorrentes");
-        mapeamento.put("itemrecorrente[].valormensal", "itensRecorrentes[].valorNegociado");
-        mapeamento.put("itemrecorrente[].tiposervico", "itensRecorrentes[].tipoServico");
-
-        List<String> atributos = conversor.getListAtributosDaLista("itemrecorrente[].valormensal", mapeamento);
-
-        atributos.stream().forEach(System.out::println);
     }
 
 }
