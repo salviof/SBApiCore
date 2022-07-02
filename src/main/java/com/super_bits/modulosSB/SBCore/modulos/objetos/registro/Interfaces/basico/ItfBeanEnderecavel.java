@@ -25,4 +25,33 @@ public interface ItfBeanEnderecavel extends ItfBeanLocalizavel {
 
     public void instanciarNovoEndereco();
 
+    public default boolean isPossuiEnderecoPostavelDefinido() {
+
+        if (getLocalizacao() == null) {
+            return false;
+        }
+        if (getLocalizacao().getBairro() == null) {
+            return false;
+        }
+        if (getLocalizacao().getLogradouro() == null) {
+            return false;
+        }
+
+        if (getLocalizacao().getLogradouro().length() < 4) {
+            return false;
+        }
+
+        if (getLocalizacao().getCep() == null) {
+            return false;
+        }
+        if (getLocalizacao().getCep().length() < 6) {
+            return false;
+        }
+        if (getLocalizacao().getBairro() == null) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
