@@ -155,4 +155,6 @@ public interface ItfCentralComunicacao extends ItfServicoCoreSB {
 
     public ItfArmazenamentoComunicacao getAramazenamento();
 
+    public String getTokenDispositivoNotificacao(ItfUsuario pUsuario);
+
 }
