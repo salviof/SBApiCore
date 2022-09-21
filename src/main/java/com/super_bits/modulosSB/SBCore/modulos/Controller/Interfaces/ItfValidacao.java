@@ -6,6 +6,8 @@ package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.validador.ErroValidacao;
+import com.super_bits.modulosSB.SBCore.modulos.view.widgetsFormulario.WidgetsFormulario;
+import java.util.List;
 
 /**
  *
@@ -13,15 +15,15 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.validador.ErroValidacao;
  */
 public interface ItfValidacao<T> {
 
-    public Object validar(Object pValor) throws ErroValidacao;
+    public List<WidgetsFormulario> validar(Object pValor) throws ErroValidacao;
 
     public ItfCampoInstanciado getCampoInstanciado();
 
-    public default Object validarModoNovo(Object pValor) throws ErroValidacao {
+    public default List<WidgetsFormulario> validarModoNovo(Object pValor) throws ErroValidacao {
         return validar(pValor);
     }
 
-    public default Object validarModoEdicao(Object pValor) throws ErroValidacao {
+    public default List<WidgetsFormulario> validarModoEdicao(Object pValor) throws ErroValidacao {
         return validar(pValor);
     }
 
@@ -41,6 +43,7 @@ public interface ItfValidacao<T> {
         return null;
     }
 
+    @Deprecated
     public default boolean isApagarErroFormulario() {
         return false;
     }

@@ -4,6 +4,10 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoEntidade;
+import java.util.List;
+
 /**
  *
  * @author desenvolvedor
@@ -11,5 +15,10 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
 public interface ItfBeanComStatus extends ItfBeanSimplesSomenteLeitura {
 
     public ItfBeanStatus getStatusPrincipal();
+
+    public default List<ItfAcaoDoSistema> getAcoesDoStatus() {
+
+        return getStatusPrincipal().getEnumVinculado().opcoesPorStatus();
+    }
 
 }

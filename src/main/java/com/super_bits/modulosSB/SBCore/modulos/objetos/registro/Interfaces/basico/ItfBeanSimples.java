@@ -1,7 +1,10 @@
 package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface ItfBeanSimples extends ItfBeanSimplesSomenteLeitura,
@@ -30,5 +33,13 @@ public interface ItfBeanSimples extends ItfBeanSimplesSomenteLeitura,
     public boolean isTemImagemPequenaAdicionada();
 
     public String getSlugIdentificador();
+
+    public default List<ItfAcaoDoSistema> getAcoesDisponiveis() {
+        if (this instanceof ItfBeanComStatus) {
+            return ((ItfBeanComStatus) this).getAcoesDoStatus();
+        }
+
+        return new ArrayList();
+    }
 
 }
