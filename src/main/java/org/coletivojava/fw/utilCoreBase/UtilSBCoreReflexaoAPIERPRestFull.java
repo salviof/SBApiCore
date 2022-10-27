@@ -59,6 +59,9 @@ public class UtilSBCoreReflexaoAPIERPRestFull {
         if (pSistema.getDominio().contains("crm")) {
             nomeaplicacao = "Intranet_Marketing_Digital";
         }
+        if (pSistema.getDominio().contains("contabil") || pSistema.getDominio().contains("fluxocaixa")) {
+            nomeaplicacao = "fluxoDeCaixa";
+        }
 
         return nomeaplicacao;
 

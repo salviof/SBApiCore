@@ -5,6 +5,7 @@
 package com.super_bits.modulosSB.SBCore.modulos.view.menu;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -14,7 +15,13 @@ import java.util.List;
  */
 public interface ItfFabricaMenu extends ItfFabrica {
 
-    public List<ItfMenuSB> getTodosMenus();
+    public default List<ItfMenuSB> getTodosMenus() {
+        List<ItfMenuSB> menus = new ArrayList<>();
+        for (ItfFabricaMenu menu : this.getClass().getEnumConstants()) {
+            menus.add((ItfMenuSB) menu.getRegistro());
+        }
+        return menus;
+    }
 
     public ItfMenuSB getMenuPrincipal();
 

@@ -10,6 +10,8 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonObjectBuilder;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -29,9 +31,10 @@ public class SolicitacaoControllerERP {
     private final ItfUsuario usuarioSolicitante;
     private final boolean autenticadoComSucesso;
     private final String metodo;
+    private final Map<String, String> parametrosDeUrl;
 
     public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
-            String pNomeUnicoAcao, ItfUsuario pUsuario, String pCodigo, String pAtributo, JsonObject pParametros) {
+            String pNomeUnicoAcao, ItfUsuario pUsuario, String pCodigo, String pAtributo, JsonObject pParametros, Map<String, String> pParametrosDeUrl) {
         erpServico = pHashIdentificadorServico;
         if (pParametros == null) {
             corpoParametros = "";
@@ -46,6 +49,12 @@ public class SolicitacaoControllerERP {
         metodo = pMetodoRestful;
         codigoEntidade = pCodigo;
         atributoEntidade = pAtributo;
+        parametrosDeUrl = pParametrosDeUrl;
+    }
+
+    public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
+            String pNomeUnicoAcao, ItfUsuario pUsuario, String pCodigo, String pAtributo, JsonObject pParametros) {
+        this(pMetodoRestful, pHashIdentificadorServico, pHashIdentificadorCliente, pNomeUnicoAcao, pUsuario, pCodigo, pAtributo, pParametros, null);
     }
 
     public String getAcaoStrNomeUnico() {
@@ -90,6 +99,10 @@ public class SolicitacaoControllerERP {
 
     public String getAtributoEntidade() {
         return atributoEntidade;
+    }
+
+    public Map<String, String> getParametrosDeUrl() {
+        return parametrosDeUrl;
     }
 
 }
