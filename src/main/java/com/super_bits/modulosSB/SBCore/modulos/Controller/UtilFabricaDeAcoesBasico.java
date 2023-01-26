@@ -4,9 +4,12 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerAutoExecucao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas.FabTipoAutoExecucaoAcao;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoBase;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistema;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
@@ -89,6 +92,14 @@ public class UtilFabricaDeAcoesBasico {
                     throw new UnsupportedOperationException("O icone da ação " + pAcaoDoSistema.getNomeUnico() + " não foi definido tipo da ação->" + pAcaoDoSistema.getTipoAcaoGenerica());
                 }
 
+            }
+            if (pAcaoDoSistema.getTipoAcaoGenerica().getAcaoBase().equals(FabTipoAcaoBase.CONTROLLER)) {
+                if (pAcaoDoSistema instanceof ItfAcaoControllerAutoExecucao) {
+                    ItfAcaoControllerAutoExecucao acaoAutoexec = (ItfAcaoControllerAutoExecucao) pAcaoDoSistema;
+                    if (acaoAutoexec.getTipoAutoExecucao() == null || acaoAutoexec.getTipoAutoExecucao().equals(FabTipoAutoExecucaoAcao.DESATIVADO)) {
+                        throw new UnsupportedOperationException("O tipo de automação para ação " + pAcaoDoSistema.getNomeUnico() + " está desativado");
+                    }
+                }
             }
             return true;
         } catch (Throwable t) {

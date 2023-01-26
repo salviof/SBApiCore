@@ -28,6 +28,7 @@ public @interface InfoTipoAcaoGestaoEntidade {
 
     public String descricao() default "";
 
+    @Deprecated
     public String codigoJira() default "";
 
     public FabIconeFontAwesome iconeFonteAnsowame() default FabIconeFontAwesome.ICONE_PERSONALIZADO;

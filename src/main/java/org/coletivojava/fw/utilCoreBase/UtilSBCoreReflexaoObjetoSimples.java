@@ -7,9 +7,11 @@ package org.coletivojava.fw.utilCoreBase;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoPreparacaoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanGenerico;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import java.lang.reflect.Method;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import org.coletivojava.fw.api.tratamentoErros.ErroPreparandoObjeto;
 
 /**
  *
@@ -54,7 +56,7 @@ public class UtilSBCoreReflexaoObjetoSimples {
 
     }
 
-    public static <T> T getParametroPrepararObjeto(Class<T> tipoObjeto, InfoPreparacaoObjeto anotacaoInfoPreparacaoObjeto, Object... parametros) throws UnsupportedOperationException {
+    public static <T> T getParametroPrepararObjeto(ItfBeanSimplesSomenteLeitura objetoIniciado, Class<T> tipoObjeto, InfoPreparacaoObjeto anotacaoInfoPreparacaoObjeto, Object... parametros) throws ErroPreparandoObjeto {
         int i = 0;
 
         for (Object obj : parametros) {
@@ -65,7 +67,7 @@ public class UtilSBCoreReflexaoObjetoSimples {
             }
         }
 
-        throw new UnsupportedOperationException("Parametro do tipo " + tipoObjeto.getSimpleName() + "não foi encontrado");
+        throw new ErroPreparandoObjeto(objetoIniciado, "Parametro do tipo " + tipoObjeto.getSimpleName() + "não foi encontrado");
     }
 
     public static Object getObjeto(int indice, Object... parametros) {

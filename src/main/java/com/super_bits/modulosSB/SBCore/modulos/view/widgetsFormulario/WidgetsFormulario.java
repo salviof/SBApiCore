@@ -4,8 +4,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.view.widgetsFormulario;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-
 /**
  *
  * @author salvio
@@ -13,19 +11,55 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstancia
 public class WidgetsFormulario {
 
     private final FabTipoWidgetFormulario tipoWidget;
-    private final String valor;
 
-    public WidgetsFormulario(ItfCampoInstanciado pCampo) {
+    private String PFExpression;
+
+    private String clientID;
+
+    public WidgetsFormulario(FabTipoWidgetFormulario pTipo, String pExpresaoOuClienteId) {
         tipoWidget = FabTipoWidgetFormulario.CAMPO;
-        valor = pCampo.toString();
+        switch (pTipo) {
+            case CAMPO:
+                PFExpression = pExpresaoOuClienteId;
+                break;
+            case FORMULARIO:
+                PFExpression = pExpresaoOuClienteId;
+                break;
+            case COMPONENTE_PAI_RELATIVO:
+                PFExpression = pExpresaoOuClienteId;
+                break;
+            case COMPONENTE_FILHO_RELATIVO:
+
+                break;
+            default:
+                throw new AssertionError(pTipo.name());
+
+        }
+
+    }
+
+    public WidgetFormularioCampoInputOutput getComoWidgetCampoInstanciado() {
+        return (WidgetFormularioCampoInputOutput) this;
     }
 
     public FabTipoWidgetFormulario getTipoWidget() {
         return tipoWidget;
     }
 
-    public String getValor() {
-        return valor;
+    public boolean isTemExpressaoPrimefaces() {
+        return PFExpression != null;
+    }
+
+    public boolean isTemId() {
+        return clientID != null;
+    }
+
+    public String getPFExpression() {
+        return PFExpression;
+    }
+
+    public String getClientID() {
+        return clientID;
     }
 
 }

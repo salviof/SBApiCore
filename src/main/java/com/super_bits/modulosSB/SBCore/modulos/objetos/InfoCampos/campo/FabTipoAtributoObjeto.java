@@ -49,7 +49,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
     IMG_GRANDE,
     /**
      * Indica um Descritivo do Item (uma explicação mais detalhada do que ele
-     * signigica), para descritivo de uma ou duas palavras utiliza o AAA_NOME
+     * signigica), para descritivo de uma ou duas palavras utilize o AAA_NOME
      */
     AAA_DESCRITIVO,
     /**
@@ -700,9 +700,10 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
                 case REG_DATAINSERCAO:
 
                 case DATAHORA:
-                case HORA:
-                    return FabCompVisualInputs.DATA_HORA;
 
+                    return FabCompVisualInputs.DATA_HORA;
+                case HORA:
+                    return FabCompVisualInputs.HORA;
                 case VERDADEIRO_FALSO:
                 case REG_ATIVO_INATIVO:
                 case SEGURANCA_ATIVA:

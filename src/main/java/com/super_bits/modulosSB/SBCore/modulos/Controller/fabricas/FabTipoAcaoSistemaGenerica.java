@@ -64,6 +64,7 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
     CONTROLLER_ATIVAR,
     CONTROLLER_REMOVER,
     CONTROLLER_DESATIVAR,
+    CONTROLLER_AUTO_EXECUCAO,
     GERENCIAR_DOMINIO;
 
     public String getnomeXHTMLPadrao(ItfFabricaAcoes pFabAcao) {
@@ -166,6 +167,9 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
                 return "fa fa-close";
             case GERENCIAR_DOMINIO:
                 break;
+            case CONTROLLER_AUTO_EXECUCAO:
+                return "fa fa-android";
+
             default:
                 return "fa fa-gear";
 
@@ -222,6 +226,9 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
                 return "Desativar";
             case GERENCIAR_DOMINIO:
                 return "Gerenciar";
+            case CONTROLLER_AUTO_EXECUCAO:
+                return "Auto exec.";
+
             default:
                 throw new AssertionError(this.name());
 
@@ -263,6 +270,9 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
                 return "Marca o registro como desativado";
             case GERENCIAR_DOMINIO:
                 return "Gerencia os registros";
+            case CONTROLLER_AUTO_EXECUCAO:
+                return "Ações pré agendadas executadas pelo sistema";
+
             default:
                 throw new AssertionError(this.name());
 
@@ -287,6 +297,7 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
             case CONTROLLER_ATIVAR:
             case CONTROLLER_REMOVER:
             case CONTROLLER_DESATIVAR:
+            case CONTROLLER_AUTO_EXECUCAO:
                 return FabTipoAcaoBase.CONTROLLER;
             case GERENCIAR_DOMINIO:
                 return FabTipoAcaoBase.GESTAO;
@@ -461,6 +472,10 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
                 break;
             case GERENCIAR_DOMINIO:
                 palavrasChave.add(PALAVRA_CHAVE_GESTAO);
+                break;
+            case CONTROLLER_AUTO_EXECUCAO:
+                palavrasChave.add(PALAVRA_CHAVE_CONTROLLER);
+                palavrasChave.add("AUTO_EXEC");
                 break;
             default:
                 throw new AssertionError(this.name());

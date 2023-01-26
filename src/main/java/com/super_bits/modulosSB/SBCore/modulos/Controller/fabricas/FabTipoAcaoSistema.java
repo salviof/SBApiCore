@@ -12,9 +12,9 @@ public enum FabTipoAcaoSistema {
 
     /**
      *
-     * Ações do sistema são uma representação lógica de um botão, que executa
-     * determinada ação, as ações do sistema podem ser extendidas para outros
-     * tipos, como:
+     * Ações do sistema são representam os botões do sistema, e operações que
+     * alteram o estado dos objetos as ações do sistema podem ser extendidas
+     * para outros tipos, como:
      *
      * AcaoFormulário @see # AcaoDeGestao AcaoControler Acao_selecao_de_Acao
      *

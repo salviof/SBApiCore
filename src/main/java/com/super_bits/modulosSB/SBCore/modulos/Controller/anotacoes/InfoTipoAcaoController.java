@@ -4,6 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas.FabTipoAutoExecucaoAcao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
@@ -106,5 +107,7 @@ public @interface InfoTipoAcaoController {
     public String fraseComunicação() default "";
 
     public FabTipoRespostaComunicacao[] respostasComunicacaoPersonalizada() default {};
+
+    public FabTipoAutoExecucaoAcao autoExecucao() default FabTipoAutoExecucaoAcao.DESATIVADO;
 
 }

@@ -215,6 +215,17 @@ public interface ItfAcaoDoSistema extends ItfBeanSimples, ItfBeanComIcone {
     public boolean isUmaAcaoController();
 
     /**
+     * Uma ação de auto execução é uma ação programada para ser executada de
+     * maneira automática de tempos em tempos, o slug da ação automatica é
+     * AUTO_EXEC, e é nescessário
+     *
+     * @return
+     */
+    public default boolean isUmaAcaoControllerAutoExecucao() {
+        return (this instanceof ItfAcaoControllerAutoExecucao);
+    }
+
+    /**
      *
      * O nome do dominio é referente a primeira parte do nome da ação, antes das
      * palavras de marcação, como CTR, ou frm

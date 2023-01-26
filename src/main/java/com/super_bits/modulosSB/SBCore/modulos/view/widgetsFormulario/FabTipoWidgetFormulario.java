@@ -14,12 +14,12 @@ import java.util.List;
  */
 public enum FabTipoWidgetFormulario {
 
-    DIV, CAMPO, FORMULARIO, RELATIVO;
+    CAMPO, FORMULARIO, COMPONENTE_PAI_RELATIVO, COMPONENTE_FILHO_RELATIVO;
 
     public static List<WidgetsFormulario> getCampos(ItfCampoInstanciado... pCampos) {
         List<WidgetsFormulario> lista = new ArrayList<>();
         for (ItfCampoInstanciado cp : pCampos) {
-            lista.add(new WidgetsFormulario(cp));
+            lista.add(new WidgetFormularioCampoInputOutput(cp));
         }
         return lista;
     }

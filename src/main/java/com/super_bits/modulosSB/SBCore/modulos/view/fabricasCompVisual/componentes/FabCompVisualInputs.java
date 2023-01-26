@@ -94,6 +94,11 @@ public enum FabCompVisualInputs implements ItfFabTipoComponenteVisual {
             classesCSS = "campoDataHora",
             pesoLargura = FabColunasTela.TRES)
     DATA_HORA,
+    @InfoComponenteVisual(nome = "Data Hora",
+            xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "hora.xhtml",
+            classesCSS = "campoDataHora",
+            pesoLargura = FabColunasTela.UM)
+    HORA,
     @InfoComponenteVisual(nome = "Ligado ou Desligado",
             xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "verdadeiroOuFalso.xhtml",
             classesCSS = "campoLigadoDesligado",

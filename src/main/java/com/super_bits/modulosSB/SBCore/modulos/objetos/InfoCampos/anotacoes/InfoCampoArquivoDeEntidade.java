@@ -27,4 +27,6 @@ public @interface InfoCampoArquivoDeEntidade {
 
     public int tamanhoVertical() default 0;
 
+    public String[] extençõesPèrmitidas() default {"pdf", "jpg", "jpeg", "png", "docx", "xls"};
+
 }

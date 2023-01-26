@@ -6,6 +6,7 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanci
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import java.lang.reflect.Method;
+import java.util.Date;
 
 /**
  *
@@ -45,6 +46,10 @@ public interface ItfCampoInstanciadoBase {
 
     public default long getValorComoLong() {
         return Long.valueOf(getValor().toString());
+    }
+
+    public default Date getValorComoDate() {
+        return (Date) getValor();
     }
 
     public default int getValorComoInteger() {
