@@ -36,6 +36,7 @@ public interface ItfBeanSimples extends ItfBeanSimplesSomenteLeitura,
 
     public default List<ItfAcaoDoSistema> getAcoesDisponiveis() {
         if (this instanceof ItfBeanComStatus) {
+
             return ((ItfBeanComStatus) this).getAcoesDoStatus();
         }
 

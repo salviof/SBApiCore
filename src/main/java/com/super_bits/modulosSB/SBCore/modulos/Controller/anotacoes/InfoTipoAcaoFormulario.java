@@ -34,6 +34,6 @@ public @interface InfoTipoAcaoFormulario {
 
     public FabIconeFontAwesome iconeFonteAnsowame() default FabIconeFontAwesome.ICONE_PERSONALIZADO;
 
-    public FabEstadoFormulario estadoFormulario() default FabEstadoFormulario.EDITAR;
+    public FabEstadoFormulario estadoFormulario() default FabEstadoFormulario.INDEFINIDO;
 
 }

@@ -555,7 +555,7 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
             case CONTROLLER_REMOVER:
             case CONTROLLER_DESATIVAR:
             case GERENCIAR_DOMINIO:
-
+            case CONTROLLER_AUTO_EXECUCAO:
                 return FabEstadoFormulario.VISUALIZAR;
 
             default:

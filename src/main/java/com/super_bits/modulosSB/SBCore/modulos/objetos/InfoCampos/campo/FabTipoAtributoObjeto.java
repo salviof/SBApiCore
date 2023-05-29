@@ -376,7 +376,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
             case EMAIL:
                 sbCampo.setLabelPadrao("E-mail");
 
-                sbCampo.setValidacaoRegex("^$|^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,5})+)$");
+                // sbCampo.setValidacaoRegex("^$|^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,5})+)$");
                 break;
             case SITE:
                 // REGEX

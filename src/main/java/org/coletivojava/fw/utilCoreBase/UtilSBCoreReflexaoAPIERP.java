@@ -149,6 +149,19 @@ public abstract class UtilSBCoreReflexaoAPIERP {
             }
             String anotacaoImplementacaoContexto = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacao(pApi);
             anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoContexto);
+            if (anotacaoImplementacao == null) {
+                throw new UnsupportedOperationException("Anotação " + anotacaoImplementacaoContexto + " não encontradada no classpath");
+            }
+            try {
+
+                Class classe = Class.forName(getPacoteImplementacaoERP(pApi) + "." + getNomeClasseAnotacaoImplementacao(pApi) + "impl");
+                if (classe != null) {
+                    mapaServicosErpRegistrados.put(pApi, classe);
+                    return classe;
+                }
+            } catch (Throwable t) {
+                System.out.println(t.getMessage());
+            }
             classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
             if (!classesImplementacao.isEmpty()) {
                 mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0));
@@ -167,7 +180,9 @@ public abstract class UtilSBCoreReflexaoAPIERP {
 
     public static Object getImplementacaoDoContexto(ItfApiErpSuperBits pApi) {
         try {
-            return getClasseImplementacaoDoContexto(pApi).newInstance();
+            Class implementacao = getClasseImplementacaoDoContexto(pApi);
+
+            return implementacao.newInstance();
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("erro obtendo implementaçlão do contexto" + pApi, t);
             return null;
