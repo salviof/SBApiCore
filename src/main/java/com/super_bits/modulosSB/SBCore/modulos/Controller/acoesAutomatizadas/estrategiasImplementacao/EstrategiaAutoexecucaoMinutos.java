@@ -51,12 +51,14 @@ public class EstrategiaAutoexecucaoMinutos implements ItfEstrategiaAutoexecucao 
                 throw new AssertionError();
         }
         int resto = minutosReferencia % multiploMinuto;
+        int minutosacrecimo = multiploMinuto;
 
         if (resto > 0) {
-            calendarioAgendaBuilder.add(Calendar.MINUTE, resto);
-        } else {
-            calendarioAgendaBuilder.add(Calendar.MINUTE, multiploMinuto);
+            int diferenca = multiploMinuto - resto;
+            //minutosacrecimo = multiploMinuto + diferenca;
+            minutosacrecimo = diferenca;
         }
+        calendarioAgendaBuilder.add(Calendar.MINUTE, minutosacrecimo);
 
         int novaHora = calendarioAgendaBuilder.get(Calendar.HOUR_OF_DAY);
         int novoMinuto = calendarioAgendaBuilder.get(Calendar.MINUTE);
