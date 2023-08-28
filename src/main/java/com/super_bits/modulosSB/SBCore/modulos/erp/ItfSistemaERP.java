@@ -22,12 +22,15 @@ public interface ItfSistemaERP extends ItfBeanSimples {
 
     public String getHashChavePublica();
 
+    @Override
     public int getId();
 
+    @Override
     public String getNome();
 
     public String getUrlPublicaEndPoint();
 
     public String getUrlRecepcaoCodigo();
 
+    public String getEmailusuarioAdmin();
 }

@@ -32,9 +32,10 @@ public class SolicitacaoControllerERP {
     private final boolean autenticadoComSucesso;
     private final String metodo;
     private final Map<String, String> parametrosDeUrl;
+    private final boolean solicitarComoAdmin;
 
     public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
-            String pNomeUnicoAcao, ItfUsuario pUsuario, String pCodigo, String pAtributo, JsonObject pParametros, Map<String, String> pParametrosDeUrl) {
+            String pNomeUnicoAcao, ItfUsuario pUsuario, boolean pLoginComoAdmin, String pCodigo, String pAtributo, JsonObject pParametros, Map<String, String> pParametrosDeUrl) {
         erpServico = pHashIdentificadorServico;
         if (pParametros == null) {
             corpoParametros = "";
@@ -50,6 +51,17 @@ public class SolicitacaoControllerERP {
         codigoEntidade = pCodigo;
         atributoEntidade = pAtributo;
         parametrosDeUrl = pParametrosDeUrl;
+        solicitarComoAdmin = pLoginComoAdmin;
+    }
+
+    public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
+            String pNomeUnicoAcao, ItfUsuario pUsuario, String pCodigo, String pAtributo, JsonObject pParametros, Map<String, String> pParametrosDeUrl) {
+        this(pMetodoRestful, pHashIdentificadorServico, pHashIdentificadorCliente, pNomeUnicoAcao, pUsuario, false, pCodigo, pAtributo, pParametros, pParametrosDeUrl);
+    }
+
+    public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
+            String pNomeUnicoAcao, ItfUsuario pUsuario, boolean pAdmin, String pCodigo, String pAtributo, JsonObject pParametros) {
+        this(pMetodoRestful, pHashIdentificadorServico, pHashIdentificadorCliente, pNomeUnicoAcao, pUsuario, pAdmin, pCodigo, pAtributo, pParametros, null);
     }
 
     public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
@@ -103,6 +115,10 @@ public class SolicitacaoControllerERP {
 
     public Map<String, String> getParametrosDeUrl() {
         return parametrosDeUrl;
+    }
+
+    public boolean isSolicitarComoAdmin() {
+        return solicitarComoAdmin;
     }
 
 }

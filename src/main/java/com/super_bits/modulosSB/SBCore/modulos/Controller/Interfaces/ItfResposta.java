@@ -53,7 +53,24 @@ public interface ItfResposta {
          * Vair ficar pra próxima, a ação não foi executrada, acontece, fica
          * sussa...
          */
-        FALHOU
+        FALHOU;
+
+        public static Resultado getRespostaByTexto(String pResp) {
+            if (pResp == null) {
+                return null;
+            }
+            if (pResp.contains(SUCESSO.toString())) {
+                return SUCESSO;
+            }
+            if (pResp.contains(ALERTA.toString())) {
+                return ALERTA;
+            }
+            if (pResp.contains(FALHOU.toString())) {
+                return FALHOU;
+            }
+            return null;
+        }
+
     }
 
     /**

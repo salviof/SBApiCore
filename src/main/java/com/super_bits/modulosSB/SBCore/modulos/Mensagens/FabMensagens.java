@@ -4,8 +4,10 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Mensagens;
 
+import com.google.common.collect.Lists;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfResposta;
 import java.util.List;
+import java.util.Optional;
 import org.coletivojava.fw.api.objetoNativo.mensagem.MensagemProgramador;
 import org.coletivojava.fw.api.objetoNativo.mensagem.MensagemSistema;
 import org.coletivojava.fw.api.objetoNativo.mensagem.MensagemUsuario;
@@ -57,5 +59,17 @@ public enum FabMensagens {
             return ItfResposta.Resultado.ALERTA;
         }
         return ItfResposta.Resultado.SUCESSO;
+    }
+
+    public static FabMensagens getTipoMensagemByTexto(String pTExto) {
+        if (pTExto == null) {
+            return null;
+
+        }
+        Optional<FabMensagens> msg = Lists.newArrayList(FabMensagens.values()).stream().filter(tp -> tp.name().equals(pTExto)).findFirst();
+        if (msg.isPresent()) {
+            return msg.get();
+        }
+        return null;
     }
 }
