@@ -45,6 +45,12 @@ public interface ItfComunicacao extends ItfBeanSimplesSomenteLeitura {
 
     public String getCodigoSelo();
 
+    public void setCodigoSelo(String codigoSelo);
+
+    /**
+     *
+     * @return Tempo em Minutos aceitável para resposta
+     */
     public long getTempoAceitavelResposta();
 
     public void setTempoAceitavelResposta(long pTempo);

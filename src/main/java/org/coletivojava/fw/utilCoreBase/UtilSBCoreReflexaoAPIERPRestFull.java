@@ -53,14 +53,16 @@ public class UtilSBCoreReflexaoAPIERPRestFull {
     public static String getSlugAplicacao(ItfSistemaERP pSistema) {
         String nomeaplicacao = "mktFaturamento";
 
-        if (pSistema.getDominio().contains("fatura")) {
-            nomeaplicacao = "mktFaturamento";
-        }
-        if (pSistema.getDominio().contains("crm")) {
-            nomeaplicacao = "Intranet_Marketing_Digital";
-        }
-        if (pSistema.getDominio().contains("contabil") || pSistema.getDominio().contains("fluxocaixa")) {
-            nomeaplicacao = "fluxoDeCaixa";
+        if (pSistema.getDominio() != null) {
+            if (pSistema.getDominio().contains("fatura")) {
+                nomeaplicacao = "mktFaturamento";
+            }
+            if (pSistema.getDominio().contains("crm")) {
+                nomeaplicacao = "Intranet_Marketing_Digital";
+            }
+            if (pSistema.getDominio().contains("contabil") || pSistema.getDominio().contains("fluxocaixa")) {
+                nomeaplicacao = "fluxoDeCaixa";
+            }
         }
 
         return nomeaplicacao;

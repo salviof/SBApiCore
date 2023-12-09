@@ -77,10 +77,18 @@ public class SolicitacaoControllerERP {
         return corpoParametros;
     }
 
+    /**
+     *
+     * @return Código identificador chave pública do Servidor
+     */
     public String getErpServico() {
         return erpServico;
     }
 
+    /**
+     *
+     * @return Código identificador chave pública do cliente
+     */
     public String getErpCliente() {
         return erpCliente;
     }

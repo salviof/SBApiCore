@@ -21,7 +21,7 @@ import java.util.Map;
  */
 public abstract class UtilSBCoreReflexaoAPIERP {
 
-    private static Map<ItfApiErpSuperBits, Class> mapaServicosErpRegistrados = new HashMap<>();
+    private static Map<ItfApiErpSuperBits, Object> mapaServicosErpRegistrados = new HashMap<>();
 
     private static final String ENDERECO_BASE_PACOTE_API = "br.org.coletivoJava.fw.api.erp";
 
@@ -131,10 +131,6 @@ public abstract class UtilSBCoreReflexaoAPIERP {
     public static Class getClasseImplementacaoDoContexto(ItfApiErpSuperBits pApi) {
         try {
 
-            Class implementacaoContexto = mapaServicosErpRegistrados.get(pApi);
-            if (implementacaoContexto != null) {
-                return implementacaoContexto;
-            }
             Class anotacaoImplementacao;
 
             List<Class> classesImplementacao;
@@ -180,9 +176,13 @@ public abstract class UtilSBCoreReflexaoAPIERP {
 
     public static Object getImplementacaoDoContexto(ItfApiErpSuperBits pApi) {
         try {
-            Class implementacao = getClasseImplementacaoDoContexto(pApi);
-
-            return implementacao.newInstance();
+            if (mapaServicosErpRegistrados.containsKey(pApi)) {
+                return mapaServicosErpRegistrados.get(pApi);
+            }
+            Class classeImplementacao = getClasseImplementacaoDoContexto(pApi);
+            Object implmentacao = classeImplementacao.newInstance();
+            mapaServicosErpRegistrados.put(pApi, implmentacao);
+            return mapaServicosErpRegistrados.get(pApi);
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("erro obtendo implementaçlão do contexto" + pApi, t);
             return null;

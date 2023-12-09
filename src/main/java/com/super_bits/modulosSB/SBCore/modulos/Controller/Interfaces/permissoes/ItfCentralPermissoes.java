@@ -76,6 +76,8 @@ public interface ItfCentralPermissoes extends ItfServicoCoreSB {
 
     public boolean isAcaoPermitidaUsuario(ItfUsuario pUsuario, ItfAcaoDoSistema acao);
 
+    public boolean isObjetoPermitidoUsuario(ItfUsuario pUsuario, ItfBeanSimplesSomenteLeitura pObjeto);
+
     public boolean isPermitidoUsuario(ItfUsuario pUsuario, ItfPermissao pPermissao);
 
     /**

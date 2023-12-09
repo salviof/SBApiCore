@@ -24,4 +24,8 @@ public interface ItfDadoDinamico extends Serializable {
 
     public ItfCampoInstanciado getCampoInstanciado();
 
+    public String getValorEnpacotado();
+
+    public void setValorEmpacotado(String pValor);
+
 }

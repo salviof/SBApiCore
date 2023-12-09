@@ -8,7 +8,7 @@ package com.super_bits.modulosSB.SBCore.modulos.view.widgetsFormulario;
  *
  * @author salvio
  */
-public class WidgetsFormulario {
+public abstract class WidgetsFormulario {
 
     private final FabTipoWidgetFormulario tipoWidget;
 
