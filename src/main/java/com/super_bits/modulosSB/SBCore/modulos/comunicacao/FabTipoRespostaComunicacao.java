@@ -113,10 +113,10 @@ public enum FabTipoRespostaComunicacao implements ItfFabrica {
                 return "fa fa-hand-scissors-o";
 
             case AUTORIZADO:
-                return "fa fa-gavel";
+                return "fa fa-thumbs-o-up";
 
             case NAO_AUTORIZADO:
-                return "fa fa-hand-scissors-o";
+                return "fa fa-thumbs-o-down";
 
             case ENTENDIDO:
                 return "fa fa-thumbs-o-up";

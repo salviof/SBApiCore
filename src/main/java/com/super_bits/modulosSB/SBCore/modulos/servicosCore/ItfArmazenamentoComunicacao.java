@@ -23,6 +23,8 @@ public interface ItfArmazenamentoComunicacao {
 
     public ItfComunicacao getComunicacaoByCodigoSelo(String pCodigoSelo);
 
+    public boolean removerComunicacaoByCodigoSelo(String pCodigoSelo);
+
     public List<ItfComunicacao> getComunicacoesAguardandoRespostaDoDestinatario(ItfUsuario pDestinatario);
 
     public List<ItfComunicacao> getComunicacoesAguardandoRespostaDoRemetente(ItfUsuario pRemetente);
