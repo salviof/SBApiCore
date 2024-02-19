@@ -15,6 +15,8 @@ public interface ItfBeanEmailSimples extends ItfBeanSimples {
 
     public String getNome();
 
+    public String getAssunto();
+
     public String getTextoMensagem();
 
     public String getEmailsDestinatarios();
