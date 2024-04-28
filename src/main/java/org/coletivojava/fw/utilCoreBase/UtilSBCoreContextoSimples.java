@@ -25,7 +25,7 @@ public class UtilSBCoreContextoSimples {
                 return contextoJunit;
             }
         }
-        contextoJunit = true;
+        contextoJunit = false;
         return false;
     }
 
