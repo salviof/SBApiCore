@@ -20,7 +20,7 @@ import java.util.List;
  */
 public interface ItfSessao {
 
-    public int getIdSessao();
+    public String getIdSessao();
 
     public ItfUsuario getUsuario();
 

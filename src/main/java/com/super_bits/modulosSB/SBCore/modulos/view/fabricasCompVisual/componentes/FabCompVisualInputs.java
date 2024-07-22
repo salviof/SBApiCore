@@ -20,26 +20,26 @@ public enum FabCompVisualInputs implements ItfFabTipoComponenteVisual {
             xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "inputMascara.xhtml",
             classesCSS = "campoMascara",
             idHTMLObjetoPrincipal = "inputMaskara",
-            pesoLargura = FabColunasTela.DOIS
+            pesoLargura = FabColunasTela.TRES
     )
     TEXTO_COM_FORMATACAO,
     @InfoComponenteVisual(nome = "Texto Sem Formatacao",
             xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "inputSimples.xhtml",
             classesCSS = "campoSimples",
             idHTMLObjetoPrincipal = "inputTexto",
-            pesoLargura = FabColunasTela.DOIS
+            pesoLargura = FabColunasTela.TRES
     )
     TEXTO_SEM_FORMATACAO,
     @InfoComponenteVisual(nome = "Texto Grande com Formatacao",
             xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "minimoEMaximo.xhtml",
             classesCSS = "campoGrande",
-            pesoLargura = FabColunasTela.DOIS
+            pesoLargura = FabColunasTela.QUATRO
     )
     TEXTO_GRANDE_COM_FORMATACAO,
     @InfoComponenteVisual(nome = "Texto multiplas Linhas",
             xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "descritivo.xhtml",
             classesCSS = "campoMultiplasLinhas",
-            pesoLargura = FabColunasTela.DOIS
+            pesoLargura = FabColunasTela.TRES
     )
     TEXTMO_MULTIPLAS_LINHAS,
     @InfoComponenteVisual(nome = "Valor com mínimo e Maximo",

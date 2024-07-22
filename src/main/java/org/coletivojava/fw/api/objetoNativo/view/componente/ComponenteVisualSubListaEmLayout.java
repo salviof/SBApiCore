@@ -4,6 +4,7 @@
  */
 package org.coletivojava.fw.api.objetoNativo.view.componente;
 
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoListagemExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreLayoutComponenteEmTelaBasico;
@@ -33,6 +34,11 @@ public class ComponenteVisualSubListaEmLayout extends ComponenteVisualEmLayout {
     @Override
     public boolean isUmComponenteAtributoDeObjeto() {
         return true;
+    }
+
+    public ItfCampoExibicaoFormulario getCampoExibicaoFormulario() {
+
+        return caminhoCampo;
     }
 
 }

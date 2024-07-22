@@ -982,9 +982,10 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
             case CNPJ:
             case MOEDA_REAL:
             case MOEDA_DOLAR:
-                return FabColunasTela.DOIS.getQuantidade();
+                return FabColunasTela.TRES.getQuantidade();
             case IMG_MEDIA:
                 return FabColunasTela.TRES.getQuantidade();
+
             default:
                 return getTipo_input_prime().getRegistro().getPesoLargura();
         }

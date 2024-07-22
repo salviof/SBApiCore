@@ -17,11 +17,16 @@ import java.lang.annotation.Target;
  * encontrado na tela, Apenas parte do nome completo do id bastará para que a
  * atualização aconteça
  *
+ * O retorno de campos a serem atualizados após mudança de valor se dá agora na
+ * classe de implementação da validação do campo utilizando
+ * FabTipoWidgetFormulario para informar os campos instanciados a serem
+ * atualizados
  *
  * @author Salvio Furbino
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
+@Deprecated
 public @interface InfoTipoAcaoFormCamposAtualizaComponentePeloId {
 
     /**

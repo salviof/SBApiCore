@@ -33,19 +33,19 @@ public enum FabColunasTela {
     public int getQuantidade() {
         switch (this) {
             case UM:
-                return 1;
-            case DOIS:
                 return 2;
-            case TRES:
+            case DOIS:
                 return 3;
-            case QUATRO:
+            case TRES:
                 return 4;
-            case CINCO:
+            case QUATRO:
                 return 5;
-            case SEIS:
+            case CINCO:
                 return 6;
-            case SETE:
+            case SEIS:
                 return 7;
+            case SETE:
+                return 8;
 
             case OITO:
                 return 8;

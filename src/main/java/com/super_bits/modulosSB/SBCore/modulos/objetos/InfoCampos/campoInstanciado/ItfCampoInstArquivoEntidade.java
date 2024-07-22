@@ -20,6 +20,10 @@ public interface ItfCampoInstArquivoEntidade {
      */
     public boolean uploadArquivo(String pNomeArquivo, byte[] pStream);
 
+    public boolean uploadArquivoRemoto(String pNomeArquivo, String pLinkRemoto);
+
+    public boolean uploadArquivoLocal(String pNomeArquivo, String pLinkRemoto);
+
     public String getLinkBaixarArquivo();
 
     public String getLinkAbrirArquivo();

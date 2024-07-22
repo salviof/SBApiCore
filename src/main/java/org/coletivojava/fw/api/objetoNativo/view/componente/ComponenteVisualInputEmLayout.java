@@ -35,6 +35,7 @@ public class ComponenteVisualInputEmLayout extends ComponenteVisualEmLayout impl
 
     @Override
     public ItfCampoExibicaoFormulario getCampoExibicaoFormulario() {
+
         return campoExibicaoFormulario;
     }
 
