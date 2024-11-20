@@ -67,7 +67,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
     /**
      * Indica a longitude para posiscionamento geografico no google maps
      */
-    Longitude,
+    LONGITUDE,
     /**
      * Indica um local no mapa
      */
@@ -319,7 +319,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
                 sbCampo.setDescricao("Representa a posição geografica de longitude");
                 sbCampo.setFraseValidacao("A latitude deve conter um valor numérico");
                 break;
-            case Longitude:
+            case LONGITUDE:
                 sbCampo.setDescricao("Representa a posição geografica de longitude");
                 break;
             case LC_LOGRADOURO:
@@ -540,7 +540,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
             case AAA_DESCRITIVO:
             case ID:
             case LATITUDE:
-            case Longitude:
+            case LONGITUDE:
             case LC_LOGRADOURO:
             case LCCEP:
             case SENHA:
@@ -678,9 +678,9 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
                     return FabCompVisualInputs.HTML;
                 // TIPOS DE CAMPO QUE DEVEN USAR INPUT quantidade
                 case QUANTIDADE:
-                case LATITUDE:
                 case CHART_VALOR:
-                case Longitude:
+                case LATITUDE:
+                case LONGITUDE:
                 case PERCENTUAL:
                     return FabCompVisualInputs.QUANTIDADE;
                 case AAA_DESCRITIVO:
@@ -798,8 +798,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
                 return TIPO_PRIMITIVO.LETRAS;
 
             case ID:
-            case LATITUDE:
-            case Longitude:
+
             case CHART_VALOR:
             case QUANTIDADE:
 
@@ -816,6 +815,8 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
             case MOEDA_REAL:
             case MOEDA_DOLAR:
             case PERCENTUAL:
+            case LATITUDE:
+            case LONGITUDE:
                 return TIPO_PRIMITIVO.DECIMAL;
 
             case VERDADEIRO_FALSO:

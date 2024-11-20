@@ -16,13 +16,13 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  */
 public interface ItfLocal extends ItfBeanSimples {
 
-    public long getLongitude();
+    public double getLongitude();
 
-    public long getLatitude();
+    public double getLatitude();
 
-    public void setLatitude(long pLatitude);
+    public void setLatitude(double pLatitude);
 
-    public void setLongitude(long pLongitude);
+    public void setLongitude(double pLongitude);
 
     public ItfBairro getBairro();
 

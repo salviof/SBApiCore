@@ -6,6 +6,7 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanEnderecavel;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
@@ -78,6 +79,21 @@ public enum TipoOrganizacaoDadosEndereco {
 
                         }
                     }
+                    if (campoInstanciado.getFabricaTipoAtributo().isCampoLocalizacao()) {
+                        if (localizacao == null) {
+                            ItfBeanSimples objPai = (ItfBeanSimples) campoInstanciado.getObjetoDoAtributo();
+                            if (objPai instanceof ItfBeanEnderecavel && objPai.isTemCampoAnotado(FabTipoAtributoObjeto.LC_LOCALIZACAO)) {
+                                localizacao = (ItfLocalPostagem) objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO).getValor();
+                                if (localizacao == null) {
+                                    if (pEntidadePai instanceof ItfBeanEnderecavel) {
+                                        ((ItfBeanEnderecavel) pEntidadePai).instanciarNovoEndereco();
+                                        localizacao = (ItfLocalPostagem) objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO).getValor();
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     if (localizacao == null) {
                         campoInstanciado.getObjetoDoAtributo();
                     }
@@ -88,7 +104,7 @@ public enum TipoOrganizacaoDadosEndereco {
 
                         case LCCEP:
                         case LATITUDE:
-                        case Longitude:
+                        case LONGITUDE:
                         case LC_BAIRRO:
                         case LC_COMPLEMENTO_E_NUMERO:
 
