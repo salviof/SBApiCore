@@ -45,6 +45,8 @@ public interface ItfCaminhoCampo {
 
     public String getPrimeiroCaminhoSemNomeClasse();
 
+    public String getNomePrimeiroAtributo();
+
     public Field getCampoFieldReflection();
 
     public int getId();
