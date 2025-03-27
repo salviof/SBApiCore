@@ -6,6 +6,7 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaStatus;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 
 /**
  *
@@ -27,4 +28,19 @@ public interface ItfBeanStatus extends ItfBeanVinculadoAEnum, ItfBeanSimples {
         setStatusEnum((ItfFabricaStatus) pFabrica);
     }
 
+    public default boolean isPossuiCor() {
+        return this.isTemCampoAnotado(FabTipoAtributoObjeto.COR);
+    }
+
+    public default boolean isPossuiIcone() {
+        return this.isTemCampoAnotado(FabTipoAtributoObjeto.ICONE);
+    }
+
+    public default String getIcone() {
+        return getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.ICONE).getValor().toString();
+    }
+
+    public default String getCor() {
+        return getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.COR).getValor().toString();
+    }
 }

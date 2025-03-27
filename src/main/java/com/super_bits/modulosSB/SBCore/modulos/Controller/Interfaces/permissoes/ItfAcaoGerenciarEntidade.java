@@ -155,6 +155,7 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
      */
     public default ItfAcaoFormularioEntidade getAcaoFormularioListarPadrao() {
         List<ItfAcaoFormularioEntidade> acoesForm = getAcoesFormularioListagem();
+
         if (acoesForm.isEmpty()) {
             return null;
         } else {
