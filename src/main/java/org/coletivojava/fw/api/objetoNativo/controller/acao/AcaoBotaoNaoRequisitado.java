@@ -30,13 +30,13 @@ public class AcaoBotaoNaoRequisitado extends ObjetoNativoCoreDoSistema implement
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private int id;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nomeAcao;
     @InfoCampo(tipo = FabTipoAtributoObjeto.ICONE)
     private String iconeAcao;
     @InfoCampo(tipo = FabTipoAtributoObjeto.COR)
     private String cor;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_DESCRITIVO)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO)
     private String descricao;
 
     @Override

@@ -26,9 +26,9 @@ public class ModuloTransiente extends ObjetoNativoCoreDoSistema implements ItfMo
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private int id;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nome;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_DESCRITIVO)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO)
     private String descricao;
 
     private ItfFabricaModulo fabModulo;

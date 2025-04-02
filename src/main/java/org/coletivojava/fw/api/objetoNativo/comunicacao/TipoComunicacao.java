@@ -25,7 +25,7 @@ public class TipoComunicacao extends ObjetoNativoCoreDoSistema implements ItfTip
 
     public static final String MENSAGEM_PADRAO_COMUNICACAO = "Mensagem padrão (Falta Implementar)";
 
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private final String nome;
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private final int id;

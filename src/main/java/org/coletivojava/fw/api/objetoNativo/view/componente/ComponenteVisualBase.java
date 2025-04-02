@@ -26,9 +26,9 @@ public class ComponenteVisualBase extends ObjetoNativoCoreDoSistema implements I
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID, label = "Código")
     private int id;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME, label = "Nome")
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME, label = "Nome")
     private String nome;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_DESCRITIVO, label = "Descrição")
+    @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO, label = "Descrição")
     private String descricao;
     private List<Object> parametros;
     private String xhtmlJSF;

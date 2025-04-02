@@ -21,7 +21,7 @@ import org.coletivojava.fw.api.objetoNativo.controller.acao.AcaoBotaoNaoRequisit
 @InfoObjetoSB(tags = {"Resposta"}, plural = "respostas")
 public class TipoRespostaComunicacao extends ObjetoNativoCoreDoSistema implements ItfTipoRespostaComunicacao {
 
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String descricao;
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private int id;

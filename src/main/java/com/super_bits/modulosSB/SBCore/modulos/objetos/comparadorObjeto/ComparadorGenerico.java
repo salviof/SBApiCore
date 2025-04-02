@@ -177,7 +177,7 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
                 return 0;
 
             case ENTIDADE:
-                return new ComparadorGenerico(FabTipoAtributoObjeto.AAA_NOME, ordemReversa).compare((ItfBeanSimples) cp1.getValor(), (ItfBeanSimples) cp2.getValor());
+                return new ComparadorGenerico(FabTipoAtributoObjeto.NOME, ordemReversa).compare((ItfBeanSimples) cp1.getValor(), (ItfBeanSimples) cp2.getValor());
 
             case OUTROS_OBJETOS:
                 throw new UnsupportedOperationException("a comparação deste tipo de atributo não foi definida ");

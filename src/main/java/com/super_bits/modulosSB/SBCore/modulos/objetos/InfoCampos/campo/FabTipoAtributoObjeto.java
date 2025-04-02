@@ -30,11 +30,11 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
      * Indica o campo que Descreve o Item em uma ou duas palavras. --> Esta
      * anotação é obrigatória em um Item Simples
      */
-    AAA_NOME,
+    NOME,
     /**
      * Indica um nome completo do Item
      */
-    AAA_NOME_LONGO,
+    NOME_LONGO,
     /**
      * Indica um campo que armazena um caminho local para uma imagem Pequena
      */
@@ -49,9 +49,9 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
     IMG_GRANDE,
     /**
      * Indica um Descritivo do Item (uma explicação mais detalhada do que ele
-     * signigica), para descritivo de uma ou duas palavras utilize o AAA_NOME
+     * signigica), para descritivo de uma ou duas palavras utilize o NOME
      */
-    AAA_DESCRITIVO,
+    DESCRITIVO,
     /**
      * Indica o ID do Item, pode ser substituído pelo @Id do javax.persistence
      */
@@ -307,11 +307,11 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
                 break;
             case IMG_GRANDE:
                 break;
-            case AAA_NOME:
+            case NOME:
                 break;
-            case AAA_NOME_LONGO:
+            case NOME_LONGO:
                 break;
-            case AAA_DESCRITIVO:
+            case DESCRITIVO:
                 break;
             case ID:
                 break;
@@ -535,9 +535,9 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
 
     public TIPO_ORIGEM_VALOR_CAMPO getTipoOrigemPadrao() {
         switch (this) {
-            case AAA_NOME:
-            case AAA_NOME_LONGO:
-            case AAA_DESCRITIVO:
+            case NOME:
+            case NOME_LONGO:
+            case DESCRITIVO:
             case ID:
             case LATITUDE:
             case LONGITUDE:
@@ -683,7 +683,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
                 case LONGITUDE:
                 case PERCENTUAL:
                     return FabCompVisualInputs.QUANTIDADE;
-                case AAA_DESCRITIVO:
+                case DESCRITIVO:
                     return FabCompVisualInputs.TEXTMO_MULTIPLAS_LINHAS;
                 case MOEDA_REAL:
                 case MOEDA_DOLAR:
@@ -755,9 +755,9 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
     public TIPO_PRIMITIVO getTipoPrimitivo() {
 
         switch (this) {
-            case AAA_NOME:
-            case AAA_NOME_LONGO:
-            case AAA_DESCRITIVO:
+            case NOME:
+            case NOME_LONGO:
+            case DESCRITIVO:
             case LC_LOGRADOURO:
             case LCCEP:
 

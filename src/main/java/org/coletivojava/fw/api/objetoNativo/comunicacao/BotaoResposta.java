@@ -35,7 +35,7 @@ public class BotaoResposta extends ObjetoNativoCoreDoSistema implements ItfAcaoD
     public final ItfAcaoDoSistema acaoVinculada;
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private final int id;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private final String nomeDescricao;
 
     public BotaoResposta(ItfTipoRespostaComunicacao pTipoResposta, ItfAcaoDoSistema pAcaoVinculada) {
