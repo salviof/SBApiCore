@@ -29,7 +29,7 @@ import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringFiltrosSimples;
 public class AcaoBotaoNaoRequisitado extends ObjetoNativoCoreDoSistema implements ItfAcaoDoSistema {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
-    private int id;
+    private Long id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nomeAcao;
     @InfoCampo(tipo = FabTipoAtributoObjeto.ICONE)
@@ -80,8 +80,8 @@ public class AcaoBotaoNaoRequisitado extends ObjetoNativoCoreDoSistema implement
     }
 
     @Override
-    public int getId() {
-        return getNomeAcao().hashCode();
+    public Long getId() {
+        return (long) getNomeAcao().hashCode();
     }
 
     @Override
@@ -242,7 +242,7 @@ public class AcaoBotaoNaoRequisitado extends ObjetoNativoCoreDoSistema implement
     }
 
     @Override
-    public void setId(int pID) {
+    public void setId(Long pID) {
         id = pID;
     }
 

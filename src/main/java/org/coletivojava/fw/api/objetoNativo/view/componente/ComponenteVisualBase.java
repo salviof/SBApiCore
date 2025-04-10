@@ -25,7 +25,7 @@ import org.coletivojava.fw.utilCoreBase.UtilSBCoreDiretoriosSimples;
 public class ComponenteVisualBase extends ObjetoNativoCoreDoSistema implements ItfComponenteVisualSB, ItfBeanVinculadoAEnum, Serializable {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID, label = "Código")
-    private int id;
+    private Long id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME, label = "Nome")
     private String nome;
     @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO, label = "Descrição")
@@ -72,12 +72,12 @@ public class ComponenteVisualBase extends ObjetoNativoCoreDoSistema implements I
     }
 
     @Override
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

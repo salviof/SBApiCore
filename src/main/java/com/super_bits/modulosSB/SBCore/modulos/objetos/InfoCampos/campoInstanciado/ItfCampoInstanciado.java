@@ -7,6 +7,7 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanci
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfValidacao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario.FabEstadoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.calculos.ItfCalculoValorLogicoAtributoObjeto;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampoValidadorLogico;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.ItfPropriedadesReflexaoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
 
@@ -37,6 +38,12 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
     /**
      *
      * Leva em conta anotações da Java Bean Validation (JSR 303) e Infocampo
+     *
+     * ATENÇÃO, ISSO NÃO VALIDA AS IMPLEMENTAÇÕES DE VALIDAÇÃO LÓGICAS VIA
+     *
+     * @InfoCampoValidadorLogico
+     *
+     * Para validarção lógica utilize @
      *
      * @return Valida o valor do campo utilizando as anotações
      *

@@ -24,7 +24,7 @@ import java.util.List;
 public interface ItfModuloAcaoSistema extends ItfBeanSimples, ItfBeanVinculadoAEnum {
 
     @Override
-    public int getId();
+    public Long getId();
 
     @Override
     public String getNome();
@@ -34,7 +34,7 @@ public interface ItfModuloAcaoSistema extends ItfBeanSimples, ItfBeanVinculadoAE
     public List<ItfAcaoDoSistema> getAcoes();
 
     @Override
-    public void setId(int pID);
+    public void setId(Long pID);
 
     @Override
     public void setNome(String pNome);

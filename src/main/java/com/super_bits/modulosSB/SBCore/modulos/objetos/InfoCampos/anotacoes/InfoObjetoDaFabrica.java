@@ -13,7 +13,7 @@ public @interface InfoObjetoDaFabrica {
 
     public String nomeObjeto() default "";
 
-    public int id() default 0;
+    public long id() default 0;
 
     public Class classeObjeto() default void.class;
 

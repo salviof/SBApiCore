@@ -13,6 +13,6 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
  */
 public interface ItfBeanIDUnico extends ItfBeanIDUnicoSomenteLeitura {
 
-    public void setId(int pID);
+    public void setId(Long pID);
 
 }

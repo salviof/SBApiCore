@@ -117,9 +117,9 @@ public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
 
     @Override
     @Deprecated
-    public int configIDPeloNome() {
+    public Long configIDPeloNome() {
         LogManager.getLogger(LogPadraoSB.class).debug("Um objeto Nativo de sistem não configura id pelo nome, ");
-        return getNome().hashCode();
+        return (long) getNome().hashCode();
     }
 
     @Override

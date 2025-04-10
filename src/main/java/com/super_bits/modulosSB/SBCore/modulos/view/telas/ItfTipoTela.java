@@ -12,9 +12,9 @@ import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.component
  */
 public interface ItfTipoTela {
 
-    FabColunasTela getColunas();
+    public FabColunasTela getColunas();
 
-    int getId();
+    public Long getId();
 
     public String getNome();
 
@@ -28,7 +28,7 @@ public interface ItfTipoTela {
 
     void setColunas(FabColunasTela colunas);
 
-    void setId(int id);
+    void setId(Long id);
 
     void setNome(String nome);
 

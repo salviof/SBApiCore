@@ -49,7 +49,7 @@ public class UtilSBFabricaComponenteVisual {
             pComponente.setFabricaDoComponente(pFabrica);
             InfoComponenteVisual infoAnotacao = campo.getAnnotation(InfoComponenteVisual.class);
             String codigoId = pFabrica.getFamilia().ordinal() + String.valueOf(((Enum) pFabrica).ordinal());
-            pComponente.setId(Integer.parseInt(codigoId));
+            pComponente.setId((long) Integer.parseInt(codigoId));
             pComponente.setIdHTMLObjetoPrincipal(codigoId);
             loadInfoFabrica(pComponente, infoAnotacao, ItfFabTipoComponenteVisual.PASTA_TAG_LIBS);
             pComponente.setFamilia(pFabrica.getFamilia());
@@ -84,7 +84,7 @@ public class UtilSBFabricaComponenteVisual {
                 Method ordinal = pFabrica.getClass().getMethod("ordinal");
                 InfoComponenteVisual infoAnotacao = campo.getAnnotation(InfoComponenteVisual.class);
                 loadInfoFabrica(componente, infoAnotacao, "");
-                componente.setId((int) ordinal.invoke(pFabrica));
+                componente.setId((long) ordinal.invoke(pFabrica));
             } catch (NoSuchMethodException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
                 Logger.getLogger(UtilSBFabricaComponenteVisual.class.getName()).log(Level.SEVERE, null, ex);
             }

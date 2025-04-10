@@ -53,7 +53,7 @@ public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual, ItfFa
     @Override
     public FamiliaComponente getRegistro() {
         FamiliaComponente familia = new FamiliaComponente();
-        familia.setId(this.ordinal());
+        familia.setId((long) this.ordinal());
         familia.setNome(UtilSBCoreStringsCammelCaseSimples.getTextoByCammel(getNomeFAmilia()));
         familia.setFabrica(this);
         return familia;

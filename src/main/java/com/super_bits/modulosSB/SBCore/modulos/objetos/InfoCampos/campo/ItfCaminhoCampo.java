@@ -49,7 +49,7 @@ public interface ItfCaminhoCampo {
 
     public Field getCampoFieldReflection();
 
-    public int getId();
+    public Long getId();
 
     public String getLabel();
 
@@ -92,7 +92,7 @@ public interface ItfCaminhoCampo {
 
     public void setCaminhoComleto(String caminhoComleto);
 
-    public void setId(int pID);
+    public void setId(Long pID);
 
     public boolean temUmTipoComOutrasPropriedades();
 

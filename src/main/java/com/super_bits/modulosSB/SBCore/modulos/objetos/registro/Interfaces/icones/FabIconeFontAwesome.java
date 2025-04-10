@@ -42,7 +42,7 @@ public enum FabIconeFontAwesome implements ItfFabricaIcone {
     public itfIcone getIcone() {
 
         IconeSistema icone = new IconeSistema();
-        icone.setId(this.name().hashCode());
+        icone.setId((long) this.name().hashCode());
         switch (this) {
             case ICONE_PERSONALIZADO:
                 icone.setNome("Icone indefinido");

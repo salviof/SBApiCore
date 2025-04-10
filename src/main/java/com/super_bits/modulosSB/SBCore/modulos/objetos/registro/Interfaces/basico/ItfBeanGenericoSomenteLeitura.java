@@ -24,7 +24,7 @@ public interface ItfBeanGenericoSomenteLeitura extends ItfBeanComImagemPequena, 
      * e cria um hash correspontende ao id
      *
      */
-    public int configIDPeloNome();
+    public Long configIDPeloNome();
 
     /**
      *

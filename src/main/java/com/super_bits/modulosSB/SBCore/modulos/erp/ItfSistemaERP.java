@@ -23,7 +23,7 @@ public interface ItfSistemaERP extends ItfBeanSimples {
     public String getHashChavePublica();
 
     @Override
-    public int getId();
+    public Long getId();
 
     @Override
     public String getNome();

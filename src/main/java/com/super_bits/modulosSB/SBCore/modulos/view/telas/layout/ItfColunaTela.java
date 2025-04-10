@@ -15,7 +15,7 @@ public interface ItfColunaTela {
 
     ComponenteVisualEmLayout getComponenteVinculado();
 
-    int getId();
+    Long getId();
 
     int getPesoLarguraCalculado();
 
@@ -33,7 +33,7 @@ public interface ItfColunaTela {
 
     void setComponenteVinculado(ItfComponenteVisualSBEmLayout componenteVinculado);
 
-    void setId(int id);
+    void setId(Long id);
 
     void setPesoLarguraCalculado(int pesoLarguraCalculado);
 

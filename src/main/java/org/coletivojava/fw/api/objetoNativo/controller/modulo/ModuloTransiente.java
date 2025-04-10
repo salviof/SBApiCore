@@ -25,7 +25,7 @@ import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
 public class ModuloTransiente extends ObjetoNativoCoreDoSistema implements ItfModuloAcaoSistema {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
-    private int id;
+    private Long id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nome;
     @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO)
@@ -44,12 +44,12 @@ public class ModuloTransiente extends ObjetoNativoCoreDoSistema implements ItfMo
     }
 
     @Override
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    public void setId(int pID) {
+    public void setId(Long pID) {
         id = pID;
     }
 

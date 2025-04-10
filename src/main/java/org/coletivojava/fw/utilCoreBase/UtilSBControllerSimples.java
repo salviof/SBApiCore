@@ -24,22 +24,22 @@ public class UtilSBControllerSimples {
      * @param pMeThod O Metodo que criará a identificação
      * @return O hash da String Classe+nomeMetodo
      */
-    public static Integer gerarIDMetodoAcaoDoSistema(Method pMeThod) {
+    public static Long gerarIDMetodoAcaoDoSistema(Method pMeThod) {
         try {
             if (pMeThod == null) {
                 throw new UnsupportedOperationException("Enviou metodo nulo para gerar Id do método");
             }
             String classe = pMeThod.getDeclaringClass().getName();
             String metodo = pMeThod.getName();
-            return (classe + metodo).hashCode();
+            return (long) (classe + metodo).hashCode();
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("Erro gerando id do metodo", t);
             return null;
         }
     }
 
-    public static Integer gerarIDAcaoDoSistema(ItfFabricaAcoes pAcao) {
-        int codigo = gerarNomeUnicoAcaoDoSistema(pAcao).hashCode();
+    public static Long gerarIDAcaoDoSistema(ItfFabricaAcoes pAcao) {
+        Long codigo = (long) gerarNomeUnicoAcaoDoSistema(pAcao).hashCode();
 
         return codigo;
     }

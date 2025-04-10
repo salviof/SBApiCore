@@ -18,19 +18,19 @@ import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
 public class IconeSistema extends ObjetoNativoCoreDoSistema implements itfIcone {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
-    private int id;
+    private Long id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nome;
     private String descricao;
     private String tagHtml;
 
     @Override
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

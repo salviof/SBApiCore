@@ -10,7 +10,7 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
  */
 public interface ItfBeanIDUnicoSomenteLeitura extends ItfBeanGenericoSomenteLeitura {
 
-    public int getId();
+    public Long getId();
 
     public default String getClassePontoIdentificador() {
         return this.getClass().getSimpleName() + "." + getId();

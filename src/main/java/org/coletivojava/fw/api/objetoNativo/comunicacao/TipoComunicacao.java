@@ -28,7 +28,7 @@ public class TipoComunicacao extends ObjetoNativoCoreDoSistema implements ItfTip
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private final String nome;
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
-    private final int id;
+    private final Long id;
     private final FabTipoComunicacao fabTipoComunicacao;
     private final List<TipoRespostaComunicacao> respostasPossiveis;
     private String mensagemModeloPredefinida;
@@ -42,7 +42,7 @@ public class TipoComunicacao extends ObjetoNativoCoreDoSistema implements ItfTip
         fabTipoComunicacao = pTipo;
         respostasPossiveis = (List) UtilSBCoreComunicacao.getTipoRespostas(fabTipoComunicacao);
         nome = UtilSBCoreStringsCammelCaseSimples.getTextoByCammel(fabTipoComunicacao.toString());
-        id = fabTipoComunicacao.ordinal() + 1;
+        id = (long) fabTipoComunicacao.ordinal() + 1;
     }
 
     @Override
@@ -131,12 +131,12 @@ public class TipoComunicacao extends ObjetoNativoCoreDoSistema implements ItfTip
     }
 
     @Override
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    public void setId(int pID) {
+    public void setId(Long pID) {
 
     }
 

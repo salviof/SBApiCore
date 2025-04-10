@@ -24,7 +24,7 @@ import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
 public final class FamiliaComponente extends ObjetoNativoCoreDoSistema implements ItfBeanSimples {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
-    private int id;
+    private Long id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nome;
     private FabFamiliaCompVisual fabrica;
@@ -34,7 +34,7 @@ public final class FamiliaComponente extends ObjetoNativoCoreDoSistema implement
     private Class fabricaDeCamposPadrao;
 
     @Override
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -82,7 +82,7 @@ public final class FamiliaComponente extends ObjetoNativoCoreDoSistema implement
     }
 
     @Override
-    public void setId(int pID) {
+    public void setId(Long pID) {
         id = pID;
     }
 

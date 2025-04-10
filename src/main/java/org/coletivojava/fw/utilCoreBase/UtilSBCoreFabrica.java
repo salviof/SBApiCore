@@ -55,9 +55,9 @@ public abstract class UtilSBCoreFabrica {
             }
 
             if (infoObjeto.id() == 0) {
-                novoObjeto.setId(((Enum) pEnumFabrica).ordinal() + 1);
+                novoObjeto.setId((long) ((Enum) pEnumFabrica).ordinal() + 1);
             } else {
-                novoObjeto.setId(infoObjeto.id());
+                novoObjeto.setId((long) infoObjeto.id());
             }
             if (novoObjeto instanceof ItfBeanVinculadoAEnum) {
                 ((ItfBeanVinculadoAEnum) novoObjeto).setEnumVinculado(pEnumFabrica);
@@ -93,7 +93,7 @@ public abstract class UtilSBCoreFabrica {
             }
 
             if (infoObjeto.id() == 0) {
-                novoObjeto.setId(((Enum) pEnumFabrica).ordinal() + 1);
+                novoObjeto.setId((long) ((Enum) pEnumFabrica).ordinal() + 1);
             } else {
                 novoObjeto.setId(infoObjeto.id());
             }

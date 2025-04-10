@@ -64,7 +64,7 @@ public interface ItfAcaoDoSistema extends ItfBeanSimples, ItfBeanComIcone {
     public boolean isPrecisaPermissao();
 
     @Override
-    public void setId(int pId);
+    public void setId(Long pId);
 
     /**
      *

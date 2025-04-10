@@ -15,11 +15,11 @@ import java.util.UUID;
  */
 public abstract class UtilSBCoreGeradorDeIDSimples {
 
-    public static int gerarIdUnicoObejtoVinculadoAFabrica(ItfBeanVinculadoAEnum pObjeto) {
-        return (pObjeto.getClass().getSimpleName() + "." + pObjeto.getEnumVinculado().toString()).hashCode();
+    public static Long gerarIdUnicoObejtoVinculadoAFabrica(ItfBeanVinculadoAEnum pObjeto) {
+        return (long) (pObjeto.getClass().getSimpleName() + "." + pObjeto.getEnumVinculado().toString()).hashCode();
     }
 
-    public static int gerarIdAcaoDoSistema(ItfAcaoDoSistema pAcao) {
+    public static Long gerarIdAcaoDoSistema(ItfAcaoDoSistema pAcao) {
 
         return UtilSBControllerSimples.gerarIDAcaoDoSistema(pAcao.getEnumAcaoDoSistema());
     }

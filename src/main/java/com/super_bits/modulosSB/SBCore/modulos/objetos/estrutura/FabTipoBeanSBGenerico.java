@@ -45,7 +45,7 @@ public enum FabTipoBeanSBGenerico implements ItfFabrica {
     @Override
     public ItemTipoEntidadeGenerico getRegistro() {
         ItemTipoEntidadeGenerico tipoGenericoEntidade = new ItemTipoEntidadeGenerico();
-        tipoGenericoEntidade.setId(this.ordinal());
+        tipoGenericoEntidade.setId((long) this.ordinal());
         switch (this) {
             case BEAN_CONTATO_CORPORATIVO:
                 tipoGenericoEntidade.setNome("Contato corporativo");

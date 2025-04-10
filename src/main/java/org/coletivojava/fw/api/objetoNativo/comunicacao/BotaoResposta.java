@@ -82,7 +82,7 @@ public class BotaoResposta extends ObjetoNativoCoreDoSistema implements ItfAcaoD
     }
 
     @Override
-    public void setId(int pId) {
+    public void setId(Long pId) {
 
     }
 
@@ -267,7 +267,7 @@ public class BotaoResposta extends ObjetoNativoCoreDoSistema implements ItfAcaoD
     }
 
     @Override
-    public int getId() {
+    public Long getId() {
         return acaoVinculada.getId();
     }
 

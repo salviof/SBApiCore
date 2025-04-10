@@ -14,13 +14,14 @@ import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
 
 /**
  *
+ *
  * @author desenvolvedor
  */
 @InfoObjetoSB(plural = "Tipos de Transporte", tags = {"Tipo Transporte"})
 public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements ItfTipoTransporteComunicacao, ItfBeanVinculadoAEnum {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
-    private int id;
+    private Long id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nome;
     @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO)
@@ -29,12 +30,12 @@ public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements
     private ItffabricaTrasporteComunicacao tipoTransporte;
 
     @Override
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

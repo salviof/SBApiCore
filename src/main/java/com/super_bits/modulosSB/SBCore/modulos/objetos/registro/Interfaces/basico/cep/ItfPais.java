@@ -12,9 +12,9 @@ import java.util.List;
  */
 public interface ItfPais {
 
-    public int getId();
+    public Long getId();
 
-    public void setId(int pID);
+    public void setId(Long pID);
 
     public String getNome();
 

@@ -17,7 +17,7 @@ import javax.persistence.Id;
 public class StatusComunicacao {
 
     @Id
-    private int id;
+    private Long id;
     @InfoCampo(label = "Status Msg")
     private String nome;
 

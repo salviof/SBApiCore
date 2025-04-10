@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface ItfAcaoController extends ItfAcaoDoSistema {
 
-    public int getIdMetodo();
+    public Long getIdMetodo();
 
     public boolean isTemParametroExtra();
 

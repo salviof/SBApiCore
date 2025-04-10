@@ -6,7 +6,6 @@
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
 import org.coletivojava.fw.api.objetoNativo.comunicacao.TipoRespostaComunicacao;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringEnumECaixaAlta;
 
@@ -188,7 +187,7 @@ public enum FabTipoRespostaComunicacao implements ItfFabrica {
         }
         TipoRespostaComunicacao respCM = new TipoRespostaComunicacao(this);
         respCM.setNome(textobotao);
-        respCM.setId(this.ordinal() + 1);
+        respCM.setId((long) this.ordinal() + 1);
         respCM.setIcone(getIconePadrao());
 
         return respCM;

@@ -10,30 +10,30 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura;
  */
 public interface ItfListaDeEntidade {
 
-    ItfEstruturaDeEntidade getEstrutura();
+    public ItfEstruturaDeEntidade getEstrutura();
 
-    int getId();
+    public Long getId();
 
-    String getJavaDoc();
+    public String getJavaDoc();
 
-    String getNomeDeclaracao();
+    public String getNomeDeclaracao();
 
-    String getNomeEntidade();
+    public String getNomeEntidade();
 
-    String getNomeEnum();
+    public String getNomeEnum();
 
-    String getNomeObjetoListado();
+    public String getNomeObjetoListado();
 
-    void setEstrutura(ItfEstruturaDeEntidade estrutura);
+    public void setEstrutura(ItfEstruturaDeEntidade estrutura);
 
-    void setJavaDoc(String javaDoc);
+    public void setJavaDoc(String javaDoc);
 
-    void setNomeDeclaracao(String nomeDeclaracao);
+    public void setNomeDeclaracao(String nomeDeclaracao);
 
-    void setNomeEntidade(String nomeEntidade);
+    public void setNomeEntidade(String nomeEntidade);
 
-    void setNomeEnum(String nomeEnum);
+    public void setNomeEnum(String nomeEnum);
 
-    void setNomeObjetoListado(String nomeObjetoListado);
+    public void setNomeObjetoListado(String nomeObjetoListado);
 
 }

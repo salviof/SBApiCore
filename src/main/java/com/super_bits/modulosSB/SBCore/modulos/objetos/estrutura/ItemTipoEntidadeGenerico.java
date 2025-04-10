@@ -15,13 +15,13 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
 public class ItemTipoEntidadeGenerico implements ItfBeanSimplesSomenteLeitura {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
-    private int id;
+    private Long id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nomeTipo;
     @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO)
     private String descricao;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -29,7 +29,7 @@ public class ItemTipoEntidadeGenerico implements ItfBeanSimplesSomenteLeitura {
         nomeTipo = pNome;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -80,7 +80,7 @@ public class ItemTipoEntidadeGenerico implements ItfBeanSimplesSomenteLeitura {
     }
 
     @Override
-    public int configIDPeloNome() {
+    public Long configIDPeloNome() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
