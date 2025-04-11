@@ -12,11 +12,11 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  */
 public interface ItfServicoLinkDeEntidadesERP {
 
-    public String getCodigoApiExterna(Class pEntidade, int pCodigoInterno);
+    public String getCodigoApiExterna(Class pEntidade, Long pCodigoInterno);
 
     public String getCodigoSistemaInterno(Class pEntidade, int pCodigoapiExterno);
 
-    public boolean registrarCodigoLigacaoApi(Class pEntidade, int codigoInterno, String codigoAPIExterna);
+    public boolean registrarCodigoLigacaoApi(Class pEntidade, Long codigoInterno, String codigoAPIExterna);
 
     @Deprecated
     public <T extends ItfBeanSimplesSomenteLeitura> T getObjetoDTOFromJson(Class<? extends T> pClass, String Json);
