@@ -57,9 +57,8 @@ public interface ItfCentralPermissoes extends ItfServicoCoreSB {
      * @see ItfControleDeSessao#
      * @param pEmail
      * @param pSenha
-     * @deprecated
+     *
      */
-    @Deprecated
     public void logarEmailESenha(String pEmail, String pSenha);
 
     public List<ItfUsuario> configuraUsuarios();

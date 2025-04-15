@@ -213,7 +213,7 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
     public default void setValorSeValido(Object pValor) throws ErroValidacao {
         if (validarCampo(pValor)) {
             if (isTemValidadacaoLogica()) {
-                if (getObjetoDoAtributo().getId() == 0) {
+                if (getObjetoDoAtributo().getId() == null) {
                     getValidacaoLogicaEstrategia().validarModoNovo(pValor);
 
                 } else {
