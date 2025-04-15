@@ -37,7 +37,8 @@ public class EstrategiaAutoexecucaoMinutos implements ItfEstrategiaAutoexecucao 
         int multiploMinuto = 0;
 
         switch (tipoAtuoExecucao) {
-
+            case MINUTOS_A_CADA_1:
+                multiploMinuto = 1;
             case MINUTOS_A_CADA_5:
                 multiploMinuto = 5;
                 break;

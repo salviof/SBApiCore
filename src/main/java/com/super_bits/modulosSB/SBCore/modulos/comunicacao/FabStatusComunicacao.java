@@ -5,22 +5,31 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaStatus;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoDaFabrica;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author novy
  */
-public enum FabStatusComunicacao implements ItfFabrica {
+public enum FabStatusComunicacao implements ItfFabricaStatus {
 
-    @InfoObjetoDaFabrica(classeObjeto = StatusComunicacao.class, id = 1, nomeObjeto = "Selado")
+    @InfoObjetoDaFabrica(classeObjeto = StatusNotificacao.class, id = 1, nomeObjeto = "Selado")
     SELADO,
-    @InfoObjetoDaFabrica(classeObjeto = StatusComunicacao.class, id = 2, nomeObjeto = "Enviado")
+    @InfoObjetoDaFabrica(classeObjeto = StatusNotificacao.class, id = 2, nomeObjeto = "Enviado")
     ENVIADO,
-    @InfoObjetoDaFabrica(classeObjeto = StatusComunicacao.class, id = 3, nomeObjeto = "Recebido")
+    @InfoObjetoDaFabrica(classeObjeto = StatusNotificacao.class, id = 3, nomeObjeto = "Recebido")
     RECEBIDO,
-    @InfoObjetoDaFabrica(classeObjeto = StatusComunicacao.class, id = 4, nomeObjeto = "Respondido")
+    @InfoObjetoDaFabrica(classeObjeto = StatusNotificacao.class, id = 4, nomeObjeto = "Respondido")
     RESPONDIDO;
+
+    @Override
+    public List<ItfAcaoDoSistema> opcoesPorStatus() {
+        return new ArrayList<>();
+    }
 
 }

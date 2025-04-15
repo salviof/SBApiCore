@@ -14,7 +14,7 @@ import javax.persistence.Id;
  * @author novy
  */
 @InfoObjetoSB(tags = {"Status comunicação"}, plural = "Status de comunicação")
-public class StatusComunicacao {
+public class StatusNotificacao {
 
     @Id
     private Long id;

@@ -128,6 +128,50 @@ public abstract class UtilSBCoreReflexaoAPIERP {
         return pApi.getClass().getAnnotation(ApiERPColetivoJavaFW.class);
     }
 
+    public static boolean isClasseImplementadaNoContexto(ItfApiErpSuperBits pApi) {
+        try {
+
+            Class anotacaoImplementacao;
+
+            List<Class> classesImplementacao;
+            if (UtilSBCoreContextoSimples.isContextoExecucaoJunit()) {
+                String anotacaoImplementacaoTestes = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacaoTestes(pApi);
+                anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoTestes);
+                List<Class> opcoes = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+                if (!opcoes.isEmpty()) {
+                    mapaServicosErpRegistrados.put(pApi, opcoes.get(0));
+                    return true;
+                }
+            }
+            String anotacaoImplementacaoContexto = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacao(pApi);
+            anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoContexto);
+            if (anotacaoImplementacao == null) {
+                return false;
+            }
+            try {
+
+                Class classe = Class.forName(getPacoteImplementacaoERP(pApi) + "." + getNomeClasseAnotacaoImplementacao(pApi) + "impl");
+                if (classe != null) {
+                    mapaServicosErpRegistrados.put(pApi, classe);
+                    return true;
+                }
+            } catch (Throwable t) {
+                System.out.println(t.getMessage());
+            }
+            classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+            if (!classesImplementacao.isEmpty()) {
+                mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0));
+                return true;
+
+            }
+
+            return false;
+        } catch (Throwable t) {
+            return false;
+        }
+
+    }
+
     public static Class getClasseImplementacaoDoContexto(ItfApiErpSuperBits pApi) {
         try {
 

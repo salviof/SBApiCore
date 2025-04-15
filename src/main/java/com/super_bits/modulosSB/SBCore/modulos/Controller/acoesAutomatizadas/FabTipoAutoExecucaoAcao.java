@@ -21,6 +21,7 @@ public enum FabTipoAutoExecucaoAcao {
     DIARIO_MANHA_5_HORAS,
     DIARIO_TARDE_15_HORAS,
     DIARIO_TARDE_18HORRAS,
+    MINUTOS_A_CADA_1,
     MINUTOS_A_CADA_5,
     MINUTOS_A_CADA_15,
     MINUTOS_A_CADA_30,
@@ -57,6 +58,7 @@ public enum FabTipoAutoExecucaoAcao {
             case MINUTOS_A_CADA_5:
             case MINUTOS_A_CADA_15:
             case MINUTOS_A_CADA_30:
+            case MINUTOS_A_CADA_1:
                 return FabEstrategiaAutoexecucao.MINUTOS;
             case HORAS_A_CADA_1:
             case HORAS_A_CADA_3:
