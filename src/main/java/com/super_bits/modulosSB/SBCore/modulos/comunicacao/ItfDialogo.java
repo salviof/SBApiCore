@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author salvioF
  */
-public interface ItfComunicacao extends ItfBeanSimplesSomenteLeitura {
+public interface ItfDialogo extends ItfBeanSimplesSomenteLeitura {
 
     public ItfDestinatario getDestinatario();
 
@@ -27,8 +27,6 @@ public interface ItfComunicacao extends ItfBeanSimplesSomenteLeitura {
 
     public List<ItfRespostaComunicacao> getRepostasPossiveis();
 
-    public List<ItfTipoTransporteComunicacao> getTransportes();
-
     public String getAssunto();
 
     public void setAssunto(String pAssunto);
@@ -38,8 +36,6 @@ public interface ItfComunicacao extends ItfBeanSimplesSomenteLeitura {
     public String getMensagem();
 
     public void setMensagem(String pMensagem);
-
-    public void selarComunicacao();
 
     public boolean isFoiSelado();
 

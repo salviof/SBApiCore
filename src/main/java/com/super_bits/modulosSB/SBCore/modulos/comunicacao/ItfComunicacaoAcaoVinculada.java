@@ -10,7 +10,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAc
  *
  * @author desenvolvedor
  */
-public interface ItfComunicacaoAcaoVinculada extends ItfComunicacao {
+public interface ItfComunicacaoAcaoVinculada extends ItfDialogo {
 
     public ItfAcaoDoSistema getAcaoVinculada();
 }

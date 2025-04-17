@@ -18,7 +18,7 @@ import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
  * @author desenvolvedor
  */
 @InfoObjetoSB(plural = "Tipos de Transporte", tags = {"Tipo Transporte"})
-public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements ItfTipoTransporteComunicacao, ItfBeanVinculadoAEnum {
+public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements ItfTipoCanalComunicacao, ItfBeanVinculadoAEnum {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;
@@ -27,7 +27,7 @@ public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements
     @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO)
     private String descricao;
 
-    private ItffabricaTrasporteComunicacao tipoTransporte;
+    private ItffabricaCanalComunicacao tipoTransporte;
 
     @Override
     public Long getId() {
@@ -59,7 +59,7 @@ public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements
     @Override
 
     public void setEnumVinculado(ItfFabrica pFabrica) {
-        tipoTransporte = (ItffabricaTrasporteComunicacao) pFabrica;
+        tipoTransporte = (ItffabricaCanalComunicacao) pFabrica;
     }
 
     @Override

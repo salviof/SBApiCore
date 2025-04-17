@@ -4,10 +4,10 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.servicosCore;
 
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
 
 /**
  *
@@ -15,18 +15,18 @@ import java.util.List;
  */
 public interface ItfArmazenamentoComunicacao {
 
-    public boolean registrarInicioComunicacao(ItfComunicacao pComunicacao);
+    public boolean registrarDialogo(ItfDialogo pComunicacao) throws ErroRegistrandoDialogo;
 
-    public boolean regsitrarRespostaComunicacao(String pCodigoComunicacao, ItfRespostaComunicacao pResposta);
+    public boolean regsitrarRespostaDialogo(String pCodigoComunicacao, ItfRespostaComunicacao pResposta);
 
     public boolean limparComunicacaoExpirada();
 
-    public ItfComunicacao getComunicacaoByCodigoSelo(String pCodigoSelo);
+    public ItfDialogo getDialogoByCodigoSelo(String pCodigoSelo);
 
-    public boolean removerComunicacaoByCodigoSelo(String pCodigoSelo);
+    public boolean removerDialogoByCodigoSelo(String pCodigoSelo);
 
-    public List<ItfComunicacao> getComunicacoesAguardandoRespostaDoDestinatario(ItfUsuario pDestinatario);
+    public List<ItfDialogo> getComunicacoesAguardandoRespostaDoDestinatario(ItfUsuario pDestinatario);
 
-    public List<ItfComunicacao> getComunicacoesAguardandoRespostaDoRemetente(ItfUsuario pRemetente);
+    public List<ItfDialogo> getComunicacoesAguardandoRespostaDoRemetente(ItfUsuario pRemetente);
 
 }

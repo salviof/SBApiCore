@@ -10,6 +10,6 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  *
  * @author desenvolvedor
  */
-public interface ItfTipoTransporteComunicacao extends ItfBeanVinculadoAEnum {
+public interface ItfTipoCanalComunicacao extends ItfBeanVinculadoAEnum {
 
 }

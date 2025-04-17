@@ -7,7 +7,6 @@ package org.coletivojava.fw.utilCoreBase;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoRespostaComunicacao;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComunicacao;
 
@@ -16,6 +15,7 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.comunicacao.RespostaComunicacao;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
 
 /**
  *
@@ -93,13 +93,13 @@ public class UtilSBCoreComunicacao {
 
     }
 
-    public static List<ItfRespostaComunicacao> getRespostaCOmunicacao(ItfComunicacao pComunicacao) {
+    public static List<ItfRespostaComunicacao> getRespostaCOmunicacao(ItfDialogo pComunicacao) {
 
         return getRespostaCOmunicacao(pComunicacao.getTipoComunicacao().getFabTipoComunicacao(), pComunicacao);
 
     }
 
-    public static List<ItfRespostaComunicacao> getRespostaCOmunicacao(FabTipoComunicacao pTipoComunicacao, ItfComunicacao cm) {
+    public static List<ItfRespostaComunicacao> getRespostaCOmunicacao(FabTipoComunicacao pTipoComunicacao, ItfDialogo cm) {
         List<ItfRespostaComunicacao> respostas = new ArrayList<>();
 
         getTipoRespostas(pTipoComunicacao).stream().map((resposta)
@@ -113,11 +113,11 @@ public class UtilSBCoreComunicacao {
 
     }
 
-    public static String gerarMensagem(ItfComunicacao pComunicacao) {
+    public static String gerarMensagem(ItfDialogo pComunicacao) {
         return pComunicacao.getTipoComunicacao().getMensagemModeloPredefinida();
     }
 
-    public static String gerarAssunto(ItfComunicacao pComunicacao) {
+    public static String gerarAssunto(ItfDialogo pComunicacao) {
         return pComunicacao.getTipoComunicacao().getAssuntoModeloPredefinido();
     }
 

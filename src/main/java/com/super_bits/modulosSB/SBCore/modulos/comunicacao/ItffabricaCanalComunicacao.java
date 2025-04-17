@@ -12,11 +12,11 @@ import com.super_bits.modulosSB.SBCore.modulos.erp.ItfApiErpSuperBits;
  * @author desenvolvedor
  * @param <ItfDisparoComunicacao>
  */
-public interface ItffabricaTrasporteComunicacao<ItfDisparoComunicacao> extends ItfApiErpSuperBits<ItfDisparoComunicacao> {
+public interface ItffabricaCanalComunicacao<ItfDisparoComunicacao> extends ItfApiErpSuperBits<ItfDisparoComunicacao> {
 
     @Override
-    public default ItfTipoTransporteComunicacao getRegistro() {
-        return (ItfTipoTransporteComunicacao) ItfApiErpSuperBits.super.getRegistro();
+    public default ItfTipoCanalComunicacao getRegistro() {
+        return (ItfTipoCanalComunicacao) ItfApiErpSuperBits.super.getRegistro();
     }
 
     @Override

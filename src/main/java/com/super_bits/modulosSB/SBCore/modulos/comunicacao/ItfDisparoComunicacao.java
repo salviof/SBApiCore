@@ -10,8 +10,18 @@ package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
  */
 public interface ItfDisparoComunicacao {
 
-    public void dispararInicioComunicacao(ItfComunicacao pComunicacao);
+    /**
+     *
+     * @param pComunicacao
+     * @return O Código do recibo
+     */
+    public String dispararInicioComunicacao(ItfDialogo pComunicacao);
 
-    public void dispararRespostaComunicacao(ItfComunicacao pComunicacao);
+    /**
+     *
+     *
+     * @param pComunicacao
+     */
+    public void dispararRespostaComunicacao(ItfDialogo pComunicacao);
 
 }

@@ -6,9 +6,9 @@ package org.coletivojava.fw.api.objetoNativo.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComunicacao;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
 
 /**
  *
@@ -16,11 +16,11 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComuni
  */
 public class RespostaComunicacao implements ItfRespostaComunicacao {
 
-    private final ItfComunicacao comunicacaoVinculada;
+    private final ItfDialogo comunicacaoVinculada;
     private final ItfTipoRespostaComunicacao tipoResposta;
     private final BotaoResposta botaoResposta;
 
-    public RespostaComunicacao(ItfComunicacao comunicacaoVinculada,
+    public RespostaComunicacao(ItfDialogo comunicacaoVinculada,
             ItfTipoRespostaComunicacao tipoResposta) {
 
         this.comunicacaoVinculada = comunicacaoVinculada;
@@ -30,7 +30,7 @@ public class RespostaComunicacao implements ItfRespostaComunicacao {
     }
 
     @Override
-    public ItfComunicacao getComunicacao() {
+    public ItfDialogo getComunicacao() {
         return comunicacaoVinculada;
     }
 

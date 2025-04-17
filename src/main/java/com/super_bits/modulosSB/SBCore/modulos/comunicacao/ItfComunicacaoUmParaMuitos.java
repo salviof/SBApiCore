@@ -8,6 +8,6 @@ package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
  *
  * @author SalvioF
  */
-public interface ItfComunicacaoUmParaMuitos extends ItfComunicacao {
+public interface ItfComunicacaoUmParaMuitos extends ItfDialogo {
 
 }

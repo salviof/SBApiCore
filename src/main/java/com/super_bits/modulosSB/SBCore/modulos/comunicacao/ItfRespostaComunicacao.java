@@ -12,7 +12,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAc
  */
 public interface ItfRespostaComunicacao {
 
-    public ItfComunicacao getComunicacao();
+    public ItfDialogo getComunicacao();
 
     public ItfTipoRespostaComunicacao getTipoResposta();
 
