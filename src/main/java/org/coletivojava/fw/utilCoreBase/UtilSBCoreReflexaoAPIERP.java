@@ -139,7 +139,7 @@ public abstract class UtilSBCoreReflexaoAPIERP {
                 anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoTestes);
                 List<Class> opcoes = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
                 if (!opcoes.isEmpty()) {
-                    mapaServicosErpRegistrados.put(pApi, opcoes.get(0));
+                    mapaServicosErpRegistrados.put(pApi, opcoes.get(0).newInstance());
                     return true;
                 }
             }
@@ -152,7 +152,7 @@ public abstract class UtilSBCoreReflexaoAPIERP {
 
                 Class classe = Class.forName(getPacoteImplementacaoERP(pApi) + "." + getNomeClasseAnotacaoImplementacao(pApi) + "impl");
                 if (classe != null) {
-                    mapaServicosErpRegistrados.put(pApi, classe);
+                    mapaServicosErpRegistrados.put(pApi, classe.newInstance());
                     return true;
                 }
             } catch (Throwable t) {
@@ -160,7 +160,7 @@ public abstract class UtilSBCoreReflexaoAPIERP {
             }
             classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
             if (!classesImplementacao.isEmpty()) {
-                mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0));
+                mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0).newInstance());
                 return true;
 
             }
@@ -183,7 +183,7 @@ public abstract class UtilSBCoreReflexaoAPIERP {
                 anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoTestes);
                 List<Class> opcoes = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
                 if (!opcoes.isEmpty()) {
-                    mapaServicosErpRegistrados.put(pApi, opcoes.get(0));
+                    mapaServicosErpRegistrados.put(pApi, opcoes.get(0).newInstance());
                     return opcoes.get(0);
                 }
             }
@@ -196,7 +196,7 @@ public abstract class UtilSBCoreReflexaoAPIERP {
 
                 Class classe = Class.forName(getPacoteImplementacaoERP(pApi) + "." + getNomeClasseAnotacaoImplementacao(pApi) + "impl");
                 if (classe != null) {
-                    mapaServicosErpRegistrados.put(pApi, classe);
+                    mapaServicosErpRegistrados.put(pApi, classe.newInstance());
                     return classe;
                 }
             } catch (Throwable t) {
@@ -204,7 +204,7 @@ public abstract class UtilSBCoreReflexaoAPIERP {
             }
             classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
             if (!classesImplementacao.isEmpty()) {
-                mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0));
+
                 return classesImplementacao.get(0);
 
             }
