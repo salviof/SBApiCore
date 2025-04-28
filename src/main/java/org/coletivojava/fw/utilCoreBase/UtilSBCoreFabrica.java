@@ -34,11 +34,11 @@ public abstract class UtilSBCoreFabrica {
 
     }
 
-    public static ItfBeanSimples getRegistroPorEnum(ItfFabrica pEnumFabrica) {
-
+    public static Class<? extends ItfBeanSimples> getClasseEntidadePorEnum(ItfFabrica pEnumFabrica) {
         Class classe = pEnumFabrica.getClass();
         try {
             Field campo = classe.getDeclaredField(pEnumFabrica.toString());
+
             InfoObjetoDaFabrica infoObjeto = campo.getAnnotation(InfoObjetoDaFabrica.class);
             if (infoObjeto == null) {
                 throw new UnsupportedOperationException("Para utilizar a implementação padrão do getRegistro() é nescessário anotar o enum com  " + InfoObjetoDaFabrica.class.getSimpleName() + "verifique os atributos da fabrica" + pEnumFabrica.getClass().getSimpleName());
@@ -46,7 +46,33 @@ public abstract class UtilSBCoreFabrica {
             if (infoObjeto.classeObjeto() == void.class) {
                 throw new UnsupportedOperationException("Não é possível utilizar a implementação padrão do getRegistro, sem especificar a classe vinculada a esta fabrica");
             }
-            ItfBeanSimples novoObjeto = (ItfBeanSimples) infoObjeto.classeObjeto().newInstance();
+            return infoObjeto.classeObjeto();
+        } catch (Throwable t) {
+            throw new UnsupportedOperationException("Não é possível utilizar a implementação padrão do getRegistro, sem especificar a classe vinculada a esta fabrica");
+        }
+
+    }
+
+    public static InfoObjetoDaFabrica getDadosDoRegistro(ItfFabrica pEnumFabrica) {
+        Class classe = pEnumFabrica.getClass();
+        try {
+            Field campo = classe.getDeclaredField(pEnumFabrica.toString());
+
+            InfoObjetoDaFabrica infoObjeto = campo.getAnnotation(InfoObjetoDaFabrica.class);
+            return infoObjeto;
+        } catch (Throwable t) {
+            throw new UnsupportedOperationException("Não é possível encontrar o InfoObjetoDaFabrica do item");
+        }
+    }
+
+    public static ItfBeanSimples getRegistroPorEnum(ItfFabrica pEnumFabrica) {
+
+        Class classe = pEnumFabrica.getClass();
+        try {
+            Field campo = classe.getDeclaredField(pEnumFabrica.toString());
+            InfoObjetoDaFabrica infoObjeto = campo.getAnnotation(InfoObjetoDaFabrica.class);
+
+            ItfBeanSimples novoObjeto = (ItfBeanSimples) getClasseEntidadePorEnum(pEnumFabrica).newInstance();
             if (infoObjeto.nomeObjeto().isEmpty()) {
                 novoObjeto.setNome(pEnumFabrica.toString());
 
