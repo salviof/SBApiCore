@@ -38,17 +38,25 @@ public class UtilSBCoreReflexaoObjetoSimples {
      * @param parametros
      * @throws UnsupportedOperationException
      */
-    public static void validarMetodoPrepararObjeto(InfoPreparacaoObjeto anotacaoInfoPreparacaoObjeto, Object... parametros) throws UnsupportedOperationException {
+    public static void validarMetodoPrepararObjeto(ItfBeanSimplesSomenteLeitura pObjeto, InfoPreparacaoObjeto anotacaoInfoPreparacaoObjeto, Object... parametros) throws ErroPreparandoObjeto {
 
         if (parametros.length < anotacaoInfoPreparacaoObjeto.classesPrConstructorPrincipal().length) {
             throw new UnsupportedOperationException("A quantidade de parametros esperada, não confere, com a quantidade enviada" + "Enviado" + parametros.length + ", esperado " + anotacaoInfoPreparacaoObjeto.classesPrConstructorPrincipal().length);
         }
         int i = 1;
-        for (Class classe : anotacaoInfoPreparacaoObjeto.classesPrConstructorPrincipal()) {
+        for (Class classeObrigatoria : anotacaoInfoPreparacaoObjeto.classesPrConstructorPrincipal()) {
             //Contém para driblar proxy de classe do JPA
-            if (!parametros[i - 1].getClass().getSimpleName().contains(classe.getSimpleName())) {
-                throw new UnsupportedOperationException("O " + i
-                        + "o parametro deveria ser do tipo " + classe.getSimpleName()
+            boolean temImplmentacao = false;
+
+            for (Object pr : parametros) {
+                if (!temImplmentacao) {
+                    temImplmentacao = UtilSBCoreReflexaoSimples.isClasseIgualOuExetende(pr.getClass(), classeObrigatoria);
+                }
+            }
+
+            if (!temImplmentacao) {
+                throw new ErroPreparandoObjeto(pObjeto, "O " + i
+                        + "o parametro deveria ser do tipo " + classeObrigatoria.getSimpleName()
                         + " porém foi enviado um " + parametros[i - 1].getClass().getSimpleName());
             }
             i++;

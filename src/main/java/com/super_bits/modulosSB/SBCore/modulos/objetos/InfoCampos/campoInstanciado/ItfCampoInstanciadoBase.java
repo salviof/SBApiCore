@@ -68,9 +68,22 @@ public interface ItfCampoInstanciadoBase {
      *
      * Retorna o objeto onde o atributo está instanciado
      *
+     * @Deprecated (Usar getObjetoRaizDoAtributo)
      * @return
      */
+    @Deprecated
     public ItfBeanSimples getObjetoDoAtributo();
+
+    /**
+     *
+     * Exemplo -> para o campo instanciado: Cliente.nome, retorna o objeto
+     * Cliente.
+     *
+     * @return objeto Raiz onde o atributo do campo instanciado se encontra
+     */
+    public default ItfBeanSimples getObjetoRaizDoAtributo() {
+        return getObjetoDoAtributo();
+    }
 
     /**
      *
