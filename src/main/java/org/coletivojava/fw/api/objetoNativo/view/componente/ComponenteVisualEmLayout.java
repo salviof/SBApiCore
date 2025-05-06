@@ -7,10 +7,15 @@ package org.coletivojava.fw.api.objetoNativo.view.componente;
 import static com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto.LISTA_OBJETOS_PUBLICOS;
 import static com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto.TEXTO_SIMPLES;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanStatus;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSBEmLayout;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabColunasTela;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP;
 
 /**
  *
@@ -51,8 +56,22 @@ public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
 
                     return pCampoInst.getPropriedadesRefexao().getFabTipoAtributo().getPesoLarguraEspecifico();
                 }
-            default:
+            case OBJETO_DE_UMA_LISTA: {
+                try {
+
+                    if (ItfBeanStatus.class.isAssignableFrom(pCampoInst.getMetodoGet().getReturnType())) {
+                        return FabColunasTela.CINCO.getQuantidade();
+                    }
+                } catch (NoSuchMethodException ex) {
+
+                }
+                return FabColunasTela.QUATRO.getQuantidade();
+            }
+
+            default: {
+
                 return pCampoInst.getPropriedadesRefexao().getFabTipoAtributo().getPesoLarguraEspecifico();
+            }
         }
     }
 
