@@ -4,8 +4,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
-
 /**
  *
  * @author salvioF

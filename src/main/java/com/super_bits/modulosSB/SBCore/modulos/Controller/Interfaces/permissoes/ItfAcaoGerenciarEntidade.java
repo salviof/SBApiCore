@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
-import org.coletivojava.fw.api.tratamentoErros.FabErro;
 
 /**
  *
@@ -27,7 +26,7 @@ import org.coletivojava.fw.api.tratamentoErros.FabErro;
  *
  * @author desenvolvedor
  */
-public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormulario {
+public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormularioEntidade {
 
     public default ItfAcaoDoSistema getPrimeiraAcaoDesteTipo(FabTipoAcaoSistemaGenerica pTipoAcao) {
         try {

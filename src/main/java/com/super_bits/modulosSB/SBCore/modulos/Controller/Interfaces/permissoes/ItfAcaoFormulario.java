@@ -5,6 +5,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfParametroRequisicaoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario.FabEstadoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampo;
@@ -42,4 +43,5 @@ public interface ItfAcaoFormulario extends ItfAcaoDoSistema {
     public void setEstadoFormulario(FabEstadoFormulario pEstadoFormulario);
 
     public ItfComponenteVisualSB getComponenteFormularioPadrao();
+
 }
