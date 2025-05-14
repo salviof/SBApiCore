@@ -4,6 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.view.menu;
 
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 import java.util.List;
 
 /**
@@ -20,7 +21,9 @@ public interface ItfMenuSB {
      *
      * @param pSessao Uma sessao com todas suas ações
      */
-    public void addSessao(ItfSessaoDeMenuSB pSessao);
+    public ItfSessaoDeMenuSB addSessao(ItfSessaoDeMenuSB pSessao);
+
+    public ItfSessaoDeMenuSB addSessao(ItfFabricaAcoes pAcao);
 
     /**
      *

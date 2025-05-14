@@ -4,6 +4,8 @@
  */
 package org.coletivojava.fw.api.objetoNativo.view.menu;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenuSB;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfSessaoDeMenuSB;
 import java.io.Serializable;
@@ -31,9 +33,11 @@ public class MenuSBFW implements ItfMenuSB, Serializable {
     }
 
     @Override
-    public void addSessao(ItfSessaoDeMenuSB pSessao) {
-        sessoes.add(pSessao);
-
+    public ItfSessaoDeMenuSB addSessao(ItfSessaoDeMenuSB pSessao) {
+        if (!sessoes.contains(pSessao)) {
+            sessoes.add(pSessao);
+        }
+        return pSessao;
     }
 
     @Override
@@ -45,6 +49,15 @@ public class MenuSBFW implements ItfMenuSB, Serializable {
     public boolean isTemMenu() {
 
         return getSessoes().size() > 0;
+    }
+
+    @Override
+    public SessaoMenuSB addSessao(ItfFabricaAcoes pAcao) {
+        SessaoMenuSB cadastroTipoServico = new SessaoMenuSB(pAcao.getRegistro());
+        if (!sessoes.contains(cadastroTipoServico)) {
+            sessoes.add(cadastroTipoServico);
+        }
+        return cadastroTipoServico;
     }
 
 }
