@@ -25,4 +25,6 @@ public @interface InfoObjetoSB {
 
     public Class<? extends ItfFabrica> fabricaVinculada() default FabricaObjetosRegistrados.class;
 
+    public boolean permitidoAlterarObjetoDaFabrica() default true;
+
 }

@@ -5,8 +5,11 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.fabrica;
 
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanStatus;
 import java.io.Serializable;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreFabrica;
+import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoObjetoSimples;
 
 /**
  *
@@ -31,6 +34,21 @@ public interface ItfFabrica extends Serializable {
      */
     public default Object getRegistro() {
         return UtilSBCoreFabrica.getRegistroPorEnum(this);
+    }
+
+    public default boolean isPermitidoAlterarObjeto() {
+        Class classe = null;
+        try {
+            classe = UtilSBCoreFabrica.getClasseEntidadePorEnum(this);
+        } catch (Throwable t) {
+            classe = getRegistro().getClass();
+        }
+        if (ItfBeanStatus.class.isAssignableFrom(classe)) {
+            return false;
+        }
+        InfoObjetoSB infoObjeto = UtilSBCoreReflexaoObjetoSimples.getInfoClasseObjeto(classe);
+        return infoObjeto.permitidoAlterarObjetoDaFabrica();
+
     }
 
 }
