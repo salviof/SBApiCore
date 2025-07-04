@@ -31,7 +31,7 @@ import java.util.List;
  *
  * @author Salvio
  */
-public interface ItfCentralPermissoes extends ItfServicoCoreSB {
+public interface ItfServicoPermissao extends ItfServicoCoreSB {
 
     /**
      *
