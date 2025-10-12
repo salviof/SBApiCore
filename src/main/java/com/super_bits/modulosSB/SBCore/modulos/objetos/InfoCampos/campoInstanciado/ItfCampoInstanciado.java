@@ -188,6 +188,8 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
 
     public boolean isUmValorNuloOuEmBranco();
 
+    public boolean isUmCampoVerdadeiroFalso();
+
     public ItfPropriedadesReflexaoCampos getPropriedadesRefexao();
 
     public String getValorTextoFormatado();
