@@ -4,8 +4,8 @@
  */
 package org.coletivojava.fw.api.tratamentoErros;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoObjetoSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
 
 /**
  *
@@ -13,27 +13,27 @@ import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoObjetoSimples;
  */
 public class ErroPreparandoObjeto extends Throwable {
 
-    public ErroPreparandoObjeto(ItfBeanSimplesSomenteLeitura pObjeto, String pMensagem) {
+    public ErroPreparandoObjeto(ComoEntidadeSimplesSomenteLeitura pObjeto, String pMensagem) {
         super("Erro preparando " + UtilSBCoreReflexaoObjetoSimples.getNomeDoObjetoPorAnotacaoInfoClasse(pObjeto.getClass()) + pMensagem);
     }
 
-    public ErroPreparandoObjeto(ItfBeanSimplesSomenteLeitura pObjeto, NoSuchMethodException t) {
+    public ErroPreparandoObjeto(ComoEntidadeSimplesSomenteLeitura pObjeto, NoSuchMethodException t) {
         super("Erro preparando " + UtilSBCoreReflexaoObjetoSimples.getNomeDoObjetoPorAnotacaoInfoClasse(pObjeto.getClass()), t);
     }
 
-    public ErroPreparandoObjeto(ItfBeanSimplesSomenteLeitura pObjeto, SecurityException t) {
+    public ErroPreparandoObjeto(ComoEntidadeSimplesSomenteLeitura pObjeto, SecurityException t) {
         super("Erro preparando " + UtilSBCoreReflexaoObjetoSimples.getNomeDoObjetoPorAnotacaoInfoClasse(pObjeto.getClass()), t);
     }
 
-    public ErroPreparandoObjeto(ItfBeanSimplesSomenteLeitura pObjeto, UnsupportedOperationException t) {
+    public ErroPreparandoObjeto(ComoEntidadeSimplesSomenteLeitura pObjeto, UnsupportedOperationException t) {
         super("Erro preparando " + UtilSBCoreReflexaoObjetoSimples.getNomeDoObjetoPorAnotacaoInfoClasse(pObjeto.getClass()), t);
     }
 
-    public ErroPreparandoObjeto(ItfBeanSimplesSomenteLeitura pObjeto, Exception t) {
+    public ErroPreparandoObjeto(ComoEntidadeSimplesSomenteLeitura pObjeto, Exception t) {
         super("Erro preparando " + UtilSBCoreReflexaoObjetoSimples.getNomeDoObjetoPorAnotacaoInfoClasse(pObjeto.getClass()), t);
     }
 
-    public ErroPreparandoObjeto(ItfBeanSimplesSomenteLeitura pObjeto, Throwable t) {
+    public ErroPreparandoObjeto(ComoEntidadeSimplesSomenteLeitura pObjeto, Throwable t) {
         super("Erro preparando " + UtilSBCoreReflexaoObjetoSimples.getNomeDoObjetoPorAnotacaoInfoClasse(pObjeto.getClass()), t);
     }
 

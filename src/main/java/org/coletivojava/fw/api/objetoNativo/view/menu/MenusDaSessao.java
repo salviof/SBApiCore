@@ -4,33 +4,33 @@
  */
 package org.coletivojava.fw.api.objetoNativo.view.menu;
 
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenuSB;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenusDeSessao;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoMenuSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoFabricaMenu;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoMenusDeSessao;
 
 /**
  *
  * @author desenvolvedor
  */
-public class MenusDaSessao implements ItfMenusDeSessao {
+public class MenusDaSessao implements ComoMenusDeSessao {
 
-    private ItfMenuSB menuPrincipal;
+    private ComoMenuSB menuPrincipal;
 
-    private ItfMenuSB menuAvancado;
+    private ComoMenuSB menuAvancado;
 
     /**
      *
      * @param menuPrincipal Menu com atalhos principais
      * @param menuSecundario Menu avançado
      */
-    public MenusDaSessao(ItfMenuSB menuPrincipal, ItfMenuSB menuSecundario) {
+    public MenusDaSessao(ComoMenuSB menuPrincipal, ComoMenuSB menuSecundario) {
 
         this.menuPrincipal = menuPrincipal;
         this.menuAvancado = menuSecundario;
 
     }
 
-    public MenusDaSessao(ItfFabricaMenu pFabrica) {
+    public MenusDaSessao(ComoFabricaMenu pFabrica) {
         this.menuPrincipal = (MenuSBFW) pFabrica.getMenuPrincipal();
         MenuSBFW avancado = (MenuSBFW) pFabrica.getMenuSecundario();
         if (avancado != null && avancado.isTemMenu()) {

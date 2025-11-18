@@ -4,20 +4,20 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 import java.util.Date;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
 
 /**
  *
  * @author salvioF
  */
-public interface ItfDialogo extends ItfBeanSimplesSomenteLeitura {
+public interface ItfDialogo extends ComoEntidadeSimplesSomenteLeitura {
 
     public ItfDestinatario getDestinatario();
 
-    public ItfUsuario getUsuarioRemetente();
+    public ComoUsuario getUsuarioRemetente();
 
     public ItfTipoComunicacao getTipoComunicacao();
 

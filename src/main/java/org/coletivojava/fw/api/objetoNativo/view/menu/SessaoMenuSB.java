@@ -5,32 +5,33 @@
 package org.coletivojava.fw.api.objetoNativo.view.menu;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfModuloAcaoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoController;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSessaoCategoria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoController;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoControllerEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoSecundaria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoSessaoCategoria;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormularioEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistemaGenerica;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampoInvalido;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAssistenteDeLocalizacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.acao.AcaoTransient;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.TipoOrganizacaoDadosEndereco;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfSessaoDeMenuSB;
+
 import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoSessaoDeMenuSB;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -41,22 +42,22 @@ import java.util.List;
  * @version 1.0
  *
  */
-public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
+public class SessaoMenuSB implements ComoSessaoDeMenuSB, Serializable {
 
-    private ItfAcaoDoSistema acaoSessao;
-    private final List<ItfAcaoDoSistema> acoes;
+    private ComoAcaoDoSistema acaoSessao;
+    private final List<ComoAcaoDoSistema> acoes;
     private List<SessaoMenuSB> sessoes = new ArrayList<>();
 
     @Override
-    public List<ItfAcaoDoSistema> getAcoes() {
+    public List<ComoAcaoDoSistema> getAcoes() {
         return (List) acoes;
     }
 
-    public void addAcao(ItfFabricaAcoes pAcao) {
+    public void addAcao(ComoFabricaAcoes pAcao) {
         this.addAcao(pAcao.getRegistro());
     }
 
-    public void addAcao(ItfAcaoDoSistema pAcao) {
+    public void addAcao(ComoAcaoDoSistema pAcao) {
         if (pAcao == null) {
             throw new UnsupportedOperationException("A ação adicionada na sessao não pode ser nula");
         }
@@ -79,7 +80,7 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
         acoes = new ArrayList<>();
     }
 
-    public SessaoMenuSB(ItfAcaoDoSistema pAcaoSessao) {
+    public SessaoMenuSB(ComoAcaoDoSistema pAcaoSessao) {
         acaoSessao = new AcaoTransient();
         acaoSessao.setNome(pAcaoSessao.getNomeAcao());
         acaoSessao.setIconeAcao(pAcaoSessao.getIconeAcao());
@@ -168,9 +169,9 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
         return acaoSessao.isConfigurado();
     }
 
-    public ItfAcaoDoSistema getAcaoPrincipal() {
+    public ComoAcaoDoSistema getAcaoPrincipal() {
         if (acaoSessao.isTemAcaoPrincipal()) {
-            return ((ItfAcaoSecundaria) acaoSessao).getAcaoPrincipal();
+            return ((ComoAcaoSecundaria) acaoSessao).getAcaoPrincipal();
         }
         return null;
     }
@@ -183,15 +184,15 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
         System.out.println("Nada a fazer, tentativa de setar ação pricipal em uma sessao");
     }
 
-    public void setAcaoPrincipal(ItfAcaoDoSistema pAcaoPrincipal) {
+    public void setAcaoPrincipal(ComoAcaoDoSistema pAcaoPrincipal) {
         System.out.println("Nada a fazer, tentativa de setar ação pricipal em uma sessao");
     }
 
-    public ItfAcaoDoSistema getAcaoSessao() {
+    public ComoAcaoDoSistema getAcaoSessao() {
         return acaoSessao;
     }
 
-    public void setAcaoSessao(ItfAcaoDoSistema acaoSessao) {
+    public void setAcaoSessao(ComoAcaoDoSistema acaoSessao) {
         this.acaoSessao = acaoSessao;
     }
 
@@ -215,7 +216,7 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
     }
 
     @Override
-    public List<ItfAcaoSessaoCategoria> getSessoes() {
+    public List<ComoAcaoSessaoCategoria> getSessoes() {
         return (List) sessoes;
 
     }
@@ -226,7 +227,7 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
     }
 
     @Override
-    public void configurarPropriedadesBasicas(ItfAcaoDoSistema pAcaoDoSistema) {
+    public void configurarPropriedadesBasicas(ComoAcaoDoSistema pAcaoDoSistema) {
         acaoSessao.configurarPropriedadesBasicas(pAcaoDoSistema);
     }
 
@@ -246,7 +247,7 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
     }
 
     @Override
-    public ItfFabricaAcoes getEnumAcaoDoSistema() {
+    public ComoFabricaAcoes getEnumAcaoDoSistema() {
         return acaoSessao.getEnumAcaoDoSistema();
     }
 
@@ -326,12 +327,12 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
     }
 
     @Override
-    public ItfBeanSimples getBeanSimplesPorNomeCampo(String pNomeCampo) {
+    public ComoEntidadeSimples getBeanSimplesPorNomeCampo(String pNomeCampo) {
         return acaoSessao.getBeanSimplesPorNomeCampo(pNomeCampo);
     }
 
     @Override
-    public ItfBeanSimples getItemPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
+    public ComoEntidadeSimples getItemPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
         return acaoSessao.getItemPorCaminhoCampo(pCaminho);
     }
 
@@ -381,12 +382,12 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
     }
 
     @Override
-    public ItfAcaoController getComoController() {
+    public ComoAcaoController getComoController() {
         return acaoSessao.getComoController();
     }
 
     @Override
-    public ItfAcaoSecundaria getComoSecundaria() {
+    public ComoAcaoSecundaria getComoSecundaria() {
         return acaoSessao.getComoSecundaria();
 
     }
@@ -397,12 +398,12 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
     }
 
     @Override
-    public ItfAcaoControllerEntidade getComoControllerEntidade() {
+    public ComoAcaoControllerEntidade getComoControllerEntidade() {
         return acaoSessao.getComoControllerEntidade();
     }
 
     @Override
-    public List<ItfBeanSimples> getListaPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
+    public List<ComoEntidadeSimples> getListaPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
         return acaoSessao.getListaPorCaminhoCampo(pCaminho);
     }
 
@@ -478,13 +479,13 @@ public class SessaoMenuSB implements ItfSessaoDeMenuSB, Serializable {
     }
 
     @Override
-    public void adicionarJustificativaExecucaoAcao(ItfAcaoDoSistema pAcao, String pJustificativa) {
+    public void adicionarJustificativaExecucaoAcao(ComoAcaoDoSistema pAcao, String pJustificativa) {
         acaoSessao.adicionarJustificativaExecucaoAcao(pAcao, pJustificativa);
 
     }
 
     @Override
-    public String getJustificativa(ItfAcaoDoSistema pAcao) {
+    public String getJustificativa(ComoAcaoDoSistema pAcao) {
         return acaoSessao.getJustificativa(pAcao);
 
     }

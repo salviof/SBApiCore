@@ -5,10 +5,10 @@
 package org.coletivojava.fw.api.objetoNativo.view.componente;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVIsualInputsLayout;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 
 /**
  *
@@ -26,7 +26,7 @@ public class ComponenteVisualInputLayoutSB extends ComponenteVisualBase {
     private String estiloColunasLeitura;
 
     @Override
-    public void setFabricaDoComponente(ItfFabTipoComponenteVisual fabricaDoComponente) {
+    public void setFabricaDoComponente(ComoFabTipoComponenteVisual fabricaDoComponente) {
         try {
             super.setFabricaDoComponente(fabricaDoComponente);
             FabCompVIsualInputsLayout enumInput = (FabCompVIsualInputsLayout) getFabricaDoComponente();

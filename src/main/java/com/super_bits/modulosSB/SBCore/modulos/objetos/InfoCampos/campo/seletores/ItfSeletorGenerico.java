@@ -4,15 +4,15 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.seletores;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
 
 /**
  *
  * @author desenvolvedor
  * @param <T>
  */
-public interface ItfSeletorGenerico<T extends ItfBeanSimplesSomenteLeitura> {
+public interface ItfSeletorGenerico<T extends ComoEntidadeSimplesSomenteLeitura> {
 
     public void atualizaOrigemPelaSelecao();
 

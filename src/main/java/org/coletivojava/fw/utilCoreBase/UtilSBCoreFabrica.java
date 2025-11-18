@@ -4,17 +4,17 @@
  */
 package org.coletivojava.fw.utilCoreBase;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoDaFabrica;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanStatus;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoStatus;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 /**
  *
@@ -22,11 +22,11 @@ import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
  */
 public abstract class UtilSBCoreFabrica {
 
-    public static List<ItfBeanSimples> listaRegistros(Class<? extends ItfFabrica> pFabrica) {
-        List<ItfBeanSimples> lista = new ArrayList<>();
+    public static List<ComoEntidadeSimples> listaRegistros(Class<? extends ComoFabrica> pFabrica) {
+        List<ComoEntidadeSimples> lista = new ArrayList<>();
 
         for (Object obj : pFabrica.getEnumConstants()) {
-            ItfBeanSimples registro = (ItfBeanSimples) ((ItfFabrica) obj).getRegistro();
+            ComoEntidadeSimples registro = (ComoEntidadeSimples) ((ComoFabrica) obj).getRegistro();
             lista.add(registro);
 
         }
@@ -34,7 +34,7 @@ public abstract class UtilSBCoreFabrica {
 
     }
 
-    public static Class<? extends ItfBeanSimples> getClasseEntidadePorEnum(ItfFabrica pEnumFabrica) {
+    public static Class<? extends ComoEntidadeSimples> getClasseEntidadePorEnum(ComoFabrica pEnumFabrica) {
         Class classe = pEnumFabrica.getClass();
         try {
             Field campo = classe.getDeclaredField(pEnumFabrica.toString());
@@ -53,7 +53,7 @@ public abstract class UtilSBCoreFabrica {
 
     }
 
-    public static InfoObjetoDaFabrica getDadosDoRegistro(ItfFabrica pEnumFabrica) {
+    public static InfoObjetoDaFabrica getDadosDoRegistro(ComoFabrica pEnumFabrica) {
         Class classe = pEnumFabrica.getClass();
         try {
             Field campo = classe.getDeclaredField(pEnumFabrica.toString());
@@ -65,14 +65,14 @@ public abstract class UtilSBCoreFabrica {
         }
     }
 
-    public static ItfBeanSimples getRegistroPorEnum(ItfFabrica pEnumFabrica) {
+    public static ComoEntidadeSimples getRegistroPorEnum(ComoFabrica pEnumFabrica) {
 
         Class classe = pEnumFabrica.getClass();
         try {
             Field campo = classe.getDeclaredField(pEnumFabrica.toString());
             InfoObjetoDaFabrica infoObjeto = campo.getAnnotation(InfoObjetoDaFabrica.class);
 
-            ItfBeanSimples novoObjeto = (ItfBeanSimples) getClasseEntidadePorEnum(pEnumFabrica).newInstance();
+            ComoEntidadeSimples novoObjeto = (ComoEntidadeSimples) getClasseEntidadePorEnum(pEnumFabrica).newInstance();
             if (infoObjeto.nomeObjeto().isEmpty()) {
                 novoObjeto.setNome(pEnumFabrica.toString());
 
@@ -85,19 +85,19 @@ public abstract class UtilSBCoreFabrica {
             } else {
                 novoObjeto.setId((long) infoObjeto.id());
             }
-            if (novoObjeto instanceof ItfBeanVinculadoAEnum) {
-                ((ItfBeanVinculadoAEnum) novoObjeto).setEnumVinculado(pEnumFabrica);
+            if (novoObjeto instanceof ComoEntidadeVinculadoAEnum) {
+                ((ComoEntidadeVinculadoAEnum) novoObjeto).setEnumVinculado(pEnumFabrica);
             }
 
             return novoObjeto;
         } catch (Throwable T) {
             LogManager.getLogger(LogPadraoSB.class).error("Erro criando registro a paritr de enum" + pEnumFabrica + T.getMessage(), T);
-            throw new UnsupportedOperationException("Erro ao criar Um novo objeto utilizando a implementação Default do ItfFabrica ");
+            throw new UnsupportedOperationException("Erro ao criar Um novo objeto utilizando a implementação Default do ComoFabrica ");
         }
 
     }
 
-    public static ItfBeanStatus getStatusPorEnum(ItfFabrica pEnumFabrica) {
+    public static ComoStatus getStatusPorEnum(ComoFabrica pEnumFabrica) {
 
         Class classe = pEnumFabrica.getClass();
         try {
@@ -110,7 +110,7 @@ public abstract class UtilSBCoreFabrica {
                 throw new UnsupportedOperationException("Não é possível utilizar a implementação padrão do getRegistro, sem especificar a classe vinculada a esta fabrica");
             }
 
-            ItfBeanStatus novoObjeto = (ItfBeanStatus) infoObjeto.classeObjeto().newInstance();
+            ComoStatus novoObjeto = (ComoStatus) infoObjeto.classeObjeto().newInstance();
             if (infoObjeto.nomeObjeto().isEmpty()) {
                 novoObjeto.setNome(pEnumFabrica.toString());
 
@@ -123,17 +123,17 @@ public abstract class UtilSBCoreFabrica {
             } else {
                 novoObjeto.setId(infoObjeto.id());
             }
-            if (!(novoObjeto instanceof ItfBeanStatus)) {
-                throw new UnsupportedOperationException("A classe que representa um status não iplementa " + ItfBeanStatus.class.getSimpleName());
+            if (!(novoObjeto instanceof ComoStatus)) {
+                throw new UnsupportedOperationException("A classe que representa um status não iplementa " + ComoStatus.class.getSimpleName());
             }
-            if (novoObjeto instanceof ItfBeanStatus) {
-                ((ItfBeanStatus) novoObjeto).setEnumVinculado(pEnumFabrica);
+            if (novoObjeto instanceof ComoStatus) {
+                ((ComoStatus) novoObjeto).setEnumVinculado(pEnumFabrica);
             }
 
             return novoObjeto;
         } catch (Throwable T) {
             LogManager.getLogger(LogPadraoSB.class).error("Erro criando registro a paritr de enum" + pEnumFabrica + T.getMessage(), T);
-            throw new UnsupportedOperationException("Erro ao criar Um novo objeto utilizando a implementação Default do ItfFabrica ");
+            throw new UnsupportedOperationException("Erro ao criar Um novo objeto utilizando a implementação Default do ComoFabrica ");
         }
 
     }

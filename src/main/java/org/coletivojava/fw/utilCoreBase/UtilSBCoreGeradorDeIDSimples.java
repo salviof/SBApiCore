@@ -4,10 +4,10 @@
  */
 package org.coletivojava.fw.utilCoreBase;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
 import java.util.UUID;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -15,11 +15,11 @@ import java.util.UUID;
  */
 public abstract class UtilSBCoreGeradorDeIDSimples {
 
-    public static Long gerarIdUnicoObejtoVinculadoAFabrica(ItfBeanVinculadoAEnum pObjeto) {
+    public static Long gerarIdUnicoObejtoVinculadoAFabrica(ComoEntidadeVinculadoAEnum pObjeto) {
         return (long) (pObjeto.getClass().getSimpleName() + "." + pObjeto.getEnumVinculado().toString()).hashCode();
     }
 
-    public static Long gerarIdAcaoDoSistema(ItfAcaoDoSistema pAcao) {
+    public static Long gerarIdAcaoDoSistema(ComoAcaoDoSistema pAcao) {
 
         return UtilSBControllerSimples.gerarIDAcaoDoSistema(pAcao.getEnumAcaoDoSistema());
     }

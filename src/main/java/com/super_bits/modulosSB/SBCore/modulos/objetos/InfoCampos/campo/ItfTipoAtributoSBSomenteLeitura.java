@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
 
 /**
  *
@@ -14,7 +14,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  *
  * @author Salvio Furbino
  */
-public interface ItfTipoAtributoSBSomenteLeitura extends ItfBeanSimplesSomenteLeitura {
+public interface ItfTipoAtributoSBSomenteLeitura extends ComoEntidadeSimplesSomenteLeitura {
 
     /**
      *

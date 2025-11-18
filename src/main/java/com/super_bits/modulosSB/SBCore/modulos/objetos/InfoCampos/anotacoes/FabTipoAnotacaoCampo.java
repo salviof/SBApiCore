@@ -4,7 +4,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.InfoGrupoCampo;
 
 import java.util.HashMap;
@@ -24,12 +23,13 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
  * @author desenvolvedor
  */
-public enum FabTipoAnotacaoCampo implements ItfFabrica {
+public enum FabTipoAnotacaoCampo implements ComoFabrica {
 
     INFOCAMPO,
     INFOCAMPO_MODELO,

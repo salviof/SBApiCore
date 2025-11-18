@@ -4,25 +4,25 @@
  */
 package org.coletivojava.fw.api.objetoNativo.view.componente;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 import java.io.Serializable;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreDiretoriosSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
  * @author desenvolvedor
  */
 @InfoObjetoSB(tags = {"Componente visual SB"}, plural = "Componentes SB")
-public class ComponenteVisualBase extends ObjetoNativoCoreDoSistema implements ItfComponenteVisualSB, ItfBeanVinculadoAEnum, Serializable {
+public class ComponenteVisualBase extends ObjetoNativoCoreDoSistema implements ComoComponenteVisualSB, ComoEntidadeVinculadoAEnum, Serializable {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID, label = "Código")
     private Long id;
@@ -39,7 +39,7 @@ public class ComponenteVisualBase extends ObjetoNativoCoreDoSistema implements I
     private FabFamiliaCompVisual familia;
     private String idHTMLObjetoPrincipal;
     private String classeCSS;
-    private ItfFabTipoComponenteVisual fabricaDoComponente;
+    private ComoFabTipoComponenteVisual fabricaDoComponente;
     private String caminhoFabrica;
     private int pesoLargura = 3;
 
@@ -164,11 +164,11 @@ public class ComponenteVisualBase extends ObjetoNativoCoreDoSistema implements I
         this.xhtmlJsfCaminhoRelativo = xhtmlJsfCaminhoRelativo;
     }
 
-    public ItfFabTipoComponenteVisual getFabricaDoComponente() {
+    public ComoFabTipoComponenteVisual getFabricaDoComponente() {
         return fabricaDoComponente;
     }
 
-    public void setFabricaDoComponente(ItfFabTipoComponenteVisual fabricaDoComponente) {
+    public void setFabricaDoComponente(ComoFabTipoComponenteVisual fabricaDoComponente) {
         this.fabricaDoComponente = fabricaDoComponente;
     }
 
@@ -190,18 +190,18 @@ public class ComponenteVisualBase extends ObjetoNativoCoreDoSistema implements I
     }
 
     @Override
-    public void setEnumVinculado(ItfFabrica pFabrica) {
-        setFabricaDoComponente((ItfFabTipoComponenteVisual) pFabrica);
+    public void setEnumVinculado(ComoFabrica pFabrica) {
+        setFabricaDoComponente((ComoFabTipoComponenteVisual) pFabrica);
     }
 
     @Override
-    public ItfFabrica getEnumVinculado() {
-        return (ItfFabrica) getFabricaDoComponente();
+    public ComoFabrica getEnumVinculado() {
+        return (ComoFabrica) getFabricaDoComponente();
     }
 
     @Override
     public String getClasseLarguraPorPeso() {
-        return ItfComponenteVisualSB.super.getClasseLarguraPorPeso(); //To change body of generated methods, choose Tools | Templates.
+        return ComoComponenteVisualSB.super.getClasseLarguraPorPeso(); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

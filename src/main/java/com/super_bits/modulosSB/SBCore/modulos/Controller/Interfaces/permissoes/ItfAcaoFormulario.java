@@ -6,25 +6,25 @@
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfParametroRequisicaoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario.FabEstadoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
 
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface ItfAcaoFormulario extends ItfAcaoDoSistema {
+public interface ItfAcaoFormulario extends ComoAcaoDoSistema {
 
-    public ItfAcaoDoSistema getAcaoExectarFormulario();
+    public ComoAcaoDoSistema getAcaoExectarFormulario();
 
     public List<ItfCaminhoCampo> getCampos();
 
-    public void setAcaoExectarFormulario(ItfAcaoDoSistema acaoExectarFormulario);
+    public void setAcaoExectarFormulario(ComoAcaoDoSistema acaoExectarFormulario);
 
     public void setCampos(List<ItfCaminhoCampo> campos);
 
@@ -42,6 +42,6 @@ public interface ItfAcaoFormulario extends ItfAcaoDoSistema {
 
     public void setEstadoFormulario(FabEstadoFormulario pEstadoFormulario);
 
-    public ItfComponenteVisualSB getComponenteFormularioPadrao();
+    public ComoComponenteVisualSB getComponenteFormularioPadrao();
 
 }

@@ -5,7 +5,7 @@
  */
 package org.coletivojava.fw.utilCoreBase;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import java.lang.reflect.Method;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
@@ -38,13 +38,13 @@ public class UtilSBControllerSimples {
         }
     }
 
-    public static Long gerarIDAcaoDoSistema(ItfFabricaAcoes pAcao) {
+    public static Long gerarIDAcaoDoSistema(ComoFabricaAcoes pAcao) {
         Long codigo = (long) gerarNomeUnicoAcaoDoSistema(pAcao).hashCode();
 
         return codigo;
     }
 
-    public static String gerarNomeUnicoAcaoDoSistema(ItfFabricaAcoes pAcao) {
+    public static String gerarNomeUnicoAcaoDoSistema(ComoFabricaAcoes pAcao) {
 
         if (pAcao == null) {
             throw new UnsupportedOperationException("Erro tentando obter nome único de ação nula");

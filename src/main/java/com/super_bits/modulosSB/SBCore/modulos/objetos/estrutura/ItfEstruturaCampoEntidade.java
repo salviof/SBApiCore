@@ -6,13 +6,13 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfTipoAtributoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.TIPO_DECLARACAO;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface ItfEstruturaCampoEntidade extends ItfTipoAtributoSB, ItfBeanSimples {
+public interface ItfEstruturaCampoEntidade extends ItfTipoAtributoSB, ComoEntidadeSimples {
 
     public String getClasseCampoDeclaradoOuTipoLista();
 

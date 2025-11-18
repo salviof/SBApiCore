@@ -4,10 +4,8 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVIsualInputsLayout;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualBotaoAcao;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualEndereco;
@@ -27,12 +25,15 @@ import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.view.componente.FamiliaComponente;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringEnumECaixaAlta;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringsCammelCaseSimples;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author salvioF
  */
-public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual, ItfFabrica {
+public enum FabFamiliaCompVisual implements ComoFabFamiliaComponenteVisual, ComoFabrica {
 
     INPUT,
     ENDERECO,
@@ -60,7 +61,7 @@ public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual, ItfFa
 
     }
 
-    public ItfComponenteVisualSB getComponentePadrao() {
+    public ComoComponenteVisualSB getComponentePadrao() {
         switch (this) {
             case INPUT:
                 return FabCompVisualInputs.TEXTO_SEM_FORMATACAO.getRegistro();
@@ -116,11 +117,11 @@ public enum FabFamiliaCompVisual implements ItfFabFamiliaComponenteVisual, ItfFa
                 return ItfCampoInstanciado.class;
 
             case ITEM_BEAN_SIMPLES:
-                return ItfBeanSimples.class;
+                return ComoEntidadeSimples.class;
             case ITENS_BEAN_SIMPLES:
                 return List.class;
             case BOTAO_DE_ACAO:
-                return ItfAcaoDoSistema.class;
+                return ComoAcaoDoSistema.class;
 
             default:
                 return ItfCampoInstanciado.class;

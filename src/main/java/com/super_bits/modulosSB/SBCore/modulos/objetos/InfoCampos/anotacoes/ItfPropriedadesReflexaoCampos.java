@@ -4,7 +4,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoLisgagemOpcoesCampo;
@@ -12,6 +11,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.TIPO_PRI
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAtributoObjetoEditavel;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAtributoObjetoSB;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
@@ -34,7 +34,7 @@ public interface ItfPropriedadesReflexaoCampos {
 
     public FabTipoLisgagemOpcoesCampo getTipoListagem();
 
-    public Class<? extends ItfFabrica> getFabricaCriacaoOpcoes();
+    public Class<? extends ComoFabrica> getFabricaCriacaoOpcoes();
 
     public Class getClasseDoObjetoDesteAtributo();
 

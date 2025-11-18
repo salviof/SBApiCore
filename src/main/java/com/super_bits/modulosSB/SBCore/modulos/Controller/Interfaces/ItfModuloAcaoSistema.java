@@ -4,13 +4,12 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.modulo.ItfFabricaModulo;
-
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.modulo.ComoFabricaModulo;
 
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 /**
  *
@@ -21,7 +20,7 @@ import java.util.List;
  * @since 19/12/2015
  * @version 1.0
  */
-public interface ItfModuloAcaoSistema extends ItfBeanSimples, ItfBeanVinculadoAEnum {
+public interface ItfModuloAcaoSistema extends ComoEntidadeSimples, ComoEntidadeVinculadoAEnum {
 
     @Override
     public Long getId();
@@ -31,7 +30,7 @@ public interface ItfModuloAcaoSistema extends ItfBeanSimples, ItfBeanVinculadoAE
 
     public String getDescricao();
 
-    public List<ItfAcaoDoSistema> getAcoes();
+    public List<ComoAcaoDoSistema> getAcoes();
 
     @Override
     public void setId(Long pID);
@@ -41,11 +40,11 @@ public interface ItfModuloAcaoSistema extends ItfBeanSimples, ItfBeanVinculadoAE
 
     public void setDescricao(String pDescricao);
 
-    public List<ItfAcaoDoSistema> getAcoesGestaoMB();
+    public List<ComoAcaoDoSistema> getAcoesGestaoMB();
 
     public boolean isUmModuloNativo();
 
     @Override
-    public ItfFabricaModulo getEnumVinculado();
+    public ComoFabricaModulo getEnumVinculado();
 
 }

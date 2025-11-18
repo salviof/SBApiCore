@@ -8,8 +8,6 @@ import org.coletivojava.fw.api.objetoNativo.view.componente.ComponenteVisualBase
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -17,6 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 
 /**
  *
@@ -43,7 +43,7 @@ public class UtilSBFabricaComponenteVisual {
 
     }
 
-    public static void aplicarPropCompVisual(ComponenteVisualBase pComponente, ItfFabTipoComponenteVisual pFabrica) {
+    public static void aplicarPropCompVisual(ComponenteVisualBase pComponente, ComoFabTipoComponenteVisual pFabrica) {
         try {
             Field campo = pFabrica.getClass().getField(pFabrica.toString());
             pComponente.setFabricaDoComponente(pFabrica);
@@ -51,7 +51,7 @@ public class UtilSBFabricaComponenteVisual {
             String codigoId = pFabrica.getFamilia().ordinal() + String.valueOf(((Enum) pFabrica).ordinal());
             pComponente.setId((long) Integer.parseInt(codigoId));
             pComponente.setIdHTMLObjetoPrincipal(codigoId);
-            loadInfoFabrica(pComponente, infoAnotacao, ItfFabTipoComponenteVisual.PASTA_TAG_LIBS);
+            loadInfoFabrica(pComponente, infoAnotacao, ComoFabTipoComponenteVisual.PASTA_TAG_LIBS);
             pComponente.setFamilia(pFabrica.getFamilia());
             pComponente.setNome(infoAnotacao.nome());
             pComponente.setNomeComponente(infoAnotacao.nome());
@@ -64,7 +64,7 @@ public class UtilSBFabricaComponenteVisual {
 
     }
 
-    public static ComponenteVisualBase getComponenteVisual(ItfFabTipoComponenteVisual pFabrica) {
+    public static ComponenteVisualBase getComponenteVisual(ComoFabTipoComponenteVisual pFabrica) {
         ComponenteVisualBase componente = new ComponenteVisualBase();
 
         aplicarPropCompVisual(componente, pFabrica);
@@ -74,7 +74,7 @@ public class UtilSBFabricaComponenteVisual {
     }
 
     @Deprecated
-    public static ItfComponenteVisualSB getComponenteVisualPersonalizado(ItfFabTipoComponenteVisual pFabrica) {
+    public static ComoComponenteVisualSB getComponenteVisualPersonalizado(ComoFabTipoComponenteVisual pFabrica) {
         ComponenteVisualBase componente = new ComponenteVisualBase();
 
         try {

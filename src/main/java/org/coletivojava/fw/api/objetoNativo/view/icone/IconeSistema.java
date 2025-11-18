@@ -7,15 +7,15 @@ package org.coletivojava.fw.api.objetoNativo.view.icone;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.itfIcone;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.ComoIcone;
 
 /**
  *
  * @author salvioF
  */
 @InfoObjetoSB(tags = {"Icone"}, plural = "Icones")
-public class IconeSistema extends ObjetoNativoCoreDoSistema implements itfIcone {
+public class IconeSistema extends ObjetoNativoCoreDoSistema implements ComoIcone {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;

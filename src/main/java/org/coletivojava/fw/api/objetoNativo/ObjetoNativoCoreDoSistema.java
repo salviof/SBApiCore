@@ -5,15 +5,13 @@
  */
 package org.coletivojava.fw.api.objetoNativo;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoSecundaria;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampoInvalido;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.TipoOrganizacaoDadosEndereco;
 import java.io.InputStream;
 import java.lang.reflect.Field;
@@ -25,12 +23,14 @@ import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.api.tratamentoErros.ErroPreparandoObjeto;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoObjetoSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAssistenteDeLocalizacao;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author desenvolvedor
  */
-public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
+public abstract class ObjetoNativoCoreDoSistema implements ComoEntidadeSimples {
 
     @Override
     public String getNomeUnicoSlug() {
@@ -155,13 +155,13 @@ public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
 
     @Override
     @Deprecated
-    public void adicionarJustificativaExecucaoAcao(ItfAcaoDoSistema pAcao, String pJustificativa) {
+    public void adicionarJustificativaExecucaoAcao(ComoAcaoDoSistema pAcao, String pJustificativa) {
         LogManager.getLogger(LogPadraoSB.class).debug("O recurso Justificativa não está disponível em objetos nativos do sistema");
     }
 
     @Override
     @Deprecated
-    public String getJustificativa(ItfAcaoDoSistema pAcao) {
+    public String getJustificativa(ComoAcaoDoSistema pAcao) {
         LogManager.getLogger(LogPadraoSB.class).debug("O recurso Justificativa não está disponível em objetos nativos do sistema");
         return "";
     }
@@ -255,17 +255,17 @@ public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
     }
 
     @Override
-    public ItfBeanSimples getBeanSimplesPorNomeCampo(String pNomeCampo) {
+    public ComoEntidadeSimples getBeanSimplesPorNomeCampo(String pNomeCampo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ItfBeanSimples getItemPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
+    public ComoEntidadeSimples getItemPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<ItfBeanSimples> getListaPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
+    public List<ComoEntidadeSimples> getListaPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -322,8 +322,8 @@ public abstract class ObjetoNativoCoreDoSistema implements ItfBeanSimples {
     }
 
     @Override
-    public List<ItfAcaoSecundaria> getAcoesDoContexto(ItfAcaoGerenciarEntidade pGestao) {
-        return ItfBeanSimples.super.getAcoesDoContexto(pGestao); //To change body of generated methods, choose Tools | Templates.
+    public List<ComoAcaoSecundaria> getAcoesDoContexto(ItfAcaoGerenciarEntidade pGestao) {
+        return ComoEntidadeSimples.super.getAcoesDoContexto(pGestao); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

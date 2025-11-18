@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author SalvioF
  */
-public interface ItfEstruturaDeEntidade extends ItfBeanSimples {
+public interface ItfEstruturaDeEntidade extends ComoEntidadeSimples {
 
     void adicionarCampo(Field pCampo);
 

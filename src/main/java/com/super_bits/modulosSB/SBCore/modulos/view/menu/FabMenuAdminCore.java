@@ -12,24 +12,24 @@ import org.coletivojava.fw.api.objetoNativo.view.menu.MenuSBFW;
  *
  * @author SalvioF
  */
-public enum FabMenuAdminCore implements ItfFabricaMenu {
+public enum FabMenuAdminCore implements ComoFabricaMenu {
 
     MENU_ADMIN_PROJETO,
     MENU_DEVELOPER,
     MENU_CONVIDADO;
 
     @Override
-    public List<ItfMenuSB> getTodosMenus() {
+    public List<ComoMenuSB> getTodosMenus() {
         return new ArrayList<>();
     }
 
     @Override
-    public ItfMenuSB getMenuPrincipal() {
+    public ComoMenuSB getMenuPrincipal() {
         return new MenuSBFW();
     }
 
     @Override
-    public ItfMenuSB getMenuSecundario() {
+    public ComoMenuSB getMenuSecundario() {
         return new MenuSBFW();
     }
 

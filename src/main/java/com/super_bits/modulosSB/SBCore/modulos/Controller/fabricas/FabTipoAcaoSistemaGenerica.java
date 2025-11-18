@@ -9,24 +9,24 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estad
 import com.super_bits.modulosSB.SBCore.modulos.Controller.TipoAcaoPadrao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.UtilFabricaDeAcoesBasico;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualFormularioDeAcao;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
  * @author desenvolvedor
  */
-public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
+public enum FabTipoAcaoSistemaGenerica implements ComoFabrica {
 
     /**
      * Formulário novo Registro, tags identificadoras: FRM NOVO
@@ -67,7 +67,7 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
     CONTROLLER_AUTO_EXECUCAO,
     GERENCIAR_DOMINIO;
 
-    public String getnomeXHTMLPadrao(ItfFabricaAcoes pFabAcao) {
+    public String getnomeXHTMLPadrao(ComoFabricaAcoes pFabAcao) {
         String slugInicial = UtilFabricaDeAcoesBasico.getNomeDominio(pFabAcao);
         slugInicial = slugInicial.toLowerCase();
         switch (this) {
@@ -484,7 +484,7 @@ public enum FabTipoAcaoSistemaGenerica implements ItfFabrica {
         return palavrasChave;
     }
 
-    public ItfFabTipoComponenteVisual getComponentePadrao() {
+    public ComoFabTipoComponenteVisual getComponentePadrao() {
         try {
             switch (this) {
                 case FORMULARIO_NOVO_REGISTRO:

@@ -4,9 +4,9 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.comunicacao.TipoComunicacao;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
@@ -19,7 +19,7 @@ import org.coletivojava.fw.api.objetoNativo.comunicacao.TipoComunicacao;
  *
  * @author salvioF
  */
-public enum FabTipoComunicacao implements ItfFabrica {
+public enum FabTipoComunicacao implements ComoFabrica {
 
     /**
      *

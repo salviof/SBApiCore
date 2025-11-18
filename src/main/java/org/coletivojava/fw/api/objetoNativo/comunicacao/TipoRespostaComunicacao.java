@@ -4,7 +4,6 @@
  */
 package org.coletivojava.fw.api.objetoNativo.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
@@ -13,6 +12,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoA
 
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
 import org.coletivojava.fw.api.objetoNativo.controller.acao.AcaoBotaoNaoRequisitado;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -26,7 +26,7 @@ public class TipoRespostaComunicacao extends ObjetoNativoCoreDoSistema implement
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;
     private final FabTipoRespostaComunicacao fabricaTipoResposta;
-    private ItfAcaoDoSistema botaoResposta;
+    private ComoAcaoDoSistema botaoResposta;
     private String icone;
     private String cor;
 
@@ -58,7 +58,7 @@ public class TipoRespostaComunicacao extends ObjetoNativoCoreDoSistema implement
     }
 
     @Override
-    public ItfAcaoDoSistema getBotaoResposta() {
+    public ComoAcaoDoSistema getBotaoResposta() {
         if (botaoResposta == null) {
             botaoResposta = new AcaoBotaoNaoRequisitado();
             botaoResposta.setNomeAcao(getDescricao());

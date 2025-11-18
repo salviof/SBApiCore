@@ -5,7 +5,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.token;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import java.util.Date;
 
 /**
@@ -14,7 +14,7 @@ import java.util.Date;
  * @since 14/10/2019
  * @version 1.0
  */
-public interface ItfTokenAcesso extends ItfBeanSimples {
+public interface ItfTokenAcesso extends ComoEntidadeSimples {
 
     public String getCodigo();
 

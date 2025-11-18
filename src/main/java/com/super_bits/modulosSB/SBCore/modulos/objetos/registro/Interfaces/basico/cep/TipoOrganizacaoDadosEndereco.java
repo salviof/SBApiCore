@@ -6,10 +6,11 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basi
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanEnderecavel;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoTemEndereco;
 
 /**
  *
@@ -28,27 +29,27 @@ public enum TipoOrganizacaoDadosEndereco {
         ItfCampoInstanciado campoRaiz = pCampoInstanciado.getCampoInstanciadoRaiz();
         if (campoRaiz != null) {
 
-            if (campoRaiz.getValor() instanceof ItfLocal) {
+            if (campoRaiz.getValor() instanceof ComoLocal) {
                 return LOCALIZACAO_POSTAVEL;
             }
             if (pCampoInstanciado.getTipoCampoSTR().equals(FabTipoAtributoObjeto.LC_UNIDADE_FEDERATIVA.toString())) {
-                if (pCampoInstanciado.getObjetoDoAtributo() instanceof ItfCidade) {
+                if (pCampoInstanciado.getObjetoDoAtributo() instanceof ComoCidade) {
                     return LOCALIZACAO_POSTAVEL;
                 }
             }
 
             if (pCampoInstanciado.getTipoCampoSTR().equals(FabTipoAtributoObjeto.LC_CIDADE.toString())) {
-                if (pCampoInstanciado.getObjetoDoAtributo() instanceof ItfBairro) {
+                if (pCampoInstanciado.getObjetoDoAtributo() instanceof ComoBairro) {
                     return LOCALIZACAO_POSTAVEL;
                 }
             }
 
-            if (pCampoInstanciado.getObjetoDoAtributo() instanceof ItfLocal) {
+            if (pCampoInstanciado.getObjetoDoAtributo() instanceof ComoLocal) {
                 return LOCALIZACAO_POSTAVEL;
             }
 
         } else {
-            if (pCampoInstanciado.getValor() instanceof ItfLocalPostagem) {
+            if (pCampoInstanciado.getValor() instanceof ComoLocalPostagem) {
                 return LOCALIZACAO_POSTAVEL;
             }
 
@@ -57,21 +58,21 @@ public enum TipoOrganizacaoDadosEndereco {
         return DINAMICO;
     }
 
-    public ItfCampoInstanciado getCampoInstanciadoPorTipo(ItfBeanSimples pEntidadePai, FabTipoAtributoObjeto pTipoAtributo, String pNomeCampoLocalizacaoOuEntidadeDinamica) {
+    public ItfCampoInstanciado getCampoInstanciadoPorTipo(ComoEntidadeSimples pEntidadePai, FabTipoAtributoObjeto pTipoAtributo, String pNomeCampoLocalizacaoOuEntidadeDinamica) {
         try {
             switch (this) {
                 case LOCALIZACAO_POSTAVEL:
-                    ItfBeanSimples entidade = pEntidadePai;
+                    ComoEntidadeSimples entidade = pEntidadePai;
                     String nomeCampoLocalizacao = pNomeCampoLocalizacaoOuEntidadeDinamica;
                     ItfCampoInstanciado campoInstanciado = pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
-                    ItfLocalPostagem localizacao = null;
-                    if (campoInstanciado.getValor() instanceof ItfLocalPostagem) {
-                        localizacao = (ItfLocalPostagem) campoInstanciado.getValor();
+                    ComoLocalPostagem localizacao = null;
+                    if (campoInstanciado.getValor() instanceof ComoLocalPostagem) {
+                        localizacao = (ComoLocalPostagem) campoInstanciado.getValor();
                     } else {
-                        if (campoInstanciado.getValor() instanceof ItfBeanSimples) {
-                            ItfBeanSimples objPai = (ItfBeanSimples) campoInstanciado.getValor();
+                        if (campoInstanciado.getValor() instanceof ComoEntidadeSimples) {
+                            ComoEntidadeSimples objPai = (ComoEntidadeSimples) campoInstanciado.getValor();
                             if (objPai.isTemCampoAnotado(FabTipoAtributoObjeto.LC_LOCALIZACAO)) {
-                                localizacao = (ItfLocalPostagem) objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO).getValor();
+                                localizacao = (ComoLocalPostagem) objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO).getValor();
                             }
                             switch (pTipoAtributo) {
 
@@ -81,13 +82,13 @@ public enum TipoOrganizacaoDadosEndereco {
                     }
                     if (campoInstanciado.getFabricaTipoAtributo().isCampoLocalizacao()) {
                         if (localizacao == null) {
-                            ItfBeanSimples objPai = (ItfBeanSimples) campoInstanciado.getObjetoDoAtributo();
-                            if (objPai instanceof ItfBeanEnderecavel && objPai.isTemCampoAnotado(FabTipoAtributoObjeto.LC_LOCALIZACAO)) {
-                                localizacao = (ItfLocalPostagem) objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO).getValor();
+                            ComoEntidadeSimples objPai = (ComoEntidadeSimples) campoInstanciado.getObjetoDoAtributo();
+                            if (objPai instanceof ComoTemEndereco && objPai.isTemCampoAnotado(FabTipoAtributoObjeto.LC_LOCALIZACAO)) {
+                                localizacao = (ComoLocalPostagem) objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO).getValor();
                                 if (localizacao == null) {
-                                    if (pEntidadePai instanceof ItfBeanEnderecavel) {
-                                        ((ItfBeanEnderecavel) pEntidadePai).instanciarNovoEndereco();
-                                        localizacao = (ItfLocalPostagem) objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO).getValor();
+                                    if (pEntidadePai instanceof ComoTemEndereco) {
+                                        ((ComoTemEndereco) pEntidadePai).instanciarNovoEndereco();
+                                        localizacao = (ComoLocalPostagem) objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO).getValor();
                                     }
                                 }
                             }
@@ -114,11 +115,11 @@ public enum TipoOrganizacaoDadosEndereco {
                             return campoDireto;
                         case LC_LOCALIZACAO:
                             ItfCampoInstanciado cLocalizacao = pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
-                            if (campoInstanciado.getValor() instanceof ItfLocalPostagem) {
+                            if (campoInstanciado.getValor() instanceof ComoLocalPostagem) {
                                 return cLocalizacao;
                             } else {
-                                if (campoInstanciado.getValor() instanceof ItfBeanSimples) {
-                                    ItfBeanSimples objPai = (ItfBeanSimples) campoInstanciado.getValor();
+                                if (campoInstanciado.getValor() instanceof ComoEntidadeSimples) {
+                                    ComoEntidadeSimples objPai = (ComoEntidadeSimples) campoInstanciado.getValor();
                                     if (objPai.isTemCampoAnotado(FabTipoAtributoObjeto.LC_LOCALIZACAO)) {
                                         return objPai.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.LC_LOCALIZACAO);
                                     }
@@ -144,7 +145,7 @@ public enum TipoOrganizacaoDadosEndereco {
                     }
 
                 case LOCALIZACAO_SIMPLES:
-                    ItfLocalPostagem localizacaoSimples = (ItfLocalPostagem) pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
+                    ComoLocalPostagem localizacaoSimples = (ComoLocalPostagem) pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
                     if (pTipoAtributo.equals(FabTipoAtributoObjeto.LCCEP)) {
                         return null;
                     } else {
@@ -159,7 +160,7 @@ public enum TipoOrganizacaoDadosEndereco {
                     }
 
                 case LOCALIZACAO_SIMPLES_COM_CEP_EM_ENTIDADE:
-                    ItfLocalPostagem ls = (ItfLocalPostagem) pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
+                    ComoLocalPostagem ls = (ComoLocalPostagem) pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(pNomeCampoLocalizacaoOuEntidadeDinamica);
                     if (pTipoAtributo.equals(FabTipoAtributoObjeto.LCCEP)) {
                         return pEntidadePai.getCampoInstanciadoByNomeOuAnotacao(FabTipoAtributoObjeto.LCCEP.toString());
                     } else {
@@ -181,23 +182,23 @@ public enum TipoOrganizacaoDadosEndereco {
         }
     }
 
-    public ItfBeanSimples getBeanDeArmazenamento(ItfCampoInstanciado pCampoInstanciado) {
-        ItfBeanSimples beanArmazenamentoAssitente = null;
+    public ComoEntidadeSimples getBeanDeArmazenamento(ItfCampoInstanciado pCampoInstanciado) {
+        ComoEntidadeSimples beanArmazenamentoAssitente = null;
         try {
             TipoOrganizacaoDadosEndereco tipoOrganizacao = TipoOrganizacaoDadosEndereco.getTipoOrganizacaoByCampoInstanciado(pCampoInstanciado);
 
             switch (tipoOrganizacao) {
                 case LOCALIZACAO_POSTAVEL:
                     if (pCampoInstanciado.getCampoInstanciadoRaiz() == null) {
-                        return (ItfBeanSimples) pCampoInstanciado.getValor();
+                        return (ComoEntidadeSimples) pCampoInstanciado.getValor();
                     } else {
-                        beanArmazenamentoAssitente = (ItfBeanSimples) pCampoInstanciado.getCampoInstanciadoRaiz().getValor();
+                        beanArmazenamentoAssitente = (ComoEntidadeSimples) pCampoInstanciado.getCampoInstanciadoRaiz().getValor();
                     }
 
                     break;
 
                 case LOCALIZACAO_SIMPLES:
-                    beanArmazenamentoAssitente = (ItfBeanSimples) pCampoInstanciado.getCampoInstanciadoRaiz().getValor();
+                    beanArmazenamentoAssitente = (ComoEntidadeSimples) pCampoInstanciado.getCampoInstanciadoRaiz().getValor();
                     break;
 
                 case DINAMICO:
@@ -220,9 +221,9 @@ public enum TipoOrganizacaoDadosEndereco {
         }
     }
 
-    public ItfBeanSimples getBeanPai(ItfCampoInstanciado pCampoInstanciado) {
+    public ComoEntidadeSimples getBeanPai(ItfCampoInstanciado pCampoInstanciado) {
         if (pCampoInstanciado.getCampoInstanciadoRaiz() != null) {
-            return (ItfBeanSimples) pCampoInstanciado.getCampoInstanciadoRaiz().getObjetoDoAtributo();
+            return (ComoEntidadeSimples) pCampoInstanciado.getCampoInstanciadoRaiz().getObjetoDoAtributo();
         } else {
             return pCampoInstanciado.getObjetoDoAtributo();
         }
@@ -236,7 +237,7 @@ public enum TipoOrganizacaoDadosEndereco {
                 if (pCampoInstanciado.getCampoInstanciadoRaiz() != null) {
                     return pCampoInstanciado.getCampoInstanciadoRaiz().getNomeCamponaClasse();
                 } else {
-                    if (pCampoInstanciado.getValor() instanceof ItfLocal) {
+                    if (pCampoInstanciado.getValor() instanceof ComoLocal) {
                         return (String) pCampoInstanciado.getNomeCamponaClasse();
                     }
                 }

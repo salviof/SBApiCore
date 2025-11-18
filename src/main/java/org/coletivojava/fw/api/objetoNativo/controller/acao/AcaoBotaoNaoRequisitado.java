@@ -5,28 +5,28 @@
 package org.coletivojava.fw.api.objetoNativo.controller.acao;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfModuloAcaoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoController;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoController;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoControllerEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoSecundaria;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.modulo.FabModuloSistemaCore;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormularioEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistemaGenerica;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringFiltrosSimples;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author SalvioF
  */
-public class AcaoBotaoNaoRequisitado extends ObjetoNativoCoreDoSistema implements ItfAcaoDoSistema {
+public class AcaoBotaoNaoRequisitado extends ObjetoNativoCoreDoSistema implements ComoAcaoDoSistema {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;
@@ -116,12 +116,12 @@ public class AcaoBotaoNaoRequisitado extends ObjetoNativoCoreDoSistema implement
     }
 
     @Override
-    public ItfFabricaAcoes getEnumAcaoDoSistema() {
+    public ComoFabricaAcoes getEnumAcaoDoSistema() {
         return null;
     }
 
     @Override
-    public void configurarPropriedadesBasicas(ItfAcaoDoSistema pAcaoDoSistema) {
+    public void configurarPropriedadesBasicas(ComoAcaoDoSistema pAcaoDoSistema) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -201,17 +201,17 @@ public class AcaoBotaoNaoRequisitado extends ObjetoNativoCoreDoSistema implement
     }
 
     @Override
-    public ItfAcaoController getComoController() {
+    public ComoAcaoController getComoController() {
         throw new UnsupportedOperationException("Esta ação não é uma ação de Controller");
     }
 
     @Override
-    public ItfAcaoSecundaria getComoSecundaria() {
+    public ComoAcaoSecundaria getComoSecundaria() {
         throw new UnsupportedOperationException("Esta ação não é uma ação secundária");
     }
 
     @Override
-    public ItfAcaoControllerEntidade getComoControllerEntidade() {
+    public ComoAcaoControllerEntidade getComoControllerEntidade() {
         throw new UnsupportedOperationException("Esta ação não é uma ação de Controller");
     }
 

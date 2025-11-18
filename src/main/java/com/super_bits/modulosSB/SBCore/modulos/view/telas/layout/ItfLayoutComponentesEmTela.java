@@ -4,8 +4,8 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.view.telas.layout;
 
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSBEmLayout;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSBEmLayout;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ItfLayoutComponentesEmTela {
 
-    void adicionarComponente(ItfComponenteVisualSBEmLayout pComponente, String identificacaoColuna);
+    void adicionarComponente(ComoComponenteVisualSBEmLayout pComponente, String identificacaoColuna);
 
     public ItfColunaTela getColunaByNome(String pNome);
 

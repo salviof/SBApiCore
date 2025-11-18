@@ -4,13 +4,13 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
  * @author desenvolvedor
  */
-public enum FabTipoBeanSBGenerico implements ItfFabrica {
+public enum FabTipoBeanSBGenerico implements ComoFabrica {
 
     BEAN_CONTATO_CORPORATIVO,
     BEAN_ENDERECO,
@@ -31,7 +31,7 @@ public enum FabTipoBeanSBGenerico implements ItfFabrica {
 
             case BEAN_NORMAL:
 
-                return "EntidadeNormal";
+                return "EntidadeORMNormal";
             case BEAN_SIMPLES:
 
                 return "EntidadeSimples";

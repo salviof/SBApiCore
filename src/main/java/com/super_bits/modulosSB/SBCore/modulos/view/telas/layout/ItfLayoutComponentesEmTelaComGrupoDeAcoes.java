@@ -4,8 +4,8 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.view.telas.layout;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import java.util.Map;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public interface ItfLayoutComponentesEmTelaComGrupoDeAcoes extends ItfLayoutComponentesEmTela {
 
-    Map<Integer, ItfAcaoDoSistema> getGrupoDeAcoes();
+    Map<Integer, ComoAcaoDoSistema> getGrupoDeAcoes();
 
     String getNomeGrupoDeAcoes();
 

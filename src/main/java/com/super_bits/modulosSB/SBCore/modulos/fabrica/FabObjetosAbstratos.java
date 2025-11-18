@@ -8,7 +8,7 @@ package com.super_bits.modulosSB.SBCore.modulos.fabrica;
  *
  * @author desenvolvedor
  */
-public enum FabObjetosAbstratos implements ItfFabrica {
+public enum FabObjetosAbstratos implements ComoFabrica {
 
     VALOR_NAO_SELECIONADO,
     VALOR_PADRAO;

@@ -5,7 +5,7 @@
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.seletores.listagemItem.ItflistagemItemEditavel;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 /**
  *
@@ -13,6 +13,6 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  */
 public interface ItfCampoIsntanciadoSubItens {
 
-    public ItflistagemItemEditavel<ItfBeanSimples> getSubItens();
+    public ItflistagemItemEditavel<ComoEntidadeSimples> getSubItens();
 
 }

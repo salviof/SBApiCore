@@ -4,11 +4,11 @@
  */
 package org.coletivojava.fw.api.objetoNativo.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -40,7 +40,7 @@ public class RespostaComunicacao implements ItfRespostaComunicacao {
     }
 
     @Override
-    public ItfAcaoDoSistema getBotaoAcao() {
+    public ComoAcaoDoSistema getBotaoAcao() {
         return botaoResposta;
     }
 

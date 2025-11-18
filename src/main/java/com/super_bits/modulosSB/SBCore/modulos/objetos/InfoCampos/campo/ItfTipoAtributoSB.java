@@ -5,7 +5,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeVinculadoAEnum;
 
 /**
  *
@@ -16,7 +16,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  *
  * @author sfurbino
  */
-public interface ItfTipoAtributoSB extends ItfTipoAtributoSBSomenteLeitura, ItfAtributoComListaDeOpcoes, ItfBeanVinculadoAEnum {
+public interface ItfTipoAtributoSB extends ItfTipoAtributoSBSomenteLeitura, ItfAtributoComListaDeOpcoes, ComoEntidadeVinculadoAEnum {
 
     public void setLabelPadrao(String pLabel);
 

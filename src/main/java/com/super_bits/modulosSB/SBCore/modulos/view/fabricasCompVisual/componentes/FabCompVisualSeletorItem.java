@@ -6,13 +6,13 @@ package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componen
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 
 /**
  *
  * @author salvioF
  */
-public enum FabCompVisualSeletorItem implements ItfFabTipoComponenteVisual {
+public enum FabCompVisualSeletorItem implements ComoFabTipoComponenteVisual {
     @InfoComponenteVisual(nome = "Carrousel", xhtmlJSF = "carrousel.xhmlt",
             classesCSS = "carrousel")
     CARROULSEL,

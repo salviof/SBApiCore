@@ -5,9 +5,9 @@
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoDestinatario;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfGrupoUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoGrupoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
 
 /**
  *
@@ -17,13 +17,13 @@ public interface ItfDestinatario {
 
     public FabTipoDestinatario getTipoDestinatario();
 
-    public List<ItfUsuario> getUsuarios();
+    public List<ComoUsuario> getUsuarios();
 
-    public ItfUsuario getUsuario();
+    public ComoUsuario getUsuario();
 
-    public ItfGrupoUsuario getGrupoUsuario();
+    public ComoGrupoUsuario getGrupoUsuario();
 
-    public List<ItfGrupoUsuario> getGruposUsuario();
+    public List<ComoGrupoUsuario> getGruposUsuario();
 
     public String getEmailsConcatenados();
 

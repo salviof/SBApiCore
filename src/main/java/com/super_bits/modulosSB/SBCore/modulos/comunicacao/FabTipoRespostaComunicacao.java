@@ -5,9 +5,9 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import org.coletivojava.fw.api.objetoNativo.comunicacao.TipoRespostaComunicacao;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringEnumECaixaAlta;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
@@ -19,7 +19,7 @@ import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringEnumECaixaAlta;
  * @see #RESPONDER_COM_TEXTO
  * @author salvioF
  */
-public enum FabTipoRespostaComunicacao implements ItfFabrica {
+public enum FabTipoRespostaComunicacao implements ComoFabrica {
 
     /**
      *

@@ -7,15 +7,15 @@ package org.coletivojava.fw.api.objetoNativo.view.componente;
 import static com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto.LISTA_OBJETOS_PUBLICOS;
 import static com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto.TEXTO_SIMPLES;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanStatus;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSBEmLayout;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabColunasTela;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoStatus;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSBEmLayout;
 
 /**
  *
@@ -24,9 +24,9 @@ import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP;
  *
  * @author desenvolvedor
  */
-public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
+public class ComponenteVisualEmLayout implements ComoComponenteVisualSBEmLayout {
 
-    private final ItfComponenteVisualSB tipoComponente;
+    private final ComoComponenteVisualSB tipoComponente;
     private final String nomeIdentificador;
     private final int prioridade;
     private final int peso;
@@ -59,7 +59,7 @@ public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
             case OBJETO_DE_UMA_LISTA: {
                 try {
 
-                    if (ItfBeanStatus.class.isAssignableFrom(pCampoInst.getMetodoGet().getReturnType())) {
+                    if (ComoStatus.class.isAssignableFrom(pCampoInst.getMetodoGet().getReturnType())) {
                         return FabColunasTela.CINCO.getQuantidade();
                     }
                 } catch (NoSuchMethodException ex) {
@@ -76,7 +76,7 @@ public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
     }
 
     public ComponenteVisualEmLayout(
-            ItfComponenteVisualSB tipoComponente,
+            ComoComponenteVisualSB tipoComponente,
             String pNomeIdentificador,
             int pPrioridade) {
         this(tipoComponente, pNomeIdentificador, pPrioridade, tipoComponente.getPesoLargura());
@@ -84,7 +84,7 @@ public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
     }
 
     public ComponenteVisualEmLayout(
-            ItfComponenteVisualSB tipoComponente,
+            ComoComponenteVisualSB tipoComponente,
             String pNomeIdentificador,
             int pPrioridade,
             int pPeso) {
@@ -166,6 +166,6 @@ public class ComponenteVisualEmLayout implements ItfComponenteVisualSBEmLayout {
 
     @Override
     public String getClasseLarguraPorPeso() {
-        return ItfComponenteVisualSBEmLayout.super.getClasseLarguraPorPeso(); //To change body of generated methods, choose Tools | Templates.
+        return ComoComponenteVisualSBEmLayout.super.getClasseLarguraPorPeso(); //To change body of generated methods, choose Tools | Templates.
     }
 }

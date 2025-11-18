@@ -5,9 +5,6 @@
 package com.super_bits.modulosSB.SBCore.modulos.erp;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfValidacao;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -19,9 +16,11 @@ import java.util.logging.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAtributoDeObjetoSimples;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoSimples;
 import org.reflections.ReflectionUtils;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 /**
  *
@@ -30,13 +29,13 @@ import org.reflections.ReflectionUtils;
  * @author desenvolvedor
  * @param <T> Iterface de Implementação
  */
-public interface ItfApiErpSuperBits<T> extends ItfFabrica {
+public interface ItfApiErpSuperBits<T> extends ComoFabrica {
 
     public Class<? extends T> getInterface();
 
     @Override
     public default Object getRegistro() {
-        return ItfFabrica.super.getRegistro();
+        return ComoFabrica.super.getRegistro();
     }
 
     public default Class getAnotacao() {
@@ -64,7 +63,7 @@ public interface ItfApiErpSuperBits<T> extends ItfFabrica {
         return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
     }
 
-    public default <I extends ItfBeanSimples> I getDTO(String pJson, Class<? extends I> pItefaceObjeto) throws ErroJsonInterpredador {
+    public default <I extends ComoEntidadeSimples> I getDTO(String pJson, Class<? extends I> pItefaceObjeto) throws ErroJsonInterpredador {
 
         String classeDTOStr = UtilSBCoreReflexaoAPIERP.getPacoteApiDTO(this, pItefaceObjeto) + "." + UtilSBCoreReflexaoAPIERP.getNomeDTOClassePojo(pItefaceObjeto);
         Class classeValidacao = (Class<? extends ItfValidacao>) ReflectionUtils.forName(classeDTOStr);
@@ -128,7 +127,7 @@ public interface ItfApiErpSuperBits<T> extends ItfFabrica {
                 retorno = tipoDaLista;
             }
             //  UtilSBCoreReflexaoAtributoDeObjetoSimples.getClassePrincipalDoCampo(pCampo)
-            if (UtilSBCoreReflexaoSimples.isInterfaceIgualOuExetende(retorno, ItfBeanSimplesSomenteLeitura.class)) {
+            if (UtilSBCoreReflexaoSimples.isInterfaceIgualOuExetende(retorno, ComoEntidadeSimplesSomenteLeitura.class)) {
                 if (!classes.contains(retorno)) {
                     classes.add(retorno);
                 }

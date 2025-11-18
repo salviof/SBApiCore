@@ -6,13 +6,13 @@ package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componen
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 
 /**
  *
  * @author salvioF
  */
-public enum FabCompVisualSistema implements ItfFabTipoComponenteVisual {
+public enum FabCompVisualSistema implements ComoFabTipoComponenteVisual {
     @InfoComponenteVisual(nome = "Componente não Implementado",
             xhtmlJSF = FabCompVisualSistema.JSF_COMPONENTE_NAO_IMPLEMENTADO,
             htmlWordPress = FabCompVisualSistema.WORDPRESS_COMPONENTE_NAO_IMPLEMENTADO,

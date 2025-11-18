@@ -4,19 +4,19 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerAutoExecucao;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoControllerAutoExecucao;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoSecundaria;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas.FabTipoAutoExecucaoAcao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoBase;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistema;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -24,12 +24,12 @@ import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
  */
 public class UtilFabricaDeAcoesBasico {
 
-    public static List<ItfAcaoDoSistema> gerarAcoesListaComEstesEnuns(ItfFabricaAcoes... pAcoes) {
-        List<ItfAcaoDoSistema> acoes = new ArrayList();
+    public static List<ComoAcaoDoSistema> gerarAcoesListaComEstesEnuns(ComoFabricaAcoes... pAcoes) {
+        List<ComoAcaoDoSistema> acoes = new ArrayList();
         try {
 
-            for (ItfFabricaAcoes acao : pAcoes) {
-                ItfAcaoDoSistema registro = acao.getRegistro();
+            for (ComoFabricaAcoes acao : pAcoes) {
+                ComoAcaoDoSistema registro = acao.getRegistro();
                 acoes.add(registro);
 
             }
@@ -41,8 +41,8 @@ public class UtilFabricaDeAcoesBasico {
 
     }
 
-    public static ItfAcaoDoSistema[] gerarAcoesArrayComEstesEnuns(ItfFabricaAcoes... pAcoes) {
-        ItfAcaoDoSistema[] acoes = new ItfAcaoDoSistema[pAcoes.length];
+    public static ComoAcaoDoSistema[] gerarAcoesArrayComEstesEnuns(ComoFabricaAcoes... pAcoes) {
+        ComoAcaoDoSistema[] acoes = new ComoAcaoDoSistema[pAcoes.length];
 
         try {
 
@@ -58,7 +58,7 @@ public class UtilFabricaDeAcoesBasico {
 
     }
 
-    public static boolean validaIntegridadeAcaoDoSistema(ItfAcaoDoSistema pAcaoDoSistema) {
+    public static boolean validaIntegridadeAcaoDoSistema(ComoAcaoDoSistema pAcaoDoSistema) {
 
         try {
             if (pAcaoDoSistema == null) {
@@ -83,7 +83,7 @@ public class UtilFabricaDeAcoesBasico {
                 }
 
                 if (pAcaoDoSistema.isTemAcaoPrincipal()) {
-                    if (((ItfAcaoSecundaria) pAcaoDoSistema).getAcaoPrincipal() == null) {
+                    if (((ComoAcaoSecundaria) pAcaoDoSistema).getAcaoPrincipal() == null) {
                         throw new UnsupportedOperationException("A ação secundária" + pAcaoDoSistema.getNomeUnico() + " principal não foi definida em ");
                     }
                 }
@@ -94,8 +94,8 @@ public class UtilFabricaDeAcoesBasico {
 
             }
             if (pAcaoDoSistema.getTipoAcaoGenerica().getAcaoBase().equals(FabTipoAcaoBase.CONTROLLER)) {
-                if (pAcaoDoSistema instanceof ItfAcaoControllerAutoExecucao) {
-                    ItfAcaoControllerAutoExecucao acaoAutoexec = (ItfAcaoControllerAutoExecucao) pAcaoDoSistema;
+                if (pAcaoDoSistema instanceof ComoAcaoControllerAutoExecucao) {
+                    ComoAcaoControllerAutoExecucao acaoAutoexec = (ComoAcaoControllerAutoExecucao) pAcaoDoSistema;
                     if (acaoAutoexec.getTipoAutoExecucao() == null || acaoAutoexec.getTipoAutoExecucao().equals(FabTipoAutoExecucaoAcao.DESATIVADO)) {
                         throw new UnsupportedOperationException("O tipo de automação para ação " + pAcaoDoSistema.getNomeUnico() + " está desativado");
                     }
@@ -108,16 +108,16 @@ public class UtilFabricaDeAcoesBasico {
         }
     }
 
-    public static List<ItfAcaoDoSistema> getAcoesPorFabricas(ItfFabricaAcoes... pFabricas) {
-        List<ItfAcaoDoSistema> acoes = new ArrayList<>();
+    public static List<ComoAcaoDoSistema> getAcoesPorFabricas(ComoFabricaAcoes... pFabricas) {
+        List<ComoAcaoDoSistema> acoes = new ArrayList<>();
 
-        for (ItfFabricaAcoes fab : pFabricas) {
+        for (ComoFabricaAcoes fab : pFabricas) {
             acoes.add(fab.getRegistro());
         }
         return acoes;
     }
 
-    public static String getNomeDominio(ItfFabricaAcoes pAcao) {
+    public static String getNomeDominio(ComoFabricaAcoes pAcao) {
 
         String nomeAcao = pAcao.toString();
         String[] partes = nomeAcao.split("_");
@@ -150,7 +150,7 @@ public class UtilFabricaDeAcoesBasico {
         return dominio;
     }
 
-    public static String getNomeAcaoPosSlugTipoAcao(ItfFabricaAcoes pAcao) {
+    public static String getNomeAcaoPosSlugTipoAcao(ComoFabricaAcoes pAcao) {
 
         String nomeAcao = pAcao.toString();
         String[] partes = nomeAcao.split("_");

@@ -7,7 +7,7 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.comparadorObjeto;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Objects;
@@ -18,7 +18,7 @@ import java.util.Objects;
  * @since 12/10/2019
  * @version 1.0
  */
-public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
+public class ComparadorGenerico implements Comparator<ComoEntidadeSimples> {
 
     private FabTipoAtributoObjeto tipoAtributo;
     private final boolean ordemReversa;
@@ -57,7 +57,7 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
     }
 
     @Override
-    public int compare(ItfBeanSimples o1, ItfBeanSimples o2) {
+    public int compare(ComoEntidadeSimples o1, ComoEntidadeSimples o2) {
         //primeiro menor envia negativo
         //segundo menor envia positivo
         // igual 0;
@@ -177,7 +177,7 @@ public class ComparadorGenerico implements Comparator<ItfBeanSimples> {
                 return 0;
 
             case ENTIDADE:
-                return new ComparadorGenerico(FabTipoAtributoObjeto.NOME, ordemReversa).compare((ItfBeanSimples) cp1.getValor(), (ItfBeanSimples) cp2.getValor());
+                return new ComparadorGenerico(FabTipoAtributoObjeto.NOME, ordemReversa).compare((ComoEntidadeSimples) cp1.getValor(), (ComoEntidadeSimples) cp2.getValor());
 
             case OUTROS_OBJETOS:
                 throw new UnsupportedOperationException("a comparação deste tipo de atributo não foi definida ");

@@ -4,12 +4,12 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeVinculadoAEnum;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface ItfTipoCanalComunicacao extends ItfBeanVinculadoAEnum {
+public interface ItfTipoCanalComunicacao extends ComoEntidadeVinculadoAEnum {
 
 }

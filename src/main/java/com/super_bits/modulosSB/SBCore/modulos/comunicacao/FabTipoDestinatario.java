@@ -4,13 +4,13 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
  * @author desenvolvedor
  */
-public enum FabTipoDestinatario implements ItfFabrica {
+public enum FabTipoDestinatario implements ComoFabrica {
 
     USUARIO,
     USUARIOS,

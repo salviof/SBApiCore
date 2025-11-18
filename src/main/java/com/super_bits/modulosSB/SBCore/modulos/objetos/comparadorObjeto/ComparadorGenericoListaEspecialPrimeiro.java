@@ -5,7 +5,8 @@
 package com.super_bits.modulosSB.SBCore.modulos.objetos.comparadorObjeto;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+
 import java.util.List;
 
 /**
@@ -14,15 +15,15 @@ import java.util.List;
  */
 public class ComparadorGenericoListaEspecialPrimeiro extends ComparadorGenerico {
 
-    private final List<ItfBeanSimples> listaEspecial;
+    private final List<ComoEntidadeSimples> listaEspecial;
 
-    public ComparadorGenericoListaEspecialPrimeiro(FabTipoAtributoObjeto pCampo, List<ItfBeanSimples> pListaEspecial, boolean pUsarordemREversa) {
+    public ComparadorGenericoListaEspecialPrimeiro(FabTipoAtributoObjeto pCampo, List<ComoEntidadeSimples> pListaEspecial, boolean pUsarordemREversa) {
         super(pCampo, pUsarordemREversa);
         listaEspecial = pListaEspecial;
     }
 
     @Override
-    public int compare(ItfBeanSimples o1, ItfBeanSimples o2) {
+    public int compare(ComoEntidadeSimples o1, ComoEntidadeSimples o2) {
         if (o1 != null && o2 != null) {
 
             if (listaEspecial.contains(o1) && listaEspecial.contains(o2)) {

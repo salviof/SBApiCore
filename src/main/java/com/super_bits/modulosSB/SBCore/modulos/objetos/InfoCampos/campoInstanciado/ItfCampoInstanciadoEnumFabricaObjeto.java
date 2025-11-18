@@ -4,8 +4,8 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
 
 /**
  *
@@ -13,13 +13,13 @@ import java.util.List;
  */
 public interface ItfCampoInstanciadoEnumFabricaObjeto {
 
-    ItfBeanSimplesSomenteLeitura getBeanSelecionado();
+    ComoEntidadeSimplesSomenteLeitura getBeanSelecionado();
 
     ItfCampoInstanciado getCampoInstanciado();
 
     Class getClasseEnumFab();
 
-    List<ItfBeanSimplesSomenteLeitura> getListaOpcoesObjeto();
+    List<ComoEntidadeSimplesSomenteLeitura> getListaOpcoesObjeto();
 
     List<Integer> getListaOpcoesOrdinal();
 
@@ -29,7 +29,7 @@ public interface ItfCampoInstanciadoEnumFabricaObjeto {
 
     String getStringSelecionada();
 
-    void setBeanSelecionado(ItfBeanSimplesSomenteLeitura pBeanSelecionado);
+    void setBeanSelecionado(ComoEntidadeSimplesSomenteLeitura pBeanSelecionado);
 
     void setOrdinalSelecionado(int ordinalSelecionado);
 

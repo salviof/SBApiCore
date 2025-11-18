@@ -4,15 +4,15 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.ItfBeanComIcone;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.ComoTemIcone;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface ItfTipoComunicacao extends ItfBeanSimples, ItfBeanComIcone {
+public interface ItfTipoComunicacao extends ComoEntidadeSimples, ComoTemIcone {
 
     public FabTipoComunicacao getFabTipoComunicacao();
 

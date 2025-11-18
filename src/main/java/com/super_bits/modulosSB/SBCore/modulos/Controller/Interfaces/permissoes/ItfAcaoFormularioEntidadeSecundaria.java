@@ -4,12 +4,12 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoSecundaria;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface ItfAcaoFormularioEntidadeSecundaria extends ItfAcaoFormularioEntidade, ItfAcaoSecundaria {
+public interface ItfAcaoFormularioEntidadeSecundaria extends ItfAcaoFormularioEntidade, ComoAcaoSecundaria {
 
 }

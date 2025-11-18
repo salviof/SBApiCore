@@ -6,12 +6,12 @@ package org.coletivojava.fw.utilCoreBase;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoPreparacaoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanGenerico;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import java.lang.reflect.Method;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.api.tratamentoErros.ErroPreparandoObjeto;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoDominioEntidadeGenerico;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
 
 /**
  *
@@ -38,7 +38,7 @@ public class UtilSBCoreReflexaoObjetoSimples {
      * @param parametros
      * @throws UnsupportedOperationException
      */
-    public static void validarMetodoPrepararObjeto(ItfBeanSimplesSomenteLeitura pObjeto, InfoPreparacaoObjeto anotacaoInfoPreparacaoObjeto, Object... parametros) throws ErroPreparandoObjeto {
+    public static void validarMetodoPrepararObjeto(ComoEntidadeSimplesSomenteLeitura pObjeto, InfoPreparacaoObjeto anotacaoInfoPreparacaoObjeto, Object... parametros) throws ErroPreparandoObjeto {
 
         if (parametros.length < anotacaoInfoPreparacaoObjeto.classesPrConstructorPrincipal().length) {
             throw new UnsupportedOperationException("A quantidade de parametros esperada, não confere, com a quantidade enviada" + "Enviado" + parametros.length + ", esperado " + anotacaoInfoPreparacaoObjeto.classesPrConstructorPrincipal().length);
@@ -64,7 +64,7 @@ public class UtilSBCoreReflexaoObjetoSimples {
 
     }
 
-    public static <T> T getParametroPrepararObjeto(ItfBeanSimplesSomenteLeitura objetoIniciado, Class<T> tipoObjeto, InfoPreparacaoObjeto anotacaoInfoPreparacaoObjeto, Object... parametros) throws ErroPreparandoObjeto {
+    public static <T> T getParametroPrepararObjeto(ComoEntidadeSimplesSomenteLeitura objetoIniciado, Class<T> tipoObjeto, InfoPreparacaoObjeto anotacaoInfoPreparacaoObjeto, Object... parametros) throws ErroPreparandoObjeto {
         int i = 0;
 
         for (Object obj : parametros) {
@@ -155,7 +155,7 @@ public class UtilSBCoreReflexaoObjetoSimples {
 
     }
 
-    public static String getNomeObjeto(Class<? extends ItfBeanGenerico> pClasse) {
+    public static String getNomeObjeto(Class<? extends ComoDominioEntidadeGenerico> pClasse) {
         try {
             InfoObjetoSB info = pClasse.getAnnotation(InfoObjetoSB.class);
 
@@ -166,7 +166,7 @@ public class UtilSBCoreReflexaoObjetoSimples {
         }
     }
 
-    public static String getNomeObjetoPlural(Class<? extends ItfBeanGenerico> pClasse) {
+    public static String getNomeObjetoPlural(Class<? extends ComoDominioEntidadeGenerico> pClasse) {
         try {
             InfoObjetoSB info = pClasse.getAnnotation(InfoObjetoSB.class);
 

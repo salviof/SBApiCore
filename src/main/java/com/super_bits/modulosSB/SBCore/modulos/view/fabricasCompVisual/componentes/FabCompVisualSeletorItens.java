@@ -6,13 +6,13 @@ package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componen
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 
 /**
  *
  * @author salvioF
  */
-public enum FabCompVisualSeletorItens implements ItfFabTipoComponenteVisual {
+public enum FabCompVisualSeletorItens implements ComoFabTipoComponenteVisual {
 
     @InfoComponenteVisual(nome = "PickList",
             xhtmlJSF = FabCompVisualSeletorItens.DIRETORIO_SELETOR_ITENS + "pickList.xhtml",

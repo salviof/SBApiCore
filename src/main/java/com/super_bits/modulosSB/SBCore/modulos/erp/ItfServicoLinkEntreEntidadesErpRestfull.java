@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.erp;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 /**
  *
@@ -12,10 +12,10 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  */
 public interface ItfServicoLinkEntreEntidadesErpRestfull extends ItfServicoLinkDeEntidadesERP {
 
-    public String getCodigoApiExterna(ItfSistemaERP pSistema, ItfBeanSimples pBeanSimples);
+    public String getCodigoApiExterna(ItfSistemaERP pSistema, ComoEntidadeSimples pBeanSimples);
 
     public String getCodigoSistemaInterno(ItfSistemaERP pSistema, Class pEntidade, String pCodigoapiExterno);
 
-    public boolean registrarCodigoLigacaoApi(ItfSistemaERP pSistema, ItfBeanSimples pEntidade, String codigoAPIExterna);
+    public boolean registrarCodigoLigacaoApi(ItfSistemaERP pSistema, ComoEntidadeSimples pEntidade, String codigoAPIExterna);
 
 }

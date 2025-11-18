@@ -5,10 +5,8 @@
 package org.coletivojava.fw.api.objetoNativo.controller.modulo;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfModuloAcaoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.modulo.ItfFabricaModulo;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.modulo.ComoFabricaModulo;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
@@ -16,6 +14,8 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoA
 import java.util.ArrayList;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -31,7 +31,7 @@ public class ModuloTransiente extends ObjetoNativoCoreDoSistema implements ItfMo
     @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO)
     private String descricao;
 
-    private ItfFabricaModulo fabModulo;
+    private ComoFabricaModulo fabModulo;
 
     @Override
     public String getNome() {
@@ -64,12 +64,12 @@ public class ModuloTransiente extends ObjetoNativoCoreDoSistema implements ItfMo
     }
 
     @Override
-    public List<ItfAcaoDoSistema> getAcoes() {
+    public List<ComoAcaoDoSistema> getAcoes() {
         return new ArrayList<>();
     }
 
     @Override
-    public List<ItfAcaoDoSistema> getAcoesGestaoMB() {
+    public List<ComoAcaoDoSistema> getAcoesGestaoMB() {
         return new ArrayList<>();
     }
 
@@ -79,13 +79,13 @@ public class ModuloTransiente extends ObjetoNativoCoreDoSistema implements ItfMo
     }
 
     @Override
-    public ItfFabricaModulo getEnumVinculado() {
-        return (ItfFabricaModulo) fabModulo;
+    public ComoFabricaModulo getEnumVinculado() {
+        return (ComoFabricaModulo) fabModulo;
     }
 
     @Override
-    public void setEnumVinculado(ItfFabrica pFabrica) {
-        fabModulo = (ItfFabricaModulo) pFabrica;
+    public void setEnumVinculado(ComoFabrica pFabrica) {
+        fabModulo = (ComoFabricaModulo) pFabrica;
     }
 
 }

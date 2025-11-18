@@ -6,13 +6,13 @@ package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componen
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 
 /**
  *
  * @author desenvolvedor
  */
-public enum FabCompVisualSubItens implements ItfFabTipoComponenteVisual {
+public enum FabCompVisualSubItens implements ComoFabTipoComponenteVisual {
     @InfoComponenteVisual(nome = "subFormSimples",
             xhtmlJSF = FabCompVisualSubItens.PATA_SUB_ITENS + "subForm.xhtml",
             classesCSS = "subFormSimples"

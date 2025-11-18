@@ -4,20 +4,20 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoController;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoController;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoControllerEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoSecundaria;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistemaGenerica;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanGenerico;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoDominioEntidadeGenerico;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -28,9 +28,9 @@ import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
  */
 public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormularioEntidade {
 
-    public default ItfAcaoDoSistema getPrimeiraAcaoDesteTipo(FabTipoAcaoSistemaGenerica pTipoAcao) {
+    public default ComoAcaoDoSistema getPrimeiraAcaoDesteTipo(FabTipoAcaoSistemaGenerica pTipoAcao) {
         try {
-            Optional<ItfAcaoSecundaria> acaoEncontrada
+            Optional<ComoAcaoSecundaria> acaoEncontrada
                     = getAcoesVinculadas().stream().filter(acao -> acao.getTipoAcaoGenerica().equals(pTipoAcao)).findFirst();
 
             if (!acaoEncontrada.isPresent()) {
@@ -45,9 +45,9 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
         }
     }
 
-    public default List<ItfAcaoDoSistema> getAcoesVinculadasDesteTipo(FabTipoAcaoSistemaGenerica pTipoAcao) {
+    public default List<ComoAcaoDoSistema> getAcoesVinculadasDesteTipo(FabTipoAcaoSistemaGenerica pTipoAcao) {
         try {
-            List<ItfAcaoSecundaria> acoesEncontradas = new ArrayList<>();
+            List<ComoAcaoSecundaria> acoesEncontradas = new ArrayList<>();
             getAcoesVinculadas().stream().filter(
                     (acao) -> (acao.getTipoAcaoGenerica().equals(pTipoAcao))).
                     forEach(acoesEncontradas::add);
@@ -61,7 +61,7 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
     public default List getAcoesVinculadasDesteTipoComEstaEntidade(FabTipoAcaoSistemaGenerica pTipoAcao, Class pTipoBean) {
         try {
             String classeBeanSelecionado = pTipoBean.getSimpleName();
-            List<ItfAcaoSecundaria> acoesEncontradas = new ArrayList<>();
+            List<ComoAcaoSecundaria> acoesEncontradas = new ArrayList<>();
             getAcoesVinculadas().stream().filter(
                     (acao) -> ((acao.isUmaAcaoDeEntidade() && acao.getTipoAcaoGenerica().equals(pTipoAcao)
                     && acao.getComoAcaoDeEntidade().
@@ -75,9 +75,9 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
         }
     }
 
-    public default List<ItfAcaoSecundaria> getAcoesVinculadas() {
+    public default List<ComoAcaoSecundaria> getAcoesVinculadas() {
         try {
-            List<ItfAcaoSecundaria> acoesVinculadas = new ArrayList<>();
+            List<ComoAcaoSecundaria> acoesVinculadas = new ArrayList<>();
             if (!getEnumAcoesVinculadas().isEmpty()) {
                 getEnumAcoesVinculadas().stream().filter(fab -> fab.getRegistro().isTemAcaoPrincipal()).
                         forEach(fab -> {
@@ -93,14 +93,14 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
     }
 
     @Deprecated
-    public List<ItfAcaoSecundaria> getAcoesVinculadasDoContexto(ItfBeanGenerico pBean);
+    public List<ComoAcaoSecundaria> getAcoesVinculadasDoContexto(ComoDominioEntidadeGenerico pBean);
 
-    public void setAcoesVinculadas(List<ItfAcaoSecundaria> acoesVinculadas);
+    public void setAcoesVinculadas(List<ComoAcaoSecundaria> acoesVinculadas);
 
-    public ItfAcaoDoSistema[] getAcoesVinculadasExcetoListarEnovoArray();
+    public ComoAcaoDoSistema[] getAcoesVinculadasExcetoListarEnovoArray();
 
-    public default List<ItfAcaoSecundaria> getAcoesVinculadasExcetoListarEnovo() {
-        List<ItfAcaoSecundaria> acoesVinculadasExcetoListarEnovo = new ArrayList<>();
+    public default List<ComoAcaoSecundaria> getAcoesVinculadasExcetoListarEnovo() {
+        List<ComoAcaoSecundaria> acoesVinculadasExcetoListarEnovo = new ArrayList<>();
 
         getAcoesVinculadas().stream().filter((ac) -> (ac.isAcaoDeRegistroExistente()
                 && !ac.getTipoAcaoGenerica().equals(FabTipoAcaoSistemaGenerica.FORMULARIO_NOVO_REGISTRO)
@@ -114,12 +114,12 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
 
     }
 
-    public default List<ItfAcaoSecundaria> getAcoesVinculadasAObjetoExistente() {
+    public default List<ComoAcaoSecundaria> getAcoesVinculadasAObjetoExistente() {
         return getAcoesVinculadasExcetoListarEnovo();
     }
 
-    public default List<ItfAcaoSecundaria> getAcoesVinculadasAObjetoExistenteSemRepetirTipo() {
-        List<ItfAcaoSecundaria> lista = new ArrayList<>();
+    public default List<ComoAcaoSecundaria> getAcoesVinculadasAObjetoExistenteSemRepetirTipo() {
+        List<ComoAcaoSecundaria> lista = new ArrayList<>();
         final List<FabTipoAcaoSistemaGenerica> mapaAdicionado = new ArrayList<>();
 
         getAcoesVinculadasAObjetoExistente().forEach(ac -> {
@@ -164,7 +164,7 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
 
     public default ItfAcaoFormularioEntidade getAcaoFormularioNovo() {
         try {
-            Optional<ItfAcaoSecundaria> acaoEncontrada
+            Optional<ComoAcaoSecundaria> acaoEncontrada
                     = getAcoesVinculadas().stream().filter(
                             acao -> acao.getTipoAcaoGenerica().equals(FabTipoAcaoSistemaGenerica.FORMULARIO_NOVO_REGISTRO)).
                             findFirst();
@@ -189,10 +189,10 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
         return (ItfAcaoFormularioEntidade) getPrimeiraAcaoDesteTipo(FabTipoAcaoSistemaGenerica.FORMULARIO_VISUALIZAR);
     }
 
-    public default ItfAcaoControllerEntidade getAcaoSalvarMerge() {
+    public default ComoAcaoControllerEntidade getAcaoSalvarMerge() {
 
         try {
-            Optional<ItfAcaoSecundaria> acaoEncontrada
+            Optional<ComoAcaoSecundaria> acaoEncontrada
                     = getAcoesVinculadas().stream().filter(acao
                             -> (acao.getTipoAcaoGenerica().equals(FabTipoAcaoSistemaGenerica.CONTROLLER_SALVAR_MODO_MERGE))
                     ).findFirst();
@@ -200,7 +200,7 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
             if (!acaoEncontrada.isPresent()) {
                 return null;
             } else {
-                return (ItfAcaoControllerEntidade) acaoEncontrada.get();
+                return (ComoAcaoControllerEntidade) acaoEncontrada.get();
             }
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("Erro Obtendo ação de formulário novo", t);
@@ -209,10 +209,10 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
 
     }
 
-    public default ItfAcaoControllerEntidade getAcaoSalvarNovo() {
+    public default ComoAcaoControllerEntidade getAcaoSalvarNovo() {
 
         try {
-            Optional<ItfAcaoSecundaria> acaoEncontrada
+            Optional<ComoAcaoSecundaria> acaoEncontrada
                     = getAcoesVinculadas().stream().filter(acao
                             -> (acao.getTipoAcaoGenerica().equals(FabTipoAcaoSistemaGenerica.CONTROLLER_SALVAR_NOVO))
                     ).findFirst();
@@ -220,7 +220,7 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
             if (!acaoEncontrada.isPresent()) {
                 return null;
             } else {
-                return (ItfAcaoControllerEntidade) acaoEncontrada.get();
+                return (ComoAcaoControllerEntidade) acaoEncontrada.get();
             }
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("Erro Obtendo ação de formulário novo", t);
@@ -229,17 +229,17 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
 
     }
 
-    public default ItfAcaoController getAcaoAlterarStatus() {
-        return (ItfAcaoController) getPrimeiraAcaoDesteTipo(FabTipoAcaoSistemaGenerica.CONTROLLER_ATIVAR_DESATIVAR);
+    public default ComoAcaoController getAcaoAlterarStatus() {
+        return (ComoAcaoController) getPrimeiraAcaoDesteTipo(FabTipoAcaoSistemaGenerica.CONTROLLER_ATIVAR_DESATIVAR);
     }
 
-    public default ItfAcaoController getAcaoRemover() {
-        return (ItfAcaoController) getPrimeiraAcaoDesteTipo(FabTipoAcaoSistemaGenerica.CONTROLLER_REMOVER);
+    public default ComoAcaoController getAcaoRemover() {
+        return (ComoAcaoController) getPrimeiraAcaoDesteTipo(FabTipoAcaoSistemaGenerica.CONTROLLER_REMOVER);
     }
 
-    public List<ItfFabricaAcoes> getEnumAcoesVinculadas();
+    public List<ComoFabricaAcoes> getEnumAcoesVinculadas();
 
-    public ItfAcaoDoSistema getSubAcaoByString(String pString);
+    public ComoAcaoDoSistema getSubAcaoByString(String pString);
 
     public default boolean isTemNovo() {
         return getAcaoFormularioNovo() != null;
@@ -257,12 +257,12 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
     }
 
     public default boolean isPossuiSubAcaoComPermissao() {
-        Optional<ItfAcaoSecundaria> acaoEncontrada
+        Optional<ComoAcaoSecundaria> acaoEncontrada
                 = getAcoesVinculadas().stream().filter(acao -> acao.isPrecisaPermissao()).findFirst();
 
         return acaoEncontrada.isPresent();
     }
 
-    public ItfAcaoDoSistema getAcaoCompativelEntidadeDivergente(final ItfAcaoDoSistema pAcao, Class pEntidade);
+    public ComoAcaoDoSistema getAcaoCompativelEntidadeDivergente(final ComoAcaoDoSistema pAcao, Class pEntidade);
 
 }

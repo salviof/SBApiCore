@@ -4,11 +4,11 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfBairro;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfCidade;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfLocal;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfUnidadeFederativa;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ComoBairro;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ComoCidade;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ComoLocal;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ComoUnidadeFederativa;
 
 /**
  *
@@ -16,27 +16,27 @@ import java.util.List;
  */
 public interface ItfAssistenteDeLocalizacao {
 
-    public List<ItfCidade> metodoAutoCompleteCidade(String pCidadeTXT);
+    public List<ComoCidade> metodoAutoCompleteCidade(String pCidadeTXT);
 
-    public List<ItfUnidadeFederativa> metodoAutoCompleteEstado(String pNomeEstado);
+    public List<ComoUnidadeFederativa> metodoAutoCompleteEstado(String pNomeEstado);
 
-    public List<ItfBairro> metodoAutoCompleteBairro(String pCidadeTXT);
+    public List<ComoBairro> metodoAutoCompleteBairro(String pCidadeTXT);
 
-    public ItfBairro getBairro();
+    public ComoBairro getBairro();
 
-    public void setBairro(ItfBairro pBairro);
+    public void setBairro(ComoBairro pBairro);
 
     public String getCep();
 
     public void setCep(String pcep);
 
-    public ItfCidade getCidade();
+    public ComoCidade getCidade();
 
-    public void setCidade(ItfCidade pCidade);
+    public void setCidade(ComoCidade pCidade);
 
-    public void setUnidadeFederativa(ItfUnidadeFederativa pUnidadeFerativa);
+    public void setUnidadeFederativa(ComoUnidadeFederativa pUnidadeFerativa);
 
-    public ItfUnidadeFederativa getUnidadeFederativa();
+    public ComoUnidadeFederativa getUnidadeFederativa();
 
     public String getNomeLocal();
 
@@ -54,7 +54,7 @@ public interface ItfAssistenteDeLocalizacao {
      *
      * @return Objeto Local vinculado
      */
-    public ItfLocal getLocal();
+    public ComoLocal getLocal();
 
     public boolean isPesquisaSucessoBairro();
 
@@ -195,7 +195,7 @@ public interface ItfAssistenteDeLocalizacao {
 
     public boolean isCepEncontradoObrigatorio();
 
-    public void adicionarListaOpcoesBairro(List<ItfBairro> bairros);
+    public void adicionarListaOpcoesBairro(List<ComoBairro> bairros);
 
     public default boolean aplicarCEP(String pCep) {
         setCep(pCep);

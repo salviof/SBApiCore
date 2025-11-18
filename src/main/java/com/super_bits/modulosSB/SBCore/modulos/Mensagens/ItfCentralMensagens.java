@@ -5,7 +5,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Mensagens;
 
-import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ItfServicoCoreSB;
+import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ComoServicoCoreSB;
 
 /**
  * ############################################################# <br/>
@@ -32,7 +32,7 @@ import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ItfServicoCoreSB;
  *
  * @author Salvio
  */
-public interface ItfCentralMensagens extends ItfServicoCoreSB {
+public interface ItfCentralMensagens extends ComoServicoCoreSB {
 
     /**
      *

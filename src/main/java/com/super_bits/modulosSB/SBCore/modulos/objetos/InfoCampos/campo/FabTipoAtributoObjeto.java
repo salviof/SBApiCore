@@ -4,9 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabColunasTela;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualEndereco;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualFormularioDeAcao;
@@ -19,12 +17,14 @@ import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.component
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabcompVisualEnums;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
  * @author sfurbino
  */
-public enum FabTipoAtributoObjeto implements ItfFabrica {
+public enum FabTipoAtributoObjeto implements ComoFabrica {
 
     /**
      * Indica o campo que Descreve o Item em uma ou duas palavras. --> Esta
@@ -90,7 +90,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
     LC_LOCALIDADE,
     /**
      * Indica um estado, unidade Federativa (Item que extenda
-     * ItfUnidadeFederativa)
+     * EntidadeUnidadeFederativa)
      */
     LC_UNIDADE_FEDERATIVA,
     /**
@@ -281,7 +281,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
      */
     ARQUIVO_DE_ENTIDADE,
     /**
-     * Indica um campo de Localizacao (Que implementa ItfLocalizacao)
+     * Indica um campo de Localizacao (Que implementa EntidadeLocalizacao)
      */
     LC_LOCALIZACAO,
     /**
@@ -620,7 +620,7 @@ public enum FabTipoAtributoObjeto implements ItfFabrica {
 
     }
 
-    public ItfFabTipoComponenteVisual getTipo_input_prime() {
+    public ComoFabTipoComponenteVisual getTipo_input_prime() {
         try {
             // TIPOS DE CAMPO QUE DEVEN USAR INPUT SIMPLES COM MASCARAS E REGEX
             switch (this) {

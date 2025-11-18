@@ -4,19 +4,19 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoRespostaComunicacao;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.ItfBeanComIcone;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.ComoTemIcone;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface ItfTipoRespostaComunicacao extends ItfBeanComIcone {
+public interface ItfTipoRespostaComunicacao extends ComoTemIcone {
 
     public FabTipoRespostaComunicacao getFabricaTipoResposta();
 
-    public ItfAcaoDoSistema getBotaoResposta();
+    public ComoAcaoDoSistema getBotaoResposta();
 
     public String getCor();
 

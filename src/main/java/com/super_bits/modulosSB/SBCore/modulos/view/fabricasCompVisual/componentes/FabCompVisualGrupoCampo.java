@@ -6,7 +6,7 @@ package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componen
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 
 /**
  *
@@ -14,7 +14,7 @@ import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTip
  *
  * @author desenvolvedor
  */
-public enum FabCompVisualGrupoCampo implements ItfFabTipoComponenteVisual {
+public enum FabCompVisualGrupoCampo implements ComoFabTipoComponenteVisual {
 
     @InfoComponenteVisual(nome = "Grpo de Campos Responsivos",
             classesCSS = "grpCampoResponsivo",

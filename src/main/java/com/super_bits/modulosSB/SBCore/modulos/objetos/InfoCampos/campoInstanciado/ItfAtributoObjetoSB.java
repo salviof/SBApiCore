@@ -8,7 +8,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.Info
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfTipoAtributoSBSomenteLeitura;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 import java.util.List;
 
@@ -52,7 +52,7 @@ public interface ItfAtributoObjetoSB extends ItfTipoAtributoSBSomenteLeitura {
      *
      * @return Opções disponíveis para selecionar
      */
-    public List<ItfBeanSimples> getListaDeOpcoes();
+    public List<ComoEntidadeSimples> getListaDeOpcoes();
 
     /**
      *

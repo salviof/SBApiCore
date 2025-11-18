@@ -6,16 +6,16 @@ package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componen
 
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.InfoComponenteVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 import org.coletivojava.fw.api.objetoNativo.view.componente.ComponenteVisualInputLayoutSB;
 import org.coletivojava.fw.utilCoreBase.UtilSBFabricaComponenteVisual;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 
 /**
  *
  * @author salvioF
  */
-public enum FabCompVIsualInputsLayout implements ItfFabTipoComponenteVisual {
+public enum FabCompVIsualInputsLayout implements ComoFabTipoComponenteVisual {
 
     @InfoComponenteVisual(nome = "Resumido",
             descricao = "Exibe o campo, exibindo o label como marca-dagua, e tooltip",
@@ -51,7 +51,7 @@ public enum FabCompVIsualInputsLayout implements ItfFabTipoComponenteVisual {
     }
 
     @Override
-    public ItfComponenteVisualSB getRegistro() {
+    public ComoComponenteVisualSB getRegistro() {
 
         ComponenteVisualInputLayoutSB componente = new ComponenteVisualInputLayoutSB();
         UtilSBFabricaComponenteVisual.aplicarPropCompVisual(componente, this);

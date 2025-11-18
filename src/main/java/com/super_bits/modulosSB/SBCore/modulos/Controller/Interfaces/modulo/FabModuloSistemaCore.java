@@ -8,21 +8,21 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfModuloAc
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoDaFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.FabMenuAdminCore;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
 import org.coletivojava.fw.api.objetoNativo.controller.modulo.ModuloTransiente;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoFabricaMenu;
 
 /**
  *
  * @author desenvolvedor
  */
-public enum FabModuloSistemaCore implements ItfFabricaModulo {
+public enum FabModuloSistemaCore implements ComoFabricaModulo {
 
     @InfoObjetoDaFabrica(id = 99999999, nomeObjeto = "Módulo Interno do Sistema", classeObjeto = ModuloTransiente.class)
     MODULO_SISTEMA;
 
     @Override
     public ItfModuloAcaoSistema getRegistro() {
-        return (ItfModuloAcaoSistema) ItfFabricaModulo.super.getRegistro(); //To change body of generated methods, choose Tools | Templates.
+        return (ItfModuloAcaoSistema) ComoFabricaModulo.super.getRegistro(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -31,7 +31,7 @@ public enum FabModuloSistemaCore implements ItfFabricaModulo {
     }
 
     @Override
-    public ItfFabricaMenu getMenuPadrao() {
+    public ComoFabricaMenu getMenuPadrao() {
         return FabMenuAdminCore.MENU_CONVIDADO;
     }
 

@@ -5,14 +5,14 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.atividadades;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanNormal;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeNormal;
 import java.util.Date;
 
 /**
  *
  * @author sfurbino
  */
-public interface ItfAtividadeProgramada extends ItfBeanNormal {
+public interface ItfAtividadeProgramada extends ComoEntidadeNormal {
 
     public default String getTitulo() {
         return getNome();

@@ -5,13 +5,13 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface ItfAcaoEntidade extends ItfAcaoDoSistema {
+public interface ItfAcaoEntidade extends ComoAcaoDoSistema {
 
     public Class getClasseRelacionada();
 

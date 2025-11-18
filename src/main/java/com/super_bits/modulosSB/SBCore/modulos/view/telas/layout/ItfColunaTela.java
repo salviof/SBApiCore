@@ -4,8 +4,8 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.view.telas.layout;
 
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSBEmLayout;
 import org.coletivojava.fw.api.objetoNativo.view.componente.ComponenteVisualEmLayout;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSBEmLayout;
 
 /**
  *
@@ -31,7 +31,7 @@ public interface ItfColunaTela {
 
     boolean isUmComponenteAtributoObjeto();
 
-    void setComponenteVinculado(ItfComponenteVisualSBEmLayout componenteVinculado);
+    void setComponenteVinculado(ComoComponenteVisualSBEmLayout componenteVinculado);
 
     void setId(Long id);
 

@@ -4,16 +4,16 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.seletores.listagemItem;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author Salvio Furbino
  * @param <T>
  */
-public interface ItflistagemItemEditavel<T extends ItfBeanSimplesSomenteLeitura> extends ItfListagemItensSomenteLeitura<T> {
+public interface ItflistagemItemEditavel<T extends ComoEntidadeSimplesSomenteLeitura> extends ItfListagemItensSomenteLeitura<T> {
 
     public void adicionarItem();
 
@@ -23,10 +23,10 @@ public interface ItflistagemItemEditavel<T extends ItfBeanSimplesSomenteLeitura>
 
     public void removerItemSelecionadoPeloIndice();
 
-    public void removerItem(ItfBeanSimples pItem);
+    public void removerItem(ComoEntidadeSimples pItem);
 
-    public ItfAcaoDoSistema getAcaoAdicionarItem();
+    public ComoAcaoDoSistema getAcaoAdicionarItem();
 
-    public ItfAcaoDoSistema getAcaoRemoverItem();
+    public ComoAcaoDoSistema getAcaoRemoverItem();
 
 }

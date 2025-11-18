@@ -7,21 +7,21 @@ package org.coletivojava.fw.api.objetoNativo.view.componente;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.FabFamiliaCompVisual;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfFabTipoComponenteVisual;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 
 /**
  *
  * @author salvioF
  */
 @InfoObjetoSB(tags = {"Família do Componente"}, plural = "Famílias do componente", fabricaVinculada = FabFamiliaCompVisual.class)
-public final class FamiliaComponente extends ObjetoNativoCoreDoSistema implements ItfBeanSimples {
+public final class FamiliaComponente extends ObjetoNativoCoreDoSistema implements ComoEntidadeSimples {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;
@@ -29,7 +29,7 @@ public final class FamiliaComponente extends ObjetoNativoCoreDoSistema implement
     private String nome;
     private FabFamiliaCompVisual fabrica;
 
-    private List<ItfComponenteVisualSB> componentes;
+    private List<ComoComponenteVisualSB> componentes;
 
     private Class fabricaDeCamposPadrao;
 
@@ -43,7 +43,7 @@ public final class FamiliaComponente extends ObjetoNativoCoreDoSistema implement
         return nome;
     }
 
-    public boolean isLayoutCompativel(ItfComponenteVisualSB pComponente) {
+    public boolean isLayoutCompativel(ComoComponenteVisualSB pComponente) {
         return true;
     }
 
@@ -55,7 +55,7 @@ public final class FamiliaComponente extends ObjetoNativoCoreDoSistema implement
         this.fabrica = fabrica;
     }
 
-    public boolean getIsUmComponenteDaFamilia(ItfComponenteVisualSB pComponente) {
+    public boolean getIsUmComponenteDaFamilia(ComoComponenteVisualSB pComponente) {
         return true;
 
     }
@@ -64,12 +64,12 @@ public final class FamiliaComponente extends ObjetoNativoCoreDoSistema implement
         return true;
     }
 
-    public List<ItfComponenteVisualSB> getComponentes() {
+    public List<ComoComponenteVisualSB> getComponentes() {
 
         if (componentes == null || componentes.isEmpty()) {
             componentes = new ArrayList<>();
             for (Object obj : fabricaDeCamposPadrao.getEnumConstants()) {
-                componentes.add(((ItfFabTipoComponenteVisual) obj).getRegistro());
+                componentes.add(((ComoFabTipoComponenteVisual) obj).getRegistro());
             }
         }
         return componentes;

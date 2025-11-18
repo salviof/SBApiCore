@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.erp;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
 
 /**
  *
@@ -19,6 +19,6 @@ public interface ItfServicoLinkDeEntidadesERP {
     public boolean registrarCodigoLigacaoApi(Class pEntidade, Long codigoInterno, String codigoAPIExterna);
 
     @Deprecated
-    public <T extends ItfBeanSimplesSomenteLeitura> T getObjetoDTOFromJson(Class<? extends T> pClass, String Json);
+    public <T extends ComoEntidadeSimplesSomenteLeitura> T getObjetoDTOFromJson(Class<? extends T> pClass, String Json);
 
 }

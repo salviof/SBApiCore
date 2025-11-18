@@ -4,15 +4,15 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.seletores.listagemItem;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
 
 /**
  *
  * @author desenvolvedor
  * @param <T>
  */
-public interface ItfListagemItensSomenteLeitura<T extends ItfBeanSimplesSomenteLeitura> {
+public interface ItfListagemItensSomenteLeitura<T extends ComoEntidadeSimplesSomenteLeitura> {
 
     public List<T> getListaObjetosSelecionados();
 

@@ -5,14 +5,14 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.erp;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import jakarta.json.JsonObject;
 
 /**
  *
  * @author sfurbino
  */
-public interface ItfSistemaERP extends ItfBeanSimples {
+public interface ItfSistemaERP extends ComoEntidadeSimples {
 
     public String getChavePublica();
 

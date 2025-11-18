@@ -12,9 +12,9 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.ItfP
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.validador.ErroValidacao;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
 
 /**
  *
@@ -104,7 +104,7 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
      * @param pComponente
      * @return um nome único para identificar o compoenente no html
      */
-    public String getNomeUnicoParaIDHtml(ItfComponenteVisualSB pComponente);
+    public String getNomeUnicoParaIDHtml(ComoComponenteVisualSB pComponente);
 
     public String getPrefixoUnicoParaIDHtml();
 
@@ -112,13 +112,13 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
      *
      * @return O xhtml que representa a exibição do campo
      */
-    public ItfComponenteVisualSB getComponenteVisualPadrao();
+    public ComoComponenteVisualSB getComponenteVisualPadrao();
 
     /**
      *
      * @return Retorna o componente de exibição compacto padrão do componente
      */
-    public ItfComponenteVisualSB getComponenteVisualPadraoCompacto();
+    public ComoComponenteVisualSB getComponenteVisualPadraoCompacto();
 
     /**
      *
@@ -132,7 +132,7 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
      * @param pComponente
      * @return
      */
-    public ItfComponenteVisualSB getComponenteDiferenciado(ItfComponenteVisualSB pComponente);
+    public ComoComponenteVisualSB getComponenteDiferenciado(ComoComponenteVisualSB pComponente);
 
     public boolean isTemDescricao();
 

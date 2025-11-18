@@ -5,36 +5,37 @@
 package com.super_bits.modulosSB.SBCore.modulos.objetos.acao;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfModuloAcaoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoController;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoController;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoControllerEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoSecundaria;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormularioEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistemaGenerica;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampoInvalido;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAssistenteDeLocalizacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.TipoOrganizacaoDadosEndereco;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringFiltrosSimples;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author desenvolvedor
  */
-public class AcaoTransient implements ItfAcaoDoSistema {
+public class AcaoTransient implements ComoAcaoDoSistema {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nomeAcao;
@@ -148,12 +149,12 @@ public class AcaoTransient implements ItfAcaoDoSistema {
     }
 
     @Override
-    public ItfFabricaAcoes getEnumAcaoDoSistema() {
+    public ComoFabricaAcoes getEnumAcaoDoSistema() {
         return null;
     }
 
     @Override
-    public void configurarPropriedadesBasicas(ItfAcaoDoSistema pAcaoDoSistema) {
+    public void configurarPropriedadesBasicas(ComoAcaoDoSistema pAcaoDoSistema) {
         throw new UnsupportedOperationException("A Ação transient, não suporta este método"); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -233,17 +234,17 @@ public class AcaoTransient implements ItfAcaoDoSistema {
     }
 
     @Override
-    public ItfAcaoController getComoController() {
+    public ComoAcaoController getComoController() {
         throw new UnsupportedOperationException("A Ação transient, não suporta este método"); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ItfAcaoSecundaria getComoSecundaria() {
+    public ComoAcaoSecundaria getComoSecundaria() {
         throw new UnsupportedOperationException("A Ação transient, não suporta este método"); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ItfAcaoControllerEntidade getComoControllerEntidade() {
+    public ComoAcaoControllerEntidade getComoControllerEntidade() {
         throw new UnsupportedOperationException("A Ação transient, não suporta este método"); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -364,12 +365,12 @@ public class AcaoTransient implements ItfAcaoDoSistema {
     }
 
     @Override
-    public void adicionarJustificativaExecucaoAcao(ItfAcaoDoSistema pAcao, String pJustificativa) {
+    public void adicionarJustificativaExecucaoAcao(ComoAcaoDoSistema pAcao, String pJustificativa) {
         throw new UnsupportedOperationException("A Ação transient, não suporta este método"); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getJustificativa(ItfAcaoDoSistema pAcao) {
+    public String getJustificativa(ComoAcaoDoSistema pAcao) {
         throw new UnsupportedOperationException("A Ação transient, não suporta este método"); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -434,17 +435,17 @@ public class AcaoTransient implements ItfAcaoDoSistema {
     }
 
     @Override
-    public ItfBeanSimples getBeanSimplesPorNomeCampo(String pNomeCampo) {
+    public ComoEntidadeSimples getBeanSimplesPorNomeCampo(String pNomeCampo) {
         throw new UnsupportedOperationException("A Ação transient, não suporta este método"); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ItfBeanSimples getItemPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
+    public ComoEntidadeSimples getItemPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
         throw new UnsupportedOperationException("A Ação transient, não suporta este método"); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<ItfBeanSimples> getListaPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
+    public List<ComoEntidadeSimples> getListaPorCaminhoCampo(ItfCaminhoCampo pCaminho) {
         throw new UnsupportedOperationException("A Ação transient, não suporta este método"); //To change body of generated methods, choose Tools | Templates.
     }
 

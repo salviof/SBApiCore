@@ -4,13 +4,13 @@
  */
 package org.coletivojava.fw.api.objetoNativo.view.menu;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenuSB;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfSessaoDeMenuSB;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoMenuSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoSessaoDeMenuSB;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  * ATENÇÃO A DOCUMENTAÇÃO DA CLASSE É OBRIGATÓRIA O JAVADOC DOS METODOS PUBLICOS
@@ -24,16 +24,16 @@ import java.util.List;
  * @version 1.0
  *
  */
-public class MenuSBFW implements ItfMenuSB, Serializable {
+public class MenuSBFW implements ComoMenuSB, Serializable {
 
-    private final List<ItfSessaoDeMenuSB> sessoes;
+    private final List<ComoSessaoDeMenuSB> sessoes;
 
     public MenuSBFW() {
         sessoes = new ArrayList<>();
     }
 
     @Override
-    public ItfSessaoDeMenuSB addSessao(ItfSessaoDeMenuSB pSessao) {
+    public ComoSessaoDeMenuSB addSessao(ComoSessaoDeMenuSB pSessao) {
         if (!sessoes.contains(pSessao)) {
             sessoes.add(pSessao);
         }
@@ -41,7 +41,7 @@ public class MenuSBFW implements ItfMenuSB, Serializable {
     }
 
     @Override
-    public List<ItfSessaoDeMenuSB> getSessoes() {
+    public List<ComoSessaoDeMenuSB> getSessoes() {
         return sessoes;
     }
 
@@ -52,7 +52,7 @@ public class MenuSBFW implements ItfMenuSB, Serializable {
     }
 
     @Override
-    public SessaoMenuSB addSessao(ItfFabricaAcoes pAcao) {
+    public SessaoMenuSB addSessao(ComoFabricaAcoes pAcao) {
         SessaoMenuSB cadastroTipoServico = new SessaoMenuSB(pAcao.getRegistro());
         if (!sessoes.contains(cadastroTipoServico)) {
             sessoes.add(cadastroTipoServico);

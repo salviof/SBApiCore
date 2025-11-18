@@ -5,10 +5,9 @@
 package org.coletivojava.fw.api.objetoNativo.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfModuloAcaoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoController;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoSecundaria;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoController;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoControllerEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoSecundaria;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormularioEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
@@ -16,29 +15,30 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSi
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistemaGenerica;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComunicacao;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author desenvolvedor
  */
 @InfoObjetoSB(tags = {"Resposta"}, plural = "Resposta")
-public class BotaoResposta extends ObjetoNativoCoreDoSistema implements ItfAcaoDoSistema {
+public class BotaoResposta extends ObjetoNativoCoreDoSistema implements ComoAcaoDoSistema {
 
     public final ItfTipoRespostaComunicacao tipoResposta;
-    public final ItfAcaoDoSistema acaoVinculada;
+    public final ComoAcaoDoSistema acaoVinculada;
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private final int id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private final String nomeDescricao;
 
-    public BotaoResposta(ItfTipoRespostaComunicacao pTipoResposta, ItfAcaoDoSistema pAcaoVinculada) {
+    public BotaoResposta(ItfTipoRespostaComunicacao pTipoResposta, ComoAcaoDoSistema pAcaoVinculada) {
         tipoResposta = pTipoResposta;
         acaoVinculada = pAcaoVinculada;
         id = tipoResposta.getFabricaTipoResposta().ordinal() + 1;
@@ -122,12 +122,12 @@ public class BotaoResposta extends ObjetoNativoCoreDoSistema implements ItfAcaoD
     }
 
     @Override
-    public ItfFabricaAcoes getEnumAcaoDoSistema() {
+    public ComoFabricaAcoes getEnumAcaoDoSistema() {
         return acaoVinculada.getEnumAcaoDoSistema();
     }
 
     @Override
-    public void configurarPropriedadesBasicas(ItfAcaoDoSistema pAcaoDoSistema) {
+    public void configurarPropriedadesBasicas(ComoAcaoDoSistema pAcaoDoSistema) {
 
     }
 
@@ -207,17 +207,17 @@ public class BotaoResposta extends ObjetoNativoCoreDoSistema implements ItfAcaoD
     }
 
     @Override
-    public ItfAcaoController getComoController() {
+    public ComoAcaoController getComoController() {
         return acaoVinculada.getComoController();
     }
 
     @Override
-    public ItfAcaoSecundaria getComoSecundaria() {
+    public ComoAcaoSecundaria getComoSecundaria() {
         return acaoVinculada.getComoSecundaria();
     }
 
     @Override
-    public ItfAcaoControllerEntidade getComoControllerEntidade() {
+    public ComoAcaoControllerEntidade getComoControllerEntidade() {
         return acaoVinculada.getComoControllerEntidade();
     }
 

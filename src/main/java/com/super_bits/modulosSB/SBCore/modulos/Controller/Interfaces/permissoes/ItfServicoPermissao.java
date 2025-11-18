@@ -4,19 +4,20 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ItfServicoCoreSB;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.token.ItfTokenAcessoDinamico;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.token.ItfTokenRecuperacaoEmail;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfGrupoUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
-
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenusDeSessao;
+import com.super_bits.modulosSB.SBCore.modulos.erp.FabTipoAgenteOrganizacao;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 
 import java.lang.reflect.Method;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.contato.ComoContatoHumano;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoGrupoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ComoServicoCoreSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoMenusDeSessao;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  * ############################################################# <br/>
@@ -31,7 +32,7 @@ import java.util.List;
  *
  * @author Salvio
  */
-public interface ItfServicoPermissao extends ItfServicoCoreSB {
+public interface ItfServicoPermissao extends ComoServicoCoreSB {
 
     /**
      *
@@ -48,7 +49,7 @@ public interface ItfServicoPermissao extends ItfServicoCoreSB {
      * @param pEmail
      * @return
      */
-    public ItfUsuario getUsuarioByEmail(String pEmail);
+    public ComoUsuario getUsuarioByEmail(String pEmail);
 
     /**
      *
@@ -61,23 +62,23 @@ public interface ItfServicoPermissao extends ItfServicoCoreSB {
      */
     public void logarEmailESenha(String pEmail, String pSenha);
 
-    public List<ItfUsuario> configuraUsuarios();
+    public List<ComoUsuario> configuraUsuarios();
 
     public Class[] getClassesController();
 
-    public ItfMenusDeSessao definirMenu(ItfGrupoUsuario pGrupo);
+    public ComoMenusDeSessao definirMenu(ComoGrupoUsuario pGrupo);
 
     public void atualizarInformacoesDePermissoesDoSistema();
 
-    public Method getMetodoByAcao(ItfAcaoDoSistema acao);
+    public Method getMetodoByAcao(ComoAcaoDoSistema acao);
 
-    public boolean isAcaoPermitidaUsuarioLogado(ItfAcaoDoSistema acao);
+    public boolean isAcaoPermitidaUsuarioLogado(ComoAcaoDoSistema acao);
 
-    public boolean isAcaoPermitidaUsuario(ItfUsuario pUsuario, ItfAcaoDoSistema acao);
+    public boolean isAcaoPermitidaUsuario(ComoUsuario pUsuario, ComoAcaoDoSistema acao);
 
-    public boolean isObjetoPermitidoUsuario(ItfUsuario pUsuario, ItfBeanSimplesSomenteLeitura pObjeto);
+    public boolean isObjetoPermitidoUsuario(ComoUsuario pUsuario, ComoEntidadeSimplesSomenteLeitura pObjeto);
 
-    public boolean isPermitidoUsuario(ItfUsuario pUsuario, ItfPermissao pPermissao);
+    public boolean isPermitidoUsuario(ComoUsuario pUsuario, ItfPermissao pPermissao);
 
     /**
      *
@@ -85,12 +86,16 @@ public interface ItfServicoPermissao extends ItfServicoCoreSB {
      * @param pMinutosValidade 1 dia: 1440 uma semana: 10080, um mês: 40320
      * @return
      */
-    public ItfTokenRecuperacaoEmail gerarTokenRecuperacaoDeSenha(ItfUsuario pUsuario, int pMinutosValidade);
+    public ItfTokenRecuperacaoEmail gerarTokenRecuperacaoDeSenha(ComoUsuario pUsuario, int pMinutosValidade);
 
-    public ItfTokenAcessoDinamico gerarTokenDinamico(ItfFabricaAcoes pAcao, ItfBeanSimplesSomenteLeitura pItem, String pEmail);
+    public ItfTokenAcessoDinamico gerarTokenDinamico(ComoFabricaAcoes pAcao, ComoEntidadeSimplesSomenteLeitura pItem, String pEmail);
 
-    public boolean isTokenDinamicoExiste(ItfFabricaAcoes pAcao, ItfBeanSimplesSomenteLeitura pItem, String pEmail);
+    public boolean isTokenDinamicoExiste(ComoFabricaAcoes pAcao, ComoEntidadeSimplesSomenteLeitura pItem, String pEmail);
 
     public void persitirMergePermissoes();
+
+    public FabTipoAgenteOrganizacao getTipoAgente(ComoUsuario pUsuario);
+
+    public ComoContatoHumano getContatoDoUsuario(ComoUsuario pUsuairo) throws ErroDadosDeContatoUsuarioNaoEncontrado;
 
 }

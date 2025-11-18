@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import java.util.List;
 
 /**
@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface ItfAtributoComListaDeOpcoes {
 
-    public void setListaDeOpcoes(List<ItfBeanSimples> pLista);
+    public void setListaDeOpcoes(List<ComoEntidadeSimples> pLista);
 }

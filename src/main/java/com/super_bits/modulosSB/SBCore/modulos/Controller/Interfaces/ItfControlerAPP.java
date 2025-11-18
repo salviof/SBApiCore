@@ -4,9 +4,9 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -14,8 +14,8 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  */
 public interface ItfControlerAPP {
 
-    public boolean possuiEstaAcao(ItfAcaoDoSistema permissao);
+    public boolean possuiEstaAcao(ComoAcaoDoSistema permissao);
 
-    public boolean isAcessoPermitido(ItfUsuario pUsuario, ItfAcaoDoSistema permissao);
+    public boolean isAcessoPermitido(ComoUsuario pUsuario, ComoAcaoDoSistema permissao);
 
 }

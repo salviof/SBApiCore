@@ -5,18 +5,18 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaStatus;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaStatus;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoDaFabrica;
 import java.util.ArrayList;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
  * @author novy
  */
-public enum FabStatusComunicacao implements ItfFabricaStatus {
+public enum FabStatusComunicacao implements ComoFabricaStatus {
 
     @InfoObjetoDaFabrica(classeObjeto = StatusNotificacao.class, id = 1, nomeObjeto = "Selado")
     SELADO,
@@ -28,7 +28,7 @@ public enum FabStatusComunicacao implements ItfFabricaStatus {
     RESPONDIDO;
 
     @Override
-    public List<ItfAcaoDoSistema> opcoesPorStatus() {
+    public List<ComoAcaoDoSistema> opcoesPorStatus() {
         return new ArrayList<>();
     }
 

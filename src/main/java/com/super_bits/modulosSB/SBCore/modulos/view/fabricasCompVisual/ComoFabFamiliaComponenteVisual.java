@@ -1,0 +1,21 @@
+/*
+ *  Desenvolvido pela equipe Super-Bits.com CNPJ 20.019.971/0001-90
+
+ */
+package com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual;
+
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+
+/**
+ *
+ * @author desenvolvedor
+ */
+public interface ComoFabFamiliaComponenteVisual extends ComoFabrica {
+
+    public Class getInterfaceCompativel();
+
+    public String getNomeFAmilia();
+
+    public Class getFabricaCamposPadrao();
+
+}

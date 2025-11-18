@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -12,5 +12,5 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAc
  */
 public interface ItfComunicacaoAcaoVinculada extends ItfDialogo {
 
-    public ItfAcaoDoSistema getAcaoVinculada();
+    public ComoAcaoDoSistema getAcaoVinculada();
 }

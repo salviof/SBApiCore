@@ -4,13 +4,13 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
 
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
@@ -18,7 +18,7 @@ import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
  * @author desenvolvedor
  */
 @InfoObjetoSB(plural = "Tipos de Transporte", tags = {"Tipo Transporte"})
-public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements ItfTipoCanalComunicacao, ItfBeanVinculadoAEnum {
+public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements ItfTipoCanalComunicacao, ComoEntidadeVinculadoAEnum {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;
@@ -58,12 +58,12 @@ public class TipoTransporteSBNativo extends ObjetoNativoCoreDoSistema implements
 
     @Override
 
-    public void setEnumVinculado(ItfFabrica pFabrica) {
+    public void setEnumVinculado(ComoFabrica pFabrica) {
         tipoTransporte = (ItffabricaCanalComunicacao) pFabrica;
     }
 
     @Override
-    public ItfFabrica getEnumVinculado() {
+    public ComoFabrica getEnumVinculado() {
         return tipoTransporte;
     }
 }

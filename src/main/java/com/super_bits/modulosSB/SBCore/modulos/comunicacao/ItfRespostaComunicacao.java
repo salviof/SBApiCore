@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
  *
@@ -16,6 +16,6 @@ public interface ItfRespostaComunicacao {
 
     public ItfTipoRespostaComunicacao getTipoResposta();
 
-    public ItfAcaoDoSistema getBotaoAcao();
+    public ComoAcaoDoSistema getBotaoAcao();
 
 }

@@ -1,0 +1,28 @@
+/*
+ *  Desenvolvido pela equipe Super-Bits.com CNPJ 20.019.971/0001-90
+
+ */
+package com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.comunicacao;
+
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+import java.util.Date;
+
+/**
+ *
+ * @author SalvioF
+ */
+public interface ComoEmailSimples extends ComoEntidadeSimples {
+
+    public String getNome();
+
+    public String getAssunto();
+
+    public String getTextoMensagem();
+
+    public String getEmailsDestinatarios();
+
+    public String getEmailRemetente();
+
+    public Date getDataHoraEmailArmazenado();
+
+}

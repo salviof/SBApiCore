@@ -8,6 +8,6 @@ package com.super_bits.modulosSB.SBCore.modulos.fabrica;
  *
  * @author desenvolvedor
  */
-public enum FabricaObjetosRegistrados implements ItfFabrica {
+public enum FabricaObjetosRegistrados implements ComoFabrica {
 
 }

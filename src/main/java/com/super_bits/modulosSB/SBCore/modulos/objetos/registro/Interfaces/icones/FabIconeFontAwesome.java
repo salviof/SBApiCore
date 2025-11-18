@@ -10,7 +10,7 @@ import org.coletivojava.fw.api.objetoNativo.view.icone.IconeSistema;
  *
  * @author salvioF
  */
-public enum FabIconeFontAwesome implements ItfFabricaIcone {
+public enum FabIconeFontAwesome implements ComoFabricaIcone {
     ICONE_PERSONALIZADO,
     REG_NOVO, REG_EDITAR, REG_VALIDAR, REG_REMOVER,
     REG_ATUALIZAR, REG_ENVIAR, REG_BAIXAR, REG_GERENCIAR, REG_VISUALIZAR, REG_SALVAR, REG_PESQUISA_AVANCADA,
@@ -34,12 +34,12 @@ public enum FabIconeFontAwesome implements ItfFabricaIcone {
     COMUNICACAO_AVIAO_DE_PAPEL;
 
     @Override
-    public itfIcone getRegistro() {
+    public ComoIcone getRegistro() {
         return getIcone();
     }
 
     @Override
-    public itfIcone getIcone() {
+    public ComoIcone getIcone() {
 
         IconeSistema icone = new IconeSistema();
         icone.setId((long) this.name().hashCode());

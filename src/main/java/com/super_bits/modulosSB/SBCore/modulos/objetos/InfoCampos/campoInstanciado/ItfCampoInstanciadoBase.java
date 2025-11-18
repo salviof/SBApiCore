@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import java.lang.reflect.Method;
 import java.util.Date;
 
@@ -40,8 +40,8 @@ public interface ItfCampoInstanciadoBase {
         return (double) getValor();
     }
 
-    public default ItfBeanSimples getValorComoItemSimples() {
-        return (ItfBeanSimples) getValor();
+    public default ComoEntidadeSimples getValorComoItemSimples() {
+        return (ComoEntidadeSimples) getValor();
     }
 
     public default long getValorComoLong() {
@@ -72,7 +72,7 @@ public interface ItfCampoInstanciadoBase {
      * @return
      */
     @Deprecated
-    public ItfBeanSimples getObjetoDoAtributo();
+    public ComoEntidadeSimples getObjetoDoAtributo();
 
     /**
      *
@@ -81,7 +81,7 @@ public interface ItfCampoInstanciadoBase {
      *
      * @return objeto Raiz onde o atributo do campo instanciado se encontra
      */
-    public default ItfBeanSimples getObjetoRaizDoAtributo() {
+    public default ComoEntidadeSimples getObjetoRaizDoAtributo() {
         return getObjetoDoAtributo();
     }
 

@@ -5,13 +5,13 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.erp;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonObjectBuilder;
 import java.util.HashMap;
 import java.util.Map;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
 
 /**
  *
@@ -28,14 +28,14 @@ public class SolicitacaoControllerERP {
     private final String erpServico;
     private final String erpCliente;
     private final JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
-    private final ItfUsuario usuarioSolicitante;
+    private final ComoUsuario usuarioSolicitante;
     private final boolean autenticadoComSucesso;
     private final String metodo;
     private final Map<String, String> parametrosDeUrl;
     private final boolean solicitarComoAdmin;
 
     public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
-            String pNomeUnicoAcao, ItfUsuario pUsuario, boolean pLoginComoAdmin, String pCodigo, String pAtributo, JsonObject pParametros, Map<String, String> pParametrosDeUrl) {
+            String pNomeUnicoAcao, ComoUsuario pUsuario, boolean pLoginComoAdmin, String pCodigo, String pAtributo, JsonObject pParametros, Map<String, String> pParametrosDeUrl) {
         erpServico = pHashIdentificadorServico;
         if (pParametros == null) {
             corpoParametros = "";
@@ -55,17 +55,17 @@ public class SolicitacaoControllerERP {
     }
 
     public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
-            String pNomeUnicoAcao, ItfUsuario pUsuario, String pCodigo, String pAtributo, JsonObject pParametros, Map<String, String> pParametrosDeUrl) {
+            String pNomeUnicoAcao, ComoUsuario pUsuario, String pCodigo, String pAtributo, JsonObject pParametros, Map<String, String> pParametrosDeUrl) {
         this(pMetodoRestful, pHashIdentificadorServico, pHashIdentificadorCliente, pNomeUnicoAcao, pUsuario, false, pCodigo, pAtributo, pParametros, pParametrosDeUrl);
     }
 
     public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
-            String pNomeUnicoAcao, ItfUsuario pUsuario, boolean pAdmin, String pCodigo, String pAtributo, JsonObject pParametros) {
+            String pNomeUnicoAcao, ComoUsuario pUsuario, boolean pAdmin, String pCodigo, String pAtributo, JsonObject pParametros) {
         this(pMetodoRestful, pHashIdentificadorServico, pHashIdentificadorCliente, pNomeUnicoAcao, pUsuario, pAdmin, pCodigo, pAtributo, pParametros, null);
     }
 
     public SolicitacaoControllerERP(String pMetodoRestful, String pHashIdentificadorServico, String pHashIdentificadorCliente,
-            String pNomeUnicoAcao, ItfUsuario pUsuario, String pCodigo, String pAtributo, JsonObject pParametros) {
+            String pNomeUnicoAcao, ComoUsuario pUsuario, String pCodigo, String pAtributo, JsonObject pParametros) {
         this(pMetodoRestful, pHashIdentificadorServico, pHashIdentificadorCliente, pNomeUnicoAcao, pUsuario, pCodigo, pAtributo, pParametros, null);
     }
 
@@ -93,7 +93,7 @@ public class SolicitacaoControllerERP {
         return erpCliente;
     }
 
-    public ItfUsuario getUsuarioSolicitante() {
+    public ComoUsuario getUsuarioSolicitante() {
         return usuarioSolicitante;
     }
 

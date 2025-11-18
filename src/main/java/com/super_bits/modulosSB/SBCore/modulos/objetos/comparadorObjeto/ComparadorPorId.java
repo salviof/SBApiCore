@@ -6,36 +6,36 @@
 package com.super_bits.modulosSB.SBCore.modulos.objetos.comparadorObjeto;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 /**
  *
  * @author sfurbino
  */
 public class ComparadorPorId extends ComparadorGenerico {
-    
+
     public ComparadorPorId(boolean pOrdemReversa) {
         super(FabTipoAtributoObjeto.ID, pOrdemReversa);
     }
 
     @Override
-    public int compare(ItfBeanSimples o1, ItfBeanSimples o2) {
-        if (o1==null && o2==null){
+    public int compare(ComoEntidadeSimples o1, ComoEntidadeSimples o2) {
+        if (o1 == null && o2 == null) {
             return 0;
         }
-        if (o1==null && o2!=null){
+        if (o1 == null && o2 != null) {
             return valorPrimentoMenor;
         }
-        if (o1!=null && o2==null){
+        if (o1 != null && o2 == null) {
             return valorPrimeiroMaior;
         }
-        if (o1.getId()>o2.getId()){
+        if (o1.getId() > o2.getId()) {
             return valorPrimeiroMaior;
         }
-        if (o1.getId()<o2.getId()){
+        if (o1.getId() < o2.getId()) {
             return valorPrimentoMenor;
         }
         return 0;
     }
-    
+
 }

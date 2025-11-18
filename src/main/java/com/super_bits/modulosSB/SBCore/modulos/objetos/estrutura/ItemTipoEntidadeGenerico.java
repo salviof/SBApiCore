@@ -6,13 +6,13 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
 
 /**
  *
  * @author salvioF
  */
-public class ItemTipoEntidadeGenerico implements ItfBeanSimplesSomenteLeitura {
+public class ItemTipoEntidadeGenerico implements ComoEntidadeSimplesSomenteLeitura {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;

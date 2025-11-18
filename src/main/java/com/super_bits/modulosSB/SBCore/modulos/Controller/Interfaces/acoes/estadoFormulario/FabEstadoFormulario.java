@@ -4,14 +4,14 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario;
 
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoDaFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
  * @author desenvolvedor
  */
-public enum FabEstadoFormulario implements ItfFabrica {
+public enum FabEstadoFormulario implements ComoFabrica {
 
     @InfoObjetoDaFabrica(id = 1, nomeObjeto = "Criação")
     NOVO,

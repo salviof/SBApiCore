@@ -6,14 +6,14 @@ package org.coletivojava.fw.api.objetoNativo.view.componente;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSBCampoEmLayout;
 import org.coletivojava.fw.utilCoreBase.UtilSBCoreLayoutComponenteEmTelaBasico;
+import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSBCampoEmLayout;
 
 /**
  *
  * @author desenvolvedor
  */
-public class ComponenteVisualInputEmLayout extends ComponenteVisualEmLayout implements ItfComponenteVisualSBCampoEmLayout {
+public class ComponenteVisualInputEmLayout extends ComponenteVisualEmLayout implements ComoComponenteVisualSBCampoEmLayout {
 
     private final ItfCampoExibicaoFormulario campoExibicaoFormulario;
 
