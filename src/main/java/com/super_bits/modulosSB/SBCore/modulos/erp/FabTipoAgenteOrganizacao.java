@@ -29,4 +29,25 @@ public enum FabTipoAgenteOrganizacao {
     @Deprecated
     GOVERNANCA;
 
+    public FabTipoCanalChat getTipoCanal() {
+        switch (this) {
+            case CLIENTE:
+            case PUBLICO:
+                return FabTipoCanalChat.REDES_SOCIAIS;
+            case GOVERNO:
+            case FORNECEDOR:
+            case ATENDIMENTO:
+            case PRODUTOR:
+            case INVESTIDOR:
+            case LOGISTICA:
+            case CONVIDADO:
+            case GOVERNANCA:
+                return FabTipoCanalChat.INTERNO;
+
+            default:
+                throw new AssertionError();
+        }
+
+    }
+
 }

@@ -40,7 +40,7 @@ public interface ItfCampoInstanciadoBase {
         return (double) getValor();
     }
 
-    public default ComoEntidadeSimples getValorComoItemSimples() {
+    public default ComoEntidadeSimples getValorComoEntidadeSimples() {
         return (ComoEntidadeSimples) getValor();
     }
 
