@@ -22,6 +22,7 @@ public enum FabTipoAgenteOrganizacao {
     LOGISTICA,
     CONVIDADO,
     PUBLICO,
+    COMUNICACAO,
     /**
      * Depreciado, idal é que a governança seja realizada por todos os agentes
      * intemediada por uma ia de governança transparente.
@@ -42,6 +43,7 @@ public enum FabTipoAgenteOrganizacao {
             case LOGISTICA:
             case CONVIDADO:
             case GOVERNANCA:
+            case COMUNICACAO:
                 return FabTipoCanalChat.INTERNO;
 
             default:
