@@ -9,7 +9,7 @@ package org.coletivojava.fw.utilCoreBase;
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreStringsCammelCaseSimples {
+public class UtilCRCStringsCammelCaseSimples {
 
     public static String getTextoByCammel(String pString) {
         if (pString == null) {

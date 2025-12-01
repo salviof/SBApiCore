@@ -21,7 +21,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.api.tratamentoErros.ErroPreparandoObjeto;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoObjetoSimples;
+import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoObjetoSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAssistenteDeLocalizacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
@@ -124,13 +124,13 @@ public abstract class ObjetoNativoCoreDoSistema implements ComoEntidadeSimples {
 
     @Override
     public String getNomeDoObjeto() {
-        return UtilSBCoreReflexaoObjetoSimples.getNomeObjeto(this.getClass());
+        return UtilCRCReflexaoObjetoSimples.getNomeObjeto(this.getClass());
     }
 
     @Override
 
     public String getNomeDoObjetoPlural() {
-        return UtilSBCoreReflexaoObjetoSimples.getInfoClasseObjeto(this.getClass()).plural();
+        return UtilCRCReflexaoObjetoSimples.getInfoClasseObjeto(this.getClass()).plural();
     }
 
     @Override

@@ -20,7 +20,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  *
  * @author desenvolvedor
  */
-public abstract class UtilSBCoreFabrica {
+public abstract class UtilCRCFabrica {
 
     public static List<ComoEntidadeSimples> listaRegistros(Class<? extends ComoFabrica> pFabrica) {
         List<ComoEntidadeSimples> lista = new ArrayList<>();

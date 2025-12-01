@@ -19,7 +19,7 @@ import java.util.Map;
  *
  * @author desenvolvedor
  */
-public abstract class UtilSBCoreReflexaoAPIERP {
+public abstract class UtilCRCReflexaoAPIERP {
 
     private static Map<ItfApiErpSuperBits, Object> mapaServicosErpRegistrados = new HashMap<>();
 
@@ -37,14 +37,14 @@ public abstract class UtilSBCoreReflexaoAPIERP {
 
     public static String getNomeClasseAnotacaoImplementacao(ItfApiErpSuperBits pApi) {
         ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
-        String slug = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
-        String nomeAnotacaoApi = slug + UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
+        String slug = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
+        String nomeAnotacaoApi = slug + UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
         return nomeAnotacaoApi;
     }
 
     public static String getSlugTipoImplementacao(ItfApiErpSuperBits pApi) {
         ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
-        String slug = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
+        String slug = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
         return slug;
     }
 
@@ -53,29 +53,29 @@ public abstract class UtilSBCoreReflexaoAPIERP {
         if (nome.startsWith("Itf")) {
             nome = nome.substring(3, nome.length());
         }
-        nome = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(nome);
+        nome = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(nome);
         return nome;
     }
 
     public static String getNomeAnotacaoImplementacaoProducao(ItfApiErpSuperBits pApi) {
 
-        String nomeAnotacaoApi = UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
+        String nomeAnotacaoApi = UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
         return nomeAnotacaoApi;
 
     }
 
     public static String getNomeClasseAnotacaoImplementacaoPadrao(ItfApiErpSuperBits pApi) {
         ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
-        String slug = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
-        String nomeAnotacaoApi = slug + UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi) + "Padrao";
+        String slug = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
+        String nomeAnotacaoApi = slug + UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi) + "Padrao";
         return nomeAnotacaoApi;
 
     }
 
     public static String getNomeClasseAnotacaoImplementacaoTestes(ItfApiErpSuperBits pApi) {
         ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
-        String slug = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
-        String nomeAnotacaoApi = slug + UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi) + "Testes";
+        String slug = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
+        String nomeAnotacaoApi = slug + UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi) + "Testes";
         return nomeAnotacaoApi;
 
     }
@@ -134,10 +134,10 @@ public abstract class UtilSBCoreReflexaoAPIERP {
             Class anotacaoImplementacao;
 
             List<Class> classesImplementacao;
-            if (UtilSBCoreContextoSimples.isContextoExecucaoJunit()) {
+            if (UtilCRCContextoSimples.isContextoExecucaoJunit()) {
                 String anotacaoImplementacaoTestes = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacaoTestes(pApi);
                 anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoTestes);
-                List<Class> opcoes = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+                List<Class> opcoes = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
                 if (!opcoes.isEmpty()) {
                     mapaServicosErpRegistrados.put(pApi, opcoes.get(0).newInstance());
                     return true;
@@ -158,7 +158,7 @@ public abstract class UtilSBCoreReflexaoAPIERP {
             } catch (Throwable t) {
                 System.out.println(t.getMessage());
             }
-            classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+            classesImplementacao = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
             if (!classesImplementacao.isEmpty()) {
                 mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0).newInstance());
                 return true;
@@ -178,10 +178,10 @@ public abstract class UtilSBCoreReflexaoAPIERP {
             Class anotacaoImplementacao;
 
             List<Class> classesImplementacao;
-            if (UtilSBCoreContextoSimples.isContextoExecucaoJunit()) {
+            if (UtilCRCContextoSimples.isContextoExecucaoJunit()) {
                 String anotacaoImplementacaoTestes = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacaoTestes(pApi);
                 anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoTestes);
-                List<Class> opcoes = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+                List<Class> opcoes = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
                 if (!opcoes.isEmpty()) {
                     mapaServicosErpRegistrados.put(pApi, opcoes.get(0).newInstance());
                     return opcoes.get(0);
@@ -202,7 +202,7 @@ public abstract class UtilSBCoreReflexaoAPIERP {
             } catch (Throwable t) {
                 System.out.println(t.getMessage());
             }
-            classesImplementacao = UtilSBCoreReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+            classesImplementacao = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
             if (!classesImplementacao.isEmpty()) {
 
                 return classesImplementacao.get(0);

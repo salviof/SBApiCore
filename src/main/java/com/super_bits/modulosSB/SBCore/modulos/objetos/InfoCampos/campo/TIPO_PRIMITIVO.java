@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAtributoDeObjetoSimples;
+import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoAtributoDeObjetoSimples;
 
 /**
  *
@@ -75,7 +75,7 @@ public enum TIPO_PRIMITIVO {
             return tipoEncontrado;
         }
 
-        Class classeVinculada = UtilSBCoreReflexaoAtributoDeObjetoSimples.getClassePrincipalDoCampo(campo);
+        Class classeVinculada = UtilCRCReflexaoAtributoDeObjetoSimples.getClassePrincipalDoCampo(campo);
         if (classeVinculada.isAnnotationPresent(InfoObjetoSB.class)) {
             return ENTIDADE;
         }

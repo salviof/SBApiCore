@@ -10,25 +10,25 @@ import com.super_bits.modulosSB.SBCore.modulos.erp.ItfSistemaERP;
  *
  * @author salvio
  */
-public class UtilSBCoreReflexaoAPIERPRestFull {
+public class UtilCRCReflexaoAPIERPRestFull {
 
     private static final String CAMINHO_PACOTES = "org.coletivoJava.fw.projetos.integracao.implemetation.model.conversao";
 
     public static String getNomeClasseToJson(ItfSistemaERP pSistema, Class pClasse) {
         String nomeClasse = pClasse.getSimpleName() + "ToJson";
-        nomeClasse = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(nomeClasse);
+        nomeClasse = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(nomeClasse);
         return nomeClasse;
     }
 
     public static String getNomeClasseToObject(ItfSistemaERP pSistema, Class pClasse) {
         String nomeClasse = pClasse.getSimpleName() + "ToObjeto";
-        nomeClasse = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(nomeClasse);
+        nomeClasse = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(nomeClasse);
         return nomeClasse;
     }
 
     public static String getPacoteClassesConversao(ItfSistemaERP pSistema, Class pClasse) {
         String nomeAplicacao = getSlugAplicacao(pSistema);
-        nomeAplicacao = UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMinuscula(nomeAplicacao);
+        nomeAplicacao = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMinuscula(nomeAplicacao);
         return CAMINHO_PACOTES + "." + nomeAplicacao;
     }
 

@@ -13,7 +13,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoA
  *
  * @author desenvolvedor
  */
-public abstract class UtilSBCoreGeradorDeIDSimples {
+public abstract class UtilCRCGeradorDeIDSimples {
 
     public static Long gerarIdUnicoObejtoVinculadoAFabrica(ComoEntidadeVinculadoAEnum pObjeto) {
         return (long) (pObjeto.getClass().getSimpleName() + "." + pObjeto.getEnumVinculado().toString()).hashCode();

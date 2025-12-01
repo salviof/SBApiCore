@@ -7,7 +7,7 @@ package org.coletivojava.fw.api.objetoNativo.view.componente;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoListagemExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreLayoutComponenteEmTelaBasico;
+import org.coletivojava.fw.utilCoreBase.UtilCRCLayoutComponenteEmTelaBasico;
 
 /**
  *
@@ -20,7 +20,7 @@ public class ComponenteVisualSubListaEmLayout extends ComponenteVisualEmLayout {
     public ComponenteVisualSubListaEmLayout(ItfCampoInstanciado pCampoInstanciado, ItfCampoListagemExibicaoFormulario pCaminhoCampo) {
         super(pCampoInstanciado.getComponenteVisualPadrao(),
                 pCaminhoCampo.getCaminhoCompletoComGrupoCampo(),
-                UtilSBCoreLayoutComponenteEmTelaBasico.getPrioridadePadraoPorTipoCampo(pCampoInstanciado.getFabricaTipoAtributo()),
+                UtilCRCLayoutComponenteEmTelaBasico.getPrioridadePadraoPorTipoCampo(pCampoInstanciado.getFabricaTipoAtributo()),
                 getPesoLarguraByCampoInstanciado(pCampoInstanciado)
         );
 

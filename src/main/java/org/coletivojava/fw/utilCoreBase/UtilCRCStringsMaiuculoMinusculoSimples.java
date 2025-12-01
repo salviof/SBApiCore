@@ -9,7 +9,7 @@ package org.coletivojava.fw.utilCoreBase;
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreStringsMaiuculoMinusculoSimples {
+public class UtilCRCStringsMaiuculoMinusculoSimples {
 
     public static String getPrimeiraLetraMaiusculo(String parametro) {
         return String.valueOf(parametro.charAt(0)).toUpperCase() + parametro.substring(1);

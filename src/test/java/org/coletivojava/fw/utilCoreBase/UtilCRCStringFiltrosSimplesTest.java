@@ -16,16 +16,16 @@ import static org.junit.Assert.*;
  *
  * @author sfurbino
  */
-public class UtilSBCoreStringFiltrosSimplesTest {
+public class UtilCRCStringFiltrosSimplesTest {
 
     /**
-     * Test of gerarUrlAmigavel method, of class UtilSBCoreStringFiltrosSimples.
+     * Test of gerarUrlAmigavel method, of class UtilCRCStringFiltrosSimples.
      */
     @Test
     public void testGerarUrlAmigavel() {
         String teste = "A,B@C%d&e#f- 1 2 3 4 5";
 
-        String resultado = UtilSBCoreStringFiltrosSimples.removeCaracteresEspeciais(teste);
+        String resultado = UtilCRCStringFiltrosSimples.removeCaracteresEspeciais(teste);
         assertEquals("Não retirou os caracteres especiais corretamente", "ABCdef_1_2_3_4_5", resultado);
 
     }

@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreContextoSimples {
+public class UtilCRCContextoSimples {
 
     private static Boolean contextoJunit;
 

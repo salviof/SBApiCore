@@ -15,8 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoAPIERP;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoSimples;
+import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoAPIERP;
+import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoSimples;
 import org.reflections.ReflectionUtils;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
@@ -44,7 +44,7 @@ public interface ItfApiErpSuperBits<T> extends ComoFabrica {
                 throw new UnsupportedOperationException(
                         "Esta interface deve estar   presente em umenum, ");
             }
-            Class classeApi = UtilSBCoreReflexaoAPIERP.getAnotacaoApi(this);
+            Class classeApi = UtilCRCReflexaoAPIERP.getAnotacaoApi(this);
 
             if (classeApi == null) {
                 throw new UnsupportedOperationException(
@@ -60,12 +60,12 @@ public interface ItfApiErpSuperBits<T> extends ComoFabrica {
 
     public default T getImplementacaoDoContexto() {
 
-        return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
+        return (T) UtilCRCReflexaoAPIERP.getImplementacaoDoContexto(this);
     }
 
     public default <I extends ComoEntidadeSimples> I getDTO(String pJson, Class<? extends I> pItefaceObjeto) throws ErroJsonInterpredador {
 
-        String classeDTOStr = UtilSBCoreReflexaoAPIERP.getPacoteApiDTO(this, pItefaceObjeto) + "." + UtilSBCoreReflexaoAPIERP.getNomeDTOClassePojo(pItefaceObjeto);
+        String classeDTOStr = UtilCRCReflexaoAPIERP.getPacoteApiDTO(this, pItefaceObjeto) + "." + UtilCRCReflexaoAPIERP.getNomeDTOClassePojo(pItefaceObjeto);
         Class classeValidacao = (Class<? extends ItfValidacao>) ReflectionUtils.forName(classeDTOStr);
         if (classeValidacao == null) {
             List<Class> interfacesSuportadas = getInterfacesDeEntidade();
@@ -85,15 +85,15 @@ public interface ItfApiErpSuperBits<T> extends ComoFabrica {
     }
 
     public default Class<? extends T> getClasseImplementacaoPadrao() {
-        String nomeAotacao = UtilSBCoreReflexaoAPIERP.getNomeClasseAnotacaoImplementacaoPadrao(this);
-        String nomeCanonico = UtilSBCoreReflexaoAPIERP.getPacoteApiClasseAnotacao(this)
+        String nomeAotacao = UtilCRCReflexaoAPIERP.getNomeClasseAnotacaoImplementacaoPadrao(this);
+        String nomeCanonico = UtilCRCReflexaoAPIERP.getPacoteApiClasseAnotacao(this)
                 + "." + nomeAotacao;
         Class classeValidacao = (Class<? extends ItfValidacao>) ReflectionUtils.forName(nomeCanonico);
         return classeValidacao;
     }
 
     public default T getClasseImplementacaoTestes() {
-        return (T) UtilSBCoreReflexaoAPIERP.getImplementacaoDoContexto(this);
+        return (T) UtilCRCReflexaoAPIERP.getImplementacaoDoContexto(this);
     }
 
     public default ItfServicoLinkDeEntidadesERP getRepositorioLinkEntidadesByID() {
@@ -126,8 +126,8 @@ public interface ItfApiErpSuperBits<T> extends ComoFabrica {
                 Class tipoDaLista = (Class) type.getActualTypeArguments()[0];
                 retorno = tipoDaLista;
             }
-            //  UtilSBCoreReflexaoAtributoDeObjetoSimples.getClassePrincipalDoCampo(pCampo)
-            if (UtilSBCoreReflexaoSimples.isInterfaceIgualOuExetende(retorno, ComoEntidadeSimplesSomenteLeitura.class)) {
+            //  UtilCRCReflexaoAtributoDeObjetoSimples.getClassePrincipalDoCampo(pCampo)
+            if (UtilCRCReflexaoSimples.isInterfaceIgualOuExetende(retorno, ComoEntidadeSimplesSomenteLeitura.class)) {
                 if (!classes.contains(retorno)) {
                     classes.add(retorno);
                 }

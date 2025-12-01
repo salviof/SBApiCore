@@ -23,8 +23,8 @@ import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.component
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabcompVisualEnums;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.view.componente.FamiliaComponente;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringEnumECaixaAlta;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringsCammelCaseSimples;
+import org.coletivojava.fw.utilCoreBase.UtilCRCStringEnumECaixaAlta;
+import org.coletivojava.fw.utilCoreBase.UtilCRCStringsCammelCaseSimples;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
@@ -55,7 +55,7 @@ public enum FabFamiliaCompVisual implements ComoFabFamiliaComponenteVisual, Como
     public FamiliaComponente getRegistro() {
         FamiliaComponente familia = new FamiliaComponente();
         familia.setId((long) this.ordinal());
-        familia.setNome(UtilSBCoreStringsCammelCaseSimples.getTextoByCammel(getNomeFAmilia()));
+        familia.setNome(UtilCRCStringsCammelCaseSimples.getTextoByCammel(getNomeFAmilia()));
         familia.setFabrica(this);
         return familia;
 
@@ -132,7 +132,7 @@ public enum FabFamiliaCompVisual implements ComoFabFamiliaComponenteVisual, Como
 
     @Override
     public String getNomeFAmilia() {
-        return UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula(this);
+        return UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula(this);
     }
 
     @Override

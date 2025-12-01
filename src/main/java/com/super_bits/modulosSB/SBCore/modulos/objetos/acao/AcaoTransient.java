@@ -28,7 +28,7 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringFiltrosSimples;
+import org.coletivojava.fw.utilCoreBase.UtilCRCStringFiltrosSimples;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
@@ -132,7 +132,7 @@ public class AcaoTransient implements ComoAcaoDoSistema {
     @Override
     public String getNomeUnico() {
 
-        String nomeModulo = UtilSBCoreStringFiltrosSimples.gerarUrlAmigavel(getModulo().getNome());
+        String nomeModulo = UtilCRCStringFiltrosSimples.gerarUrlAmigavel(getModulo().getNome());
         String nomeAcao = toString();
         return nomeModulo + "." + nomeAcao;
 

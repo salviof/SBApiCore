@@ -15,7 +15,7 @@ import org.reflections.Reflections;
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreReflexaoSimples {
+public class UtilCRCReflexaoSimples {
 
     /**
      *

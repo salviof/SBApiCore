@@ -21,7 +21,7 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreComunicacao {
+public class UtilCRCComunicacao {
 
     public static List<ItfTipoRespostaComunicacao> getTipoRespostas(FabTipoComunicacao pTipoComunicacao) {
 

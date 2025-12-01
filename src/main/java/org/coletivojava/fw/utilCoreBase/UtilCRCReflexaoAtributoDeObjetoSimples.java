@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreReflexaoAtributoDeObjetoSimples {
+public class UtilCRCReflexaoAtributoDeObjetoSimples {
 
     /**
      *

@@ -17,7 +17,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreReflexaoObjetoSimples {
+public class UtilCRCReflexaoObjetoSimples {
 
     public static InfoPreparacaoObjeto getInfoPreparacaoObjeto(Class pClasse) {
         try {
@@ -50,7 +50,7 @@ public class UtilSBCoreReflexaoObjetoSimples {
 
             for (Object pr : parametros) {
                 if (!temImplmentacao) {
-                    temImplmentacao = UtilSBCoreReflexaoSimples.isClasseIgualOuExetende(pr.getClass(), classeObrigatoria);
+                    temImplmentacao = UtilCRCReflexaoSimples.isClasseIgualOuExetende(pr.getClass(), classeObrigatoria);
                 }
             }
 
@@ -69,7 +69,7 @@ public class UtilSBCoreReflexaoObjetoSimples {
 
         for (Object obj : parametros) {
             if (obj != null) {
-                if (UtilSBCoreReflexaoSimples.isClasseIgualOuExetende(obj.getClass(), tipoObjeto)) {
+                if (UtilCRCReflexaoSimples.isClasseIgualOuExetende(obj.getClass(), tipoObjeto)) {
                     return (T) obj;
                 }
             }

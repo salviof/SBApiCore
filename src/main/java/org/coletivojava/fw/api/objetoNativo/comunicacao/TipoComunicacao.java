@@ -13,8 +13,8 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.Info
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreComunicacao;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringsCammelCaseSimples;
+import org.coletivojava.fw.utilCoreBase.UtilCRCComunicacao;
+import org.coletivojava.fw.utilCoreBase.UtilCRCStringsCammelCaseSimples;
 
 /**
  *
@@ -40,8 +40,8 @@ public class TipoComunicacao extends ObjetoNativoCoreDoSistema implements ItfTip
 
     public TipoComunicacao(FabTipoComunicacao pTipo) {
         fabTipoComunicacao = pTipo;
-        respostasPossiveis = (List) UtilSBCoreComunicacao.getTipoRespostas(fabTipoComunicacao);
-        nome = UtilSBCoreStringsCammelCaseSimples.getTextoByCammel(fabTipoComunicacao.toString());
+        respostasPossiveis = (List) UtilCRCComunicacao.getTipoRespostas(fabTipoComunicacao);
+        nome = UtilCRCStringsCammelCaseSimples.getTextoByCammel(fabTipoComunicacao.toString());
         id = (long) fabTipoComunicacao.ordinal() + 1;
     }
 

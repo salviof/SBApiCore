@@ -19,7 +19,7 @@ import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringFiltrosSimples;
+import org.coletivojava.fw.utilCoreBase.UtilCRCStringFiltrosSimples;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**
@@ -102,12 +102,12 @@ public class AcaoBotaoNaoRequisitado extends ObjetoNativoCoreDoSistema implement
 
     @Override
     public String getNomeUnico() {
-        return UtilSBCoreStringFiltrosSimples.gerarUrlAmigavel(getModulo().getNome()) + "." + UtilSBCoreStringFiltrosSimples.gerarUrlAmigavel(getNomeAcao());
+        return UtilCRCStringFiltrosSimples.gerarUrlAmigavel(getModulo().getNome()) + "." + UtilCRCStringFiltrosSimples.gerarUrlAmigavel(getNomeAcao());
     }
 
     @Override
     public String getNomeEnumOriginal() {
-        return UtilSBCoreStringFiltrosSimples.gerarUrlAmigavel(getModulo().getNome()) + "." + UtilSBCoreStringFiltrosSimples.gerarUrlAmigavel(getNomeAcao());
+        return UtilCRCStringFiltrosSimples.gerarUrlAmigavel(getModulo().getNome()) + "." + UtilCRCStringFiltrosSimples.gerarUrlAmigavel(getNomeAcao());
     }
 
     @Override

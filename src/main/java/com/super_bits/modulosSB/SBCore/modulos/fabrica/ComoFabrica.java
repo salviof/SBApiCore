@@ -7,8 +7,8 @@ package com.super_bits.modulosSB.SBCore.modulos.fabrica;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import java.io.Serializable;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreFabrica;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreReflexaoObjetoSimples;
+import org.coletivojava.fw.utilCoreBase.UtilCRCFabrica;
+import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoObjetoSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoStatus;
 
 /**
@@ -33,20 +33,20 @@ public interface ComoFabrica extends Serializable {
      * @return
      */
     public default Object getRegistro() {
-        return UtilSBCoreFabrica.getRegistroPorEnum(this);
+        return UtilCRCFabrica.getRegistroPorEnum(this);
     }
 
     public default boolean isPermitidoAlterarObjeto() {
         Class classe = null;
         try {
-            classe = UtilSBCoreFabrica.getClasseEntidadePorEnum(this);
+            classe = UtilCRCFabrica.getClasseEntidadePorEnum(this);
         } catch (Throwable t) {
             classe = getRegistro().getClass();
         }
         if (ComoStatus.class.isAssignableFrom(classe)) {
             return false;
         }
-        InfoObjetoSB infoObjeto = UtilSBCoreReflexaoObjetoSimples.getInfoClasseObjeto(classe);
+        InfoObjetoSB infoObjeto = UtilCRCReflexaoObjetoSimples.getInfoClasseObjeto(classe);
         return infoObjeto.permitidoAlterarObjetoDaFabrica();
 
     }

@@ -11,7 +11,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupo
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreLayoutComponenteEmTelaBasico {
+public class UtilCRCLayoutComponenteEmTelaBasico {
 
     public static final double VALOR_UNIDADE_COLUNA_PORCENTAGEM = 100 / 12;
     public static final String NOME_COLUNA_BOTOES = "colunaBotoes";

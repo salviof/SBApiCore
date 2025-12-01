@@ -6,7 +6,7 @@
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
 import org.coletivojava.fw.api.objetoNativo.comunicacao.TipoRespostaComunicacao;
-import org.coletivojava.fw.utilCoreBase.UtilSBCoreStringEnumECaixaAlta;
+import org.coletivojava.fw.utilCoreBase.UtilCRCStringEnumECaixaAlta;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
@@ -183,7 +183,7 @@ public enum FabTipoRespostaComunicacao implements ComoFabrica {
                 textobotao = "Ok";
                 break;
             default:
-                textobotao = UtilSBCoreStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula(this);
+                textobotao = UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula(this);
         }
         TipoRespostaComunicacao respCM = new TipoRespostaComunicacao(this);
         respCM.setNome(textobotao);

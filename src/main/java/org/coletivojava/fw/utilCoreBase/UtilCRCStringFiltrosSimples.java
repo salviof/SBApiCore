@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreStringFiltrosSimples {
+public class UtilCRCStringFiltrosSimples {
 
     public static String gerarUrlAmigavel(String param) {
         if (param == null) {

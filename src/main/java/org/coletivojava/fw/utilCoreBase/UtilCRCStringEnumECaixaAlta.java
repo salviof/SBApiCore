@@ -15,7 +15,7 @@ package org.coletivojava.fw.utilCoreBase;
  *
  * @author salvioF
  */
-public class UtilSBCoreStringEnumECaixaAlta {
+public class UtilCRCStringEnumECaixaAlta {
 
     /**
      *
@@ -42,9 +42,9 @@ public class UtilSBCoreStringEnumECaixaAlta {
     public static String getUltimaParteNomeEnumPrimeiraEmMaiusculo(Enum valor) {
         String[] partes = valor.toString().split("_");
         if (partes.length > 1) {
-            return UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(partes[partes.length - 1]);
+            return UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(partes[partes.length - 1]);
         } else {
-            return UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(valor.toString());
+            return UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(valor.toString());
         }
     }
 
@@ -54,7 +54,7 @@ public class UtilSBCoreStringEnumECaixaAlta {
             StringBuilder frase = new StringBuilder();
             int i = 0;
             for (String p : partes) {
-                frase.append(UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(p));
+                frase.append(UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(p));
                 if (!(i >= partes.length - 1)) {
                     frase.append(" ");
                 }
@@ -77,7 +77,7 @@ public class UtilSBCoreStringEnumECaixaAlta {
             StringBuilder palavraCammelCase = new StringBuilder();
             int i = 0;
             for (String p : partes) {
-                palavraCammelCase.append(UtilSBCoreStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(p.toLowerCase()));
+                palavraCammelCase.append(UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(p.toLowerCase()));
                 i++;
             }
             return palavraCammelCase.toString();

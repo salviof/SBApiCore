@@ -28,7 +28,7 @@ public interface ComoFabTipoComponenteVisual extends ComoFabrica {
     public default ComoComponenteVisualSB getRegistro() {
         try {
 
-            Class componenteBeanBuilder = (Class<? extends ComoComponenteBuilder>) ReflectionUtils.forName("com.super_bits.modulosSB.SBCore.UtilGeral.view.UtilSBCoreComponenteSBBeanBuilder");
+            Class componenteBeanBuilder = (Class<? extends ComoComponenteBuilder>) ReflectionUtils.forName("com.super_bits.modulosSB.SBCore.UtilGeral.view.UtilCRCComponenteSBBeanBuilder");
             if (componenteBeanBuilder != null) {
                 ComoComponenteBuilder builder = (ComoComponenteBuilder) componenteBeanBuilder.newInstance();
                 return builder.gerarComponenteVisual(this);

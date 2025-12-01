@@ -8,7 +8,7 @@ package org.coletivojava.fw.utilCoreBase;
  *
  * @author desenvolvedor
  */
-public class UtilSBCoreDiretoriosSimples {
+public class UtilCRCDiretoriosSimples {
 
     public enum TIPO_ESTRUTURA_DIRETORIO {
         WINDOWS,
