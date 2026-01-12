@@ -16,6 +16,6 @@ public interface ItfMensagem {
 
     public String getMenssagem();
 
-    public void enviarMensagem(Class<? extends ItfCentralMensagens> pCentral);
+    public void enviarMensagem(Class<? extends ComoServicoMensagemFireAndForget> pCentral);
 
 }

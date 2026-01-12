@@ -18,9 +18,9 @@ import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoAPIERP;
 import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoSimples;
 import org.reflections.ReflectionUtils;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimplesSomenteLeitura;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 
 /**
  *
@@ -89,6 +89,7 @@ public interface ItfApiErpSuperBits<T> extends ComoFabrica {
         String nomeCanonico = UtilCRCReflexaoAPIERP.getPacoteApiClasseAnotacao(this)
                 + "." + nomeAotacao;
         Class classeValidacao = (Class<? extends ItfValidacao>) ReflectionUtils.forName(nomeCanonico);
+
         return classeValidacao;
     }
 
@@ -135,6 +136,18 @@ public interface ItfApiErpSuperBits<T> extends ComoFabrica {
             }
         }
         return classes;
+    }
+
+    public default boolean isTemImplementacaoNoContexto() {
+        try {
+            if (getImplementacaoDoContexto() == null) {
+
+                return false;
+            }
+            return true;
+        } catch (Throwable t) {
+            return false;
+        }
     }
 
 }

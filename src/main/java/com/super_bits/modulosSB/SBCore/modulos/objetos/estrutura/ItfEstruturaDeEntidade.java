@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -61,15 +61,15 @@ public interface ItfEstruturaDeEntidade extends ComoEntidadeSimples {
      *
      * @return Nome da Entidade class.getSimpleName()
      */
-    String getNomeEntidade();
+    public String getNomeEntidade();
 
-    String getPlural();
+    public String getPlural();
 
-    List<String> getTags();
+    public List<String> getTags();
 
-    FabTipoBeanSBGenerico getTipoEntidade();
+    public FabTipoEntidadeGenerico getTipoEntidade();
 
-    List<ItfLigacaoUmParaMuitos> getUmParaMuitos();
+    public List<ItfLigacaoUmParaMuitos> getUmParaMuitos();
 
     void setCalculos(List<ItfEstruturaCampoDinamicoEntidade> calculos);
 
@@ -93,8 +93,12 @@ public interface ItfEstruturaDeEntidade extends ComoEntidadeSimples {
 
     void setTags(List<String> tags);
 
-    void setTipoEntidade(FabTipoBeanSBGenerico tipoEntidade);
+    void setTipoEntidade(FabTipoEntidadeGenerico tipoEntidade);
 
     void setUmParaMuitos(List<ItfLigacaoUmParaMuitos> umParaMuitos);
+
+    public String getModuloERP();
+
+    public boolean isUmaEntidadeModuloERP();
 
 }

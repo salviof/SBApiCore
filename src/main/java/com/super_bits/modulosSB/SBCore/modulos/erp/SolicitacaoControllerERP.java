@@ -11,7 +11,7 @@ import jakarta.json.JsonObject;
 import jakarta.json.JsonObjectBuilder;
 import java.util.HashMap;
 import java.util.Map;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
 
 /**
  *

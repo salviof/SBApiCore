@@ -5,11 +5,15 @@
  */
 package org.coletivojava.fw.utilCoreBase;
 
-import java.lang.reflect.ParameterizedType;
+import com.super_bits.modulosSB.SBCore.modulos.erp.ComoFabricaPacoteDeEntidade;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.reflections.Reflections;
+import com.super_bits.modulosSB.SBCore.modulos.erp.ComoFabricaPacotesBaseCarameloCode;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura.ItfEstruturaDeEntidade;
 
 /**
  *
@@ -17,24 +21,41 @@ import org.reflections.Reflections;
  */
 public class UtilCRCReflexaoSimples {
 
+    private final static Map<Class, List<Class>> classesComAnotacao = new HashMap<>();
+
+    public static List<Class> getClassesComEstaAnotacao(Class pAnotacao, ComoFabricaPacotesBaseCarameloCode pEstrutura) {
+        return getClassesComEstaAnotacao(pAnotacao, pEstrutura.getPacoteCanonico(), false);
+    }
+
+    public static List<Class> getClassesComEstaAnotacao(Class pAnotacao, ComoFabricaPacoteDeEntidade pPAcote, ItfEstruturaDeEntidade pEstrutura) {
+        return getClassesComEstaAnotacao(pAnotacao, pPAcote.getPacoteCanonicoDeEntidade(pEstrutura), false);
+    }
+
     /**
      *
      * @param pAnotacao
      * @param pCaminhoPacote
      * @return
      */
-    public static List<Class> getClassesComEstaAnotacao(Class pAnotacao, String pCaminhoPacote) {
+    public static List<Class> getClassesComEstaAnotacao(Class pAnotacao, String pCaminhoPacote, boolean pIgnorarCache) {
 
+        if (!pIgnorarCache) {
+            if (classesComAnotacao.containsKey(pAnotacao)) {
+                return classesComAnotacao.get(pAnotacao);
+            }
+        }
+
+        // ReflectionUtils.withAnnotation(pAnotacao); <- CUIDADO ISSO NÃO FUNCION
+        // withAnnotation apenas cria um predicado de filtragem e não executa varredura, não interage com o ClassLoader e não descobre classes anotadas no classpath.
         List<Class> lista = new ArrayList<>();
-
         Reflections reflections = new Reflections(pCaminhoPacote);
-
         Set<Class<?>> annotated = reflections.getTypesAnnotatedWith(pAnotacao);
 
         //exibe a lista classes
         annotated.forEach((c) -> {
             lista.add(c);
         });
+        classesComAnotacao.put(pAnotacao, lista);
         return lista;
     }
 

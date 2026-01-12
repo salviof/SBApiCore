@@ -1,20 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
- */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas.estrategiasImplementacao.EstrategiaAutoexecucaoDiario;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas.estrategiasImplementacao.EstrategiaAutoexecucaoGatilho;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas.estrategiasImplementacao.EstrategiaAutoexecucaoHorario;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas.estrategiasImplementacao.EstrategiaAutoexecucaoLoop;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas.estrategiasImplementacao.EstrategiaAutoexecucaoMensal;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesAutomatizadas.estrategiasImplementacao.EstrategiaAutoexecucaoMinutos;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesProgramadas.estrategiasImplementacao.EstrategiaAutoexecucaoDiario;
+
+import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesProgramadas.estrategiasImplementacao.EstrategiaAutoexecucaoHorario;
+
+import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesProgramadas.estrategiasImplementacao.EstrategiaAutoexecucaoGatilho;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesProgramadas.estrategiasImplementacao.EstrategiaAutoexecucaoLoop;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesProgramadas.estrategiasImplementacao.EstrategiaAutoexecucaoMensal;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.acoesProgramadas.estrategiasImplementacao.EstrategiaAutoexecucaoMinutos;
 import java.util.Date;
 
 /**
  *
  * @author salvio
+ *
  */
 public enum FabEstrategiaAutoexecucao {
 

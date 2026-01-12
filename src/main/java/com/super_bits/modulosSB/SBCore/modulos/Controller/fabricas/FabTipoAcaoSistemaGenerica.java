@@ -11,7 +11,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.UtilFabricaDeAcoesBasi
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.icones.FabIconeFontAwesome;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualFormularioDeAcao;
 
 import java.util.ArrayList;

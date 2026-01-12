@@ -6,11 +6,11 @@ package org.coletivojava.fw.api.objetoNativo.mensagem;
 
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabMensagens;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabTipoAgenteDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfCentralMensagens;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.api.tratamentoErros.FabErro;
+import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ComoServicoMensagemFireAndForget;
 
 /**
  *
@@ -47,8 +47,8 @@ public class Mensagem implements ItfMensagem {
     }
 
     @Override
-    public void enviarMensagem(Class<? extends ItfCentralMensagens> pCentral) {
-        ItfCentralMensagens central;
+    public void enviarMensagem(Class<? extends ComoServicoMensagemFireAndForget> pCentral) {
+        ComoServicoMensagemFireAndForget central;
         try {
             central = pCentral.newInstance();
             central.enviaMensagem(this);

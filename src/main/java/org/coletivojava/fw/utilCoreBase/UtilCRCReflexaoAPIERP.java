@@ -11,9 +11,10 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.reflections.ReflectionUtils;
-import com.super_bits.modulosSB.SBCore.modulos.erp.ApiERPColetivoJavaFW;
+import com.super_bits.modulosSB.SBCore.modulos.erp.FabPacotesCRCBase;
 import java.util.HashMap;
 import java.util.Map;
+import com.super_bits.modulosSB.SBCore.modulos.erp.InfoApiERPCarameloCode;
 
 /**
  *
@@ -22,10 +23,6 @@ import java.util.Map;
 public abstract class UtilCRCReflexaoAPIERP {
 
     private static Map<ItfApiErpSuperBits, Object> mapaServicosErpRegistrados = new HashMap<>();
-
-    private static final String ENDERECO_BASE_PACOTE_API = "br.org.coletivoJava.fw.api.erp";
-
-    private static final String ENDERECO_BASE_PACOTE_IMPLEMENTACAO = "br.org.coletivoJava.fw.erp.implementacao";
 
     public static Class getAnotacaoApi(ItfApiErpSuperBits pApi) {
         String caminhoCompleto = getPacoteApiClasseAnotacao(pApi)
@@ -36,14 +33,14 @@ public abstract class UtilCRCReflexaoAPIERP {
     }
 
     public static String getNomeClasseAnotacaoImplementacao(ItfApiErpSuperBits pApi) {
-        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
+        InfoApiERPCarameloCode infoApi = getInformacoesApi(pApi);
         String slug = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
         String nomeAnotacaoApi = slug + UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi);
         return nomeAnotacaoApi;
     }
 
     public static String getSlugTipoImplementacao(ItfApiErpSuperBits pApi) {
-        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
+        InfoApiERPCarameloCode infoApi = getInformacoesApi(pApi);
         String slug = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
         return slug;
     }
@@ -65,7 +62,7 @@ public abstract class UtilCRCReflexaoAPIERP {
     }
 
     public static String getNomeClasseAnotacaoImplementacaoPadrao(ItfApiErpSuperBits pApi) {
-        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
+        InfoApiERPCarameloCode infoApi = getInformacoesApi(pApi);
         String slug = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
         String nomeAnotacaoApi = slug + UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi) + "Padrao";
         return nomeAnotacaoApi;
@@ -73,7 +70,7 @@ public abstract class UtilCRCReflexaoAPIERP {
     }
 
     public static String getNomeClasseAnotacaoImplementacaoTestes(ItfApiErpSuperBits pApi) {
-        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
+        InfoApiERPCarameloCode infoApi = getInformacoesApi(pApi);
         String slug = UtilCRCStringsMaiuculoMinusculoSimples.getPrimeiraLetraMaiusculo(infoApi.slugInicial());
         String nomeAnotacaoApi = slug + UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula((Enum) pApi) + "Testes";
         return nomeAnotacaoApi;
@@ -81,14 +78,28 @@ public abstract class UtilCRCReflexaoAPIERP {
     }
 
     public static String getPacoteImplementacaoERP(ItfApiErpSuperBits pApi) {
-        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
-        String enderecoPacote = ENDERECO_BASE_PACOTE_IMPLEMENTACAO + "." + infoApi.nomeApi().toLowerCase();
+        InfoApiERPCarameloCode infoApi = getInformacoesApi(pApi);
+        // String enderecoPacote = FabPacotesCRCBase.API_ERP.getPacoteCanonico() + "." + infoApi.nomeApi().toLowerCase();
+
+        String enderecoPacote = null;
+        if (infoApi.usarEstruturaDiretorioLegada()) {
+            enderecoPacote = FabPacotesCRCBase.MODULOS_ERP_IMPLEMENTACAO_LEGADO.getPacoteCanonico() + "." + infoApi.nomeApi().toLowerCase();
+        } else {
+            enderecoPacote = FabPacotesCRCBase.MODULOS_ERP.getPacoteCanonico() + "." + infoApi.nomeApi().toLowerCase() + ".api.dominio";
+        }
+
         return enderecoPacote;
     }
 
     public static String getPacoteApiClasseAnotacao(ItfApiErpSuperBits pApi) {
-        ApiERPColetivoJavaFW infoApi = getInformacoesApi(pApi);
-        String enderecoPacote = ENDERECO_BASE_PACOTE_API + "." + infoApi.nomeApi().toLowerCase();
+        InfoApiERPCarameloCode infoApi = getInformacoesApi(pApi);
+        String enderecoPacote = null;
+        if (infoApi.usarEstruturaDiretorioLegada()) {
+            enderecoPacote = FabPacotesCRCBase.MODULOS_ERP_API_LEGADO.getPacoteCanonico() + "." + infoApi.nomeApi().toLowerCase();
+        } else {
+            enderecoPacote = FabPacotesCRCBase.MODULOS_ERP.getPacoteCanonico() + "." + infoApi.nomeApi().toLowerCase() + ".api.dominio";
+        }
+
         return enderecoPacote;
     }
 
@@ -124,8 +135,8 @@ public abstract class UtilCRCReflexaoAPIERP {
         return nome.toString();
     }
 
-    public static ApiERPColetivoJavaFW getInformacoesApi(ItfApiErpSuperBits pApi) {
-        return pApi.getClass().getAnnotation(ApiERPColetivoJavaFW.class);
+    public static InfoApiERPCarameloCode getInformacoesApi(ItfApiErpSuperBits pApi) {
+        return pApi.getClass().getAnnotation(InfoApiERPCarameloCode.class);
     }
 
     public static boolean isClasseImplementadaNoContexto(ItfApiErpSuperBits pApi) {
@@ -134,10 +145,14 @@ public abstract class UtilCRCReflexaoAPIERP {
             Class anotacaoImplementacao;
 
             List<Class> classesImplementacao;
+
+            String pacoteImplementacao = getPacoteImplementacaoERP(pApi);
+
             if (UtilCRCContextoSimples.isContextoExecucaoJunit()) {
                 String anotacaoImplementacaoTestes = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacaoTestes(pApi);
                 anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoTestes);
-                List<Class> opcoes = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+
+                List< Class> opcoes = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, pacoteImplementacao, false);
                 if (!opcoes.isEmpty()) {
                     mapaServicosErpRegistrados.put(pApi, opcoes.get(0).newInstance());
                     return true;
@@ -158,7 +173,7 @@ public abstract class UtilCRCReflexaoAPIERP {
             } catch (Throwable t) {
                 System.out.println(t.getMessage());
             }
-            classesImplementacao = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+            classesImplementacao = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, pacoteImplementacao, false);
             if (!classesImplementacao.isEmpty()) {
                 mapaServicosErpRegistrados.put(pApi, classesImplementacao.get(0).newInstance());
                 return true;
@@ -176,12 +191,12 @@ public abstract class UtilCRCReflexaoAPIERP {
         try {
 
             Class anotacaoImplementacao;
-
+            String pacoteImplementacao = getPacoteImplementacaoERP(pApi);
             List<Class> classesImplementacao;
             if (UtilCRCContextoSimples.isContextoExecucaoJunit()) {
                 String anotacaoImplementacaoTestes = getPacoteApiClasseAnotacao(pApi) + "." + getNomeClasseAnotacaoImplementacaoTestes(pApi);
                 anotacaoImplementacao = ReflectionUtils.forName(anotacaoImplementacaoTestes);
-                List<Class> opcoes = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+                List<Class> opcoes = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, pacoteImplementacao, false);
                 if (!opcoes.isEmpty()) {
                     mapaServicosErpRegistrados.put(pApi, opcoes.get(0).newInstance());
                     return opcoes.get(0);
@@ -199,18 +214,21 @@ public abstract class UtilCRCReflexaoAPIERP {
                     mapaServicosErpRegistrados.put(pApi, classe.newInstance());
                     return classe;
                 }
+
+            } catch (ClassNotFoundException pClasseNAoEncontrada) {
+                System.out.println("classe não encontrada" + pClasseNAoEncontrada.getCause());
             } catch (Throwable t) {
                 System.out.println(t.getMessage());
             }
-            classesImplementacao = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+            classesImplementacao = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(anotacaoImplementacao, pacoteImplementacao, false);
             if (!classesImplementacao.isEmpty()) {
 
                 return classesImplementacao.get(0);
 
             }
 
-            throw new UnsupportedOperationException("Implementação para " + pApi + "não foi encontrada, precisa anotar com" + anotacaoImplementacao.getSimpleName()
-                    + " e estar localizada no pacote " + ENDERECO_BASE_PACOTE_IMPLEMENTACAO);
+            throw new UnsupportedOperationException("Implementação para " + pApi + "  não foi encontrada, precisa anotar com" + anotacaoImplementacao.getSimpleName()
+                    + " e estar localizada no pacote " + pacoteImplementacao);
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("Erro tentando obter classe que represente" + pApi, t);
             return null;
@@ -224,6 +242,9 @@ public abstract class UtilCRCReflexaoAPIERP {
                 return mapaServicosErpRegistrados.get(pApi);
             }
             Class classeImplementacao = getClasseImplementacaoDoContexto(pApi);
+            if (classeImplementacao == null) {
+                return null;
+            }
             Object implmentacao = classeImplementacao.newInstance();
             mapaServicosErpRegistrados.put(pApi, implmentacao);
             return mapaServicosErpRegistrados.get(pApi);

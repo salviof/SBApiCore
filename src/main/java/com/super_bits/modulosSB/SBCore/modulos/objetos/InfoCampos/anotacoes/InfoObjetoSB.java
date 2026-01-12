@@ -7,6 +7,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura.FabTipoEntidadeGenerico;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
@@ -24,6 +25,8 @@ public @interface InfoObjetoSB {
     public String descricao() default "";
 
     public Class<? extends ComoFabrica> fabricaVinculada() default FabricaObjetosRegistrados.class;
+
+    public String modulo() default FabTipoEntidadeGenerico.MARCADOR_ENTIDADE_TIPO_PROJETO;
 
     public boolean permitidoAlterarObjetoDaFabrica() default true;
 

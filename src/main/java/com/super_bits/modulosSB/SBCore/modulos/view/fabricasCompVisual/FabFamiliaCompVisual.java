@@ -26,7 +26,7 @@ import org.coletivojava.fw.api.objetoNativo.view.componente.FamiliaComponente;
 import org.coletivojava.fw.utilCoreBase.UtilCRCStringEnumECaixaAlta;
 import org.coletivojava.fw.utilCoreBase.UtilCRCStringsCammelCaseSimples;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
 /**

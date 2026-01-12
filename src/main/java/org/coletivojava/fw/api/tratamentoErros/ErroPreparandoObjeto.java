@@ -5,7 +5,7 @@
 package org.coletivojava.fw.api.tratamentoErros;
 
 import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoObjetoSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimplesSomenteLeitura;
 
 /**
  *

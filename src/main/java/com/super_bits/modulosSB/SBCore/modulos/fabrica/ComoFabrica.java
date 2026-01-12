@@ -9,7 +9,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.Info
 import java.io.Serializable;
 import org.coletivojava.fw.utilCoreBase.UtilCRCFabrica;
 import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoObjetoSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoStatus;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoStatus;
 
 /**
  *
