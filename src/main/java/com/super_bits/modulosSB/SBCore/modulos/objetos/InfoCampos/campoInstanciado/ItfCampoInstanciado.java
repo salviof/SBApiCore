@@ -215,11 +215,15 @@ public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstan
     public default void setValorSeValido(Object pValor) throws ErroValidacao {
         if (validarCampo(pValor)) {
             if (isTemValidadacaoLogica()) {
+                ItfValidacao validador = getValidacaoLogicaEstrategia();
+                if (validador == null) {
+                    throw new ErroValidacao("Validação para " + getNomeCompostoIdentificador() + " não possui classe  com regra de negocio");
+                }
                 if (getObjetoDoAtributo().getId() == null) {
-                    getValidacaoLogicaEstrategia().validarModoNovo(pValor);
+                    validador.validarModoNovo(pValor);
 
                 } else {
-                    getValidacaoLogicaEstrategia().validarModoEdicao(pValor);
+                    validador.validarModoEdicao(pValor);
                 }
 
             }
