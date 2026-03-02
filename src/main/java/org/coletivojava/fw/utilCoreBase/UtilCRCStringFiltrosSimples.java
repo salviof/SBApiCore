@@ -29,18 +29,20 @@ public class UtilCRCStringFiltrosSimples {
         if (param == null) {
             return null;
         }
-        param = Normalizer.normalize(param, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         param = param.replace(" ", "I666I");
         param = param.replace("_", "I666I");
+        param = param.replace("-", "I666I");
         param = param.replace(".", "I667I");
+        param = Normalizer.normalize(param, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+
         Pattern pt = Pattern.compile("[^a-zA-Z0-9]");
         Matcher match = pt.matcher(param);
         while (match.find()) {
             String s = match.group();
             param = param.replaceAll("\\" + s, "");
         }
-        param = param.replace("I666I", "_");
-        param = param.replace("I667I", ".");
+        param = param.replace("I666I", "_"); // espaços e _ convertido para _
+        param = param.replace("I667I", "."); // ponto permanece como .
         return param;
 
     }

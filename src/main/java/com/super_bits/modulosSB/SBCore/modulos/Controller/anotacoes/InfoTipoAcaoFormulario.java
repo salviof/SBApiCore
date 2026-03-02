@@ -1,6 +1,7 @@
 package com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario.FabEstadoFormulario;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.icones.FabIconeFontAwesome;
 
 import java.lang.annotation.Documented;
@@ -35,5 +36,7 @@ public @interface InfoTipoAcaoFormulario {
     public FabIconeFontAwesome iconeFonteAnsowame() default FabIconeFontAwesome.ICONE_PERSONALIZADO;
 
     public FabEstadoFormulario estadoFormulario() default FabEstadoFormulario.INDEFINIDO;
+
+    public String[] valoresParametroEstatico() default {};
 
 }

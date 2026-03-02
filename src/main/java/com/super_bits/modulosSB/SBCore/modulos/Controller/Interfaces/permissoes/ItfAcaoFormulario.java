@@ -5,7 +5,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfParametroRequisicaoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario.FabEstadoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCaminhoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
@@ -13,6 +12,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupo
 import java.util.List;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**
  *
@@ -43,5 +43,12 @@ public interface ItfAcaoFormulario extends ComoAcaoDoSistema {
     public void setEstadoFormulario(FabEstadoFormulario pEstadoFormulario);
 
     public ComoComponenteVisualSB getComponenteFormularioPadrao();
+
+    public ComoFabrica[] getValorEstaticoParametro();
+
+    public default boolean isTemValorEstaticoParametro() {
+        return getValorEstaticoParametro().length > 0;
+
+    }
 
 }

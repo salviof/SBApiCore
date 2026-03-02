@@ -51,4 +51,10 @@ public interface ComoFabrica extends Serializable {
 
     }
 
+    public default String getIdentificadorUnico() {
+        String nomeClasseFabrica = this.getClass().getSimpleName().substring(3);
+        String nomeItemEstatico = toString();
+        return nomeClasseFabrica + "." + nomeItemEstatico;
+    }
+
 }

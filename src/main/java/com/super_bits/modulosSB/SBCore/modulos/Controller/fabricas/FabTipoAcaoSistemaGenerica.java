@@ -313,6 +313,10 @@ public enum FabTipoAcaoSistemaGenerica implements ComoFabrica {
         double porcentagemCoicidencias = 0;
         int numeroDePalavras = 0;
 
+        if (nome.contains("CTR_EXCLUIR")) {
+            return CONTROLLER_REMOVER;
+        }
+
         if (nome.contains("CTR_SALVAR_MERGE")) {
             return CONTROLLER_SALVAR_MODO_MERGE;
         }
