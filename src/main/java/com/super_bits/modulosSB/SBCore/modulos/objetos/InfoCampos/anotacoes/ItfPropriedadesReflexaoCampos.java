@@ -9,9 +9,9 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoA
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoLisgagemOpcoesCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.TIPO_PRIMITIVO;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAtributoObjetoEditavel;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfAtributoObjetoSB;
 import java.util.List;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ComoAtributoObjetoSB;
 
 /**
  *
@@ -30,7 +30,7 @@ public interface ItfPropriedadesReflexaoCampos {
      *
      * @return O Atributo Gerado
      */
-    public ItfAtributoObjetoSB getAtributoGerado();
+    public ComoAtributoObjetoSB getAtributoGerado();
 
     public FabTipoLisgagemOpcoesCampo getTipoListagem();
 

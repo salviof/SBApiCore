@@ -7,10 +7,10 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanci
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampoVerdadeiroOuFalso;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfTipoAtributoSBSomenteLeitura;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ComoTipoAtributoSBSomenteLeitura;
 
 /**
  *
@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author Sálvio Furbino
  */
-public interface ItfAtributoObjetoSB extends ItfTipoAtributoSBSomenteLeitura {
+public interface ComoAtributoObjetoSB extends ComoTipoAtributoSBSomenteLeitura {
 
     /**
      *

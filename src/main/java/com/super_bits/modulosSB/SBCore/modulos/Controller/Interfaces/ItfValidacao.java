@@ -7,7 +7,9 @@ package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.validador.ErroValidacao;
 import com.super_bits.modulosSB.SBCore.modulos.view.widgetsFormulario.WidgetsFormulario;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -20,11 +22,25 @@ public interface ItfValidacao<T> {
     public ItfCampoInstanciado getCampoInstanciado();
 
     public default List<WidgetsFormulario> validarModoNovo(Object pValor) throws ErroValidacao {
-        return validar(pValor);
+
+        if (!Objects.equals(pValor, getCampoInstanciado().getValorPOJO())) {
+            return validar(pValor);
+        }
+
+        return new ArrayList<>();
+    }
+
+    public default boolean isSempreValidarAoSAlvar() {
+        return false;
     }
 
     public default List<WidgetsFormulario> validarModoEdicao(Object pValor) throws ErroValidacao {
-        return validar(pValor);
+
+        if (!Objects.equals(pValor, getCampoInstanciado().getValorPOJO())) {
+            return validar(pValor);
+        }
+
+        return new ArrayList<>();
     }
 
     public default T getObjetoDoAtributo() {

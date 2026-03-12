@@ -8,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.coletivojava.fw.utilCoreBase.UtilSBFabricaComponenteVisual;
 import org.reflections.ReflectionUtils;
-import org.reflections.util.ClasspathHelper;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
 /**

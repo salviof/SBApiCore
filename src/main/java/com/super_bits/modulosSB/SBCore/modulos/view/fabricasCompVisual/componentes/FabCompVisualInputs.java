@@ -125,7 +125,11 @@ public enum FabCompVisualInputs implements ComoFabTipoComponenteVisual {
     @InfoComponenteVisual(nome = "Imagem grande de Entidade",
             xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "imagemDeEntidadeGrande.xhtml", classesCSS = "imagemGrande",
             pesoLargura = FabColunasTela.TRES)
-    IMAGEM_GRANDE_DE_ENTIDADE;
+    IMAGEM_GRANDE_DE_ENTIDADE,
+    @InfoComponenteVisual(nome = "Telefone",
+            xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "telefone.xhtml", classesCSS = "imagemGrande",
+            pesoLargura = FabColunasTela.TRES)
+    TELEFONE;
 
     public static final String PASTA_CAMPOS = "input/campo/";
     public static final String PASTA_SELETOR_ITENS = "input/seletorItens/";

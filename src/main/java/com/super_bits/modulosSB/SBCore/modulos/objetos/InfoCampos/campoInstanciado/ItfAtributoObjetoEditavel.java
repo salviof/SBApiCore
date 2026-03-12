@@ -11,7 +11,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfTipoA
  *
  * @author SalvioF
  */
-public interface ItfAtributoObjetoEditavel extends ItfAtributoObjetoSB, ItfTipoAtributoSB {
+public interface ItfAtributoObjetoEditavel extends ComoAtributoObjetoSB, ItfTipoAtributoSB {
 
     public void setLabel(String pLabel);
 

@@ -14,7 +14,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntid
  *
  * @author Salvio Furbino
  */
-public interface ItfTipoAtributoSBSomenteLeitura extends ComoEntidadeSimplesSomenteLeitura {
+public interface ComoTipoAtributoSBSomenteLeitura extends ComoEntidadeSimplesSomenteLeitura {
 
     /**
      *

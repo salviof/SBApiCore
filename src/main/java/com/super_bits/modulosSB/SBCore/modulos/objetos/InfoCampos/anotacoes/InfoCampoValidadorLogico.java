@@ -26,4 +26,6 @@ public @interface InfoCampoValidadorLogico {
 
     public String descricao() default "Descrição desnescessária";
 
+    public boolean validarSempreQuePersistir() default false;
+
 }

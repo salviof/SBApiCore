@@ -24,6 +24,8 @@ public interface ItfCampoInstanciadoBase {
      */
     public Object getValor();
 
+    public Object getValorPOJO();
+
     /**
      *
      * @param pValor Modifica o valor do campo

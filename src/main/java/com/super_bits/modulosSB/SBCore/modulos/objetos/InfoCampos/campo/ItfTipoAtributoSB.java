@@ -16,7 +16,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntid
  *
  * @author sfurbino
  */
-public interface ItfTipoAtributoSB extends ItfTipoAtributoSBSomenteLeitura, ItfAtributoComListaDeOpcoes, ComoEntidadeVinculadoAEnum {
+public interface ItfTipoAtributoSB extends ComoTipoAtributoSBSomenteLeitura, ItfAtributoComListaDeOpcoes, ComoEntidadeVinculadoAEnum {
 
     public void setLabelPadrao(String pLabel);
 

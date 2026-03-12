@@ -19,7 +19,7 @@ import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoCompo
  *
  * @author sfurbino
  */
-public interface ItfCampoInstanciado extends ItfAtributoObjetoSB, ItfCampoInstanciadoBase {
+public interface ItfCampoInstanciado extends ComoAtributoObjetoSB, ItfCampoInstanciadoBase {
 
     /**
      *
