@@ -4,7 +4,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo;
 
-
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabColunasTela;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualEndereco;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.componentes.FabCompVisualFormularioDeAcao;
@@ -625,16 +624,17 @@ public enum FabTipoAtributoObjeto implements ComoFabrica {
             // TIPOS DE CAMPO QUE DEVEN USAR INPUT SIMPLES COM MASCARAS E REGEX
             switch (this) {
 
+                case TELEFONE_FIXO_NACIONAL:
+                case TELEFONE_FIXO_INTERNACIONAL:
+                case TELEFONE_CELULAR:
+                case TELEFONE_GENERICO:
+                    return FabCompVisualInputs.TELEFONE;
+
                 case LC_LOGRADOURO:
                 case LC_COMPLEMENTO_E_NUMERO:
                 case LC_CAMPO_ABERTO:
 
                 case SITE:
-
-                case TELEFONE_FIXO_NACIONAL:
-                case TELEFONE_FIXO_INTERNACIONAL:
-                case TELEFONE_CELULAR:
-                case TELEFONE_GENERICO:
 
                 case NOME_COMPLETO:
                 case CNPJ:

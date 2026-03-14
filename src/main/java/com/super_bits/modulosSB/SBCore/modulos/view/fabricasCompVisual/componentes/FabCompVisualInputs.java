@@ -94,7 +94,7 @@ public enum FabCompVisualInputs implements ComoFabTipoComponenteVisual {
             classesCSS = "campoDataHora",
             pesoLargura = FabColunasTela.TRES)
     DATA_HORA,
-    @InfoComponenteVisual(nome = "Data Hora",
+    @InfoComponenteVisual(nome = "Hora",
             xhtmlJSF = FabCompVisualInputs.PASTA_CAMPOS + "hora.xhtml",
             classesCSS = "campoDataHora",
             pesoLargura = FabColunasTela.UM)
