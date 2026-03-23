@@ -42,7 +42,9 @@ public enum FabCompVIsualInputsLayout implements ComoFabTipoComponenteVisual {
     )
     AUTOMATICO,
     @InfoComponenteVisual(nome = "Sem Label", classesCSS = "inputSemLabel", xhtmlJSF = FabCompVIsualInputsLayout.PASTA_LAYOUT_INPUTS + "inputSemLabel.xhtml")
-    INPUTSEM_LABEL;
+    INPUTSEM_LABEL,
+    @InfoComponenteVisual(nome = "Debug Campo", classesCSS = "debugCampo", xhtmlJSF = FabCompVIsualInputsLayout.PASTA_LAYOUT_INPUTS + "debugDoCampo.xhtml")
+    DEBUG_CAMPO;
     public static final String PASTA_LAYOUT_INPUTS = "../layouts/";
 
     @Override
