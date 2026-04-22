@@ -230,7 +230,7 @@ public abstract class UtilCRCReflexaoAPIERP {
             throw new UnsupportedOperationException("Implementação para " + pApi + "  não foi encontrada, precisa anotar com" + anotacaoImplementacao.getSimpleName()
                     + " e estar localizada no pacote " + pacoteImplementacao);
         } catch (Throwable t) {
-            LogManager.getLogger(LogPadraoSB.class).error("Erro tentando obter classe que represente" + pApi, t);
+            //    LogManager.getLogger(LogPadraoSB.class).error("Erro tentando obter classe que represente" + pApi, t);
             return null;
         }
 
