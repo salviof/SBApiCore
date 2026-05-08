@@ -13,4 +13,5 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura.ItfEstruturaDeE
 public interface ComoFabricaPacoteDeEntidade {
 
     public String getPacoteCanonicoDeEntidade(ItfEstruturaDeEntidade pClasse);
+
 }
