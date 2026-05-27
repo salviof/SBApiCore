@@ -209,4 +209,7 @@ public interface ItfAssistenteDeLocalizacao {
     }
 
     public String getIdentificacaoMapa();
+
+    public void instanciarNovoEndereco();
+
 }

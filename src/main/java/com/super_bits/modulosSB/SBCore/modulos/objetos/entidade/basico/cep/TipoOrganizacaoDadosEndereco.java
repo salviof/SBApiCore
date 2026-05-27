@@ -33,18 +33,18 @@ public enum TipoOrganizacaoDadosEndereco {
                 return LOCALIZACAO_POSTAVEL;
             }
             if (pCampoInstanciado.getTipoCampoSTR().equals(FabTipoAtributoObjeto.LC_UNIDADE_FEDERATIVA.toString())) {
-                if (pCampoInstanciado.getObjetoDoAtributo() instanceof ComoCidade) {
+                if (pCampoInstanciado.getObjetoRaizDoAtributo() instanceof ComoCidade) {
                     return LOCALIZACAO_POSTAVEL;
                 }
             }
 
             if (pCampoInstanciado.getTipoCampoSTR().equals(FabTipoAtributoObjeto.LC_CIDADE.toString())) {
-                if (pCampoInstanciado.getObjetoDoAtributo() instanceof ComoBairro) {
+                if (pCampoInstanciado.getObjetoRaizDoAtributo() instanceof ComoBairro) {
                     return LOCALIZACAO_POSTAVEL;
                 }
             }
 
-            if (pCampoInstanciado.getObjetoDoAtributo() instanceof ComoLocal) {
+            if (pCampoInstanciado.getObjetoRaizDoAtributo() instanceof ComoLocal) {
                 return LOCALIZACAO_POSTAVEL;
             }
 
