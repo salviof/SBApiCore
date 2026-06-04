@@ -5,17 +5,16 @@
 package com.super_bits.modulosSB.SBCore.modulos.servicosCore;
 
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabTipoAgenteDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ERPTipoCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoRespostaComunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDestinatario;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfModeloMensagem;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfRespostaComunicacao;
-import java.util.List;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItffabricaCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
+import java.util.List;
 
 /**
  *
@@ -23,19 +22,21 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuar
  * ############################################################# <br/>
  * Esta Interface assina um dos serviços do núcleo SBCore
  * <br/>
- * Veja todos os serviços disponíveis digitando SBCore.getServico...############################################################# <br/>
-
- A [central de comunicação] permite gerenciar a comunicação entre os [agentes
- do sistema]
-
- Entendemos como comunicação no sistema, o ato de enviar uma mensagem atravez
- de um agente [remetente], a mensagem ser lida delo [destinatário] o
- destinatário [responder ao remetente], e o remetente ler a resposta,
- finalizando o ciclo da comunicação completa
-
-
- O sistema possui alguns [tipos de comunicação] padrão, assim como Respostas
- pré determinadas para sistemas de comunicação
+ * Veja todos os serviços disponíveis digitando
+ * SBCore.getServico...#############################################################
+ * <br/>
+ *
+ * A [central de comunicação] permite gerenciar a comunicação entre os [agentes
+ * do sistema]
+ *
+ * Entendemos como comunicação no sistema, o ato de enviar uma mensagem atravez
+ * de um agente [remetente], a mensagem ser lida delo [destinatário] o
+ * destinatário [responder ao remetente], e o remetente ler a resposta,
+ * finalizando o ciclo da comunicação completa
+ *
+ *
+ * O sistema possui alguns [tipos de comunicação] padrão, assim como Respostas
+ * pré determinadas para sistemas de comunicação
  *
  *
  *
@@ -51,7 +52,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuar
  * @author Salviof@gmail.com
  *
  */
-public interface ComoServicoComunicacao extends ComoServicoCoreSB {
+public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoComunicacaoUI {
 
     /**
      *
@@ -105,10 +106,6 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB {
             String mensagem
     );
 
-    public ItfDialogo registrarDialogo(
-            String pCodigoRegistroDialogo,
-            ItfDialogo pMensagem) throws ErroRegistrandoDialogo;
-
     public String dispararComunicacao(
             ItfDialogo pComunicacao,
             ItffabricaCanalComunicacao tiposTransporte
@@ -116,19 +113,17 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB {
 
     public boolean selarComunicacao(ItfDialogo pcomunicacao) throws ErroSelandoDialogo;
 
-    public ItffabricaCanalComunicacao getFabricaCanalPadrao();
+    public ItffabricaCanalComunicacao getCanalPadrao();
 
-    public List<ItfDialogo> getComunicacoesAguardandoRespostaDoDestinatario(ComoUsuario pDestinatario);
-
-    public List<ItfDialogo> getComunicacoesAguardandoRespostaDoRemetente(ComoUsuario pRemetente);
-
-    public boolean responderComunicacao(String codigoSeloComunicacao, ItfRespostaComunicacao pResposta);
+    public boolean responderComunicacao(String codigoSeloComunicacao, ItfRespostaComunicacao pResposta, ERPTipoCanalComunicacao pErpCanal);
 
     public FabTipoRespostaComunicacao aguardarRespostaComunicacao(
             ItfTipoCanalComunicacao pCanal,
             ItfDialogo pComunicacao, int pTempoAguardar, FabTipoRespostaComunicacao pTipoRespostaTempoFinal);
 
-    public ItfDialogo getComnunicacaoRegistrada(String codigoComunicacao);
+    public List<ItfDialogo> getNotificacoesAtivasMenu();
+
+    public List<ItfDialogo> getNotificacoesAtivasBloqueioTela();
 
     public ComoArmazenamentoComunicacao getArmazenamento();
 

@@ -65,4 +65,9 @@ public interface ItfDialogo extends ComoEntidadeSimplesSomenteLeitura {
         }
         return getMensagem().equals(getNome());
     }
+
+    public List<ERPTipoCanalComunicacao> getCanais();
+
+    public void setCanais(List<ERPTipoCanalComunicacao> pCanais);
+
 }

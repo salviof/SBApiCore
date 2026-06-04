@@ -19,11 +19,4 @@ public interface ItfDisparoComunicacao {
 
     public boolean validarDadosDisparo(ItfDialogo pDialogo);
 
-    /**
-     *
-     *
-     * @param pComunicacao
-     */
-    public void dispararRespostaComunicacao(ItfDialogo pComunicacao);
-
 }
