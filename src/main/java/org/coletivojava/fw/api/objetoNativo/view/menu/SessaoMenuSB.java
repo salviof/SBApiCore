@@ -53,8 +53,9 @@ public class SessaoMenuSB implements ComoSessaoDeMenuSB, Serializable {
         return (List) acoes;
     }
 
-    public void addAcao(ComoFabricaAcoes pAcao) {
+    public SessaoMenuSB addAcao(ComoFabricaAcoes pAcao) {
         this.addAcao(pAcao.getRegistro());
+        return this;
     }
 
     public void addAcao(ComoAcaoDoSistema pAcao) {
