@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author SalvioF
  */
-public interface ItfEstruturaDeEntidade extends ComoEntidadeSimples {
+public interface ItfEstruturaDeEntidade extends ComoEntidadeSimples, ComoEstruturaEntidadeSimples {
 
     void adicionarCampo(Field pCampo);
 
@@ -21,25 +21,13 @@ public interface ItfEstruturaDeEntidade extends ComoEntidadeSimples {
 
     void adicionarTags(String pTag);
 
-    List<ItfEstruturaCampoDinamicoEntidade> getCalculos();
+    public List<ItfEstruturaCampoDinamicoEntidade> getCalculos();
 
-    ItfEstruturaCampoEntidade getCampoByNomeDeclarado(String pNome);
+    public ItfEstruturaCampoEntidade getCampoByNomeDeclarado(String pNome);
 
-    /**
-     * -> Utilize @see #adicionarCampo(Field pCampo) para adicionar um campo,
-     * NAO utilize .add
-     *
-     * @return
-     */
-    List<ItfEstruturaCampoEntidade> getCampos();
+    public List<String> getListaEnum();
 
-    String getDescricao();
-
-    String getIcone();
-
-    List<String> getListaEnum();
-
-    List<ItfListaDeEntidade> getListas();
+    public List<ItfListaDeEntidade> getListas();
 
     public List<ItfEstruturaCampoEntidade> getCamposComListaDinamica();
 
@@ -53,19 +41,9 @@ public interface ItfEstruturaDeEntidade extends ComoEntidadeSimples {
 
     public List<ItfEstruturaCampoEntidade> getCamposComValorLogico();
 
-    List<ItfLigacaoMuitosParaMuitos> getMuitosParaMuitos();
+    public List<ItfLigacaoMuitosParaMuitos> getMuitosParaMuitos();
 
     List<ItfLigacaoMuitosParaUm> getMuitosParaUm();
-
-    /**
-     *
-     * @return Nome da Entidade class.getSimpleName()
-     */
-    public String getNomeEntidade();
-
-    public String getPlural();
-
-    public List<String> getTags();
 
     public FabTipoEntidadeGenerico getTipoEntidade();
 

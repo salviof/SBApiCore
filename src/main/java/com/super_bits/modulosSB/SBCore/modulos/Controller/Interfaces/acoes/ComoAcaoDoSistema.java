@@ -9,7 +9,6 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormularioEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.fabricas.FabTipoAcaoSistemaGenerica;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
@@ -21,36 +20,11 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.icones.ComoTemIc
  *
  * @author sfurbino
  */
-public interface ComoAcaoDoSistema extends ComoEntidadeSimples, ComoTemIcone {
+public interface ComoAcaoDoSistema extends ComoEntidadeSimples, ComoTemIcone, ComoEstruturaAcaoDoSistema {
 
     public void setNomeAcao(String pNome);
 
     public String getNomeAcao();
-
-    /**
-     * ícone que representa a ação, os icones do answameFonts devem ser
-     * configurados com um fa espaço, o nome do icone, ex: [fa fa-iconeLegal]
-     *
-     * @return icone da ação
-     */
-    public String getIconeAcao();
-
-    /**
-     *
-     * Em alguns casos as açoes devem conter cores e os valores devem ser
-     * setados em RGB Hexadecimal
-     *
-     * @return Cor da ação
-     */
-    public String getCor();
-
-    /**
-     *
-     * Descrição detalhada da ação
-     *
-     * @return uma descrição detalhada da ação
-     */
-    public String getDescricao();
 
     public void setDescricao(String pDescricao);
 
@@ -87,8 +61,6 @@ public interface ComoAcaoDoSistema extends ComoEntidadeSimples, ComoTemIcone {
      */
     public void setModuloAcaoSistema(ItfModuloAcaoSistema pmodulo);
 
-    public ItfModuloAcaoSistema getModulo();
-
     /**
      *
      * Indica se a ação foi criada apenas com constructor ou configurada com
@@ -109,13 +81,6 @@ public interface ComoAcaoDoSistema extends ComoEntidadeSimples, ComoTemIcone {
      * @return String representando o enum que gerou a ação
      */
     public String getNomeEnumOriginal();
-
-    /**
-     * Tipo de ação é um tipo de ação conhecida do sistema
-     *
-     * @return
-     */
-    public FabTipoAcaoSistema getTipoAcaoSistema();
 
     /**
      *
@@ -168,51 +133,9 @@ public interface ComoAcaoDoSistema extends ComoEntidadeSimples, ComoTemIcone {
 
     /**
      *
-     * @return Boolean informando se a ação tem um formulário vinculado
-     */
-    public boolean isUmaAcaoFormulario();
-
-    /**
-     *
-     * @return Boolean informando se esta ação possui uma ação principal
-     * configurada, normalmente uma ação principal refere-se a ação de gestão de
-     * dominio da ação
-     */
-    public boolean isTemAcaoPrincipal();
-
-    /**
-     *
-     * @return Boolean, informando se é uma ação Generica conhecida do sistema
-     */
-    public boolean isUmaAcaoGenerica();
-
-    /**
-     *
-     * @return Informa se a ação é uma ação de gestão de dominio
-     */
-    public boolean isUmaAcaoGestaoDominio();
-
-    /**
-     *
      * @return Informa um boolean, se a ação é uma ação do tipo sessão
      */
     public boolean isUmaAcaoSessaoMenu();
-
-    /**
-     *
-     * @return
-     */
-    public boolean isUmaAcaoDeEntidade();
-
-    /**
-     *
-     * Retorna se é uma uma ação da camada de cotnroler (que executa alguma
-     * alteração no banco de dados) os enuns das ações de controleer devem
-     * conter _CTR_
-     *
-     * @return é Uma ação controller?
-     */
-    public boolean isUmaAcaoController();
 
     /**
      * Uma ação de auto execução é uma ação programada para ser executada de
@@ -224,15 +147,6 @@ public interface ComoAcaoDoSistema extends ComoEntidadeSimples, ComoTemIcone {
     public default boolean isUmaAcaoControllerAutoExecucao() {
         return (this instanceof ComoAcaoControllerAutoExecucao);
     }
-
-    /**
-     *
-     * O nome do dominio é referente a primeira parte do nome da ação, antes das
-     * palavras de marcação, como CTR, ou frm
-     *
-     * @return
-     */
-    public String getNomeDominio();
 
     /**
      *
