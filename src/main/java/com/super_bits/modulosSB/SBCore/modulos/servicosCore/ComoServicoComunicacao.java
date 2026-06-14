@@ -4,6 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.servicosCore;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabTipoAgenteDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ERPTipoCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoComunicacao;
@@ -13,6 +14,7 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfRespostaComunicaca
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItffabricaCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
 import java.util.List;
 
@@ -128,5 +130,9 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
     public ComoArmazenamentoComunicacao getArmazenamento();
 
     public String getTokenDispositivoNotificacao(ComoUsuario pUsuario);
+
+    public List<ItfDialogo> dispararNotificacaoAcaoSucesso(ComoAcaoDoSistema pAcao, ComoEntidadeSimples pEntidadeRetorno);
+
+    public void atualizarGatilhosDeNotificacaoPorAcao();
 
 }

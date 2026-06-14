@@ -8,7 +8,7 @@ package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.calculos;
  *
  * @author desenvolvedor
  */
-public interface ItfCalculos {
+public interface ComoValorLogico {
 
     public Object getValor(Object... pEntidade);
 
@@ -17,7 +17,8 @@ public interface ItfCalculos {
     }
 
     public default Long getSomaPadrao(Object... pParametros) {
-        throw new UnsupportedOperationException("a soma padrão de calculos ainda não foi implementada");
-    }
 
+        throw new UnsupportedOperationException("Não implementado");
+
+    }
 }

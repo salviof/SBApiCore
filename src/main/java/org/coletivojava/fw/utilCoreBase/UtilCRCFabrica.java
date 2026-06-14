@@ -14,6 +14,8 @@ import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeVinculadoAEnum;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoStatus;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 
 /**
@@ -44,6 +46,18 @@ public abstract class UtilCRCFabrica {
                 throw new UnsupportedOperationException("Para utilizar a implementação padrão do getRegistro() é nescessário anotar o enum com  " + InfoObjetoDaFabrica.class.getSimpleName() + "verifique os atributos da fabrica" + pEnumFabrica.getClass().getSimpleName());
             }
             if (infoObjeto.classeObjeto() == void.class) {
+                if (!infoObjeto.pacoteImplantacao().isEmpty()) {
+                    List<Class> implementacoesEncontradas = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(InfoObjetoSB.class, infoObjeto.pacoteImplantacao(), false);
+                    if (!implementacoesEncontradas.isEmpty()) {
+                        if (implementacoesEncontradas.size() > 1) {
+                            throw new UnsupportedOperationException("Foram encontradas mais de uma implementação vinculadas a fabrica " + classe.getName() + " especifique melhor o pacote: " + infoObjeto.pacoteImplantacao());
+                        }
+                        Class classeObj = implementacoesEncontradas.get(0);
+                        if (classeObj != null) {
+                            return classeObj;
+                        }
+                    }
+                }
                 throw new UnsupportedOperationException("Não é possível utilizar a implementação padrão do getRegistro, sem especificar a classe vinculada a esta fabrica");
             }
             return infoObjeto.classeObjeto();
@@ -87,6 +101,16 @@ public abstract class UtilCRCFabrica {
             }
             if (novoObjeto instanceof ComoEntidadeVinculadoAEnum) {
                 ((ComoEntidadeVinculadoAEnum) novoObjeto).setEnumVinculado(pEnumFabrica);
+            }
+            if (!infoObjeto.icone().isEmpty()) {
+                if (novoObjeto.isTemCampoAnotado(FabTipoAtributoObjeto.ICONE)) {
+                    novoObjeto.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.ICONE).setValor(infoObjeto.icone());
+                }
+            }
+            if (!infoObjeto.cor().isEmpty()) {
+                if (novoObjeto.isTemCampoAnotado(FabTipoAtributoObjeto.COR)) {
+                    novoObjeto.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.COR).setValor(infoObjeto.cor());
+                }
             }
 
             return novoObjeto;

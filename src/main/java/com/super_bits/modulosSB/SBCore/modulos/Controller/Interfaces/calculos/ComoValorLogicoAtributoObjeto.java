@@ -12,8 +12,12 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstancia
  * @since 04/08/2019
  * @version 1.0
  */
-public interface ItfCalculoValorLogicoAtributoObjeto extends ItfCalculos {
+public interface ComoValorLogicoAtributoObjeto extends ComoValorLogico {
 
     public ItfCampoInstanciado getCampoInst();
+
+    public default Boolean isSomenteLeitura() {
+        return null;
+    }
 
 }

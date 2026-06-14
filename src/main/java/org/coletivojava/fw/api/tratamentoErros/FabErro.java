@@ -37,9 +37,4 @@ public enum FabErro {
      */
     PARA_TUDO;
 
-    /*
-     *
-     * EXIBE A MENSAGEM DE ERRO PARA O USUÁRIO, NÃO GRAVA LOG, PODE OU NÃO
-     * MANIFESTAR NO MODO EM DESENVOLVIMENTO
-     */
 }

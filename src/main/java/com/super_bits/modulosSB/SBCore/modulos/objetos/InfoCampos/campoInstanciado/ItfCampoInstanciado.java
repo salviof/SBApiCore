@@ -6,7 +6,6 @@ package com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanci
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfValidacao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario.FabEstadoFormulario;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.calculos.ItfCalculoValorLogicoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.ItfPropriedadesReflexaoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
 
@@ -14,6 +13,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.validador.ErroValidacao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoComponenteVisualSB;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.calculos.ComoValorLogicoAtributoObjeto;
 
 /**
  *
@@ -242,7 +242,7 @@ public interface ItfCampoInstanciado extends ComoAtributoObjetoSB, ItfCampoInsta
 
     public ItfValidacao getValidacaoLogicaEstrategia();
 
-    public ItfCalculoValorLogicoAtributoObjeto getValorLogicaEstrategia();
+    public ComoValorLogicoAtributoObjeto getValorLogicaEstrategia();
 
     public boolean isUmValorEmLista();
 

@@ -13,20 +13,22 @@ import java.util.List;
  */
 public interface ComoMapaSubstituicao {
 
-    void adicionarImagem(String palavraChave, String valor);
+    public void adicionarImagem(String palavraChave, String valor);
 
-    void adicionarPalavraChave(String palavra, String valor);
+    public void adicionarPalavraChave(String palavra, String valor);
 
-    void adicionarPalavrasChaveDoObjeto(ComoEntidadeSimples pObjeto);
+    public void adicionarListaComSubCampo(String palavra, String valor);
 
-    void adicionarPalavrasChaveDoObjeto(String prefixo, ComoEntidadeSimples pObjeto);
+    public void adicionarPalavrasChaveDoObjeto(ComoEntidadeSimples pObjeto);
+
+    public void adicionarPalavrasChaveDoObjeto(String prefixo, ComoEntidadeSimples pObjeto);
 
     /**
      *
      * @return Lista de Palavra chave dispon
      */
-    List<String> getpalavrasChave();
+    public List<String> getpalavrasChave();
 
-    String substituirEmString(String pString);
+    public String substituirEmString(String pString);
 
 }

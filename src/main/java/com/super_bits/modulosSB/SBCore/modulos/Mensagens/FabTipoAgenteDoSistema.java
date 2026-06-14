@@ -4,6 +4,8 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Mensagens;
 
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+
 /**
  *
  * Tudo que é capaz de abrir uma sessão na aplicação, e receber mensagens é

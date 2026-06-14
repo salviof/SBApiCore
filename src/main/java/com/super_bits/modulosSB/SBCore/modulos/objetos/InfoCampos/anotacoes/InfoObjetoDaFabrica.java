@@ -17,4 +17,10 @@ public @interface InfoObjetoDaFabrica {
 
     public Class classeObjeto() default void.class;
 
+    public String pacoteImplantacao() default "";
+
+    public String icone() default "";
+
+    public String cor() default "";
+
 }
