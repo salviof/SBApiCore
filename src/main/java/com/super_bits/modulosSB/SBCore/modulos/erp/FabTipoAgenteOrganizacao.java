@@ -39,7 +39,7 @@ public enum FabTipoAgenteOrganizacao implements ComoFabrica {
     @InfoObjetoDaFabrica(pacoteImplantacao = "com.super_bits.modulosSB.SBCore.modulos.objetos.objetoNativo", id = 11L, nomeObjeto = "Todo Mundo", icone = "fa fa-globe", cor = "#00BCD4")
     TODO_MUNDO,
     /**
-     * Depreciado, idal é que a governança seja realizada por todos os agentes
+     * Depreciado, ideal é que a governança seja realizada por todos os agentes
      * intemediada por uma ia de governança transparente.
      */
     @Deprecated
@@ -48,7 +48,7 @@ public enum FabTipoAgenteOrganizacao implements ComoFabrica {
 
     @Override
     public Object getRegistro() {
-        return ComoFabrica.super.getRegistro(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        return ComoFabrica.super.getRegistro();
     }
 
     public FabTipoCanalChat getTipoCanal() {

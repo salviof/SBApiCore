@@ -193,4 +193,6 @@ public @interface InfoCampo {
 
     public FabTipoPesquisa tipoPesquisa() default FabTipoPesquisa.PADRAO;
 
+    public String grupoPadrao() default "Dados Básicos";
+
 }
