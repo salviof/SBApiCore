@@ -14,6 +14,7 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfRespostaComunicaca
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItffabricaCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogoEntrePessoas;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
 import java.util.List;
@@ -124,6 +125,10 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
             ItfDialogo pComunicacao, int pTempoAguardar, FabTipoRespostaComunicacao pTipoRespostaTempoFinal);
 
     public List<ItfDialogo> getNotificacoesAtivasMenu();
+
+    public List<ItfDialogoEntrePessoas> getMsgColaboradorAguarandoMinhaResposta();
+
+    public List<ItfDialogoEntrePessoas> getMsgQueEnvieiSemResposta();
 
     public List<ItfDialogo> getNotificacoesAtivasBloqueioTela();
 

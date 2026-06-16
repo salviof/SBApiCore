@@ -17,8 +17,6 @@ public interface ItfDialogo extends ComoEntidadeSimplesSomenteLeitura {
 
     public ItfDestinatario getDestinatario();
 
-    public ComoUsuario getUsuarioRemetente();
-
     public ItfTipoComunicacao getTipoComunicacao();
 
     public ItfRespostaComunicacao getRespostaEscolhida();
@@ -69,5 +67,13 @@ public interface ItfDialogo extends ComoEntidadeSimplesSomenteLeitura {
     public List<ERPTipoCanalComunicacao> getCanais();
 
     public void setCanais(List<ERPTipoCanalComunicacao> pCanais);
+
+    public default boolean isUmDialogoEntrePessoas() {
+        return this instanceof ItfDialogoEntrePessoas;
+    }
+
+    public default ItfDialogoEntrePessoas getComoDialogoEntrePesoas() {
+        return (ItfDialogoEntrePessoas) this;
+    }
 
 }

@@ -8,6 +8,7 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ERPTipoCanalComunicac
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogoEntrePessoas;
 
 /**
  *
@@ -20,6 +21,10 @@ public interface ComoArmazenamentoComunicacao {
     public boolean removerDialogoAtivo(String pCodigoSelo);
 
     public List<ItfDialogo> getDialogos(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
+
+    public List<ItfDialogoEntrePessoas> getMensagemAguardandoMinhaResposta(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
+
+    public List<ItfDialogoEntrePessoas> getMensagemAguardandoRespostaDeOutra(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
 
     public boolean atualizarNotificacoesAtivas();
 
