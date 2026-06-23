@@ -8,14 +8,14 @@ import com.super_bits.modulosSB.SBCore.modulos.Mensagens.ItfMensagem;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfRespostaComunicacao;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComunicacao;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
-import org.coletivojava.fw.api.objetoNativo.comunicacao.RespostaComunicacao;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
+
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogo;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoTipoRespostaComunicacao;
 
 /**
  *
@@ -23,9 +23,9 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
  */
 public class UtilCRCComunicacao {
 
-    public static List<ItfTipoRespostaComunicacao> getTipoRespostas(FabTipoComunicacao pTipoComunicacao) {
+    public static List<ComoTipoRespostaComunicacao> getTipoRespostas(FabTipoComunicacao pTipoComunicacao) {
 
-        List<ItfTipoRespostaComunicacao> respostasDaComunicacao = new ArrayList();
+        List<ComoTipoRespostaComunicacao> respostasDaComunicacao = new ArrayList();
         switch (pTipoComunicacao) {
             case NOTIFICAR:
                 respostasDaComunicacao.add(FabTipoRespostaComunicacao.ENTENDIDO.getRegistro());
@@ -77,47 +77,11 @@ public class UtilCRCComunicacao {
 
     }
 
-    private static class OrdemPositivoPorUltimo implements Comparator<ItfRespostaComunicacao> {
-
-        @Override
-        public int compare(ItfRespostaComunicacao o1, ItfRespostaComunicacao o2) {
-            if (o1.getTipoResposta().isRespostasPosiva()) {
-                if (o2.getTipoResposta().isRespostasPosiva()) {
-                    return -1;
-                }
-                return 1;
-            } else {
-                return -1;
-            }
-        }
-
-    }
-
-    public static List<ItfRespostaComunicacao> getRespostaCOmunicacao(ItfDialogo pComunicacao) {
-
-        return getRespostaCOmunicacao(pComunicacao.getTipoComunicacao().getFabTipoComunicacao(), pComunicacao);
-
-    }
-
-    public static List<ItfRespostaComunicacao> getRespostaCOmunicacao(FabTipoComunicacao pTipoComunicacao, ItfDialogo cm) {
-        List<ItfRespostaComunicacao> respostas = new ArrayList<>();
-
-        getTipoRespostas(pTipoComunicacao).stream().map((resposta)
-                -> new RespostaComunicacao(cm, resposta)).forEach((resp) -> {
-            respostas.add(resp);
-        });
-
-        Comparator cp = new OrdemPositivoPorUltimo();
-        respostas.sort(cp);
-        return respostas;
-
-    }
-
-    public static String gerarMensagem(ItfDialogo pComunicacao) {
+    public static String gerarMensagem(ComoDialogo pComunicacao) {
         return pComunicacao.getTipoComunicacao().getMensagemModeloPredefinida();
     }
 
-    public static String gerarAssunto(ItfDialogo pComunicacao) {
+    public static String gerarAssunto(ComoDialogo pComunicacao) {
         return pComunicacao.getTipoComunicacao().getAssuntoModeloPredefinido();
     }
 

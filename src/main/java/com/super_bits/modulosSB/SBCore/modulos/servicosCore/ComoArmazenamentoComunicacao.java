@@ -5,10 +5,10 @@
 package com.super_bits.modulosSB.SBCore.modulos.servicosCore;
 
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ERPTipoCanalComunicacao;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
 import java.util.List;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogoEntrePessoas;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogoEntrePessoas;
 
 /**
  *
@@ -16,18 +16,18 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogoEntrePessoa
  */
 public interface ComoArmazenamentoComunicacao {
 
-    public boolean registrarDialogoAtivo(ItfDialogo pComunicacao) throws ErroRegistrandoDialogo;
+    public boolean registrarDialogoAtivo(ComoDialogo pComunicacao) throws ErroRegistrandoDialogo;
 
     public boolean removerDialogoAtivo(String pCodigoSelo);
 
-    public List<ItfDialogo> getDialogos(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
+    public List<ComoDialogo> getDialogos(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
 
-    public List<ItfDialogoEntrePessoas> getMensagemAguardandoMinhaResposta(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
+    public List<ComoDialogoEntrePessoas> getMensagemAguardandoMinhaResposta(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
 
-    public List<ItfDialogoEntrePessoas> getMensagemAguardandoRespostaDeOutra(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
+    public List<ComoDialogoEntrePessoas> getMensagemAguardandoRespostaDeOutra(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
 
     public boolean atualizarNotificacoesAtivas();
 
-    public ItfDialogo getDialogoAtivoByCodigoSelo(String pCodigoSelo);
+    public ComoDialogo getDialogoAtivoByCodigoSelo(String pCodigoSelo);
 
 }

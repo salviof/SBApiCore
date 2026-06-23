@@ -4,7 +4,7 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.servicosCore;
 
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogo;
 
 /**
  *
@@ -12,8 +12,8 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
  */
 public interface ComoServicoComunicacaoUI {
 
-    public boolean notificarViaMenu(ItfDialogo pDialogo);
+    public boolean notificarViaMenu(ComoDialogo pDialogo);
 
-    public boolean notificarViaBloqueioTEla(ItfDialogo pDialogo);
+    public boolean notificarViaBloqueioTEla(ComoDialogo pDialogo);
 
 }

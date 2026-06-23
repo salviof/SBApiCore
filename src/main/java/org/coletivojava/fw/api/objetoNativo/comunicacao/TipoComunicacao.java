@@ -6,7 +6,6 @@ package org.coletivojava.fw.api.objetoNativo.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoComunicacao;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoRespostaComunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
@@ -15,6 +14,7 @@ import java.util.List;
 import org.coletivojava.fw.api.objetoNativo.ObjetoNativoCoreDoSistema;
 import org.coletivojava.fw.utilCoreBase.UtilCRCComunicacao;
 import org.coletivojava.fw.utilCoreBase.UtilCRCStringsCammelCaseSimples;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoTipoRespostaComunicacao;
 
 /**
  *
@@ -30,7 +30,7 @@ public class TipoComunicacao extends ObjetoNativoCoreDoSistema implements ItfTip
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private final Long id;
     private final FabTipoComunicacao fabTipoComunicacao;
-    private final List<TipoRespostaComunicacao> respostasPossiveis;
+    private final List<ComoTipoRespostaComunicacao> respostasPossiveis;
     private String mensagemModeloPredefinida;
     private String assunto;
 
@@ -70,7 +70,7 @@ public class TipoComunicacao extends ObjetoNativoCoreDoSistema implements ItfTip
     }
 
     @Override
-    public List<ItfTipoRespostaComunicacao> getTipoRespostasPossiveis() {
+    public List<ComoTipoRespostaComunicacao> getTipoRespostasPossiveis() {
         return (List) respostasPossiveis;
     }
 

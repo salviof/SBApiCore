@@ -4,7 +4,6 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.icones.ComoTemIcone;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 
@@ -12,7 +11,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoA
  *
  * @author desenvolvedor
  */
-public interface ItfTipoRespostaComunicacao extends ComoTemIcone {
+public interface ComoTipoRespostaComunicacao extends ComoTemIcone {
 
     public FabTipoRespostaComunicacao getFabricaTipoResposta();
 

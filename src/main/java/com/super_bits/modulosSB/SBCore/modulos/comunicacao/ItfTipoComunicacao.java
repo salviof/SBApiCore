@@ -22,6 +22,6 @@ public interface ItfTipoComunicacao extends ComoEntidadeSimples, ComoTemIcone {
 
     public void setMensagemPersonalizada(String pMensagemPersonalizada);
 
-    public List<ItfTipoRespostaComunicacao> getTipoRespostasPossiveis();
+    public List<ComoTipoRespostaComunicacao> getTipoRespostasPossiveis();
 
 }

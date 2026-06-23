@@ -5,16 +5,17 @@
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 
 /**
  *
  * @author desenvolvedor
  */
-public interface ItfRespostaComunicacao {
+public interface ItfRespostaComunicacao extends ComoEntidadeSimples {
 
-    public ItfDialogo getComunicacao();
+    public ComoDialogo getComunicacao();
 
-    public ItfTipoRespostaComunicacao getTipoResposta();
+    public ComoTipoRespostaComunicacao getTipoResposta();
 
     public ComoAcaoDoSistema getBotaoAcao();
 

@@ -175,6 +175,7 @@ public abstract class ObjetoNativoCoreDoSistema implements ComoEntidadeSimples {
     @Override
     @Deprecated
     public List<ItfCampoInstanciado> getCamposInstanciados() {
+
         LogManager.getLogger(LogPadraoSB.class).debug("O recurso campo instanciado não é incado para objetos nativos do sistema");
         return new ArrayList<>();
     }

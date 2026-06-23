@@ -15,8 +15,8 @@ public interface ItfDisparoComunicacao {
      * @param pComunicacao
      * @return O Código do recibo
      */
-    public String dispararInicioComunicacao(ItfDialogo pDialogo);
+    public String dispararInicioComunicacao(ComoDialogo pDialogo);
 
-    public boolean validarDadosDisparo(ItfDialogo pDialogo);
+    public boolean validarDadosDisparo(ComoDialogo pDialogo);
 
 }

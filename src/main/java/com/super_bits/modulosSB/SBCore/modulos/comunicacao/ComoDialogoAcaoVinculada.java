@@ -10,7 +10,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoA
  *
  * @author desenvolvedor
  */
-public interface ItfComunicacaoAcaoVinculada extends ItfDialogo {
+public interface ComoDialogoAcaoVinculada extends ComoDialogo {
 
     public ComoAcaoDoSistema getAcaoVinculada();
 }

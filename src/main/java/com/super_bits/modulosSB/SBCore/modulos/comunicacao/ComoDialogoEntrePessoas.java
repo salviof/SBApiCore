@@ -10,7 +10,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuar
  *
  * @author salvio
  */
-public interface ItfDialogoEntrePessoas extends ItfDialogo {
+public interface ComoDialogoEntrePessoas extends ComoDialogo {
 
     public ComoUsuario getUsuarioRemetente();
 

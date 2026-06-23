@@ -796,8 +796,8 @@ public enum FabTipoAtributoObjeto implements ComoFabrica {
             case CODIGO_DE_BARRAS:
 
                 return TIPO_PRIMITIVO.LETRAS;
-
             case ID:
+                return TIPO_PRIMITIVO.NUMERO_LONGO;
 
             case CHART_VALOR:
             case QUANTIDADE:

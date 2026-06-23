@@ -63,7 +63,7 @@ public interface ItfApiErpSuperBits<T> extends ComoFabrica {
         return (T) UtilCRCReflexaoAPIERP.getImplementacaoDoContexto(this);
     }
 
-    public default <I extends ComoEntidadeSimples> I getDTO(String pJson, Class<? extends I> pItefaceObjeto) throws ErroJsonInterpredador {
+    public default <I extends ComoEntidadeSimplesSomenteLeitura> I getDTO(String pJson, Class<? extends I> pItefaceObjeto) throws ErroJsonInterpredador {
 
         String classeDTOStr = UtilCRCReflexaoAPIERP.getPacoteApiDTO(this, pItefaceObjeto) + "." + UtilCRCReflexaoAPIERP.getNomeDTOClassePojo(pItefaceObjeto);
         Class classeValidacao = (Class<? extends ItfValidacao>) ReflectionUtils.forName(classeDTOStr);

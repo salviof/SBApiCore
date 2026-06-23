@@ -4,16 +4,16 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.comunicacao;
 
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeReflexivel;
 import java.util.Date;
 import java.util.List;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimplesSomenteLeitura;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
 
 /**
  *
  * @author salvioF
  */
-public interface ItfDialogo extends ComoEntidadeSimplesSomenteLeitura {
+public interface ComoDialogo extends ComoEntidadeSimplesSomenteLeitura, ComoEntidadeReflexivel {
 
     public ItfDestinatario getDestinatario();
 
@@ -69,11 +69,11 @@ public interface ItfDialogo extends ComoEntidadeSimplesSomenteLeitura {
     public void setCanais(List<ERPTipoCanalComunicacao> pCanais);
 
     public default boolean isUmDialogoEntrePessoas() {
-        return this instanceof ItfDialogoEntrePessoas;
+        return this instanceof ComoDialogoEntrePessoas;
     }
 
-    public default ItfDialogoEntrePessoas getComoDialogoEntrePesoas() {
-        return (ItfDialogoEntrePessoas) this;
+    public default ComoDialogoEntrePessoas getComoDialogoEntrePesoas() {
+        return (ComoDialogoEntrePessoas) this;
     }
 
 }

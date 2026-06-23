@@ -10,6 +10,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntid
  *
  * @author salvio
  */
-public interface ComoDialgo extends ComoEntidadeSimples, ItfDialogo {
+@Deprecated
+public interface ComoDialgo extends ComoEntidadeSimples, ComoDialogo {
 
 }

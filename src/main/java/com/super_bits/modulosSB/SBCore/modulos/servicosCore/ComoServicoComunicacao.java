@@ -13,8 +13,8 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoRespostaComuni
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfRespostaComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItffabricaCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoCanalComunicacao;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogoEntrePessoas;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogo;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogoEntrePessoas;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
 import java.util.List;
@@ -73,22 +73,22 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
      * @see FabTipoRespostaComunicacao
      * @see FabTipoRespostaComunicacao#AQUARDE_A_RESPOSTA
      */
-    public ItfDialogo gerarComunicacaoSistema_Usuario(FabTipoComunicacao tipocomunicacao,
+    public ComoDialogo gerarComunicacaoSistema_Usuario(FabTipoComunicacao tipocomunicacao,
             ComoUsuario pUsuario,
             String mensagem,
             String pAssunto
     );
 
-    public ItfDialogo gerarComunicacaoSistema_Usuario(FabTipoComunicacao tipocomunicacao,
+    public ComoDialogo gerarComunicacaoSistema_Usuario(FabTipoComunicacao tipocomunicacao,
             ComoUsuario pUsuario,
             String mensagem
     );
 
-    public ItfDialogo gerarComunicacaoSistema_UsuarioLogado(FabTipoComunicacao tipocomunicacao,
+    public ComoDialogo gerarComunicacaoSistema_UsuarioLogado(FabTipoComunicacao tipocomunicacao,
             String mensagem
     );
 
-    public ItfDialogo gerarComunicacaoSistema_UsuarioLogado(FabTipoComunicacao tipocomunicacao,
+    public ComoDialogo gerarComunicacaoSistema_UsuarioLogado(FabTipoComunicacao tipocomunicacao,
             String mensagem,
             String pAssunto
     );
@@ -102,7 +102,7 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
      * @param mensagem
      * @return
      */
-    public ItfDialogo gerarComunicacaoUsuario_Usuario(FabTipoComunicacao tipocomunicacao,
+    public ComoDialogo gerarComunicacaoUsuario_Usuario(FabTipoComunicacao tipocomunicacao,
             ComoUsuario pUsuarioRemetente,
             ComoUsuario pUsuarioDestinatario,
             String pAssunto,
@@ -110,11 +110,11 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
     );
 
     public String dispararComunicacao(
-            ItfDialogo pComunicacao,
+            ComoDialogo pComunicacao,
             ItffabricaCanalComunicacao tiposTransporte
     ) throws ErroAcessandoCanalComunicacao;
 
-    public boolean selarComunicacao(ItfDialogo pcomunicacao) throws ErroSelandoDialogo;
+    public boolean selarComunicacao(ComoDialogo pcomunicacao) throws ErroSelandoDialogo;
 
     public ItffabricaCanalComunicacao getCanalPadrao();
 
@@ -122,21 +122,21 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
 
     public FabTipoRespostaComunicacao aguardarRespostaComunicacao(
             ItfTipoCanalComunicacao pCanal,
-            ItfDialogo pComunicacao, int pTempoAguardar, FabTipoRespostaComunicacao pTipoRespostaTempoFinal);
+            ComoDialogo pComunicacao, int pTempoAguardar, FabTipoRespostaComunicacao pTipoRespostaTempoFinal);
 
-    public List<ItfDialogo> getNotificacoesAtivasMenu();
+    public List<ComoDialogo> getNotificacoesAtivasMenu();
 
-    public List<ItfDialogoEntrePessoas> getMsgColaboradorAguarandoMinhaResposta();
+    public List<ComoDialogoEntrePessoas> getMsgColaboradorAguarandoMinhaResposta();
 
-    public List<ItfDialogoEntrePessoas> getMsgQueEnvieiSemResposta();
+    public List<ComoDialogoEntrePessoas> getMsgQueEnvieiSemResposta();
 
-    public List<ItfDialogo> getNotificacoesAtivasBloqueioTela();
+    public List<ComoDialogo> getNotificacoesAtivasBloqueioTela();
 
     public ComoArmazenamentoComunicacao getArmazenamento();
 
     public String getTokenDispositivoNotificacao(ComoUsuario pUsuario);
 
-    public List<ItfDialogo> dispararNotificacaoAcaoSucesso(ComoAcaoDoSistema pAcao, ComoEntidadeSimples pEntidadeRetorno);
+    public List<ComoDialogo> dispararNotificacaoAcaoSucesso(ComoAcaoDoSistema pAcao, ComoEntidadeSimples pEntidadeRetorno);
 
     public void atualizarGatilhosDeNotificacaoPorAcao();
 
