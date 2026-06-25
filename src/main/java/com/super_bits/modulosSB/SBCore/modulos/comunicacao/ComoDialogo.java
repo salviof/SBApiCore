@@ -41,6 +41,8 @@ public interface ComoDialogo extends ComoEntidadeSimplesSomenteLeitura, ComoEnti
 
     public void setCodigoSelo(String codigoSelo);
 
+    public String getPaginaInstanciaID();
+
     /**
      *
      * @return Tempo em Minutos aceitável para resposta

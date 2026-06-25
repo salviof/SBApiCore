@@ -69,19 +69,21 @@ public enum FabTipoRespostaComunicacao implements ComoFabrica {
             case PERGUNTE_MAIS_TARDE:
             case RECURSAR_RESPONDER:
             case NAO_ENTENDIDO:
+            case NAO_AUTORIZADO:
+            case PERSONALIZADA:
+            case TALVEZ:
+            case CRIAR_NOVA_COMUNICACAO:
+            case RESPONDER_COM_TEXTO:
+            case AQUARDE_A_RESPOSTA:
                 return false;
             case SIM:
-            case TALVEZ:
+
             case ENVIAR_INFORMACAO:
-            case AQUARDE_A_RESPOSTA:
             case AUTORIZADO:
-            case NAO_AUTORIZADO:
             case ENTENDIDO:
             case CONFIRMAR:
             case OK:
-            case PERSONALIZADA:
-            case RESPONDER_COM_TEXTO:
-            case CRIAR_NOVA_COMUNICACAO:
+
                 return true;
 
             default:

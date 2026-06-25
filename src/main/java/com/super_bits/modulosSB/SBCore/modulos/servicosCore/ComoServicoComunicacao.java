@@ -122,7 +122,7 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
 
     public FabTipoRespostaComunicacao aguardarRespostaComunicacao(
             ItfTipoCanalComunicacao pCanal,
-            ComoDialogo pComunicacao, int pTempoAguardar, FabTipoRespostaComunicacao pTipoRespostaTempoFinal);
+            ComoDialogo pComunicacao, int pTempoAguardar, FabTipoRespostaComunicacao pTipoRespostaTempoFinal) throws ErroDetectandoTelaBloqueio;
 
     public List<ComoDialogo> getNotificacoesAtivasMenu();
 

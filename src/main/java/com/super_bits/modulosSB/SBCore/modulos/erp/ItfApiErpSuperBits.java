@@ -20,6 +20,7 @@ import org.coletivojava.fw.utilCoreBase.UtilCRCReflexaoSimples;
 import org.reflections.ReflectionUtils;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimplesSomenteLeitura;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.dto.ComoDTOCaramelo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 
 /**
@@ -78,6 +79,9 @@ public interface ItfApiErpSuperBits<T> extends ComoFabrica {
         try {
             consTructorDTO = classeValidacao.getConstructor(String.class);
             I dto = (I) consTructorDTO.newInstance(pJson);
+            if (dto instanceof ComoDTOCaramelo) {
+                ComoDTOCaramelo dtoCaramelo = (ComoDTOCaramelo) dto;
+            }
             return dto;
         } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             throw new ErroJsonInterpredador(this, pItefaceObjeto, pJson, ex);
