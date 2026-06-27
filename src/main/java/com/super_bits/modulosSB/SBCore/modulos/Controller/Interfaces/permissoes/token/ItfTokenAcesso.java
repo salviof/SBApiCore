@@ -14,7 +14,7 @@ import java.util.Date;
  * @since 14/10/2019
  * @version 1.0
  */
-public interface ItfTokenAcesso extends ComoEntidadeSimples {
+public interface ItfTokenAcesso extends ComoEntidadeSimples, ComoTokenAcessoBasico {
 
     public String getCodigo();
 
@@ -27,5 +27,16 @@ public interface ItfTokenAcesso extends ComoEntidadeSimples {
     public void setDataHoraCriacao(Date dataHoraCriacao);
 
     public void setValidade(Date validade);
+
+    @Override
+    public default boolean isTokenValido() {
+        if (getCodigo() == null) {
+            return false;
+        }
+        if (getValidade() != null) {
+            return getValidade().getTime() < new Date().getTime();
+        }
+        return true;
+    }
 
 }

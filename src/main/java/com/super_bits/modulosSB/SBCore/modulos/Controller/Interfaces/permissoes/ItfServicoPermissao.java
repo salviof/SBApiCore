@@ -18,6 +18,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuar
 import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ComoServicoCoreSB;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoMenusDeSessao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.token.ComoTokenAcessoBasico;
 
 /**
  * ############################################################# <br/>
@@ -97,5 +98,7 @@ public interface ItfServicoPermissao extends ComoServicoCoreSB {
     public FabTipoAgenteOrganizacao getTipoAgente(ComoUsuario pUsuario);
 
     public ComoContatoHumano getContatoDoUsuario(ComoUsuario pUsuairo) throws ErroDadosDeContatoUsuarioNaoEncontrado;
+
+    public ComoTokenAcessoBasico getTokenAcessoEntreSistemas(String token);
 
 }
