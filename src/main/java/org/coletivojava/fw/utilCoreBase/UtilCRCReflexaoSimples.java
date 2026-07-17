@@ -7,13 +7,17 @@ package org.coletivojava.fw.utilCoreBase;
 
 import com.super_bits.modulosSB.SBCore.modulos.erp.ComoFabricaPacoteDeEntidade;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.reflections.Reflections;
 import com.super_bits.modulosSB.SBCore.modulos.erp.ComoFabricaPacotesBaseCarameloCode;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura.ItfEstruturaDeEntidade;
+import java.util.Collections;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -21,7 +25,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura.ItfEstruturaDeE
  */
 public class UtilCRCReflexaoSimples {
 
-    private final static Map<Class, List<Class>> classesComAnotacao = new HashMap<>();
+    private final static Map<Class, List<Class>> classesComAnotacao = new ConcurrentHashMap<>();
 
     public static List<Class> getClassesComEstaAnotacao(Class pAnotacao, ComoFabricaPacotesBaseCarameloCode pEstrutura) {
         return getClassesComEstaAnotacao(pAnotacao, pEstrutura.getPacoteCanonico(), false);
@@ -41,7 +45,14 @@ public class UtilCRCReflexaoSimples {
 
         if (!pIgnorarCache) {
             if (classesComAnotacao.containsKey(pAnotacao)) {
-                return classesComAnotacao.get(pAnotacao);
+                List<Class> classesDoPacote = Optional.ofNullable(classesComAnotacao.get(pAnotacao))
+                        .orElse(Collections.emptyList()) // ← aqui é emptyList()
+                        .stream()
+                        .filter(cl -> cl.getName().contains(pCaminhoPacote))
+                        .collect(Collectors.toList());
+                if (!classesDoPacote.isEmpty()) {
+                    return classesDoPacote;
+                }
             }
         }
 
@@ -52,11 +63,17 @@ public class UtilCRCReflexaoSimples {
         Set<Class<?>> annotated = reflections.getTypesAnnotatedWith(pAnotacao);
 
         //exibe a lista classes
+        if (!classesComAnotacao.containsKey(pAnotacao)) {
+            classesComAnotacao.put(pAnotacao, new CopyOnWriteArrayList<>());
+        }
         annotated.forEach((c) -> {
-            lista.add(c);
+
+            if (!classesComAnotacao.get(pAnotacao).contains(c)) {
+                classesComAnotacao.get(pAnotacao).add(c);
+            }
         });
-        classesComAnotacao.put(pAnotacao, lista);
-        return lista;
+
+        return classesComAnotacao.get(pAnotacao);
     }
 
     public static boolean isClasseIgualOuExetende(Class pClasseReferencia, Class pClassePesquisada) {
@@ -67,10 +84,13 @@ public class UtilCRCReflexaoSimples {
         Class classeAtual = pClasseReferencia.getSuperclass();
         if (classeAtual == null) {
             return false;
-        }
-        while (!classeAtual.getSimpleName().equals(Object.class.getSimpleName())) {
 
-            if (classeAtual.getSimpleName().equals(pClassePesquisada.getSimpleName())) {
+        }
+        while (!classeAtual.getSimpleName().equals(Object.class
+                .getSimpleName())) {
+
+            if (classeAtual.getSimpleName()
+                    .equals(pClassePesquisada.getSimpleName())) {
                 return true;
             }
             classeAtual = classeAtual.getSuperclass();

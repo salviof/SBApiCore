@@ -168,4 +168,9 @@ public class ComponenteVisualEmLayout implements ComoComponenteVisualSBEmLayout 
     public String getClasseLarguraPorPeso() {
         return ComoComponenteVisualSBEmLayout.super.getClasseLarguraPorPeso(); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public int getPrioridade() {
+        return prioridade;
+    }
+
 }

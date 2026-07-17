@@ -12,7 +12,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.icones.ComoTemIc
  *
  * @author desenvolvedor
  */
-public interface ItfTipoComunicacao extends ComoEntidadeSimples, ComoTemIcone {
+public interface ComoTipoComunicacao extends ComoEntidadeSimples, ComoTemIcone {
 
     public FabTipoComunicacao getFabTipoComunicacao();
 

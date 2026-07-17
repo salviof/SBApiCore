@@ -114,6 +114,22 @@ public interface ItfAcaoGerenciarEntidade extends ItfAcaoEntidade, ItfAcaoFormul
 
     }
 
+    public default List<ItfAcaoFormularioEntidade> getAcoesVinculadasTipoNovoRegistro() {
+        List<ItfAcaoFormularioEntidade> acoesVinculadasExcetoListarEnovo = new ArrayList<>();
+
+        getAcoesVinculadas().stream()
+                .filter(ac -> !ac.isAcaoDeRegistroExistente()
+                && !ac.getTipoAcaoGenerica().equals(FabTipoAcaoSistemaGenerica.FORMULARIO_LISTAR)
+                //TODO precisa espefificar? ou é melhor abranger ações alternativas?
+                && ac.getTipoAcaoGenerica().equals(FabTipoAcaoSistemaGenerica.FORMULARIO_NOVO_REGISTRO)
+                && ac instanceof ItfAcaoFormularioEntidade)
+                .map(ac -> (ItfAcaoFormularioEntidade) ac)
+                .forEachOrdered(acoesVinculadasExcetoListarEnovo::add);
+
+        return acoesVinculadasExcetoListarEnovo;
+
+    }
+
     public default List<ComoAcaoSecundaria> getAcoesVinculadasAObjetoExistente() {
         return getAcoesVinculadasExcetoListarEnovo();
     }

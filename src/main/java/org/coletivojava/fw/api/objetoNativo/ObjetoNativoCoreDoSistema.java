@@ -142,7 +142,10 @@ public abstract class ObjetoNativoCoreDoSistema implements ComoEntidadeSimples {
     @Override
     @Deprecated
     public boolean isTemCampoAnotado(FabTipoAtributoObjeto pCampo) {
-        LogManager.getLogger(LogPadraoSB.class).debug("O recurso tem campo anotado não está disponível em objetos nativos do sistema");
+        if (pCampo.equals(FabTipoAtributoObjeto.NOME)
+                || pCampo.equals(FabTipoAtributoObjeto.ID)) {
+            return true;
+        }
         return false;
     }
 

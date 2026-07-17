@@ -43,7 +43,7 @@ public enum FabTipoAgenteOrganizacao implements ComoFabrica {
      * intemediada por uma ia de governança transparente.
      */
     @Deprecated
-    @InfoObjetoDaFabrica(pacoteImplantacao = "com.super_bits.modulosSB.SBCore.modulos.objetos.objetoNativo", id = 12L, nomeObjeto = "Governança", icone = "fa fa-balance-scale", cor = "#607D8B")
+    @InfoObjetoDaFabrica(pacoteImplantacao = "com.super_bits.modulosSB.SBCore.modulos.objetos.organizacoes", id = 12L, nomeObjeto = "Governança", icone = "fa fa-balance-scale", cor = "#607D8B")
     GOVERNANCA;
 
     @Override

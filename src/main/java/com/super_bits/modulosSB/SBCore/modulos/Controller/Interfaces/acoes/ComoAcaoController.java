@@ -4,9 +4,9 @@
  */
 package com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes;
 
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfTipoComunicacao;
 import java.lang.reflect.Method;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoTipoComunicacao;
 
 /**
  *
@@ -41,9 +41,9 @@ public interface ComoAcaoController extends ComoAcaoDoSistema {
 
     public boolean isTemXHTMLModalVinculado();
 
-    public void setTipoComunicacao(ItfTipoComunicacao pTipoComunicacao);
+    public void setTipoComunicacao(ComoTipoComunicacao pTipoComunicacao);
 
-    public ItfTipoComunicacao getTipoComunicacao();
+    public ComoTipoComunicacao getTipoComunicacao();
 
     public String getTextoComunicacaoPersonalizadado();
 

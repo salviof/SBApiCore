@@ -18,6 +18,8 @@ import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ComoFabTipoComponenteVisual;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import org.coletivojava.fw.utilCoreBase.UtilCRCStringEnumECaixaAlta;
+import org.coletivojava.fw.utilCoreBase.UtilCRCStringsCammelCaseSimples;
 
 /**
  *
@@ -991,6 +993,42 @@ public enum FabTipoAtributoObjeto implements ComoFabrica {
                 return getTipo_input_prime().getRegistro().getPesoLargura();
         }
 
+    }
+
+    public String getNomeImagemPadrao() {
+        switch (this) {
+
+            case IMG_PEQUENA:
+
+                return "logoTipoPequeno.jpg";
+
+            case IMG_MEDIA:
+                return "logoTipoMedio.jpg";
+
+            case IMG_GRANDE:
+                return "logoTipoGrande.jpg";
+
+            default:
+                return UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula(this).concat(".jpg");
+        }
+    }
+
+    public String getNomeImagemPadraoLegado() {
+        switch (this) {
+
+            case IMG_PEQUENA:
+
+                return "imagemLogoPequeno.jpg";
+
+            case IMG_MEDIA:
+                return "imagemLogoMedio.jpg";
+
+            case IMG_GRANDE:
+                return "imagemLogoGrande.jpg";
+
+            default:
+                return UtilCRCStringEnumECaixaAlta.getCamelCaseDoEnumPrimeiraLetraMaiusucula(this).concat(".jpg");
+        }
     }
 
 }

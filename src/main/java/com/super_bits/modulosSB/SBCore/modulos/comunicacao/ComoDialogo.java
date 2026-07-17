@@ -17,7 +17,7 @@ public interface ComoDialogo extends ComoEntidadeSimplesSomenteLeitura, ComoEnti
 
     public ItfDestinatario getDestinatario();
 
-    public ItfTipoComunicacao getTipoComunicacao();
+    public ComoTipoComunicacao getTipoComunicacao();
 
     public ItfRespostaComunicacao getRespostaEscolhida();
 

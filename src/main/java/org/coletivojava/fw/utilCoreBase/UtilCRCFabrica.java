@@ -40,7 +40,7 @@ public abstract class UtilCRCFabrica {
         Class classe = pEnumFabrica.getClass();
         try {
             Field campo = classe.getDeclaredField(pEnumFabrica.toString());
-
+//
             InfoObjetoDaFabrica infoObjeto = campo.getAnnotation(InfoObjetoDaFabrica.class);
             if (infoObjeto == null) {
                 throw new UnsupportedOperationException("Para utilizar a implementação padrão do getRegistro() é nescessário anotar o enum com  " + InfoObjetoDaFabrica.class.getSimpleName() + "verifique os atributos da fabrica" + pEnumFabrica.getClass().getSimpleName());
@@ -102,6 +102,11 @@ public abstract class UtilCRCFabrica {
             if (novoObjeto instanceof ComoEntidadeVinculadoAEnum) {
                 ((ComoEntidadeVinculadoAEnum) novoObjeto).setEnumVinculado(pEnumFabrica);
             }
+            //TODO: analizar nescessidade de implementar ComoEntidadeVinculadoAEnum
+            //else if (novoObjeto.isTemCampoAnotado(FabTipoAtributoObjeto.ENUM_FABRICA)) {
+
+            // novoObjeto.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.ENUM_FABRICA).setValor(pEnumFabrica);
+            //}
             if (!infoObjeto.icone().isEmpty()) {
                 if (novoObjeto.isTemCampoAnotado(FabTipoAtributoObjeto.ICONE)) {
                     novoObjeto.getCampoInstanciadoByAnotacao(FabTipoAtributoObjeto.ICONE).setValor(infoObjeto.icone());
