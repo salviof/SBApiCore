@@ -76,7 +76,7 @@ public class UtilCRCReflexaoSimples {
         return classesComAnotacao.get(pAnotacao);
     }
 
-    public static boolean isClasseIgualOuExetende(Class pClasseReferencia, Class pClassePesquisada) {
+    public static boolean isClasseIgualOuExetende(Class pClasseReferencia, final Class pClassePesquisada) {
 
         if (pClasseReferencia.getSimpleName().equals(pClassePesquisada.getSimpleName())) {
             return true;

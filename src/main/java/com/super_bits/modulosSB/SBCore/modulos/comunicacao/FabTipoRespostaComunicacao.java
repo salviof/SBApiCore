@@ -94,6 +94,9 @@ public enum FabTipoRespostaComunicacao implements ComoFabrica {
 
     @Override
     public ComoTipoRespostaComunicacao getRegistro() {
+        if (this.equals(FabTipoRespostaComunicacao.SIM)) {
+            System.out.println("");
+        }
         return (ComoTipoRespostaComunicacao) ComoFabrica.super.getRegistro(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
