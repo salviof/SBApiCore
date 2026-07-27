@@ -17,6 +17,7 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogo;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogoEntrePessoas;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -139,5 +140,7 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
     public List<ComoDialogo> dispararNotificacaoAcaoSucesso(ComoAcaoDoSistema pAcao, ComoEntidadeSimples pEntidadeRetorno);
 
     public void atualizarGatilhosDeNotificacaoPorAcao();
+
+    public boolean agendarNovoDisparo(String codigoSeloComunicacao, Date pDataAgendamento);
 
 }

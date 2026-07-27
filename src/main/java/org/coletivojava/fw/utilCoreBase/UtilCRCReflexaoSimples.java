@@ -73,6 +73,17 @@ public class UtilCRCReflexaoSimples {
             }
         });
 
+        if (classesComAnotacao.containsKey(pAnotacao)) {
+            List<Class> classesDoPacote = Optional.ofNullable(classesComAnotacao.get(pAnotacao))
+                    .orElse(Collections.emptyList()) // ← aqui é emptyList()
+                    .stream()
+                    .filter(cl -> cl.getName().contains(pCaminhoPacote))
+                    .collect(Collectors.toList());
+            if (!classesDoPacote.isEmpty()) {
+                return classesDoPacote;
+            }
+        }
+
         return classesComAnotacao.get(pAnotacao);
     }
 

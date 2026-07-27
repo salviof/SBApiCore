@@ -59,6 +59,9 @@ public interface ItfCampoInstanciadoBase {
     }
 
     public default boolean getValorComoBoolean() {
+        if (getValor() == null) {
+            return false;
+        }
         return (boolean) getValor();
     }
 

@@ -19,4 +19,10 @@ public interface ItfRespostaComunicacao extends ComoEntidadeSimples {
 
     public ComoAcaoDoSistema getBotaoAcao();
 
+    public default boolean isRespostaEmTelaPersonalizada() {
+        if (getComunicacao().getTipoComunicacao() == null) {
+            return false;
+        }
+        return getTipoResposta().equals(getComunicacao().getTipoComunicacao().equals(FabTipoComunicacao.PERSONALIZADA.getRegistro()));
+    }
 }

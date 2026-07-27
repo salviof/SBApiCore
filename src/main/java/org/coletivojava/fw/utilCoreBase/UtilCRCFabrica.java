@@ -49,6 +49,7 @@ public abstract class UtilCRCFabrica {
                 if (!infoObjeto.pacoteImplantacao().isEmpty()) {
                     List<Class> implementacoesEncontradas = UtilCRCReflexaoSimples.getClassesComEstaAnotacao(InfoObjetoSB.class, infoObjeto.pacoteImplantacao(), false);
                     if (!implementacoesEncontradas.isEmpty()) {
+
                         if (implementacoesEncontradas.size() > 1) {
                             throw new UnsupportedOperationException("Foram encontradas mais de uma implementação vinculadas a fabrica " + classe.getName() + " especifique melhor o pacote: " + infoObjeto.pacoteImplantacao());
                         }

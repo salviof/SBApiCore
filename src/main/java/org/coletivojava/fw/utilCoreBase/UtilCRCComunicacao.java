@@ -50,7 +50,8 @@ public class UtilCRCComunicacao {
 
                 break;
             case PERSONALIZADA:
-
+                respostasDaComunicacao.add(FabTipoRespostaComunicacao.SOLUCIONAR_AGORA.getRegistro());
+                respostasDaComunicacao.add(FabTipoRespostaComunicacao.NOTIFIQUE_AMANHA.getRegistro());
                 break;
             case ENVIAR_INFORMACOES_CANCELAR:
                 respostasDaComunicacao.add(FabTipoRespostaComunicacao.ENVIAR_INFORMACAO.getRegistro());

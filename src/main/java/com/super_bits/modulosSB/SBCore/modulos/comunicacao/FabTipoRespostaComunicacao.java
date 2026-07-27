@@ -59,7 +59,11 @@ public enum FabTipoRespostaComunicacao implements ComoFabrica {
     @InfoObjetoDaFabrica(pacoteImplantacao = "com.super_bits.modulosSB.SBCore.modulos.objetos.dialogo.tipoResposta", id = 17, nomeObjeto = "Não entendido", icone = "fa fa-exclamation-triangle", cor = "#FF5722")
     NAO_ENTENDIDO,
     @InfoObjetoDaFabrica(pacoteImplantacao = "com.super_bits.modulosSB.SBCore.modulos.objetos.dialogo.tipoResposta", id = 18, nomeObjeto = "Criar nova comunicação", icone = "fa fa-plus-circle", cor = "#8BC34A")
-    CRIAR_NOVA_COMUNICACAO;
+    CRIAR_NOVA_COMUNICACAO,
+    @InfoObjetoDaFabrica(pacoteImplantacao = "com.super_bits.modulosSB.SBCore.modulos.objetos.dialogo.tipoResposta", id = 29, nomeObjeto = "Solucionar agora", icone = "fa-person-dots-from-line", cor = "#FF9800")
+    SOLUCIONAR_AGORA,
+    @InfoObjetoDaFabrica(pacoteImplantacao = "com.super_bits.modulosSB.SBCore.modulos.objetos.dialogo.tipoResposta", id = 20, nomeObjeto = "Me notifique amanhã", icone = "fa fa-calendar-o", cor = "#607D8B")
+    NOTIFIQUE_AMANHA,;
 
     public boolean isRespostaPositiva() {
         switch (this) {
@@ -75,9 +79,10 @@ public enum FabTipoRespostaComunicacao implements ComoFabrica {
             case CRIAR_NOVA_COMUNICACAO:
             case RESPONDER_COM_TEXTO:
             case AQUARDE_A_RESPOSTA:
+            case NOTIFIQUE_AMANHA:
                 return false;
             case SIM:
-
+            case SOLUCIONAR_AGORA:
             case ENVIAR_INFORMACAO:
             case AUTORIZADO:
             case ENTENDIDO:
