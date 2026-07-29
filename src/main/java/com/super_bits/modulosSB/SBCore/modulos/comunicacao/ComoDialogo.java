@@ -74,6 +74,15 @@ public interface ComoDialogo extends ComoEntidadeSimplesSomenteLeitura, ComoEnti
         return this instanceof ComoDialogoEntrePessoas;
     }
 
+    //TOdo : separa responsabilidaed umaComunicação personalizada e url, e um classe ComoDialogoPErsonalizado
+    public boolean isUmaComunicacaoPersonalizada();
+
+    public void setUmaComunicacaoPersonalizada(boolean pPersonalizada);
+
+    public String getUrlRespostaPersonalizada();
+
+    public void setUrlRespostaPersonalizada(String pUrl);
+
     public default ComoDialogoEntrePessoas getComoDialogoEntrePesoas() {
         return (ComoDialogoEntrePessoas) this;
     }

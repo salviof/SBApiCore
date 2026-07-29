@@ -20,6 +20,8 @@ public interface ComoArmazenamentoComunicacao {
 
     public boolean removerDialogoAtivo(String pCodigoSelo);
 
+    public boolean removerBloqueioDeTelaDoDialogo(String pCodigoSelo);
+
     public List<ComoDialogo> getDialogos(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);
 
     public List<ComoDialogoEntrePessoas> getMensagemAguardandoMinhaResposta(ComoUsuario pUsuario, ERPTipoCanalComunicacao pCanal);

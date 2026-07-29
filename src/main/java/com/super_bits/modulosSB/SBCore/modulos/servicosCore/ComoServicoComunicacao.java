@@ -119,7 +119,7 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
 
     public ItffabricaCanalComunicacao getCanalPadrao();
 
-    public boolean responderComunicacao(String codigoSeloComunicacao, ItfRespostaComunicacao pResposta, ERPTipoCanalComunicacao pErpCanal);
+    public boolean responderComunicacao(String codigoSeloComunicacao, ItfRespostaComunicacao pResposta, ERPTipoCanalComunicacao pErpCanal) throws EncGestaoRespostaPersonalizada;
 
     public FabTipoRespostaComunicacao aguardarRespostaComunicacao(
             ItfTipoCanalComunicacao pCanal,
@@ -137,7 +137,7 @@ public interface ComoServicoComunicacao extends ComoServicoCoreSB, ComoServicoCo
 
     public String getTokenDispositivoNotificacao(ComoUsuario pUsuario);
 
-    public List<ComoDialogo> dispararNotificacaoAcaoSucesso(ComoAcaoDoSistema pAcao, ComoEntidadeSimples pEntidadeRetorno);
+    public List<ComoDialogo> dispararNotificacaoAcaoSucesso(ComoAcaoDoSistema pAcao, ComoEntidadeSimples pEntidadeRetorno) throws ErroRegistrandoDialogo;
 
     public void atualizarGatilhosDeNotificacaoPorAcao();
 
