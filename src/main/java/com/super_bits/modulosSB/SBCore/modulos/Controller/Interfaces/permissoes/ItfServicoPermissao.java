@@ -101,4 +101,6 @@ public interface ItfServicoPermissao extends ComoServicoCoreSB {
 
     public ComoTokenAcessoBasico getTokenAcessoEntreSistemas(String token);
 
+    public abstract ComoUsuario gerarUsuarioConvidado(String pNome, String pTelefone);
+
 }

@@ -75,6 +75,7 @@ public interface ItfApiErpSuperBits<T> extends ComoFabrica {
             throw new ErroJsonInterpredador(this, pItefaceObjeto, pJson, "A classe de transferencia de dados não foi encontrada, as intefaces suportadas são:" + interfacesSuportadas.toString());
 
         }
+
         Constructor consTructorDTO;
         try {
             consTructorDTO = classeValidacao.getConstructor(String.class);

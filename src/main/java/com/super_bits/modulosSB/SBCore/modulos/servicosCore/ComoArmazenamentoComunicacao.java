@@ -9,6 +9,8 @@ import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
 import java.util.List;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogoEntrePessoas;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoTipoComunicacao;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 
 /**
  *
@@ -31,5 +33,7 @@ public interface ComoArmazenamentoComunicacao {
     public boolean atualizarNotificacoesAtivas();
 
     public ComoDialogo getDialogoAtivoByCodigoSelo(String pCodigoSelo);
+
+    public boolean isNotificacaoExiste(ComoTipoComunicacao pTipoNotificacao, ComoUsuario pUsuario, ComoEntidadeSimples entidade, ERPTipoCanalComunicacao... pCanal);
 
 }

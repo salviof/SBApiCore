@@ -28,6 +28,13 @@ public @interface InfoObjetoSB {
 
     public String modulo() default FabTipoEntidadeGenerico.MARCADOR_ENTIDADE_TIPO_PROJETO;
 
+    /**
+     * Para Entidades que implementam ComoStatus, o valor padrão é false, e o
+     * valor da fábrica se torna imperativo, retonando ao valor inicial, sempre
+     * que a fábrica é persistida
+     *
+     * @return
+     */
     public boolean permitidoAlterarObjetoDaFabrica() default true;
 
 }

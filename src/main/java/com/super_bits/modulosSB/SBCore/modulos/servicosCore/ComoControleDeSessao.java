@@ -7,16 +7,19 @@ package com.super_bits.modulosSB.SBCore.modulos.servicosCore;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfPermissao;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabTipoAgenteDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoSessao;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
 
 /**
  *
  * ############################################################# <br/>
  * Esta Interface assina um dos serviços do núcleo SBCore
  * <br/>
- * Veja todos os serviços disponíveis digitando SBCore.getServico...############################################################# <br/>
-
-
- Esta inteface manipula a sessão do agente do contexto de execução.
+ * Veja todos os serviços disponíveis digitando
+ * SBCore.getServico...#############################################################
+ * <br/>
+ *
+ *
+ * Esta inteface manipula a sessão do agente do contexto de execução.
  *
  *
  * @see ComoServicoCoreSB
