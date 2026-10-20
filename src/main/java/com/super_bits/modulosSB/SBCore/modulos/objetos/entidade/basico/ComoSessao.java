@@ -11,6 +11,9 @@ import java.util.Date;
 import java.util.List;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoMenusDeSessao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.chat.ComoEscutaJanelasChatNotificacao;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.chat.ComoJanelaChat;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.chat.NotificacaoUsuarioJanelaChat;
 
 /**
  *
@@ -45,5 +48,9 @@ public interface ComoSessao {
     public void encerrarSessao();
 
     public boolean isAcessoPermitido(ComoAcaoDoSistema pAcao);
+
+    public NotificacaoUsuarioJanelaChat getNotificacoesJanelasChat();
+
+    public void atualizarJanelasChat(ComoEscutaJanelasChatNotificacao pEscuta);
 
 }
