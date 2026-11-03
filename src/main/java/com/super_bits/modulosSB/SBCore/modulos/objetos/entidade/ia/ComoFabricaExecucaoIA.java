@@ -16,7 +16,7 @@ import org.coletivojava.fw.api.tratamentoErros.ErroPreparandoObjeto;
  */
 public interface ComoFabricaExecucaoIA extends ComoFabrica {
 
-    public default ComoExecucaoIA getExecucaoIAByEntidade(ComoEntidadeSimples pEntidade) {
+    public default ComoExecucaoIA getExecucaoIAByEntidade(ComoEntidadeSimples pEntidade) throws ErroPreparandoObjeto {
 
         Class classeExecucao = getClasseExecucaoPorEntidade(pEntidade);
         ComoExecucaoIA execucao;
@@ -24,7 +24,7 @@ public interface ComoFabricaExecucaoIA extends ComoFabrica {
             execucao = (ComoExecucaoIA) classeExecucao.newInstance();
             execucao.prepararNovoObjeto(pEntidade);
             return execucao;
-        } catch (InstantiationException | IllegalAccessException | ErroPreparandoObjeto ex) {
+        } catch (InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(ComoFabricaExecucaoIA.class.getName()).log(Level.SEVERE, null, ex);
         }
 
