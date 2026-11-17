@@ -313,6 +313,10 @@ public enum FabTipoAcaoSistemaGenerica implements ComoFabrica {
         double porcentagemCoicidencias = 0;
         int numeroDePalavras = 0;
 
+        if (nome.contains("_MB")) {
+            return GERENCIAR_DOMINIO;
+        }
+
         if (nome.contains("CTR_EXCLUIR")) {
             return CONTROLLER_REMOVER;
         }

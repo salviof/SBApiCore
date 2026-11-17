@@ -17,6 +17,11 @@ public interface ComoValorLogicoAtributoObjeto extends ComoValorLogico {
     public ItfCampoInstanciado getCampoInst();
 
     public default Boolean isSomenteLeitura() {
+
+        return null;
+    }
+
+    public default Boolean isVisivel() {
         return null;
     }
 

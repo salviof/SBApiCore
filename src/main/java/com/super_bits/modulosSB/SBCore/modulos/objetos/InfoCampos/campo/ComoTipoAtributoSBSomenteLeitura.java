@@ -52,6 +52,8 @@ public interface ComoTipoAtributoSBSomenteLeitura extends ComoEntidadeSimplesSom
      */
     public boolean isSomenteLeitura();
 
+    public boolean isVisivel();
+
     /**
      *
      * @return Retorna o Label, formatado sem espaço e caracteres especiais
